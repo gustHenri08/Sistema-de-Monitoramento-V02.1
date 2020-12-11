@@ -75,7 +75,7 @@
           <img src="" class="" alt=""> <!--Foto do Usuario, não pode tirar esse bloco se n quebra a view-->
         </div>
         <div class="pull-left info">
-          <p>Zaqueu Souza</p>
+          <p>Administrador</p>
         </div>
       </div>
       <!-- search form -->
