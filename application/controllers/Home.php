@@ -119,7 +119,7 @@ class Home extends CI_Controller{
 
     public function cadastrarAgente()
     {
-        $this->load->view("administrador/cadastro-agente-view"); // Função ao clicar no botão cadastrar chama a view de cadastro de agentes;
+        $this->load->view("administrador/cadastros/cadastro-agente-view"); // Função ao clicar no botão cadastrar chama a view de cadastro de agentes;
     }
 
     // <-- Final-Agentes -->

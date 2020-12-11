@@ -34,7 +34,7 @@ class CadastroPresos extends CI_Controller{
     /*Funções referentes as view de administrador */
 
     public function indexAdmin(){
-        $this->load->view('administrador/cadastrar-presos-view-admin');
+        $this->load->view('administrador/cadastros/cadastrar-presos-view-admin');
       }
   
       public function createAdmin(){ // Chama a função responsável pelo cadastro dos presos ao banco de dados
@@ -47,7 +47,7 @@ class CadastroPresos extends CI_Controller{
           $edit['detentos'] = $this->Presos_model->showpresos($idpresos);
   
   
-          $this->load->view('administrador/cadastrar-presos-view-admin', $edit);
+          $this->load->view('administrador/cadastros/cadastrar-presos-view-admin', $edit);
       }
   
       public function updatepresosAdmin($idpresos){// Recebe os dados de 'cadastro-agente-view' e envia para a funcao update do Agente_Model
