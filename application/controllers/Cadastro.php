@@ -29,7 +29,7 @@ class Cadastro extends CI_Controller{
         $edit['agentes'] = $this->Agente_model->show($id);
 
 
-        $this->load->view('cadastro-agente-view', $edit);
+        $this->load->view('administrador/cadastro-agente-view', $edit);
     }
 
     public function update($id){// Recebe os dados de 'cadastro-agente-view' e envia para a funcao update do Agente_Model
