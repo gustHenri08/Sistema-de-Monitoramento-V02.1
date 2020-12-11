@@ -181,7 +181,7 @@
          <div class="box">
            <div class="box-header">
              <h3 class="box-title"> Lista de Detentos </h3>
-             <a href="<?php echo site_url('CadastroPresos'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
+             <a href="<?php echo site_url('CadastroPresos/indexAdmin'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
            </div>
            <!-- /.box-header -->
            <div class="box-body">
@@ -196,15 +196,17 @@
                </tr>
                </thead>
                <tbody>
-                 <tr>
-                   <td>CP de Paulista</td>
-                   <td>Fulano de Tal</td>
-                   <td>Mãe do Fulano de Tal</td>
-                   <td>Pai do Fulano de Tal</td>
-                   <td>
-                     <a href="#" class="btn btn-warning btn-xs">Editar</a>
-                   </td>
-                 </tr>
+                  <?php foreach($presos as $presos) : ?>
+                    <tr>
+                      <td><?= $presos['cadeiapublica']?></td>
+                      <td><?= $presos['nome']?></td>
+                      <td><?= $presos['nomemae']?></td>
+                      <td><?= $presos['nomepai']?></td>
+                      <td>
+                      <a href="<?= base_url() ?>index.php/CadastroPresos/editPresosAdmin/<?= $presos["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
+                      </td>
+                    </tr>
+                  <?php endforeach?>
                </tbody>
              </table>
            </div>

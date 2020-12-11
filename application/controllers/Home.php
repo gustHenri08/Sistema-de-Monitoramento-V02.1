@@ -18,7 +18,17 @@ class Home extends CI_Controller{
 
     public function entradaPresos()
     {
-      $this->load->view('agentes/entrada-presos-view'); // Carrega a view(Tela) Entrada de Detentos;
+        $this->load->model("Presos_model");
+        $data['presos'] = $this->Presos_model->presoscadastrados();
+
+        $this->load->view("agentes/entrada-presos-view", $data); // Carrega a view(Tela) Entrada de Detentos do Admin;
+    }
+
+    public function cadastropresos()
+    { //Carrega a Função cadastroPresos que está no Presos_model
+
+        $this->load->view("agentes/cadastrar-presos-view");
+
     }
 
     // <-- Final-EntradaDeDetentos -->
@@ -118,7 +128,17 @@ class Home extends CI_Controller{
 
     public function entradaPresosAdmin()
     {
-        $this->load->view("administrador/entrada-presos-admin"); // Carrega a view(Tela) Entrada de Detentos do Admin;
+        $this->load->model("Presos_model");
+        $data['presos'] = $this->Presos_model->presoscadastrados();
+
+        $this->load->view("administrador/entrada-presos-admin", $data); // Carrega a view(Tela) Entrada de Detentos do Admin;
+    }
+
+    public function cadastropresosAdmin()
+    { //Carrega a Função cadastroPresos que está no Presos_model
+
+        $this->load->view("administrador/cadastro-presos-view-admin");
+
     }
 
     // <-- Final-Entrada De Detentos Admin -->
