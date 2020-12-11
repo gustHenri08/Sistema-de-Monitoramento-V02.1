@@ -164,80 +164,62 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-    
-        <h1><p>Saída de Detentos da CP</p></h1>
-        <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
-          <li><a href="<?php echo site_url('Home/adminHome');?>">Home</a></li>
-          <li class="active">Saída de Detentos</li>
-        </ol>
-        <p></p>
-
+      <h1><p>Saída de Detentos da CP</p></h1>
+      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
+        <li><a href="<?php echo site_url('Home/adminHome');?>">Home</a></li>
+        <li class="active">Saída de Detentos</li>
+      </ol>
+      <p></p>
       <!-- Main content -->
       <div class="box">
-
-
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="dataTables_length" id="example1_length">
-                </div>
-
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="dataTables_length" id="example1_length">
+              
+              </div>
               <form action="<?=site_url('Saidapresos/pesquisar')?>" method="post">
                 <div class="col-sm-6">
                   <div id="example1_filter" class="dataTables_filter">
-                  <label>Procurar Detento:  <input type="text" name="pesquisar" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
-                <br>  <button type="submit" class="btn btn-primary">Buscar</button></br>
-                <a href="<?php echo site_url('cadastrar_sair'); ?> " class="btn btn-primary btn-xs pull-right">Cadastrar</a>
-
-                 </label>
-              </form>
-            
+                    <label>Procurar Detento:  <input type="text" name="pesquisar" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
+                      <br><button type="submit" class="btn btn-primary">Buscar</button></br>
+                      <a href="<?php echo site_url('cadastrar_sair'); ?> " class="btn btn-primary btn-xs pull-right">Cadastrar</a>
+                    </label>
                   </div>
                 </div>
-              </div>
+              </form>
+            </div>
               
-              <div class="box-body">
-             <table id="example2" class="table table-bordered table-hover">
-               <thead>
-               <tr>
-               <th>id</th>
-                 <th>CP</th>
-                 <th>Nome</th>
-                 <th>Nome da Mãe</th>
-                 <th>Nome do Pai</th>
-                 <th>Siap</th>
-                 <th>Ações</th>
-               </tr>
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>CP</th>
+                    <th>Nome</th>
+                    <th>Nome da Mãe</th>
+                    <th>Nome do Pai</th>
+                    <th>Siap</th>
+                    <th>Ações</th>
+                  </tr>
                </thead>
                <tbody>
-               <?php foreach ($tbl_saidadetentos as $res) { ?>
-                 <tr>
-                 <td><?= $res->id; ?></td> 
-                   <td><?= $res->cadeiapublica; ?></td> 
-                   <td> <?= $res->nome; ?></td>
-                   <td><?= $res->mae; ?> </td>
-                   <td><?= $res->pai; ?> </td>
-                   <td><?= $res->numsiap; ?> </td>
-                   <td>
-                     <a href="<?= base_url('Edicao_sair',$res->id) ?>" class="btn btn-warning btn-xs">Editar</a>
-                   </td>
-                 </tr>
-                 <?php }?>
+              
                </tbody>
-             </table>
-           </div>
-           <!-- /.box-body -->
-         </div>
-         <!-- /.box -->
-       </div>
-        <!-- /.col -->
+              </table>
+            </div>
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
       </div>
-      <!-- /.row -->
+      <!-- /.box -->
     </section>
     <!-- /.content -->
   </div>
-  <!--
+  <!-- /.Wrapper -->
+</div>
     
         
 

@@ -165,75 +165,58 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-    
-        <h1><p>Saída De Detento Para Audiência</p></h1>
-        <p></p>
-
+      <h1><p>Saída De Detento Para Audiência</p></h1>
+      <p></p>
       <!-- Main content -->
       <div class="box">
-    </section>
-
-<!-- /.box-header -->
-<div class="box-body">
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="dataTables_length" id="example1_length">
-    </div>
-
-  <form action="<?=site_url('SaidapresosAudiencia/pesquisar')?>" method="post">
-    <div class="col-sm-6">
-      <div id="example1_filter" class="dataTables_filter">
-      <label>Procurar Detento:  <input type="text" name="pesquisar" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
-    <br>  <button type="submit" class="btn btn-primary">Buscar</button></br>
-    <a href="<?php echo site_url('SaidapresosAudiencia/audiencia'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
-
-     </label>
-  </form>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="dataTables_length" id="example1_length">
+              
+              </div>
+              <form action="<?=site_url('SaidapresosAudiencia/pesquisar')?>" method="post">
+                <div class="col-sm-6">
+                  <div id="example1_filter" class="dataTables_filter">
+                    <label>Procurar Detento:  <input type="text" name="pesquisar" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
+                      <br>  <button type="submit" class="btn btn-primary">Buscar</button></br>
+                      <a href="<?php echo site_url('SaidapresosAudiencia/audiencia'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
+                    </label>
+                  </div>
+                </div>
+              </form>
+            </div>
+            
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>CP</th>
+                    <th>Nome</th>
+                    <th>Nº SIAP</th>
+                    <th>SIC</th>
+                    <th>Data</th>
+                    <th>Condutores</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
   
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!--ROW-->
+        </div>
+        <!--box-body-->
       </div>
-    </div>
-  </div>
-  
-  <div class="box-body">
- <table id="example2" class="table table-bordered table-hover">
-   <thead>
-   <tr>
-     <th>ID</th>
-     <th>CP</th>
-     <th>Nome</th>
-     <th>Nº SIAP</th>
-     <th>SIC</th>
-     <th>Data</th>
-     
-     <th>Condutores</th>
-     <th>Ações</th>
-   </tr>
-   </thead>
-   <tbody>
-   <?php foreach ($tbl_saidaaudiencia as $res) { ?>
-     <tr>
-     <td><?= $res->id; ?></td> 
-       <td><?= $res->cadeiapublica; ?></td> 
-       <td> <?= $res->nome; ?></td>
-       <td><?= $res->numsiap; ?> </td>
-       <td><?= $res->sic; ?> </td>
-       <td><?= $res->data; ?> </td>
-       <td><?= $res->condutores; ?> </td>
-       <td>
-         <a href="<?= base_url('Edicao_sair') ?>" class="btn btn-warning btn-xs">Editar</a>
-       </td>
-     
-     </tr>
-     <?php }?>
-   </tbody>
- </table>
-</div>
-  </div>
-  </aside>
+      <!--box-->
     </section>
     <!-- /.content -->
   </div>
-
+</div>
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
