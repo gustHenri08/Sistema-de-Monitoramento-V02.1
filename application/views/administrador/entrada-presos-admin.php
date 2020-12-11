@@ -220,7 +220,7 @@
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
+  <!-- /.content-wrapper --> 
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -229,6 +229,8 @@
     <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
     reserved.
   </footer>
+</div> <!-- Fim da DIV Wrapper-->
+
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>

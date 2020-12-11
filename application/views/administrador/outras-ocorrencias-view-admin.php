@@ -175,81 +175,29 @@
 
       <!-- Main content -->
       <div class="box">
-
-            <!-- /.box-header -->
-              <div class="col-sm-6">
-                <div id="example1_filter" class="dataTables_filter">
-                  <label>CP:<input type="search" class="form-control input-sm" placeholder="Centro Prisional" aria-controls="example1"></label>
-                  <br>
-                  <button type="submit" class="btn btn-primary">Buscar</button>
-                  <br>
-                </div>
-              </div>
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Data Inicial</th>
-                  <th>Núcleo</th>
-                  <th>CP</th>
-                  <th>Tipo</th>
-                  <th>Ações</td>
-                </tr>
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+                  <tr>
+                    <th>Data Inicial</th>
+                    <th>Núcleo</th>
+                    <th>CP</th>
+                    <th>Tipo</th>
+                    <th>Ações</td>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td><input type="text" class="form-control" name="datainicial" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10"></td>                  <td>
-                    <select class="form-control" style="width: 200px" name="nucleo">
-                     <option>Arco-Verde</option>
-                     <option>Caruaru</option>
-                     <option>Garanhuns</option>
-                     <option>Lagoa</option>
-                     <option>Petrolina</option>
-                     <option>Salgueiro</option>
-                  <td>
-                    <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-                    <option>CP de Aliança</option>
-                    <option>CP de Carpina</option>
-                    <option>CP de Glória do Goitá</option>
-                    <option>CP de Goiana</option>
-                    <option>CP de Itambé</option>
-                    <option>CP de Lagoa do Carro</option>
-                    <option>CP de Macaparana</option>
-                    <option>CP de Nazaré da Mata</option>
-                    <option>CP de Timbauba</option>
-                    <option>CP de Vicência</option> 
-                    </select>
-                  </td>
-                  <td>
-                    <select class="form-control" style="width: 200px" name="tipoOcorrencia"><!-- 'name=' adicionado-->
-                      <option>Motim</option>
-                      <option>Rebelião</option>
-                      <option>Tumulto</option>
-                      <option>Outro</option>
-                    </select>
-                  </td>
-                  <td class="sorting_1">
-                     <a href="#" class="btn btn-success btn-xs">Salvar</a>        
-                     <a href="#" class="btn btn-warning btn-xs">Editar</a>
-                     <a href="#" class="btn btn-danger btn-xs">Deletar</a>               
-            
-                  </td>
-                </tr>
-                <tr>
-                <td colspan="5"><textarea style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
-                </tr>
-                <tr>
-                  <td><input type="text" class="form-control" name="dataentrada" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10"></td>
-                  <td>
-                    <select class="form-control" style="width: 200px" name="nucleo">
-                     <option>Arco-Verde</option>
-                     <option>Caruaru</option>
-                     <option>Garanhuns</option>
-                     <option>Lagoa</option>
-                     <option>Petrolina</option>
-                     <option>Salgueiro</option>
-                  </td>
-                  <td>
-                    <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
+                  <tr>
+                    <td><input type="text" class="form-control" name="datainicial" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10"></td>                  <td>
+                      <select class="form-control" style="width: 200px" name="nucleo">
+                      <option>Arco-Verde</option>
+                      <option>Caruaru</option>
+                      <option>Garanhuns</option>
+                      <option>Lagoa</option>
+                      <option>Petrolina</option>
+                      <option>Salgueiro</option>
+                    </td>  
+                    <td>
+                      <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
                       <option>CP de Aliança</option>
                       <option>CP de Carpina</option>
                       <option>CP de Glória do Goitá</option>
@@ -259,39 +207,85 @@
                       <option>CP de Macaparana</option>
                       <option>CP de Nazaré da Mata</option>
                       <option>CP de Timbauba</option>
-                      <option>CP de Vicência</option>
-                    </select>
-                 </td>
-                   <td>
-                    <select class="form-control" style="width: 200px" name="tipoOcorrencia"><!-- 'name=' adicionado-->
-                      <option>Motim</option>
-                      <option>Rebelião</option>
-                      <option>Tumulto</option>
-                      <option>Outro</option>
-                      
+                      <option>CP de Vicência</option> 
                       </select>
-                  </td>
-                  <td class="sorting_1">
-                     <a href="#" class="btn btn-success btn-xs">Salvar</a>     
-                     <a href="#" class="btn btn-warning btn-xs">Editar</a>   
-                     <a href="#" class="btn btn-danger btn-xs">Deletar</a>            
-                  </td>
+                    </td>
+                    <td>
+                      <select class="form-control" style="width: 200px" name="tipoOcorrencia"><!-- 'name=' adicionado-->
+                        <option>Motim</option>
+                        <option>Rebelião</option>
+                        <option>Tumulto</option>
+                        <option>Outro</option>
+                      </select>
+                    </td>
+                    <td class="sorting_1">
+                      <a href="#" class="btn btn-success btn-xs">Salvar</a>        
+                      <a href="#" class="btn btn-warning btn-xs">Editar</a>
+                      <a href="#" class="btn btn-danger btn-xs">Deletar</a>               
+                    </td>
+                  </tr>
+                </tbody> 
+                <tfoot> 
+                  <tr>
+                    <td colspan="5"><textarea style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" class="form-control" name="dataentrada" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10"></td>
+                    <td>
+                      <select class="form-control" style="width: 200px" name="nucleo">
+                      <option>Arco-Verde</option>
+                      <option>Caruaru</option>
+                      <option>Garanhuns</option>
+                      <option>Lagoa</option>
+                      <option>Petrolina</option>
+                      <option>Salgueiro</option>
+                    </td>
+                    <td>
+                      <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
+                        <option>CP de Aliança</option>
+                        <option>CP de Carpina</option>
+                        <option>CP de Glória do Goitá</option>
+                        <option>CP de Goiana</option>
+                        <option>CP de Itambé</option>
+                        <option>CP de Lagoa do Carro</option>
+                        <option>CP de Macaparana</option>
+                        <option>CP de Nazaré da Mata</option>
+                        <option>CP de Timbauba</option>
+                        <option>CP de Vicência</option>
+                      </select>
+                    </td>  
+                    <td>
+                      <select class="form-control" style="width: 200px" name="tipoOcorrencia"><!-- 'name=' adicionado-->
+                        <option>Motim</option>
+                        <option>Rebelião</option>
+                        <option>Tumulto</option>
+                        <option>Outro</option>
+                      </select>
+                    </td>
+                    <td class="sorting_1">
+                      <a href="#" class="btn btn-success btn-xs">Salvar</a>     
+                      <a href="#" class="btn btn-warning btn-xs">Editar</a>   
+                      <a href="#" class="btn btn-danger btn-xs">Deletar</a>            
+                    </td>
                   </tr>
                   <tr>
                     <td colspan="5"><textarea style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
                   </tr>
                 </tfoot>
-              </table>
-          <!-- /.box -->
-        </div>
-        
+        </table>     
+      </div>  
+    </section>    
   </div>
-    <!-- /.content -->
-</div>
+    
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.18
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    reserved.
+  </footer>
 
-  
-
-  
+</div> <!--Fim da DIV Wrapper-->
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>

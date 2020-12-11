@@ -150,7 +150,6 @@
           </ul>
         </li>
     </section>
-    <!-- /.sidebar -->
   </aside>
 
   <!-- =============================================== -->
@@ -160,73 +159,80 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     
-        <h1><p>SAÍDA DE DETENTO PARA AUDIÊNCIA</p></h1>
-        <p></p>
+        <h1><p>Saída de Detentos para Audiência</p></h1>
+        <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
+          <li><a href="<?php echo site_url('Home');?>">Home</a></li>
+          <li class="active">Saída de Detentos para Audiência</li>
+        </ol>
 
       <!-- Main content -->
       <div class="box">
 
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="dataTables_length" id="example1_length">
+                </div>
 
-<!-- /.box-header -->
-<div class="box-body">
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="dataTables_length" id="example1_length">
-    </div>
+              <form action="<?=site_url('Saidapresos/pesquisar')?>" method="post">
+                <div class="col-sm-6">
+                  <div id="example1_filter" class="dataTables_filter">
+                  <label>Procurar Detento:  <input type="text" name="pesquisar" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
+                <br>  <button type="submit" class="btn btn-primary">Buscar</button></br>
+                <a href="<?php echo site_url('cadastrar_sair'); ?> " class="btn btn-primary btn-xs pull-right">Cadastrar</a>
 
-  <form action="<?=site_url('SaidapresosAudiencia/pesquisar')?>" method="post">
-    <div class="col-sm-6">
-      <div id="example1_filter" class="dataTables_filter">
-      <label>Procurar Detento:  <input type="text" name="pesquisar" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
-    <br>  <button type="submit" class="btn btn-primary">Buscar</button></br>
-    <a href="<?php echo site_url('SaidapresosAudiencia/audiencia'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
-
-     </label>
-  </form>
-  
+                 </label>
+              </form>
+            
+                  </div>
+                </div>
+              </div>
+              
+              <div class="box-body">
+             <table id="example2" class="table table-bordered table-hover">
+               <thead>
+               <tr>
+               <th>id</th>
+                 <th>CP</th>
+                 <th>Nome</th>
+                 <th>Nome da Mãe</th>
+                 <th>Nome do Pai</th>
+                 <th>Siap</th>
+                 <th>Ações</th>
+               </tr>
+               </thead>
+               <tbody>
+               <?php foreach ($tbl_saidadetentos as $res) { ?>
+                 <tr>
+                 <td><?= $res->id; ?></td> 
+                   <td><?= $res->cadeiapublica; ?></td> 
+                   <td> <?= $res->nome; ?></td>
+                   <td><?= $res->mae; ?> </td>
+                   <td><?= $res->pai; ?> </td>
+                   <td><?= $res->numsiap; ?> </td>
+                   <td>
+                     <a href="<?= base_url('Edicao_sair',$res->id) ?>" class="btn btn-warning btn-xs">Editar</a>
+                   </td>
+                 </tr>
+                 <?php }?>
+               </tbody>
+             </table>
+           </div>
+           <!-- /.box-body -->
+         </div>
+         <!-- /.box -->
+       </div>
+        <!-- /.col -->
       </div>
-    </div>
-  </div>
-  
-  <div class="box-body">
- <table id="example2" class="table table-bordered table-hover">
-   <thead>
-   <tr>
-     <th>ID</th>
-     <th>CP</th>
-     <th>Nome</th>
-     <th>Nº SIAP</th>
-     <th>SIC</th>
-     <th>Data</th>
-     
-     <th>Condutores</th>
-     <th>Ações</th>
-   </tr>
-   </thead>
-   <tbody>
-   <?php foreach ($tbl_saidaaudiencia as $res) { ?>
-     <tr>
-     <td><?= $res->id; ?></td> 
-       <td><?= $res->cadeiapublica; ?></td> 
-       <td> <?= $res->nome; ?></td>
-       <td><?= $res->numsiap; ?> </td>
-       <td><?= $res->sic; ?> </td>
-       <td><?= $res->data; ?> </td>
-       <td><?= $res->condutores; ?> </td>
-       <td>
-         <a href="<?= base_url('Edicao_sair') ?>" class="btn btn-warning btn-xs">Editar</a>
-       </td>
-     
-     </tr>
-     <?php }?>
-   </tbody>
- </table>
-</div>
-  </div>
-  </aside>
+      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
+  <!-- /.Wrapper-->
+</div>    
+        
+
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>

@@ -163,7 +163,7 @@
         <p></p>
 
       <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
-        <li><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/Home">Home</a></li>
+        <li><a href="<?php echo site_url('Home');?>">Home</a></li>
         <li class="active">Outras Ocorrências</li>
       </ol>
 

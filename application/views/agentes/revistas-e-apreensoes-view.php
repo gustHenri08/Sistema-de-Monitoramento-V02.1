@@ -162,10 +162,9 @@
         <h1><p>REVISTAS E APREENSÕES</p></h1>
 
         <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
-        <li><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/Home">Home</a></li>
-        <li class="active">Revistas e Apreensões</li>
-      </ol>
-        <p></p>
+          <li><a href="<?php echo site_url('Home');?>">Home</a></li>
+          <li class="active">Revistas e Apreensões</li>
+        </ol>
 
       <!-- Main content -->
       <div class="box">

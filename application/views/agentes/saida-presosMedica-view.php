@@ -160,7 +160,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     
-        <h1><p>SAÍDA DE DETENTO PARA CONSULTA, EXAMES OU ATENDIMENTO MÉDICO</p></h1>
+        <h1><p>Saída de Detento Para Consulta, Exames ou Atendimento Médico</p></h1>
         <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
           <li><a href="<?php echo site_url('Home'); ?>">Home</a></li>
           <li class="active">Saída de Detento para Médico</li>

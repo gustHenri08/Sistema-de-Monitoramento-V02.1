@@ -159,16 +159,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     
-        <h1><p>SAÍDA DE DETENTOS DA CP</p></h1>
+        <h1><p>Saída de Detentos da CP</p></h1>
         <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
-        <li><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/Home">Home</a></li>
-        <li class="active">Saída de Detentos</li>
-      </ol>
-        <p></p>
+          <li><a href="<?php echo site_url('Home');?>">Home</a></li>
+          <li class="active">Saída de Detentos</li>
+        </ol>
 
       <!-- Main content -->
       <div class="box">
-
 
             <!-- /.box-header -->
             <div class="box-body">
@@ -231,8 +229,16 @@
     </section>
     <!-- /.content -->
   </div>
-  <!--
-    
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.18
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    reserved.
+  </footer>
+  
+</div> <!-- Fim da DIV Wrapper-->
         
 
 
