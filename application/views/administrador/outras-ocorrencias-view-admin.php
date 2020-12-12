@@ -187,7 +187,7 @@
                 <br>
               </div>
             </div>
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="tabela" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>Data Inicial</th>
