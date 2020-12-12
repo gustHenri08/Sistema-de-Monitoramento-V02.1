@@ -166,8 +166,7 @@
     <!-- Cabeçalho da Página -->
     <section class="content-header">
       <h1>
-        Olá!
-        <small>Seja Bem Vindo!</small>
+        Dashboard
       </h1>
       <ol class="breadcrumb">
         <li><a href="<?php echo site_url('Home/adminHome');?>">Home</a></li>
@@ -180,7 +179,7 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
+          <h3 class="box-title">Estatísticas</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -191,13 +190,71 @@
           </div>
         </div>
         <div class="box-body">
-          Start creating your amazing application!
+          <canvas class="line-chart"></canvas>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+          <script>
+            var ctx = document.getElementsByClassName("line-chart");
+
+            var chartGraph = new Chart(ctx, {
+                type: 'bar',
+                data:{
+                  labels: ["Homens","Mulheres","Regime Aberto","Regime Semi-Aberto","Regime Fechado"],
+                  datasets:[
+                    { label:"Núcleo Arco-Verde",
+                      //*Número de presos por Núcleo*//
+                      data:[50,300,210,300,400,500,600,700,800,900,1000],
+                      backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
+                      borderColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
+                      borderWidth:2
+                      },
+                      {
+                      label:"Núcleo Caruaru",
+                      //*Número de presos por Núcleo*//
+                      data:[55,250,250,350,450,550,650,750,850,950,1050],
+                      backgroundColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
+                      borderColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
+                      borderWidth:2
+                      },
+                      {
+                      label:"Núcleo Garanhuns",
+                      //*Número de presos por Núcleo*//
+                      data:[60,200,450,350,450,550,650,750,850,950,1050],
+                      backgroundColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
+                      borderColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
+                      borderWidth:2
+                      },
+                      {
+                      label:"Núcleo Lagoa",
+                      //*Número de presos  no Núcleo*//
+                      data:[65,150,200,350,450,550,650,750,850,950,1050],
+                      backgroundColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
+                      borderColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
+                      borderWidth:2
+                      },
+                      {
+                      label:"Núcleo Petrolina",
+                      //*Número de presos por Núcleo*//
+                      data:[70,100,150,350,450,550,650,750,850,950,1050],
+                      backgroundColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
+                      borderColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
+                      borderWidth:2
+                      },
+                      {
+                      label:"Núcleo Salgueiro",
+                      //*Número de presos por Núcleo*//
+                      data:[75,50,250,350,450,550,650,750,850,950,1050],
+                      backgroundColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                      borderColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                      borderWidth:2
+                      },
+                    ],
+                  }
+                });
+          </script>
         </div>
         <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
+        
+      
       </div>
       <!-- /.box -->
 
