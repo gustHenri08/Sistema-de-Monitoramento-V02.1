@@ -159,31 +159,31 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-    
-        <h1><p>Saída de Detento Para Consulta, Exames ou Atendimento Médico</p></h1>
-        <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
-          <li><a href="<?php echo site_url('Home'); ?>">Home</a></li>
-          <li class="active">Saída de Detento para Médico</li>
+      <h1><p>Saída de Detento Para Consulta, Exames ou Atendimento Médico</p></h1>
+      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
+        <li><a href="<?php echo site_url('Home'); ?>">Home</a></li>
+        <li class="active">Saída de Detento para Médico</li>
       </ol>
-        <p></p>
-
+      <p></p>
       <!-- Main content -->
       <div class="box">
-
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="dataTables_length" id="example1_length">
-                </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="dataTables_length" id="example1_length">
+       
+              </div>
+              <form action="<?=site_url('Saidapresos/pesquisar')?>" method="post">
                 <div class="col-sm-6">
                   <div id="example1_filter" class="dataTables_filter">
-                  <label>Procurar Detento:<input type="search" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1"></label>
+                    <label>Procurar Detento:<input type="search" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1"></label>
                   </div>
                 </div>
-              </div>
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
+              </form>
+            </div>
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
                 <tr>
                   <th>ID</th>
                   <th>CP</th>
@@ -195,21 +195,20 @@
                   <th>Condutores</th>
                   <th>Descrição da Saída</th>
                 </tr>
-                </thead>
-                <tbody>
+              </thead>
+              <tbody>
                 <tr>
-<!-- Id -->       <td>1</td>
-<!-- CP -->       <td>CP Carpina</td>
-<!-- Nome -->     <td><a href="tela de edição">Felipe Henrique Moura Canuto</a></td>
-<!--SIAP-->       <td>129401</td>
-<!--SIC-->        <td>123491</td>
-<!--Data-->       <td>23/01/2019</td>
-<!--Motivo -->    <td>Fuga</td>
-<!--Condutores--> <td>PCPE</td>
-<!--Descriçao-->  <td>xxxxxx</td>
-
+                  <td>1</td>
+                  <td>CP Carpina</td>
+                  <td><a href="tela de edição">Felipe Henrique Moura Canuto</a></td>
+                  <td>129401</td>
+                  <td>123491</td>
+                  <td>23/01/2019</td>
+                  <td>Fuga</td>
+                  <td>PCPE</td>
+                  <td>xxxxxx</td> 
                 </tr>
-
+                <tr>
                   <td>2</td>
                   <td>CP Timbauba</td>
                   <td><a href="tela de edição">Zaqueu Souza</a></td>
@@ -221,21 +220,27 @@
                   <td>xxxxxx</td>
                 </tr>
 
-                </tfoot>
-              </table>
-               </div>
-              </div>
-            </div>
-            <!-- /.box-body -->
+              </tbody>
+            </table>
           </div>
-          <!-- /.box -->
+          <!--row-->
         </div>
-  </div>  
-  </aside>
+        <!--box-body-->
+      </div>
+      <!-- /.box -->
     </section>
-    <!-- /.content -->
   </div>
-
+  <!--wrapper-->
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.18
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    reserved.
+  </footer>
+  
+</div>  
+  
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.7 -->

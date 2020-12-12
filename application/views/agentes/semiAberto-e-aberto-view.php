@@ -159,31 +159,31 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-    
-        <h1><p>RELAÇÃO SEMI-ABERTO E ABERTO</p></h1>
-        <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
+      <h1><p>RELAÇÃO SEMI-ABERTO E ABERTO</p></h1>
+      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
         <li><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/Home">Home</a></li>
         <li class="active">Relação Semi-Aberto e Aberto</li>
       </ol>
-        <p></p>
-
+      <p></p>
       <!-- Main content -->
       <div class="box">
+      <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="dataTables_length" id="example1_length">
 
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="dataTables_length" id="example1_length">
-                </div>
+              </div>
+              <form action="<?=site_url('Saidapresos/pesquisar')?>" method="post">
                 <div class="col-sm-6">
                   <div id="example1_filter" class="dataTables_filter">
-                  <label>Procurar Detento:<input type="search" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1"></label>
+                    <label>Procurar Detento:<input type="search" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1"></label>
                   </div>
                 </div>
-              </div>
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
+              </form>
+            </div>
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
                 <tr>
                   <th>ID</th>
                   <th>CP</th>
@@ -193,19 +193,18 @@
                   <th>Regime</th>
                   <th>Obs</th>
                 </tr>
-                </thead>
-                <tbody>
+              </thead>
+              <tbody>
                 <tr>
-<!-- Id -->       <td>1</td>
-<!-- CP -->       <td>CP Carpina</td>
-<!-- Nome -->     <td><a href="tela de edição">Felipe Henrique Moura Canuto</a></td>
-<!--SIAP-->       <td>129401</td>
-<!--SIC-->        <td>123491</td>
-<!--Regime-->     <td>Aberto</td>
-<!--OBS-->        <td><a href="link"> Link obs</td>
-
+                  <td>1</td>
+                  <td>CP Carpina</td>
+                  <td><a href="tela de edição">Felipe Henrique Moura Canuto</a></td>
+                  <td>129401</td>
+                  <td>123491</td>
+                  <td>Aberto</td>
+                  <td><a href="link"> Link obs</td>
                 </tr>
-
+                <tr>
                   <td>2</td>
                   <td>CP Timbauba</td>
                   <td><a href="tela de edição">Zaqueu Souza</a></td>
@@ -214,21 +213,22 @@
                   <td>Semi-Aberto</td>
                   <td><a href="link"> Link obs</td>
                 </tr>
-
-                </tfoot>
-              </table>
-               </div>
-              </div>
-            </div>
-            <!-- /.box-body -->
+              </tbody>
+            </table>
           </div>
-          <!-- /.box -->
         </div>
-  </div>  
-  </aside>
+      </div>
     </section>
-    <!-- /.content -->
   </div>
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.18
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    reserved.
+  </footer>
+</div>  
+  
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>

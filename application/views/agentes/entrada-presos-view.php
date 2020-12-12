@@ -170,13 +170,13 @@
 
     <!-- Main content -->
     <section class="content">
-     <div class="row">
-       <div class="col-xs-12">
-         <div class="box">
-           <div class="box-header">
-             <h3 class="box-title"> Lista de Detentos </h3>
-             <a href="<?php echo site_url('CadastroPresos'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
-           </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"> Lista de Detentos </h3>
+              <a href="<?php echo site_url('CadastroPresos'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
+            </div>
            <!-- /.box-header -->
            <div class="box-body">
              <table id="example2" class="table table-bordered table-hover">
@@ -201,13 +201,13 @@
                       </td>
                     </tr>
                   <?php endforeach?>
-               </tbody>
-             </table>
-           </div>
+                </tbody>
+              </table>
+            </div>
            <!-- /.box-body -->
-         </div>
+          </div>
          <!-- /.box -->
-       </div>
+        </div>
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -215,7 +215,6 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.18
@@ -223,6 +222,7 @@
     <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
     reserved.
   </footer>
+</div>
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>

@@ -179,7 +179,8 @@
 
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                <label> Centro Prisional </label><select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
+                <label> Centro Prisional </label>
+                <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
           				<option>CP de Aliança</option>
           				<option>CP de Carpina</option>
           				<option>CP de Glória do Goitá</option>

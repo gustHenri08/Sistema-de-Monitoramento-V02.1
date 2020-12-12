@@ -158,106 +158,103 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-    
-        <h1><p>REVISTAS E APREENSÕES</p></h1>
-
-        <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
-          <li><a href="<?php echo site_url('Home');?>">Home</a></li>
-          <li class="active">Revistas e Apreensões</li>
-        </ol>
-
+      <h1><p>REVISTAS E APREENSÕES</p></h1>
+      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
+        <li><a href="<?php echo site_url('Home');?>">Home</a></li>
+        <li class="active">Revistas e Apreensões</li>
+      </ol>
       <!-- Main content -->
       <div class="box">
-
-            <!-- /.box-header -->
-
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <label>Centro Prisional</label><select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-          				<option>CP de Aliança</option>
-          				<option>CP de Carpina</option>
-          				<option>CP de Glória do Goitá</option>
-          				<option>CP de Goiana</option>
-          				<option>CP de Itambé</option>
-          				<option>CP de Lagoa do Carro</option>
-          				<option>CP de Macaparana</option>
-          				<option>CP de Nazaré da Mata</option>
-          				<option>CP de Timbauba</option>
-          				<option>CP de Vicência</option>
-          			</select>
-                <tr>
-                  <th>Itens Apreendidos</th>
-                  <th>QTD</th>
-                  <th>Itens Apreendidos</th>
-                  <th>QTD<button class="btn btn-primary btn-xs pull-right">Registrar</button></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td>Armas artesanais - Branca</td>
-                <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                <td>Chips de celular</td>
-                <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                </tr>
-                <tr>
-                  <td>Armas artesanais - Fogo</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                  <td>Cocaína</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                </tr>
-                   <tr>
-                  <td>Armas industriais - Branca</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                  <td>Cola de sapateiro</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                </tr>
-                <tr>
-                  <td>Armas industriais - Fogo</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                  <td>Corda artesanal</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                </tr>
-                <tr>
-                  <td>Bateria de celular</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                  <td>Crack</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                </tr>
-                <tr>
-                  <td>Bebida artesanal</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                  <td>Maconha</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                </tr>
-                   <tr>
-                  <td>Bebida industrial</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                  <td>Medicação Psicotrópicos</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                </tr>
-                <tr>
-                  <td>Carregador celular</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                  <td>Munições</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                </tr>
-                <tr>
-                  <td>Celular</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-                  <td>Outro</td>
-                  <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-
-                </tr>
-
-                
-              </table>
-          <!-- /.box -->
-        </div>
-        
+      <!-- /.box-header -->
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+            <label>Centro Prisional</label>
+            <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
+              <option>CP de Aliança</option>
+              <option>CP de Carpina</option>
+          		<option>CP de Glória do Goitá</option>
+          		<option>CP de Goiana</option>
+          		<option>CP de Itambé</option>
+          		<option>CP de Lagoa do Carro</option>
+          		<option>CP de Macaparana</option>
+          		<option>CP de Nazaré da Mata</option>
+          		<option>CP de Timbauba</option>
+          		<option>CP de Vicência</option>
+          	</select>
+            <tr>
+              <th>Itens Apreendidos</th>
+              <th>QTD</th>
+              <th>Itens Apreendidos</th>
+              <th>QTD<button class="btn btn-primary btn-xs pull-right">Registrar</button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Armas artesanais - Branca</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+              <td>Chips de celular</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+            </tr>
+            <tr>
+              <td>Armas artesanais - Fogo</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+              <td>Cocaína</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+            </tr>
+            <tr>
+              <td>Armas industriais - Branca</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+              <td>Cola de sapateiro</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+            </tr>
+            <tr>
+              <td>Armas industriais - Fogo</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+              <td>Corda artesanal</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+            </tr>
+            <tr>
+              <td>Bateria de celular</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+              <td>Crack</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+            </tr>
+            <tr>
+              <td>Bebida artesanal</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+              <td>Maconha</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+            </tr>
+            <tr>
+              <td>Bebida industrial</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+              <td>Medicação Psicotrópicos</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+            </tr>
+            <tr>
+              <td>Carregador celular</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+              <td>Munições</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+            </tr>
+            <tr>
+              <td>Celular</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+              <td>Outro</td>
+              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   </div>
-
-
-    <!-- /.content -->
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.18
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    reserved.
+  </footer>
 </div>
 
   

@@ -186,31 +186,31 @@
                   <br></br>
                 </div>
               </div>
-             <table id="example2" class="table table-bordered table-hover">
-               <thead>
-               <tr>
-                 <th>CP</th>
-                 <th>Nome</th>
-                 <th>Nome da Mãe</th>
-                 <th>Nome do Pai</th>
-                 <th>SIAP</td>
-               </tr>
-               </thead>
-               <tbody>
-                 <tr>
-                   <td>CP de Paulista</td>
-                   <td><a href="Cadastrar_ocorrencia_presos">Fulano de Tal</td>
-                   <td>Mãe do Fulano de Tal</td>
-                   <td>Pai do Fulano de Tal</td>
-                   <td>123123</td>
-                 </tr>
-               </tbody>
-             </table>
-           </div>
-           <!-- /.box-body -->
-         </div>
-         <!-- /.box -->
-       </div>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>CP</th>
+                    <th>Nome</th>
+                    <th>Nome da Mãe</th>
+                    <th>Nome do Pai</th>
+                    <th>SIAP</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>CP de Paulista</td>
+                    <td><a href="Cadastrar_ocorrencia_presos">Fulano de Tal</td>
+                    <td>Mãe do Fulano de Tal</td>
+                    <td>Pai do Fulano de Tal</td>
+                    <td>123123</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -226,6 +226,7 @@
     <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
     reserved.
   </footer>
+</div>
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
