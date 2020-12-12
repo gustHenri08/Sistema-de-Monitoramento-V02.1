@@ -185,7 +185,7 @@
 
         <?php else: ?>
 
-          <li class="active"><a href="<?php echo site_url('CadastroPresos/indexAdmin'); ?>">Cadastro de Detentos</a></li>
+          <li class="active">Cadastro de Detentos</a></li>
 
         <?php endif; ?>
       </ol>

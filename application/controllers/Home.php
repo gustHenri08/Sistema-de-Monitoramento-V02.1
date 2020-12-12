@@ -137,7 +137,7 @@ class Home extends CI_Controller{
     public function cadastropresosAdmin()
     { //Carrega a Função cadastroPresos que está no Presos_model
 
-        $this->load->view("administrador/cadastro-presos-view-admin");
+        $this->load->view("administrador/cadastros/cadastro-presos-view-admin");
 
     }
 

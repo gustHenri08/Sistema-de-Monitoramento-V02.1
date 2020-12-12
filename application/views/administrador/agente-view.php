@@ -197,6 +197,7 @@
                     <th>Senha</th>
                     <th>Função</th>
                     <th>Funcionário Ativo</th>
+                    <th></th>
                 </tr>
                </thead>
                <tbody>
@@ -212,7 +213,7 @@
                             <td><?= $agents['funcao']?></td>
                             <td><?= $agents['funcionarioativo']?></td>
                         
-                            <td>
+                            <td style='text-align:center'>
                             <a href="<?= base_url() ?>index.php/Cadastro/editMaster/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
                             </td>
                         </tr>

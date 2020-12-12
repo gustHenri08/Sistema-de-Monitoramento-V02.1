@@ -186,7 +186,7 @@
                  <th>Nome</th>
                  <th>Nome da Mãe</th>
                  <th>Nome do Pai</th>
-                 <th>Ações</th>
+                 <th></th>
                </tr>
                </thead>
                <tbody>
@@ -196,7 +196,7 @@
                       <td><?= $presos['nome']?></td>
                       <td><?= $presos['nomemae']?></td>
                       <td><?= $presos['nomepai']?></td>
-                      <td>
+                      <td style='text-align:center'>
                       <a href="<?= base_url() ?>index.php/CadastroPresos/editPresos/<?= $presos["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
                       </td>
                     </tr>
