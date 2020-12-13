@@ -175,6 +175,7 @@
          <div class="box">
            <div class="box-header">
              <h3 class="box-title"> Lista de Detentos </h3>
+             <a href="<?php echo site_url('Home/cadastrarOcorrencias'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
            </div>
            <!-- /.box-header -->
            <div class="box-body">

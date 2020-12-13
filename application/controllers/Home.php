@@ -40,6 +40,11 @@ class Home extends CI_Controller{
         $this->load->view('agentes/ocorrencias-view'); // Carrega a view(Tela) Ocorrências;
     }
 
+    public function cadastrarOcorrencias(){
+
+        $this->load->view('agentes/cadastros/cadastrar-ocorrencia-view');
+    }
+
     public function outrasOcorrencias()
     {
         $this->load->view('agentes/outras-ocorrencias-view'); // Carrega a view(Tela) outras Ocorrências;
@@ -148,6 +153,11 @@ class Home extends CI_Controller{
     public function registroOcorrenciasAdmin()
     {
         $this->load->view('administrador/ocorrencias-view-admin'); // Carrega a view(Tela) Ocorrências do Admin;
+    }
+
+    public function cadastrarOcorrenciasAdmin(){
+
+        $this->load->view('administrador/cadastros/cadastrar-ocorrencia-view-admin');
     }
 
     public function outrasOcorrenciasAdmin() 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SMT | Registro de Ocorrências</title>
+  <title>SMP | Cadastrar Ocorrências</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -104,7 +104,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo site_url('Home'); ?>">
+          <a href="<?php echo site_url(''); ?>">
             <i class="fa fa-registered"></i>
             <span>Ocorrências</span>
             <span class="pull-right-container">
@@ -112,19 +112,19 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('Ocorrencias'); ?>"><i class="fa fa-registered"></i> Registro de Ocorrências </a></li>
-            <li><a href="<?php echo site_url('Outras_ocorrencias'); ?>"><i class="fa fa-registered"></i> Outras Ocorrências </a></li>
-            <li><a href="<?php echo site_url('Apreensoes'); ?>"><i class="fa fa-ban"></i> Revistas e Apreensões </a></li>
+            <li><a href="<?php echo site_url('Home/registroOcorrencias'); ?>"><i class="fa fa-registered"></i> Registro de Ocorrências </a></li>
+            <li><a href="<?php echo site_url('Home/outrasOcorrencias'); ?>"><i class="fa fa-registered"></i> Outras Ocorrências </a></li>
+            <li><a href="<?php echo site_url('Home/revistasApreensoes'); ?>"><i class="fa fa-ban"></i> Revistas e Apreensões </a></li>
           </ul>
         </li>
         <li>
-          <a href="<?php echo site_url('SemiAberto_e_Aberto'); ?> ">
+          <a href="<?php echo site_url('Home/abertoSemiaberto'); ?> ">
             <i class="fa fa-file-text-o"></i>
             <span>Relação Aberto / Semi-Aberto</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo site_url('Home'); ?>">
+          <a href="<?php echo site_url(''); ?>">
             <i class="fa fa-user-times"></i>
             <span>Saída de Detentos</span>
             <span class="pull-right-container">
@@ -132,21 +132,21 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('Saidapresos'); ?>"><i class="fa fa-key"></i> Saída da Cadeia Pública</a></li>
-            <li><a href="<?php echo site_url('SaidapresosAudiencia'); ?>"><i class="fa fa-cab"></i> Saída para Audiência</a></li>
-            <li><a href="<?php echo site_url('SaidapresosMedica'); ?>"><i class="fa fa-ambulance"></i> Saída Médica</a></li>
+            <li><a href="<?php echo site_url('Home/saidaCadeiaPublica'); ?>"><i class="fa fa-key"></i> Saída da Cadeia Pública</a></li>
+            <li><a href="<?php echo site_url('Home/saidaAudiencia'); ?>"><i class="fa fa-cab"></i> Saída para Audiência</a></li>
+            <li><a href="<?php echo site_url('Home/saidaMedica'); ?>"><i class="fa fa-ambulance"></i> Saída Médica</a></li>
           </ul>
         </li>
         <li class="treeview">
-          <a href="<?php echo site_url('Home'); ?>">
+          <a href="<?php echo site_url(''); ?>">
             <i class="fa fa-edit"></i> <span>Trânsito</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('TransitoInterno'); ?>"><i class="fa fa-refresh"></i> Trânsito Interno</a></li>
-            <li><a href="<?php echo site_url('TransitoExterno'); ?>"><i class="fa fa-exchange"></i> Trânsito Externo</a></li>
+            <li><a href="<?php echo site_url('Home/transitoInterno'); ?>"><i class="fa fa-refresh"></i> Trânsito Interno</a></li>
+            <li><a href="<?php echo site_url('Home/transitoExterno'); ?>"><i class="fa fa-exchange"></i> Trânsito Externo</a></li>
           </ul>
         </li>
     </section>
@@ -158,87 +158,88 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-    
-        <h1><p>Nome do Preso </p></h1>
-        <p></p>
-
-        <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)mlp-->
-        <li><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/Home">Home</a></li>
-        <li class="active"><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/Ocorrencias">Ocorrência</a></li>
-        <li class="active">Cadastro</li>
+      <h1>
+        Cadastrar Ocorrências 
+      </h1>
+      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)mlp-->
+        <li><a href="<?php echo site_url('Home'); ?>">Home</a></li>
+        <li><a href="<?php echo site_url('Home/registroOcorrencias'); ?>">Ocorrência</a></li>
+        <li class="active">Cadastrar Ocorrências </li>
       </ol>
-
-      <!-- Main content -->
-      <div class="box">
-
-            <!-- /.box-header -->
-              <table id="example1" class="table table-bordered table-striped">
+    </section>  
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"> Alguma Coisa </h3>
+            </div>
+            <div class="box-body">
+              <table id="tabela" class="table table-bordered table-striped">
                 <thead>
-                <tr>
-                  <th>Data</th>
-                  <th>CP</th>
-                  <th>Tipo</th>
-                  <th>Ações</td>
-                </tr>
+                  <tr>
+                    <th>Data</th>
+                    <th>CP</th>
+                    <th>Tipo</th>
+                    <th>Ações</td>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr>
+                  <tr>
+                    <td><input type="text" class="form-control" name="dataentrada" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10"></td>
+                    <td>
+                      <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
+                        <option>CP de Aliança</option>
+                        <option>CP de Carpina</option>
+                        <option>CP de Glória do Goitá</option>
+                        <option>CP de Goiana</option>
+                        <option>CP de Itambé</option>
+                        <option>CP de Lagoa do Carro</option>
+                        <option>CP de Macaparana</option>
+                        <option>CP de Nazaré da Mata</option>
+                        <option>CP de Timbauba</option>
+                        <option>CP de Vicência</option> 
+                      </select>
+                    </td>
+                    <td>
+                      <select class="form-control" style="width: 200px" name="tipoOcorrencia"><!-- 'name=' adicionado-->
+                        <option>Agressão</option>
+                        <option>Apreensão</option>
+                        <option>Custódia Hospitalar</option>
+                        <option>Emergência Hospitalar</option>
+                        <option>Fuga</option>
+                        <option>Óbito - Natural</option>
+                        <option>Óbito - Suicídio</option>
+                        <option>Óbito CVLI</option> 
+                      </select>
+                    </td>
+                    <td class="sorting_1">
+                      <a href="#" class="btn btn-success btn-xs">Salvar</a>        
+                      <a href="#" class="btn btn-warning btn-xs">Editar</a>
+                      <a href="#" class="btn btn-danger btn-xs">Deletar</a>               
+                    </td>
+                  </tr> 
+                  <tr>
+                    <td colspan="4"><textarea style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
+                  </tr>
+                  <tr>
                   <td><input type="text" class="form-control" name="dataentrada" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10"></td>
-                  <td>
-                    <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-                    <option>CP de Aliança</option>
-                    <option>CP de Carpina</option>
-                    <option>CP de Glória do Goitá</option>
-                    <option>CP de Goiana</option>
-                    <option>CP de Itambé</option>
-                    <option>CP de Lagoa do Carro</option>
-                    <option>CP de Macaparana</option>
-                    <option>CP de Nazaré da Mata</option>
-                    <option>CP de Timbauba</option>
-                    <option>CP de Vicência</option> 
-                    </select>
-                  </td>
-                  <td>
-                    <select class="form-control" style="width: 200px" name="tipoOcorrencia"><!-- 'name=' adicionado-->
-                      <option>Agressão</option>
-                      <option>Apreensão</option>
-                      <option>Custódia Hospitalar</option>
-                      <option>Emergência Hospitalar</option>
-                      <option>Fuga</option>
-                      <option>Óbito - Natural</option>
-                      <option>Óbito - Suicídio</option>
-                      <option>Óbito CVLI</option>
-                      
-                    </select>
-                  </td>
-                  <td class="sorting_1">
-                     <a href="#" class="btn btn-success btn-xs">Salvar</a>        
-                     <a href="#" class="btn btn-warning btn-xs">Editar</a>
-                     <a href="#" class="btn btn-danger btn-xs">Deletar</a>               
-            
-                  </td>
-                </tr>
-                <tr>
-                <td colspan="4"><textarea style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
-                </tr>
-                <tr>
-                  <td><input type="text" class="form-control" name="dataentrada" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10"></td>
-                  <td>
-                    <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-                      <option>CP de Aliança</option>
-                      <option>CP de Carpina</option>
-                      <option>CP de Glória do Goitá</option>
-                      <option>CP de Goiana</option>
-                      <option>CP de Itambé</option>
-                      <option>CP de Lagoa do Carro</option>
-                      <option>CP de Macaparana</option>
-                      <option>CP de Nazaré da Mata</option>
-                      <option>CP de Timbauba</option>
-                      <option>CP de Vicência</option>
-                    </select>
-                 </td>
-                   <td>
-                    <select class="form-control" style="width: 200px" name="tipoOcorrencia"><!-- 'name=' adicionado-->
+                    <td>
+                      <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
+                        <option>CP de Aliança</option>
+                        <option>CP de Carpina</option>
+                        <option>CP de Glória do Goitá</option>
+                        <option>CP de Goiana</option>
+                        <option>CP de Itambé</option>
+                        <option>CP de Lagoa do Carro</option>
+                        <option>CP de Macaparana</option>
+                        <option>CP de Nazaré da Mata</option>
+                        <option>CP de Timbauba</option>
+                        <option>CP de Vicência</option>
+                      </select>
+                    </td>
+                    <td>
+                      <select class="form-control" style="width: 200px" name="tipoOcorrencia"><!-- 'name=' adicionado-->
                         <option>Agressão</option>
                         <option>Apreensão</option>
                         <option>Custódia Hospitalar</option>
@@ -248,31 +249,36 @@
                         <option>Óbito - Suicídio</option>
                         <option>Óbito - CVLI</option>
                       </select>
-                  </td>
-                  <td class="sorting_1">
-                     <a href="#" class="btn btn-success btn-xs">Salvar</a>     
-                     <a href="#" class="btn btn-warning btn-xs">Editar</a>   
-                     <a href="#" class="btn btn-danger btn-xs">Deletar</a>            
-                  </td>
+                    </td>
+                    <td class="sorting_1">
+                      <a href="#" class="btn btn-success btn-xs">Salvar</a>     
+                      <a href="#" class="btn btn-warning btn-xs">Editar</a>   
+                      <a href="#" class="btn btn-danger btn-xs">Deletar</a>            
+                    </td>
                   </tr>
                   <tr>
                     <td colspan="4"><textarea style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
-                  </tr>
-                </tfoot>
-              </table>
-          <!-- /.box -->
+                  </tr>  
+                </tbody>
+              </table>  
+            </div>  
+          </div>
         </div>
-        
+      </div>
+    </section>      
   </div>
 
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.18
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    reserved.
+  </footer>
 
-    <!-- /.content -->
 </div>
 
   
-
-  
-
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
