@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SMT | Revistas e Apreensões</title>
+  <title>SMP | Revistas e Apreensões </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -12,13 +12,13 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/Ionicons/css/ionicons.min.css">
-  <!--DataTables-->
-  <script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap.css"></script>
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,7 +36,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?php echo site_url('Home'); ?>" class="logo">
+    <a href="<?php echo site_url('Home/adminHome'); ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>SMP</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -91,7 +91,7 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-      <li class="header">Principal</li>
+        <li class="header">Principal</li>
         <li>
           <a href="<?php echo site_url('Home'); ?>"> <!-- Link do Home, ao ser clicado ele retorna o controller-->
             <i class="fa fa-home"></i> <span>Home</span>
@@ -150,104 +150,124 @@
           </ul>
         </li>
     </section>
+    <!-- /.sidebar -->
   </aside>
 
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- Cabeçalho da Página -->
     <section class="content-header">
-      <h1><p>REVISTAS E APREENSÕES</p></h1>
+      <h1>
+        Revistas e Apreensões
+      </h1>
       <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
-        <li><a href="<?php echo site_url('Home');?>">Home</a></li>
+        <li><a href="<?php echo site_url('Home'); ?>">Home</a></li>
         <li class="active">Revistas e Apreensões</li>
       </ol>
-      <!-- Main content -->
-      <div class="box">
-      <!-- /.box-header -->
-        <table id="example1" class="table table-bordered table-striped">
-          <thead>
-            <label>Centro Prisional</label>
-            <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-              <option>CP de Aliança</option>
-              <option>CP de Carpina</option>
-          		<option>CP de Glória do Goitá</option>
-          		<option>CP de Goiana</option>
-          		<option>CP de Itambé</option>
-          		<option>CP de Lagoa do Carro</option>
-          		<option>CP de Macaparana</option>
-          		<option>CP de Nazaré da Mata</option>
-          		<option>CP de Timbauba</option>
-          		<option>CP de Vicência</option>
-          	</select>
-            <tr>
-              <th>Itens Apreendidos</th>
-              <th>QTD</th>
-              <th>Itens Apreendidos</th>
-              <th>QTD<button class="btn btn-primary btn-xs pull-right">Registrar</button></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Armas artesanais - Branca</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-              <td>Chips de celular</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-            </tr>
-            <tr>
-              <td>Armas artesanais - Fogo</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-              <td>Cocaína</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-            </tr>
-            <tr>
-              <td>Armas industriais - Branca</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-              <td>Cola de sapateiro</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-            </tr>
-            <tr>
-              <td>Armas industriais - Fogo</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-              <td>Corda artesanal</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-            </tr>
-            <tr>
-              <td>Bateria de celular</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-              <td>Crack</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-            </tr>
-            <tr>
-              <td>Bebida artesanal</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-              <td>Maconha</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-            </tr>
-            <tr>
-              <td>Bebida industrial</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-              <td>Medicação Psicotrópicos</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-            </tr>
-            <tr>
-              <td>Carregador celular</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-              <td>Munições</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-            </tr>
-            <tr>
-              <td>Celular</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-              <td>Outro</td>
-              <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box" style="margin-bottom: 20px;">
+            <div class="box-header">
+              <label> &#160 Centro Prisional</label> <!-- "&#160" se referem a dar um espaçamento no texto-->
+              <select class="form-control" style="width: 200px" name="cadeiapublica">
+                <option>CP de Aliança</option>
+                <option>CP de Carpina</option>
+                <option>CP de Glória do Goitá</option>
+                <option>CP de Goiana</option>
+                <option>CP de Itambé</option>
+                <option>CP de Lagoa do Carro</option>
+                <option>CP de Macaparana</option>
+                <option>CP de Nazaré da Mata</option>
+                <option>CP de Timbauba</option>
+                <option>CP de Vicência</option>
+              </select>    
+            </div>
+            <div class="box-body">
+              <table id="tabela" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Itens Apreendidos</th>
+                    <th>Quantidade</th>
+                    <th>Itens Apreendidos</th>
+                    <th>Quantidade</th>
+                    <th><button class="btn btn-primary btn-xs pull-right">Registrar</button></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Armas artesanais - Branca</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>Chips de celular</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                  </tr>
+                  <tr>
+                    <td>Armas artesanais - Fogo</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>Cocaína</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                  </tr>
+                    <tr>
+                    <td>Armas industriais - Branca</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>Cola de sapateiro</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                  </tr>
+                  <tr>
+                    <td>Armas industriais - Fogo</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>Corda artesanal</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                  </tr>
+                  <tr>
+                    <td>Bateria de celular</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>Crack</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                  </tr>
+                  <tr>
+                    <td>Bebida artesanal</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>Maconha</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                  </tr>
+                    <tr>
+                    <td>Bebida industrial</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>Medicação Psicotrópicos</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                  </tr>
+                  <tr>
+                    <td>Carregador celular</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>Munições</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                  </tr>
+                  <tr>
+                    <td>Celular</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>Outro</td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                  </tr>
+                </tbody>  
+              </table>
+            </div>      
+          </div>
+          <!-- /.box -->
+        </div>
+          <!-- /.col -->
+      </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
   </div>
+  <!-- /.content-wrapper --> 
+
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.18
@@ -255,33 +275,38 @@
     <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
     reserved.
   </footer>
-</div>
 
-  
+</div> <!-- Fim da DIV Wrapper-->
 
-  
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
 <!-- DataTables -->
-<script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables.net-bs/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>assets/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 <!--Font Awesome My Link-->
 <script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>
 <script>
-  $(document).ready(function () {
-    $('.sidebar-menu').tree()
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
   })
 </script>
 </body>

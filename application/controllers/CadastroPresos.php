@@ -8,7 +8,7 @@ class CadastroPresos extends CI_Controller{
     }
 
     public function index(){
-      $this->load->view('agentes/cadastrar-presos-view');
+      $this->load->view('agentes/cadastros/cadastrar-presos-view');
     }
 
     public function create(){ // Chama a função responsável pelo cadastro dos presos ao banco de dados
