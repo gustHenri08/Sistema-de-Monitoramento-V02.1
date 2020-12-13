@@ -28,7 +28,8 @@ class Agente_model extends CI_Model{
             'login'=> $this->input->post('login'),
             'senha'=> $this->input->post('senha'),
             'funcao'=> $this->input->post('funcao'),
-            'funcionarioativo'=> $this->input->post('funcionarioativo')
+            'funcionarioativo'=> $this->input->post('funcionarioativo'),
+            'admincadastro'=> $this->input->post('admincadastro')
         );
         $this->db->insert('tbl_agente', $datamaster);
     }
@@ -49,6 +50,7 @@ class Agente_model extends CI_Model{
 
     public function update($id, $atualizar){ // Recebe os dados do controller de cadastro
         $this->db->where('id', $id);
+
         return $this->db->update("tbl_agente", $atualizar);
 
     }

@@ -18,7 +18,12 @@ class Presos_model extends CI_Model{
             'dataprisao'=> $this->input->post('dataprisao'),
             'documentacao'=> $this->input->post('documentacao'),
             'crimerepercurssao'=> $this->input->post('crimerepercurssao'),
-            'observacoesgerais'=> $this->input->post('observacoesgerais')
+            'observacoesgerais'=> $this->input->post('observacoesgerais'),
+            'regime'=> $this->input->post('regime'),
+            'sexo'=> $this->input->post('sexo'),
+            'cadastrante'=> $this->input->post('cadastrante'),
+            'funcaocadastrante'=> $this->input->post('funcaocadastrante'),
+            'matriculacadastrante'=> $this->input->post('matriculacadastrante')
         );
         $this->db->insert('tbl_presos', $data);
 

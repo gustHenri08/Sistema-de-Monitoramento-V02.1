@@ -10,8 +10,7 @@ class Login extends CI_Controller{
     $this->load->view('login-view'); // Carrega a view de login
 
   }
-
-
+  
   public function verifica(){    	// faz a verificação pra ver se a pessoa tem o login e a senha
          
     $this->load->model("Login_model");
@@ -38,10 +37,12 @@ class Login extends CI_Controller{
         
           // Define quais funções podem acessar o sistema
         if($funcao == "Administrador"){
+          $this->session->set_userdata($user);
 
           redirect("Home/adminHome"); // Chama as views de Administrador;
 
-        }elseif($funcao == "Agente"){      
+        }elseif($funcao == "Agente"){ 
+          $this->session->set_userdata($user);     
 
           redirect("Home");          // Chama as views de Agente; 
 
@@ -53,8 +54,14 @@ class Login extends CI_Controller{
 
     }else{
       redirect("Login");
-    }
+    }    
 
+  }
+  
+  public function logout(){
+    
+    $this->session->sess_destroy();
+    redirect("Login");
   }
 
 }
