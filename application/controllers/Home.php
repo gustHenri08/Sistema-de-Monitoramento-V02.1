@@ -2,6 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller{
+    public function __construct(){
+        parent:: __construct();
+        $nome = $this->session->userdata("nomecompleto");//Variável que será usada para conferir se tem um nome em uma session
+        if($nome == ""){ //Responsável por fazer o bloqueio das telas se não tiver uma session com dados registrados
+            redirect("Login");
+        }else{}
+    }
 
 /* Views Referentes ao Acesso do Agente */
 

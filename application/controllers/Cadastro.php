@@ -5,6 +5,10 @@ class Cadastro extends CI_Controller{
     public function __construct(){
         parent:: __construct();
         $this->load->model('Agente_model'); //carregando o model do agente
+        $nome = $this->session->userdata("nomecompleto");//Variável que será usada para conferir se tem um nome em uma session
+        if($nome == ""){ //Responsável por fazer o bloqueio das telas se não tiver uma session com dados registrados
+            redirect("Login");
+        }else{}
     }
 
     public function index(){

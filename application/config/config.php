@@ -370,8 +370,8 @@ $config['encryption_key'] = "46a79a8fd9fb015b70d549899fc2ac61";
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = 'C:\xampp\htdocs\Session'; // Pasta onde devem ser salvas as session tem que ser criada vcs podem criar em 
-                                                       // qualquer outro lugar o caminho tem que ser completo igual a esse
+$config['sess_save_path'] = 'C:\xampp\htdocs\Session'; // Pasta onde vcs estarão salvando as session que serão criadas.
+                                                       // pode ser criado em qualquer outro lugar mas tem que se colocar o caminho completo assim como eu fiz
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;

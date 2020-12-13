@@ -55,7 +55,7 @@
         <div>
             <ul class="navbar nav"> <!-- Corresponde as informações do Botão/Link "Sair" -->
               <li class="nav-item">
-                <a href="<?php echo site_url('Login'); ?>" class="nav-link" style="height: 50px;">Sair</a>
+                <a href="<?php echo site_url('Login/logout'); ?>" class="nav-link" style="height: 50px;">Sair</a>
               </li>
             </ul>
         </div>
@@ -75,7 +75,7 @@
           <img src="" class="" alt=""> <!--Foto do Usuario, não pode tirar esse bloco se n quebra a view-->
         </div>
         <div class="pull-left info">
-          <p>Zaqueu Souza</p>
+          <p><?php echo ($this->session->userdata("nomecompleto"));?></p>
         </div>
       </div>
       <!-- search form -->

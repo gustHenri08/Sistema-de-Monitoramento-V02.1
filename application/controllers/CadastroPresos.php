@@ -5,6 +5,10 @@ class CadastroPresos extends CI_Controller{
     public function __construct(){
         parent:: __construct();
         $this->load->model('Presos_model');//carregando o model dos presos
+        $nome = $this->session->userdata("nomecompleto");//Variável que será usada para conferir se tem um nome em uma session
+        if($nome == ""){ //Responsável por fazer o bloqueio das telas se não tiver uma session com dados registrados
+            redirect("Login");
+        }else{}
     }
 
     public function index(){
@@ -21,7 +25,7 @@ class CadastroPresos extends CI_Controller{
         $edit['detentos'] = $this->Presos_model->showpresos($idpresos);
 
 
-        $this->load->view('agentes/cadastrar-presos-view', $edit);
+        $this->load->view('agentes/cadastros/cadastrar-presos-view', $edit);
     }
 
     public function updatepresos($idpresos){// Recebe os dados de 'cadastro-agente-view' e envia para a funcao update do Agente_Model
