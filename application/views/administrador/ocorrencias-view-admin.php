@@ -206,7 +206,7 @@
                <tbody>
                  <tr>
                    <td>CP de Paulista</td>
-                   <td><a href="Cadastrar_ocorrencia_presos">Fulano de Tal</td>
+                   <td><a href="<?php echo site_url('Home/cadastrarOcorrenciasAdmin'); ?>">Fulano de Tal</td>
                    <td>Mãe do Fulano de Tal</td>
                    <td>Pai do Fulano de Tal</td>
                    <td>123123</td>

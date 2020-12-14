@@ -53,7 +53,7 @@
         <div>
             <ul class="navbar nav"> <!-- Corresponde as informações do Botão/Link "Sair" -->
               <li class="nav-item">
-                <a href="<?php echo site_url('Login'); ?>" class="nav-link" style="height: 50px;">Sair</a>
+                <a href="<?php echo site_url('Login/logout'); ?>" class="nav-link" style="height: 50px;">Sair</a>
               </li>
             </ul>
         </div>
