@@ -177,8 +177,7 @@
                   <div id="example1_filter" class="dataTables_filter">
                     <label>Procurar Detento:  <input type="text" name="pesquisar" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
                       <br><button type="submit" class="btn btn-primary">Buscar</button></br>
-                      <a href="<?php echo site_url('cadastrar_sair'); ?> " class="btn btn-primary btn-xs pull-right">Cadastrar</a>
-                    </label>
+                     </label>
                   </div>
                 </div>
               </form>
