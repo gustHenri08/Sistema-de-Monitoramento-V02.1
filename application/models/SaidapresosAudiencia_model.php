@@ -7,7 +7,7 @@ class SaidapresosAudiencia_model extends CI_Model{
         $this->load->database();
     }
  
-    function SaidapresosAudiencia(){ // Função reponsável por cadastrar os presos ao bando de dados: db_presos
+    function cadastroMaster(){ // Função reponsável por cadastrar os presos ao bando de dados: db_presos
         $data = array(
             'cadeiapublica'=> $this->input->post('cadeiapublica'), //Recebe os dados via post
             'data'=> $this->input->post('data'),
@@ -22,16 +22,39 @@ class SaidapresosAudiencia_model extends CI_Model{
     }
 
     
+  public function cadastrados(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
+        return $this->db->get("tbl_saidadetentos")->result_array();
+    }
+    public function buscar($busca){
+        
+        if(empty($busca))
+            return array();
 
-function get_cadastrar_sair_like ()  {
+        $busca = $this->input->post('busca');
 
-    $termo = $this->input->post('pesquisar');
-      $this->db->select('*');
-      $this->db->like ('nome',$termo);
-     return $this->db->get('tbl_saidaaudiencia')->result();
-		
+        $this->db->like('nome', $busca);
+        $query = $this->db->get('tbl_saidadetentos');
+        return $query->result_array();
 
-	}
+        
 
+    }
+    public function show($id){
+        return $this->db->get_where('tbl_saidaaudiencia', array(
+            "id" => $id
+        ))->row_array();
+    }
+    public function shows($id){
+        return $this->db->get_where('tbl_saidadetentos', array(
+            "id" => $id
+        ))->row_array();
+    }
+    
+
+    public function update($id, $atualizar){
+        $this->db->where('id', $id);
+        return $this->db->update("tbl_saidaaudiencia", $atualizar);
+
+    }
 
 }

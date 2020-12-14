@@ -198,6 +198,23 @@
                 </thead>
                 <tbody>
             
+                <?php foreach($saidadetentos as $agents) : ?>
+                        <tr>
+                            <td><?= $agents['id']?></td>
+                            <td><?= $agents['cadeiapublica']?></td>
+                            <td>  <a href="<?= base_url() ?>index.php/Cadastrar_sair/cadastrarMaster/<?= $agents["id"] ?>">
+                            <?= $agents['nome']?></td> </a>  
+                            <td><?= $agents['nomemae']?></td>
+                            <td><?= $agents['nomepai']?></td>
+                            <td><?= $agents['nsiap']?></td>
+                        
+                            <td>
+                            <a href="<?= base_url() ?>index.php/Cadastrar_sair/editMaster/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">editar</a>
+                            </td>
+        
+                        </tr>
+                    <?php endforeach;?>
+
                 </tbody>
               </table>
             </div>

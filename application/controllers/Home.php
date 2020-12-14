@@ -76,13 +76,16 @@ class Home extends CI_Controller{
     // <-- Inicio-Saida de Detentos -->
 
     public function saidaCadeiaPublica()
-    {
-        $this->load->view('agentes/saida-presos-view'); // Carrega a view(Tela) Saida da Cadeia Publica;
+    {   $this->load->model('cadastrar_sair_model');//carregando o model dos presos
+        $data['saidadetentos'] = $this->cadastrar_sair_model->cadastrados();
+        $this->load->view('agentes/saida-presos-view',$data); // Carrega a view(Tela) Saida da Cadeia Publica;
     }
 
     public function saidaAudiencia()
     {
-        $this->load->view('agentes/saida-presosAudiencia-view'); // Carrega a view(Tela) Saida para Audiencia;
+        $this->load->model('SaidapresosAudiencia_model');
+        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastrados();
+        $this->load->view('agentes/saida-presosAudiencia-view',$data); // Carrega a view(Tela) Saida para Audiencia;
     }
 
     public function saidaMedica()
@@ -189,16 +192,20 @@ class Home extends CI_Controller{
     // <-- Final-Relação Aberto e Semi Aberto Admin-->
 
     // <-- Inicio-Saida de Detentos Admin-->
-
     public function saidaCadeiaPublicaAdmin()
     {
-        $this->load->view('administrador/saida-presos-view-admin'); // Carrega a view(Tela) Saida da Cadeia Publica do Admin;
+        $this->load->model('cadastrar_sair_model');//carregando o model dos presos
+        $data['saidadetentos'] = $this->cadastrar_sair_model->cadastrados();
+        $this->load->view('administrador/saida-presos-view-admin',$data); // Carrega a view(Tela) Saida da Cadeia Publica do Admin;
     }
 
     public function saidaAudienciaAdmin()
     {
-        $this->load->view('administrador/saida-presosAudiencia-view-admin'); // Carrega a view(Tela) Saida para Audiencia do Admin;
+        $this->load->model('SaidapresosAudiencia_model');
+        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastrados(); 
+        $this->load->view('administrador/saida-presosAudiencia-view-admin',$data); // Carrega a view(Tela) Saida para Audiencia do Admin;
     }
+
 
     public function saidaMedicaAdmin()
     {

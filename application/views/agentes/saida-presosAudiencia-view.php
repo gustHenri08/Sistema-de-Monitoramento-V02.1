@@ -198,6 +198,23 @@
                 </thead>
                 <tbody>
                
+                <?php foreach($saidadetentos as $agents) : ?>
+                            <tr>
+                            <td><?= $agents['id']?></td>
+                            <td><?= $agents['cadeiapublica']?></td>
+                            <td>  <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/cadastrarMaster/<?= $agents["id"] ?>">
+                                       <?= $agents['nome']?> </a> </td>
+                            <td><?= $agents['numsiap']?></td>
+                            <td><?= $agents['sic']?></td>
+                            <td><?= $agents['datasaida']?></td>
+                            <td><?= $agents['condutores']?></td>
+                            <td> 
+                            <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/editMaster/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
+                            </td>
+
+                        </tr>
+                    <?php endforeach;?>
+
                 </tbody>
               </table>
             </div>
