@@ -57,4 +57,27 @@ class SaidapresosAudiencia_model extends CI_Model{
 
     }
 
+    // modal do saidaMedicaAdmin e normal
+
+    function cadastroMastermedico(){ // Função reponsável por cadastrar os presos ao bando de dados: db_presos
+        $data = array(
+            'cadeiapublica'=> $this->input->post('cadeiapublica'), //Recebe os dados via post
+            'data'=> $this->input->post('data'),
+            'numsiap'=> $this->input->post('numsiap'),
+            'sic'=> $this->input->post('sic'),
+            'nome'=> $this->input->post('nome'),
+            'cidade-forum'=> $this->input->post('cidade-forum'),
+            'condutores'=> $this->input->post('condutores')
+            );
+        $this->db->insert('tbl_saidaaudiencia', $data);
+
+    }
+
+    public function updatemedico($id, $atualizar){
+        $this->db->where('id', $id);
+        return $this->db->update("tbl_saidaaudiencia", $atualizar);
+
+    }
+
+
 }

@@ -89,14 +89,13 @@ class Home extends CI_Controller{
     }
 
     public function saidaMedica()
-    {
-        $this->load->view('agentes/saida-presosMedica-view'); // Carrega a view(Tela) Saida Medica;
-    }
+        {   $this->load->model('SaidapresosAudiencia_model');//carregando o model dos presos
+            $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastrados();
+            $this->load->view('administrador/saida-presosMedica-view',$data);  // Carrega a view(Tela) Saida Medica;
+         }
 
-    // <-- Final-Saida de Detentos -->
-
-    // <-- Inicio-Trânsito -->
-
+    
+    
     public function transitoInterno()
     {
         $this->load->view('agentes/transito-interno-view'); // Carrega a view(Tela) Trânsito Interno;
@@ -209,7 +208,10 @@ class Home extends CI_Controller{
 
     public function saidaMedicaAdmin()
     {
-        $this->load->view('administrador/saida-presosMedica-view-admin'); // Carrega a view(Tela) Saida Medica do Admin;
+       
+        $this->load->model('SaidapresosAudiencia_model');//carregando o model dos presos
+        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastrados();
+        $this->load->view('administrador/saida-presosMedica-view-admin',$data); 
     }
 
     // <-- Final-Saida de Detentos Admin-->

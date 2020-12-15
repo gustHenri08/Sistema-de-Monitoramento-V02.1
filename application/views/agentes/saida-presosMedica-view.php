@@ -174,10 +174,12 @@
               <div class="dataTables_length" id="example1_length">
        
               </div>
-              <form action="<?=site_url('Saidapresos/pesquisar')?>" method="post">
+              <form action="<?=site_url('SaidapresosAudiencia/resultado')?>" method="post">
                 <div class="col-sm-6">
                   <div id="example1_filter" class="dataTables_filter">
-                    <label>Procurar Detento:<input type="search" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1"></label>
+                    <label>Procurar Detento:  <input type="text" name="pesquisar" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
+                      <br><button type="submit" class="btn btn-primary">Buscar</button></br>
+                    </label>
                   </div>
                 </div>
               </form>
@@ -193,32 +195,30 @@
                   <th>Data</th>
                   <th>Motivo</th>
                   <th>Condutores</th>
-                  <th>Descrição da Saída</th>
+                  <th>Ação</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>CP Carpina</td>
-                  <td><a href="tela de edição">Felipe Henrique Moura Canuto</a></td>
-                  <td>129401</td>
-                  <td>123491</td>
-                  <td>23/01/2019</td>
-                  <td>Fuga</td>
-                  <td>PCPE</td>
-                  <td>xxxxxx</td> 
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>CP Timbauba</td>
-                  <td><a href="tela de edição">Zaqueu Souza</a></td>
-                  <td>129404</td>
-                  <td>192910</td>
-                  <td>22/12/2018</td>
-                  <td>Evasão</td>
-                  <td>PCPE</td>
-                  <td>xxxxxx</td>
-                </tr>
+  
+              <?php foreach($saidadetentos as $agents) : ?>
+                            <tr>
+                            <td><?= $agents['id']?></td>
+                            <td><?= $agents['cadeiapublica']?></td>
+                            <td><a href="<?= base_url() ?>index.php/SaidapresosAudiencia/cadastrarMaster/<?= $agents["id"] ?>">
+                                <?= $agents['nome']?> </a> </td>
+                            <td><?= $agents['numsiap']?></td>
+                            <td><?= $agents['sic']?></td>
+                            <td><?= $agents['datasaida']?></td>
+                            <td><?= $agents['motivo']?></td>
+                            <td><?= $agents['condutores']?></td>
+                          
+                            <td> 
+                            <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/editMaster/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
+                            </td>
+
+                        </tr>
+                    <?php endforeach;?>
+
 
               </tbody>
             </table>
