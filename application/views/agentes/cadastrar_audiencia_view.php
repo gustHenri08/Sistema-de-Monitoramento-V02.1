@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SMT | Entrada de Detentos</title>
+  <title>SMT | Trânsito Externo </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/Ionicons/css/ionicons.min.css">
+  <!--DataTables-->
+  <script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap.css"></script>
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -34,11 +36,11 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?php echo site_url('Home'); ?>" class="logo">
+    <a href="<?php echo site_url('Home/adminHome'); ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>SMP</b></span>
+      <span class="logo-mini"><b>Admin</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>SMP</b></span>
+      <span class="logo-lg"><b>Admin</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -73,7 +75,7 @@
           <img src="" class="" alt=""> <!--Foto do Usuario, não pode tirar esse bloco se n quebra a view-->
         </div>
         <div class="pull-left info">
-          <p><?php echo ($this->session->userdata("nomecompleto"));?></p>
+        <p><?php echo ($this->session->userdata("nomecompleto"));?></p>
         </div>
       </div>
       <!-- search form -->
@@ -89,20 +91,26 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">Principal</li>
+      <li class="header">Principal</li>
         <li>
-          <a href="<?php echo site_url('Home'); ?>"> <!-- Link do Home, ao ser clicado ele retorna o controller-->
+          <a href="<?php echo site_url('Home/adminHome'); ?>"> <!-- Link do Home, ao ser clicado ele retorna o controller-->
             <i class="fa fa-home"></i> <span>Home</span>
           </a>
         </li>
         <li>
-          <a href="<?php echo site_url('Home/entradaPresos'); ?> ">
+          <a href="<?php echo site_url('Home/agentes'); ?>"> <!-- Link do Home, ao ser clicado ele retorna o controller-->
+          <i class="fa fa-user-plus"></i>
+            <span>Agentes</span>
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo site_url('Home/entradaPresosAdmin'); ?> ">
             <i class="fa fa-user-plus"></i>
             <span>Entrada de Detentos</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo site_url('Home'); ?>">
+          <a href="<?php echo site_url(''); ?>">
             <i class="fa fa-registered"></i>
             <span>Ocorrências</span>
             <span class="pull-right-container">
@@ -110,20 +118,19 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('Ocorrencias'); ?>"><i class="fa fa-registered"></i> Registro de Ocorrências </a></li>
-            <li><a href="<?php echo site_url('Outras_ocorrencias'); ?>"><i class="fa fa-registered"></i> Outras Ocorrências </a></li>
-            <li><a href="<?php echo site_url('Apreensoes'); ?>"><i class="fa fa-ban"></i> Revistas e Apreensões </a></li>
-
+            <li><a href="<?php echo site_url('Home/registroOcorrenciasAdmin'); ?>"><i class="fa fa-registered"></i> Registro de Ocorrências </a></li>
+            <li><a href="<?php echo site_url('Home/outrasOcorrenciasAdmin'); ?>"><i class="fa fa-registered"></i> Outras Ocorrências </a></li>
+            <li><a href="<?php echo site_url('Home/revistasApreensoesAdmin'); ?>"><i class="fa fa-ban"></i> Revistas e Apreensões </a></li>
           </ul>
         </li>
         <li>
-          <a href="<?php echo site_url('SemiAberto_e_Aberto'); ?> ">
+          <a href="<?php echo site_url('Home/abertoSemiabertoAdmin'); ?> ">
             <i class="fa fa-file-text-o"></i>
             <span>Relação Aberto / Semi-Aberto</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo site_url('Home'); ?>">
+          <a href="<?php echo site_url(''); ?>">
             <i class="fa fa-user-times"></i>
             <span>Saida do Detento</span>
             <span class="pull-right-container">
@@ -131,21 +138,21 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('Saidapresos'); ?>"><i class="fa fa-key"></i> Saída da Cadeia Pública</a></li>
-            <li><a href="<?php echo site_url('SaidapresosAudiencia'); ?>"><i class="fa fa-cab"></i> Saída para Audiência</a></li>
-            <li><a href="<?php echo site_url('SaidapresosMedica'); ?>"><i class="fa fa-ambulance"></i> Saída Médica</a></li>
+            <li><a href="<?php echo site_url('Home/saidaCadeiaPublicaAdmin'); ?>"><i class="fa fa-key"></i> Saída da Cadeia Pública</a></li>
+            <li><a href="<?php echo site_url('Home/saidaAudienciaAdmin'); ?>"><i class="fa fa-cab"></i> Saída para Audiência</a></li>
+            <li><a href="<?php echo site_url('Home/saidaMedicaAdmin'); ?>"><i class="fa fa-ambulance"></i> Saída Médica</a></li>
           </ul>
         </li>
         <li class="treeview">
-          <a href="<?php echo site_url('Home'); ?>">
+          <a href="<?php echo site_url(''); ?>">
             <i class="fa fa-edit"></i> <span>Trânsito</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('TransitoInterno'); ?>"><i class="fa fa-refresh"></i> Trânsito Interno</a></li>
-            <li><a href="<?php echo site_url('TransitoExterno'); ?>"><i class="fa fa-exchange"></i> Trânsito Externo</a></li>
+            <li><a href="<?php echo site_url('Home/transitoInternoAdmin'); ?>"><i class="fa fa-refresh"></i> Trânsito Interno</a></li>
+            <li><a href="<?php echo site_url('Home/transitoExternoAdmin'); ?>"><i class="fa fa-exchange"></i> Trânsito Externo</a></li>
           </ul>
         </li>
     </section>
@@ -187,58 +194,108 @@
         <!--Inicio do Box Body-->
         <div class="box-body">
           <!--Inicio do Formulario-->
-          <form role="form" method="post" action="<?php echo site_url('SaidapresosAudiencia/create')?>"><!--Em Testes | chama o controller responsavel por cadastro-->
-          	<div class="form-group"> <!--Campo Cadeia Publica-->
-          			<label>Cadeia Publica</label>
-          			<select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-          				<option>CP de Aliança</option>
-          				<option>CP de Carpina</option>
-          				<option>CP de Glória do Goitá</option>
-          				<option>CP de Goiana</option>
-          				<option>CP de Itambé</option>
-          				<option>CP de Lagoa do Carro</option>
-          				<option>CP de Macaparana</option>
-          				<option>CP de Nazaré da Mata</option>
-          				<option>CP de Timbauba</option>
-          				<option>CP de Vicência</option>
-          			</select>
-          	</div>
+            <!--Inicio do Formulario-->
+            <?php if(isset($saidadetentos)) : ?>
+              <form method="post" action="<?= base_url() ?>index.php/SaidapresosAudiencia/createMaster/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
+               
+            <?php endif; ?>
+             <!--Em Testes | chama o controller responsavel por cadastro-->
+           
+             <div class="form-group"> <!-- Nome do Detento-->
+          		<label>Agente Penitenciário</label>
+          		<input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+            </div>
+            
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<label>Função Agente</label>
+          		<input type="text" class="form-control" name="funcaocadastrante" placeholder="Função Agente" value="<?= isset($agentes) ? ($this->session->userdata("funcao")) : ($this->session->userdata("funcao"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+            </div>
+            
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<label>Matrícula Agente</label>
+          		<input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+            </div>
+           
+            <div class="form-group"> <!--Campo Cadeia Publica-->
+                <label>Cadeia Publica</label>
+                <select class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>">  <!-- 'name=' adicionado-->
+                  <option>CP de Aliança</option>
+                  <option>CP de Carpina</option>
+                  <option>CP de Glória do Goitá</option>
+                  <option>CP de Goiana</option>
+                  <option>CP de Itambé</option>
+                  <option>CP de Lagoa do Carro</option>
+                  <option>CP de Macaparana</option>
+                  <option>CP de Nazaré da Mata</option>
+                  <option>CP de Timbauba</option>
+                  <option>CP de Vicência</option>
+                </select>
+            </div>
+
+           
+            <div class="form-group"> <!--Crime de Repercussão-->
+                <label>Sexo</label>
+                <?php if(isset($saidadetentos)) :?>
+                  <select class="form-control" style="width: 110px" name="sexo"><!-- 'name=' adicionado-->
+                    <option><?= $desaidadetentostentos["sexo"]?></option>
+                    <option>Masculino</option>
+                    <option>Feminino</option>
+                  </select>
+                <?php else :?>
+                  <select class="form-control" style="width: 110px" name="sexo"><!-- 'name=' adicionado-->                    
+                    <option>Masculino</option>
+                    <option>Feminino</option>
+                  </select>
+                <?php endif;?>
+            </div>
 
             <div class="form-group">
               <label>Data de Entrada</label>
-              <input type="text" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px"  ><!-- 'name=' adicionado-->
               </div>
 
-          	<div class="form-group"> <!-- Nome do Detento-->
-          		<label>Nome</label>
-          		<input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px"><!-- 'name=' adicionado-->
-          	</div>
+            <div class="form-group"> <!-- Nome do Detento-->
+              <label>Nome</label>
+              <input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>"><!-- 'name=' adicionado-->
+            </div>
 
-          	<div class="form-group"> <!-- Nome dpa Mãjbejjee-->
-          		<label>Nº SIAP</label>
-          		<input type="text" class="form-control" name="numsiap" placeholder="Nº SIAP" style="width:300px"><!-- 'name=' adicionado-->
-          	</div>
+            <div class="form-group"> <!-- Nome dpa Mãjbejjee-->
+              <label>Nº SIAP</label>
+              <input type="text" class="form-control" name="numsiap" placeholder="Nº SIAP" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["numsiap"] : "" ?>"><!-- 'name=' adicionado-->
+            </div>
 
-          	<div class="form-group"> <!-- Nome do Pai-->
-          		<label>SIC</label>
-          		<input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"><!-- 'name=' adicionado-->
-          	</div>
-
-              <div class="form-group"> <!-- Nome do Pai-->
-          		<label>Cidade - Fórum</label>
-          		<input type="text" class="form-control" name="cidade-forum" placeholder="Cidade - Fórum" style="width:300px"><!-- 'name=' adicionado-->
-          	</div>
+            <div class="form-group"> <!-- Nome do Pai-->
+              <label>SIC</label>
+              <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"value=" <?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"><!-- 'name=' adicionado-->
+            </div>
 
               <div class="form-group"> <!-- Nome do Pai-->
-          		<label>Condutores</label>
-          		<input type="text" class="form-control" name="condutores" placeholder="Condutores" style="width:300px"><!-- 'name=' adicionado-->
-          	</div>
+              <label>Cidade - Fórum</label>
+              <input type="text" class="form-control" name="cidade-forum" placeholder="Cidade - Fórum" style="width:300px" ><!-- 'name=' adicionado-->
+            </div>
+
+              <div class="form-group"> <!-- Nome do Pai-->
+              <label>Condutores</label>
+              <input type="text" class="form-control" name="condutores" placeholder="Condutores" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["condutores"] : "" ?>"><!-- 'name=' adicionado-->
+            </div>
 
             <br>
 
-            <div class="col-xs-2"> <!--Botão Cadastrar-->
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
-            </div>
+            <?php if(isset($criars)) :?>
+
+<div class="col-xs-2"> <!--Botão Cadastrar-->
+  <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+</div>
+
+<?php else: ?>
+<div class="col-xs-2"> <!--Botão Cadastrar-->
+  <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+</div>
+
+<?php endif; ?>
+
+<div> <!--Botão Cadastrar-->
+</div>
 
           </form>
           <!--Fim do Formulario-->
