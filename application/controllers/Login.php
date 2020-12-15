@@ -63,12 +63,5 @@ class Login extends CI_Controller{
     redirect("Login");
   }
 
-  //////////////////////////////////////////////////////
-
-  public function cadastroinicio(){ // Cadastro antes do login -> o Agente faz um cadastro de alguma das suas informações
-
-    $this->load->view('cadastro-view'); //Carrega a view de cadastro do agente
-
-}
 
 }

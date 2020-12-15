@@ -58,7 +58,7 @@
 
 
             <br>
-            <a href="<?php echo site_url('Login/cadastroinicio'); ?>" class="text-center">Cadastrar-se</a>
+            <a href="<?php echo site_url('Cadastro'); ?>" class="text-center">Cadastrar-se</a>
 
         </div>
         <!-- /.login-box-body -->
