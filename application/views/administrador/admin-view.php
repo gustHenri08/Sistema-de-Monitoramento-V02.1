@@ -389,7 +389,7 @@
               <div id="example1_filter" class="dataTables_filter">
                 <label>Procurar Núcleo:  
                   <select class="form-control" style="width: 200px" name="nucleo">
-                    <option>Arco-Verde</option>
+                    <option>Arcoverde</option>
                     <option>Caruaru</option>
                     <option>Garanhuns</option>
                     <option>Lagoa</option>
@@ -413,7 +413,7 @@
                   datasets:[
                     { label:"Nome da CP",
                       //*Número de presos por Núcleo*//
-                      data:[50,300,210,300,400,201,190,103,401,021,491,029,194,102,100,190,102,193],
+                      data:[50,300,210,300,400,201,190,103,401,021,491,030,194,102,100,190,102,193],
                       backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)","rgba(0, 0, 0, 10)","rgba(0, 0, 255, 10)","rgba(0, 191, 255, 10)","rgba(0, 0, 128, 10)","rgba(0, 255, 127, 10)","rgba(210,105,30,10)","rgba(75,0,130,10)","rgba(255,228,181,10)","rgba(238,232,170,10)"],
                       borderColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)","rgba(0, 0, 0, 10)","rgba(0, 0, 255, 10)","rgba(0, 191, 255, 10)","rgba(0, 0, 128, 10)","rgba(0, 255, 127, 10)","rgba(210,105,30,10)","rgba(75,0,130,10)","rgba(255,228,181,10)","rgba(238,232,170,10)"],
                       borderWidth:2
