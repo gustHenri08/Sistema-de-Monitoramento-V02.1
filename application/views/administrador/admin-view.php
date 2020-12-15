@@ -212,67 +212,247 @@
           </div>
         </div>
         <div class="box-body">
-          <canvas class="line-chart"></canvas>
+          <div class="col-md-12">
+            <h3>Número de Presos por Categorias</h3>
+            <br>
+            <br>
+            <canvas class="bar-chart"></canvas>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+            <script>
+              var ctx = document.getElementsByClassName("bar-chart");
+
+              var chartGraph = new Chart(ctx, {
+                  type: 'bar',
+                  data:{
+                    labels: ["Homens","Mulheres","Regime Aberto","Regime Semi-Aberto","Regime Fechado"],
+                    datasets:[
+                      { label:"Núcleo Arco-Verde",
+                        //*Número de presos por Núcleo*//
+                        data:[50,300,210,300,400,500,600,700,800,900,1000],
+                        backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
+                        borderColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Caruaru",
+                        //*Número de presos por Núcleo*//
+                        data:[55,250,250,350,450,550,650,750,850,950,1050],
+                        backgroundColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
+                        borderColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Garanhuns",
+                        //*Número de presos por Núcleo*//
+                        data:[60,200,450,350,450,550,650,750,850,950,1050],
+                        backgroundColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
+                        borderColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Lagoa",
+                        //*Número de presos  no Núcleo*//
+                        data:[65,150,200,350,450,550,650,750,850,950,1050],
+                        backgroundColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
+                        borderColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Petrolina",
+                        //*Número de presos por Núcleo*//
+                        data:[70,100,150,350,450,550,650,750,850,950,1050],
+                        backgroundColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
+                        borderColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Salgueiro",
+                        //*Número de presos por Núcleo*//
+                        data:[75,50,250,350,450,550,650,750,850,950,1050],
+                        backgroundColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                        borderColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                        borderWidth:2
+                        },
+                      ],
+                    },
+                    options:{
+                      scales: {
+                        yAxes: [{
+                          scaleLabel: {
+                            display: true,
+                            labelString: 'Número de Presos'
+                          }
+                        }],
+                        xAxes:[{
+                          scaleLabel:{
+                            fontColor: 'black',
+                            display: true,
+                            labelString: 'Categorias'
+                          }
+                        }]
+                      }
+                    }
+                  });
+                  
+            </script>
+          </div>
+
+          <div class="col-md-12">
+            <h3>Motivo de Entrada de Presos</h3>
+            <br>
+            <br>
+            <canvas class="bar-chart2"></canvas>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+            <script>
+              var ctx = document.getElementsByClassName("bar-chart2");
+
+              var chartGraph = new Chart(ctx, {
+                  type: 'bar',
+                  data:{
+                    labels: ["Expiração de Prazo","Mandado de Prisão Civil","Mandado de Prisão Preventiva","Mandado de Prisão Temporária","Mandado de Recolhimento","Recaptura - Mandado de Prisão","Tansferência","Trânsito","Outros"],
+                    datasets:[
+                      { label:"Núcleo Arco-Verde",
+                        //*Número de presos por Núcleo*//
+                        data:[50,300,210,300,400,500,600,700,800,900,1000],
+                        backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
+                        borderColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Caruaru",
+                        //*Número de presos por Núcleo*//
+                        data:[55,250,250,350,450,550,650,750,850,950,1050],
+                        backgroundColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
+                        borderColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Garanhuns",
+                        //*Número de presos por Núcleo*//
+                        data:[60,200,450,350,450,550,650,750,850,950,1050],
+                        backgroundColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
+                        borderColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)",],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Lagoa",
+                        //*Número de presos  no Núcleo*//
+                        data:[65,150,200,350,450,550,650,750,850,950,1050],
+                        backgroundColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
+                        borderColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Petrolina",
+                        //*Número de presos por Núcleo*//
+                        data:[70,100,150,350,450,550,650,750,850,950,1050],
+                        backgroundColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
+                        borderColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Salgueiro",
+                        //*Número de presos por Núcleo*//
+                        data:[75,50,250,350,450,550,650,750,850,950,1050],
+                        backgroundColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                        borderColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                        borderWidth:2
+                        },
+                      ],
+                    },
+                    options:{
+                      scales: {
+                        yAxes: [{
+                          scaleLabel: {
+                            display: true,
+                            labelString: 'Número de Presos'
+                          }
+                        }],
+                        xAxes:[{
+                          scaleLabel:{
+                            fontColor: 'black',
+                            display: true,
+                            labelString: 'Motivos'
+                          }
+                        }]
+                      }
+                    }
+                  });
+                  
+            </script>
+          </div>
+
+          <div class="col-md-6">
+            <br><br><br>
+            <h3>Motivo de Saída de Presos</h3>
+            <div class="col-sm-6">
+              <div id="example1_filter" class="dataTables_filter">
+                <label>Procurar Núcleo:  
+                  <select class="form-control" style="width: 200px" name="nucleo">
+                    <option>Arco-Verde</option>
+                    <option>Caruaru</option>
+                    <option>Garanhuns</option>
+                    <option>Lagoa</option>
+                    <option>Petrolina</option>
+                    <option>Salgueiro</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+          <br>
+          <br>
+          <canvas class="doughnut-chart2"></canvas>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
           <script>
-            var ctx = document.getElementsByClassName("line-chart");
+            var ctx = document.getElementsByClassName("doughnut-chart2");
 
             var chartGraph = new Chart(ctx, {
-                type: 'bar',
+                type: 'doughnut',
                 data:{
-                  labels: ["Homens","Mulheres","Regime Aberto","Regime Semi-Aberto","Regime Fechado"],
+                  labels: ["Alvará de Soltura","Delegacia","Domiciliar COVID","Evasão","Fim de Prazo da Prisão Civil","Fim de prazo da Prisão Temporária","Fuga","Harmonizado","Liberdade Condicional","Óbito","Óbito CVLI","Prisão Domicilar","Progressão de Regime","Transferência P/CP","Transferência P/UF","Transferência P/UP","Trânsito","Outros"],
                   datasets:[
-                    { label:"Núcleo Arco-Verde",
+                    { label:"Nome da CP",
                       //*Número de presos por Núcleo*//
-                      data:[50,300,210,300,400,500,600,700,800,900,1000],
-                      backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
-                      borderColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
-                      borderWidth:2
-                      },
-                      {
-                      label:"Núcleo Caruaru",
-                      //*Número de presos por Núcleo*//
-                      data:[55,250,250,350,450,550,650,750,850,950,1050],
-                      backgroundColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
-                      borderColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
-                      borderWidth:2
-                      },
-                      {
-                      label:"Núcleo Garanhuns",
-                      //*Número de presos por Núcleo*//
-                      data:[60,200,450,350,450,550,650,750,850,950,1050],
-                      backgroundColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
-                      borderColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
-                      borderWidth:2
-                      },
-                      {
-                      label:"Núcleo Lagoa",
-                      //*Número de presos  no Núcleo*//
-                      data:[65,150,200,350,450,550,650,750,850,950,1050],
-                      backgroundColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
-                      borderColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
-                      borderWidth:2
-                      },
-                      {
-                      label:"Núcleo Petrolina",
-                      //*Número de presos por Núcleo*//
-                      data:[70,100,150,350,450,550,650,750,850,950,1050],
-                      backgroundColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
-                      borderColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
-                      borderWidth:2
-                      },
-                      {
-                      label:"Núcleo Salgueiro",
-                      //*Número de presos por Núcleo*//
-                      data:[75,50,250,350,450,550,650,750,850,950,1050],
-                      backgroundColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
-                      borderColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                      data:[50,300,210,300,400,201,190,103,401,021,491,029,194,102,100,190,102,193],
+                      backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)","rgba(0, 0, 0, 10)","rgba(0, 0, 255, 10)","rgba(0, 191, 255, 10)","rgba(0, 0, 128, 10)","rgba(0, 255, 127, 10)","rgba(210,105,30,10)","rgba(75,0,130,10)","rgba(255,228,181,10)","rgba(238,232,170,10)"],
+                      borderColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)","rgba(0, 0, 0, 10)","rgba(0, 0, 255, 10)","rgba(0, 191, 255, 10)","rgba(0, 0, 128, 10)","rgba(0, 255, 127, 10)","rgba(210,105,30,10)","rgba(75,0,130,10)","rgba(255,228,181,10)","rgba(238,232,170,10)"],
                       borderWidth:2
                       },
                     ],
                   }
                 });
           </script>
+          <br>
+        </div>
+        <div class="col-md-6">
+          <br><br><br>
+          <h3>Motivo de Autorização de Saída de Presos</h3>
+          <br>
+          <br>
+          <br>
+          <canvas id="chart-legend-bottom" class="doughnut-chart3"></canvas>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+          <script>
+            var ctx = document.getElementsByClassName("doughnut-chart3");
+
+            var chartGraph = new Chart(ctx, {
+                type: 'doughnut',
+                data:{
+                  labels: ["Audiência Presencial","Consulta Médica","Consulta Odontológica","Emergência","Escolta Funeral","Exames Complexos","Exames Laboratoriais","Internação Hospitalar","Outros"],
+                  datasets:[
+                    { label:"Entrada de Presos",
+                      //*Número de presos por Núcleo*//
+                      data:[50,300,210,300,400,500,600,700,800],
+                      backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)"],
+                      borderColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)"],
+                      borderWidth:2
+                      },
+                    ],
+                  }
+                });
+          </script>
+        </div>
+          
         </div>
         <!-- /.box-body -->
         
