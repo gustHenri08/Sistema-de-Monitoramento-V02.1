@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title> SMT | Home </title>
+  <title> SMP | Home </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -65,7 +65,7 @@
         <div>
             <ul class="navbar nav"> <!-- Corresponde as informações do Botão/Link "Sair" -->
               <li class="nav-item">
-                <a href="<?php echo site_url('Login'); ?>" class="nav-link" style="height: 50px;">Sair</a>
+                <a href="<?php echo site_url('Login/logout'); ?>" class="nav-link" style="height: 50px;">Sair</a>
               </li>
             </ul>
         </div>
@@ -85,7 +85,7 @@
           <img src="" class="" alt=""> <!--Foto do Usuario, não pode tirar esse bloco se n quebra a view-->
         </div>
         <div class="pull-left info">
-          <p>Zaqueu Souza</p>
+          <p><?php echo ($this->session->userdata("nomecompleto"));?></p>
         </div>
       </div>
       <!-- search form -->
@@ -258,7 +258,7 @@
                   datasets:[
                     { label:"Nome da CP",
                       //*Número de presos por Núcleo*//
-                      data:[50,300,210,300,400,201,190,103,401,021,491,029,194,102,100,190,102,193],
+                      data:[50,300,210,300,400,201,190,103,401,021,491,030,194,102,100,190,102,193],
                       backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)","rgba(0, 0, 0, 10)","rgba(0, 0, 255, 10)","rgba(0, 191, 255, 10)","rgba(0, 0, 128, 10)","rgba(0, 255, 127, 10)","rgba(210,105,30,10)","rgba(75,0,130,10)","rgba(255,228,181,10)","rgba(238,232,170,10)"],
                       borderColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)","rgba(0, 0, 0, 10)","rgba(0, 0, 255, 10)","rgba(0, 191, 255, 10)","rgba(0, 0, 128, 10)","rgba(0, 255, 127, 10)","rgba(210,105,30,10)","rgba(75,0,130,10)","rgba(255,228,181,10)","rgba(238,232,170,10)"],
                       borderWidth:2

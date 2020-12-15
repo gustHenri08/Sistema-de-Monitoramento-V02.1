@@ -13,7 +13,7 @@ class Cadastro extends CI_Controller{
 
     public function index(){
 
-        $this->load->view('cadastro-view'); //Carrega a view de cadastro do agente
+        redirect('Login/cadastroinicio'); // Cadastro antes do login -> o Agente faz um cadastro de alguma das suas informações
 
     }
 

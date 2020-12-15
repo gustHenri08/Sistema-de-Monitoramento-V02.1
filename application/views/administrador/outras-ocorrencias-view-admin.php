@@ -204,7 +204,7 @@
                     </td> 
                     <td>
                       <select class="form-control" style="width: 200px" name="nucleo">
-                        <option>Arco-Verde</option>
+                        <option>Arcoverde</option>
                         <option>Caruaru</option>
                         <option>Garanhuns</option>
                         <option>Lagoa</option>
@@ -253,7 +253,7 @@
                     </td> 
                     <td>
                       <select class="form-control" style="width: 200px" name="nucleo">
-                        <option>Arco-Verde</option>
+                        <option>Arcoverde</option>
                         <option>Caruaru</option>
                         <option>Garanhuns</option>
                         <option>Lagoa</option>

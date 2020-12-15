@@ -229,7 +229,7 @@
                 <?php if(isset($agentes)) :?>
                   <select class="form-control" style="width: 200px" name="nucleo">
                     <option><?=$agentes["nucleo"]?></option>
-                    <option>Arco-Verde</option>
+                    <option>Arcoverde</option>
                     <option>Caruaru</option>
                     <option>Garanhuns</option>
                     <option>Lagoa</option>
@@ -238,7 +238,7 @@
                   </select>
                 <?php else: ?>
                   <select class="form-control" style="width: 200px" name="nucleo">
-                    <option>Arco-Verde</option>
+                    <option>Arcoverde</option>
                     <option>Caruaru</option>
                     <option>Garanhuns</option>
                     <option>Lagoa</option>
