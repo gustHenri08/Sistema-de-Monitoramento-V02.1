@@ -15,21 +15,37 @@ class Cadastro extends CI_Controller{
     }
 
     public function create(){ //Carrega a Função cadastroAgente que está no Agente_model
+        $matricula = $this->input->post('matricula');
 
-        $this->Agente_model->cadastroAgente();
-        redirect('Login');
+        if(!$this->Agente_model->verificaMatricula($matricula)){// Função que verifica se a matricula já esta no banco:
+            
+            $this->Agente_model->cadastroAgente();// se não estiver ela cadastra
+            redirect('Login');
+
+        }else{
+            redirect('Cadastro');// se ja estiver voltará para tela de cadastro
+        }
 
     }
 
     public function createMaster(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model
+        $matricula = $this->input->post('matricula');
 
         $nome = $this->session->userdata("nomecompleto");//Variável que será usada para conferir se tem um nome em uma session
         if($nome == ""){ //Responsável por fazer o bloqueio das telas se não tiver uma session com dados registrados
             redirect("Login");
-        }else{}
 
-        $this->Agente_model->cadastroAgenteMaster();
-        redirect('Home/agentes');
+        }elseif(!$this->Agente_model->verificaMatricula($matricula)){ // Função que verifica se a matricula já esta no banco:
+            
+            $this->Agente_model->cadastroAgenteMaster(); // se não estiver ela cadastra
+            redirect('Home/agentes');
+
+        }else{
+            
+            redirect('Home/cadastrarAgente'); // se ja estiver voltará para tela de cadastro
+
+        };
+        
 
     }
 

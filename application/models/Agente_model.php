@@ -17,6 +17,12 @@ class Agente_model extends CI_Model{
         $this->db->insert('tbl_agente', $data);
     }
 
+    public function verificaMatricula($matricula){ // Verifica se a matricula que está sendo cadastrada já consta ou não no banco de dados
+
+        $this->db->where('matricula', $matricula);
+        return $this->db->get('tbl_agente')->row_array();
+    }
+
 
     function cadastroAgenteMaster(){ // Função reponsável por cadastrar os agentes ao bando de dados: db_agente (Cadatro realizado pelo administrador)
         $datamaster = array(
