@@ -28,7 +28,7 @@ class SaidapresosMedica extends CI_Controller{
     }
 
        public function editMaster($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
-        $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->show($id);
+        $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->showss($id);
         $this->load->view('agentes/editar_medica-view', $edit);
     }
     public function cadastrarMaster($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
@@ -57,7 +57,7 @@ class SaidapresosMedica extends CI_Controller{
     public function resultadoadmin(){
         $this->load->model('SaidapresosAudiencia_model');
         $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
-        $this->load->view('administrador/saida-presosMedica-view',$dados);
+        $this->load->view('administrador/saida-presosMedica-view-admin',$dados);
     }
 
     public function createMasteradmin(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model
@@ -66,7 +66,7 @@ class SaidapresosMedica extends CI_Controller{
 
     }
        public function editMasteradmin($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
-        $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->show($id);
+        $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->showss($id);
         $this->load->view('administrador/editar_medica-view_admin', $edit);
     }
     public function cadastrarMasteradmin($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model

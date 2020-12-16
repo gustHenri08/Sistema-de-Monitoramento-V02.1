@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SMT | Trânsito Externo </title>
+  <title>SMT | Cadastro  </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -197,7 +197,7 @@
           <!--Inicio do Formulario-->
             <!--Inicio do Formulario-->
             <?php if(isset($saidadetentos)) : ?>
-              <form method="post" action="<?= base_url() ?>index.php/SaidapresosAudiencia/createMasteradmin/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
+              <form method="post" action="<?= base_url() ?>index.php/SaidapresosMedica/createMasteradmin/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
   
               <!--Em Testes | chama o controller responsavel por cadastro-->              
             <?php endif; ?>
@@ -272,14 +272,20 @@
             </div>
 
               <div class="form-group"> <!-- Nome do Pai-->
-              <label>Cidade - Fórum</label>
-              <input type="text" class="form-control" name="cidade-forum" placeholder="Cidade - Fórum" style="width:300px" ><!-- 'name=' adicionado-->
+              <label>Motivo</label>
+              <input type="text" class="form-control" name="motivo" placeholder="Motivo" style="width:300px" ><!-- 'name=' adicionado-->
             </div>
 
               <div class="form-group"> <!-- Nome do Pai-->
               <label>Condutores</label>
-              <input type="text" class="form-control" name="condutores" placeholder="Condutores" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["condutores"] : "" ?>"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="condutores" placeholder="Condutores" style="width:300px" ><!-- 'name=' adicionado-->
             </div>
+              
+            <div class="form-group"> <!-- Nome do Pai-->
+              <label>descricaosaida</label>
+              <input type="text" class="form-control" name="descricaosaida" placeholder="descrição saida" style="width:300px"> <!-- 'name=' adicionado-->
+            </div>
+
 
             <br>
 

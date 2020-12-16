@@ -68,18 +68,24 @@ class SaidapresosAudiencia_model extends CI_Model{
             'numsiap'=> $this->input->post('numsiap'),
             'sic'=> $this->input->post('sic'),
             'nome'=> $this->input->post('nome'),
-            'cidade-forum'=> $this->input->post('cidade-forum'),
-            'condutores'=> $this->input->post('condutores')
+            'motivo'=> $this->input->post('motivo'),
+            'condutores'=> $this->input->post('condutores'),
+            'descricaosaida'=> $this->input->post('descricaosaida')
+        
             );
-        $this->db->insert('tbl_saidaaudiencia', $data);
+        $this->db->insert('tbl_saidasaude', $data);
 
     }
 
     public function updatemedico($id, $atualizar){
         $this->db->where('id', $id);
-        return $this->db->update("tbl_saidaaudiencia", $atualizar);
+        return $this->db->update("tbl_saidasaude", $atualizar);
 
     }
-
+    public function showss($id){
+        return $this->db->get_where('tbl_saidasaude', array(
+            "id" => $id
+        ))->row_array();
+    }
 
 }
