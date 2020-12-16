@@ -34,7 +34,7 @@ class Home extends CI_Controller{
     public function cadastropresos()
     { //Carrega a Função cadastroPresos que está no Presos_model
 
-        $this->load->view("agentes/cadastrar-presos-view");
+        $this->load->view("agentes/cadastros/cadastrar-presos-view");
 
     }
 
@@ -151,7 +151,7 @@ class Home extends CI_Controller{
     public function cadastropresosAdmin()
     { //Carrega a Função cadastroPresos que está no Presos_model
 
-        $this->load->view("administrador/cadastros/cadastro-presos-view-admin");
+        $this->load->view("administrador/cadastros/cadastrar-presos-view-admin");
 
     }
 

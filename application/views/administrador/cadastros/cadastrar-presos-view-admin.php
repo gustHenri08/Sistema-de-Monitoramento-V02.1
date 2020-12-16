@@ -268,7 +268,7 @@
             <div class="form-group">
               <label>Data de Entrada</label>
               <input type="text" class="form-control" name="dataentrada" placeholder="dd/mm/aaaa" value="<?= isset($detentos) ? $detentos["dataentrada"] : ""?>" style="width:140px" maxlength="10" ><!-- 'name=' adicionado-->
-              </div>
+            </div>
 
           	<div class="form-group"> <!-- Nome do Detento-->
           		<label>Nome Detento</label>
@@ -364,6 +364,16 @@
             <div class="form-group"> <!--Data de Prisão-->
           		<label>Data da Prisão</label>
           		<input type="text" class="form-control" name="dataprisao" placeholder="dd/mm/aaaa" value="<?= isset($detentos) ? $detentos["dataprisao"] : "" ?>" style="width:140px" maxlength="10"><!-- 'name=' adicionado-->
+            </div>
+
+            <div class="form-group">
+              <label>N° SIAP</label>
+              <input type="int" class="form-control" name="nsiap" placeholder="N° SIAP" value="<?= isset($detentos) ? $detentos["nsiap"] : ""?>" style="width:140px" maxlength="9" ><!-- 'name=' adicionado-->
+            </div>
+
+            <div class="form-group">
+              <label>SIC</label>
+              <input type="int" class="form-control" name="sic" placeholder="SIC" value="<?= isset($detentos) ? $detentos["sic"] : ""?>" style="width:140px" maxlength="9" ><!-- 'name=' adicionado-->
             </div>
             
             <div class="form-group"> <!--Crime de Repercussão-->

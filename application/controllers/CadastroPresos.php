@@ -11,15 +11,26 @@ class CadastroPresos extends CI_Controller{
         }else{}
     }
 
+/*Funções referentes as view de agente */
+
     public function index(){
       $this->load->view('agentes/cadastros/cadastrar-presos-view');
     }
 
     public function create(){ // Chama a função responsável pelo cadastro dos presos ao banco de dados
-        $this->Presos_model->cadastroPresos();
-        redirect('Home/entradaPresos');
+        $sic = $this->input->post('sic');
+        $nsiap = $this->input->post('nsiap');
 
-    }
+        if(!$this->Presos_model->verificaSic($sic) && !$this->Presos_model->verificaSiap($nsiap)){// Função que verifica se a sic e o siap já esta no banco:
+           
+            $this->Presos_model->cadastroPresos();
+            redirect('Home/entradaPresos');
+
+        }else{
+            redirect('Home/cadastropresos');// se ja estiver voltará para tela de cadastro
+        }
+  
+      }
 
     public function editPresos($idpresos){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
         $edit['detentos'] = $this->Presos_model->showpresos($idpresos);
@@ -35,15 +46,24 @@ class CadastroPresos extends CI_Controller{
 
     }
 
-    /*Funções referentes as view de administrador */
+/*Funções referentes as view de administrador */
 
     public function indexAdmin(){
         $this->load->view('administrador/cadastros/cadastrar-presos-view-admin');
       }
   
       public function createAdmin(){ // Chama a função responsável pelo cadastro dos presos ao banco de dados
-          $this->Presos_model->cadastroPresos();
-          redirect('Home/entradaPresosAdmin');
+        $sic = $this->input->post('sic');
+        $nsiap = $this->input->post('nsiap');
+
+        if(!$this->Presos_model->verificaSic($sic) && !$this->Presos_model->verificaSiap($nsiap)){// Função que verifica se a sic e o siap já esta no banco:
+           
+            $this->Presos_model->cadastroPresos();
+            redirect('Home/entradaPresosAdmin');
+
+        }else{
+            redirect('Home/cadastropresosAdmin');// se ja estiver voltará para tela de cadastro
+        }
   
       }
   

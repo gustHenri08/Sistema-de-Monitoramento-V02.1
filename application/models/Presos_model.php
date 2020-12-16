@@ -23,10 +23,24 @@ class Presos_model extends CI_Model{
             'sexo'=> $this->input->post('sexo'),
             'cadastrante'=> $this->input->post('cadastrante'),
             'funcaocadastrante'=> $this->input->post('funcaocadastrante'),
-            'matriculacadastrante'=> $this->input->post('matriculacadastrante')
+            'matriculacadastrante'=> $this->input->post('matriculacadastrante'),
+            'sic'=> $this->input->post('sic'),
+            'nsiap'=> $this->input->post('nsiap')
         );
         $this->db->insert('tbl_presos', $data);
 
+    }
+
+    public function verificaSic($sic){ // Verifica se o sic e o siap que está sendo cadastrada já consta ou não no banco de dados
+
+        $this->db->where('sic', $sic);
+        return $this->db->get('tbl_presos')->row_array();
+    }
+
+    public function verificaSiap($nsiap){ // Verifica se o sic e o siap que está sendo cadastrada já consta ou não no banco de dados
+
+        $this->db->where('nsiap', $nsiap);
+        return $this->db->get('tbl_presos')->row_array();
     }
 
     public function presoscadastrados(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
