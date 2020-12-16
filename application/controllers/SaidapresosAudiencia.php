@@ -22,7 +22,7 @@ class SaidapresosAudiencia extends CI_Controller{
 
         $this->load->model('SaidapresosAudiencia_model');
 
-        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
+        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->busca($_POST);
         $this->load->view('agentes/saidapresosAudiencia_view',$dados);
     }
 

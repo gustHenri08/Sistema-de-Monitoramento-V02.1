@@ -91,7 +91,7 @@ class Home extends CI_Controller{
     public function saidaMedica()
         {   $this->load->model('SaidapresosAudiencia_model');//carregando o model dos presos
             $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastrados();
-            $this->load->view('administrador/saida-presosMedica-view',$data);  // Carrega a view(Tela) Saida Medica;
+            $this->load->view('agentes/saida-presosMedica-view',$data);  // Carrega a view(Tela) Saida Medica;
          }
 
     

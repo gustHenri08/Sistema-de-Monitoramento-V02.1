@@ -172,12 +172,12 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="dataTables_length" id="example1_length">
-       
+
               </div>
               <form action="<?=site_url('SaidapresosAudiencia/resultado')?>" method="post">
                 <div class="col-sm-6">
                   <div id="example1_filter" class="dataTables_filter">
-                    <label>Procurar Detento:  <input type="text" name="pesquisar" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
+                    <label>Procurar Detento:  <input type="text" name="busca" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
                       <br><button type="submit" class="btn btn-primary">Buscar</button></br>
                     </label>
                   </div>
@@ -204,7 +204,7 @@
                             <tr>
                             <td><?= $agents['id']?></td>
                             <td><?= $agents['cadeiapublica']?></td>
-                            <td><a href="<?= base_url() ?>index.php/SaidapresosAudiencia/cadastrarMaster/<?= $agents["id"] ?>">
+                            <td><a href="<?= base_url() ?>index.php/SaidapresosMedica/cadastrarMaster/<?= $agents["id"] ?>">
                                 <?= $agents['nome']?> </a> </td>
                             <td><?= $agents['numsiap']?></td>
                             <td><?= $agents['sic']?></td>
@@ -213,7 +213,7 @@
                             <td><?= $agents['condutores']?></td>
                           
                             <td> 
-                            <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/editMaster/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
+                            <a href="<?= base_url() ?>index.php/SaidapresosMedica/editMaster/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
                             </td>
 
                         </tr>

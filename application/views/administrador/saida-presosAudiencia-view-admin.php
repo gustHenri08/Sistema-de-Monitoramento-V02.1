@@ -178,11 +178,11 @@
             <div class="col-sm-6">
               <div class="dataTables_length" id="example1_length">
               
-              </div>
+              </div>                 
               <form action="<?=site_url('SaidapresosAudiencia/resultadoadmin')?>" method="post">
                 <div class="col-sm-6">
                   <div id="example1_filter" class="dataTables_filter">
-                    <label>Procurar Detento:  <input type="text" name="pesquisar" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
+                    <label>Procurar Detento:  <input type="text" name="busca" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
                       <br>  <button type="submit" class="btn btn-primary">Buscar</button></br>
                      </label>
                   </div>

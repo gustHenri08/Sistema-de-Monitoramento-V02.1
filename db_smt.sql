@@ -144,7 +144,11 @@ CREATE TABLE `tbl_saidaaudiencia` (
   `sic` int(40) NOT NULL,
   `data` varchar(12) NOT NULL,
   `cidade-forum` varchar(50) NOT NULL,
-  `condutores` varchar(50) NOT NULL
+  `condutores` varchar(50) NOT NULL,
+  `sexo` varchar(10) NOT NULL,
+  `cadastrante` varchar(40) NOT NULL,
+  `funcaocadastrante` varchar(20) NOT NULL,
+  `matriculacadastrante` char(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -167,6 +171,10 @@ CREATE TABLE `tbl_saidadetentos` (
   `documentacao` varchar(40) NOT NULL,
   `destino` varchar(40) NOT NULL,
   `condutores` varchar(40) NOT NULL,
+  `sexo` varchar(10) NOT NULL,
+  `cadastrante` varchar(40) NOT NULL,
+  `funcaocadastrante` varchar(20) NOT NULL,
+  `matriculacadastrante` char(8) NOT NULL,
   `obs` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -185,6 +193,10 @@ CREATE TABLE `tbl_saidasaude` (
   `data` varchar(12) NOT NULL,
   `motivo` varchar(30) NOT NULL,
   `condutores` varchar(50) NOT NULL,
+   `sexo` varchar(10) NOT NULL,
+  `cadastrante` varchar(40) NOT NULL,
+  `funcaocadastrante` varchar(20) NOT NULL,
+  `matriculacadastrante` char(8) NOT NULL,
   `descricaosaida` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
