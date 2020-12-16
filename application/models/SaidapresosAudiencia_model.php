@@ -25,7 +25,8 @@ class SaidapresosAudiencia_model extends CI_Model{
   public function cadastrados(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
         return $this->db->get("tbl_saidadetentos")->result_array();
     }
-    public function busca($busca){
+
+    public function buscar($busca){
         
         if(empty($busca))
             return array();
@@ -36,9 +37,10 @@ class SaidapresosAudiencia_model extends CI_Model{
         $query = $this->db->get('tbl_saidadetentos');
         return $query->result_array();
 
-        
+    	
 
     }
+
     public function show($id){
         return $this->db->get_where('tbl_saidaaudiencia', array(
             "id" => $id

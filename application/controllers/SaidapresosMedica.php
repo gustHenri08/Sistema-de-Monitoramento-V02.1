@@ -16,10 +16,8 @@ class SaidapresosMedica extends CI_Controller{
     }
 
     public function resultado(){
-
         $this->load->model('SaidapresosAudiencia_model');
-
-        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->busca($_POST);
+        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
         $this->load->view('agentes/saida-presosMedica-view',$dados);
     }
 
@@ -57,9 +55,7 @@ class SaidapresosMedica extends CI_Controller{
     }
      
     public function resultadoadmin(){
-
         $this->load->model('SaidapresosAudiencia_model');
-
         $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
         $this->load->view('administrador/saida-presosMedica-view',$dados);
     }

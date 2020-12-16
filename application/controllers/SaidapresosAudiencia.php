@@ -19,13 +19,10 @@ class SaidapresosAudiencia extends CI_Controller{
     }
      
     public function resultado(){
-
         $this->load->model('SaidapresosAudiencia_model');
-
-        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->busca($_POST);
-        $this->load->view('agentes/saidapresosAudiencia_view',$dados);
-    }
-
+        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
+        $this->load->view('agentes/saida-presosAudiencia-view',$dados);
+        }
     public function createMaster(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model
         $this->SaidapresosAudiencia_model->cadastroMaster();
         redirect('Home/saidaAudiencia');
@@ -63,12 +60,13 @@ class SaidapresosAudiencia extends CI_Controller{
         return $this->db->get('tbl_presos')->result_array();
     }
      
+    
     public function resultadoadmin(){
 
         $this->load->model('SaidapresosAudiencia_model');
-
         $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
-        $this->load->view('administrador/saidapresosAudiencia_view_admin',$dados);
+        $this->load->view('administrador/saida-presosAudiencia-view-admin',$dados);
+
     }
 
     public function createMasteradmin(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model

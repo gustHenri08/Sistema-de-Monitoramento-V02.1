@@ -40,9 +40,7 @@ class Saidapresos extends CI_Controller{
 	}
      
     public function resultadoadmin(){
-
         $this->load->model('cadastrar_sair_model');
-
         $dados['saidadetentos'] = $this->cadastrar_sair_model->buscar($_POST);
         $this->load->view('administrador/saida-presos-view-admin',$dados);
     }
