@@ -47,9 +47,14 @@ class Home extends CI_Controller{
         $this->load->view('agentes/ocorrencias-view'); // Carrega a view(Tela) Ocorrências;
     }
 
+    public function listarOcorrencias(){
+
+        $this->load->view('agentes/listar-ocorrencia-view');
+    }
+
     public function cadastrarOcorrencias(){
 
-        $this->load->view('agentes/cadastros/cadastrar-ocorrencia-view');
+        $this->load->view('agentes/cadastros/cadastrar-ocorrencias-view');
     }
 
     public function outrasOcorrencias()

@@ -175,7 +175,6 @@
          <div class="box">
            <div class="box-header">
              <h3 class="box-title"> Lista de Detentos </h3>
-             <a href="<?php echo site_url('Home/cadastrarOcorrencias'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
            </div>
            <!-- /.box-header -->
            <div class="box-body">
@@ -200,7 +199,7 @@
                 <tbody>
                   <tr>
                     <td>CP de Paulista</td>
-                    <td><a href="<?php echo site_url('Home/cadastrarOcorrencias'); ?>">Fulano de Tal</td>
+                    <td><a href="<?php echo site_url('Home/listarOcorrencias'); ?>">Fulano de Tal</td>
                     <td>Mãe do Fulano de Tal</td>
                     <td>Pai do Fulano de Tal</td>
                     <td>123123</td>
