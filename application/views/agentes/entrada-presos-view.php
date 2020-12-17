@@ -179,6 +179,23 @@
             </div>
            <!-- /.box-header -->
            <div class="box-body">
+              <div>
+                <form action="<?=site_url('Home/buscaPresos')?>" method="post">
+                  <div class="col-sm-6">
+                    <div id="example1_filter" class="dataTables_filter">
+                      <label>Procurar Presos:  <input type="text" name="buscapresos" id="buscapresos" class="form-control input-sm" placeholder="Nome" aria-controls="example1">
+                        <br><button type="submit" class="btn btn-primary">Buscar</button></br>
+                      </label> <!--colocar um if-else para tentar fazer o campo busca buscar os dados pelo que foi solicitado -->
+                      <?php if(isset($fechado)):?>
+                        <div class="form-group">
+                          <label>Total de Presos Regime Fechado</label>
+                          <input type="text" class="form-control" name="funcaocadastrante" value="<?= isset($fechado) ? $fechado : ""?>"  readonly style="width:50px"><!-- 'name=' adicionado-->
+                        </div>
+                      <?php endif;?>
+                    </div>
+                  </div>
+                </form>
+              </div>
              <table id="example2" class="table table-bordered table-hover">
                <thead>
                <tr>
@@ -186,6 +203,8 @@
                  <th>Nome</th>
                  <th>Nome da Mãe</th>
                  <th>Nome do Pai</th>
+                 <th>Ultima Edição</th>
+                 <th>Função</th>
                  <th></th>
                </tr>
                </thead>
@@ -196,6 +215,8 @@
                       <td><?= $presos['nome']?></td>
                       <td><?= $presos['nomemae']?></td>
                       <td><?= $presos['nomepai']?></td>
+                      <td><?= $presos['cadastrante']?></td>
+                      <td><?= $presos['funcaocadastrante']?></td>
                       <td style='text-align:center'>
                       <a href="<?= base_url() ?>index.php/CadastroPresos/editPresos/<?= $presos["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
                       </td>

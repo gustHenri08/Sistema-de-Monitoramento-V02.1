@@ -21,9 +21,9 @@ class Presos_model extends CI_Model{
             'observacoesgerais'=> $this->input->post('observacoesgerais'),
             'regime'=> $this->input->post('regime'),
             'sexo'=> $this->input->post('sexo'),
-            'cadastrante'=> $this->input->post('cadastrante'),
-            'funcaocadastrante'=> $this->input->post('funcaocadastrante'),
-            'matriculacadastrante'=> $this->input->post('matriculacadastrante'),
+            'cadastrante'=>  $this->session->userdata("nomecompleto"),
+            'funcaocadastrante'=>  $this->session->userdata("funcao"),
+            'matriculacadastrante'=>  $this->session->userdata("matricula"),
             'sic'=> $this->input->post('sic'),
             'nsiap'=> $this->input->post('nsiap')
         );
@@ -49,13 +49,35 @@ class Presos_model extends CI_Model{
         //Função envia os dados dos agentes para o controller de 'Agente'
     }
 
+    public function buscarPresos($buscapresos){ // Responsável por buscar o preso atraves do campo de busca na view de entrada de presos 
+        
+        if(empty($buscapresos)){
+            return array();
+
+        }else{
+            $buscapresos = $this->input->post('buscapresos');
+
+        $this->db->like('nome', $buscapresos);
+        $query = $this->db->get('tbl_presos');
+        return $query->result_array();
+        }
+
+    }
+
     public function showpresos($idpresos){ // Envia os dados para o controller de 'Cadastro'
         return $this->db->get_where('tbl_presos', array(
             "id" => $idpresos
         ))->row_array();
     }
 
-    public function updatepresos($idpresos, $atualizar){ // Recebe os dados do controller de cadastro
+    public function totalfechado()// função responsável por contar o total de presos em regime Fechado
+{
+    $query = $this->db->query("SELECT * FROM tbl_presos WHERE regime = 'Fechado'");
+
+    return $query->num_rows();
+}
+
+    public function updatepresos($idpresos, $atualizar){ // Recebe os dados do controller de cadastro e atualiza os dados dos presos no banco de dados
         $this->db->where('id', $idpresos);
         return $this->db->update("tbl_presos", $atualizar);
 

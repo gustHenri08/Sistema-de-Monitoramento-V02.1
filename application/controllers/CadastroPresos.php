@@ -50,7 +50,7 @@ class CadastroPresos extends CI_Controller{
 
     public function indexAdmin(){
         $this->load->view('administrador/cadastros/cadastrar-presos-view-admin');
-      }
+    }
   
       public function createAdmin(){ // Chama a função responsável pelo cadastro dos presos ao banco de dados
         $sic = $this->input->post('sic');

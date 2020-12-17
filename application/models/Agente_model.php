@@ -35,7 +35,7 @@ class Agente_model extends CI_Model{
             'senha'=> $this->input->post('senha'),
             'funcao'=> $this->input->post('funcao'),
             'funcionarioativo'=> $this->input->post('funcionarioativo'),
-            'admincadastro'=> $this->input->post('admincadastro')
+            'admincadastro'=> $this->session->userdata("nomecompleto")
         );
         $this->db->insert('tbl_agente', $datamaster);
     }
@@ -46,6 +46,23 @@ class Agente_model extends CI_Model{
         return $this->db->get("tbl_agente")->result_array();
 
         //Função envia os dados dos agentes para o controller de 'Agente'
+    }
+
+    public function buscar($busca){
+        
+        if(empty($busca)){
+            return array();
+
+        }else{
+            $busca = $this->input->post('buscaagente');
+
+        $this->db->like('nomecompleto', $busca);
+        $query = $this->db->get('tbl_agente');
+        return $query->result_array();
+        }
+
+    	
+
     }
 
     public function show($id){ // Envia os dados para o controller de 'Cadastro'

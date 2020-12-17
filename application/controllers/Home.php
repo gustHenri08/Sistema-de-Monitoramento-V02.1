@@ -27,6 +27,7 @@ class Home extends CI_Controller{
     {
         $this->load->model("Presos_model");
         $data['presos'] = $this->Presos_model->presoscadastrados();
+        $data['fechado'] = $this->Presos_model->totalfechado();
 
         $this->load->view("agentes/entrada-presos-view", $data); // Carrega a view(Tela) Entrada de Detentos do Admin;
     }
@@ -36,6 +37,15 @@ class Home extends CI_Controller{
 
         $this->load->view("agentes/cadastros/cadastrar-presos-view");
 
+    }
+
+    public function buscaPresos()
+    {
+
+        $this->load->model('Presos_model');
+
+        $dados['presos'] = $this->Presos_model->buscarPresos($_POST);
+        $this->load->view('agentes/entrada-presos-view',$dados);
     }
 
     // <-- Final-EntradaDeDetentos -->
@@ -144,6 +154,15 @@ class Home extends CI_Controller{
         //$data -> envia os dados para a 'agente-view'
     }
 
+    public function buscaAgente() 
+    {
+
+        $this->load->model('Agente_model');
+
+        $dados['agent'] = $this->Agente_model->buscar($_POST);
+        $this->load->view('administrador/agente-view',$dados);
+    }
+
     public function cadastrarAgente()
     {
         $this->load->view("administrador/cadastros/cadastro-agente-view"); // Função ao clicar no botão cadastrar chama a view de cadastro de agentes;
@@ -157,6 +176,7 @@ class Home extends CI_Controller{
     {
         $this->load->model("Presos_model");
         $data['presos'] = $this->Presos_model->presoscadastrados();
+        $data['fechado'] = $this->Presos_model->totalfechado();// Traz o total de presos em regime fechado
 
         $this->load->view("administrador/entrada-presos-admin", $data); // Carrega a view(Tela) Entrada de Detentos do Admin;
     }
@@ -166,6 +186,15 @@ class Home extends CI_Controller{
 
         $this->load->view("administrador/cadastros/cadastrar-presos-view-admin");
 
+    }
+
+    public function buscaPresosAdmin()
+    {
+
+        $this->load->model('Presos_model');
+
+        $dados['presos'] = $this->Presos_model->buscarPresos($_POST);
+        $this->load->view('administrador/entrada-presos-admin',$dados);
     }
 
     // <-- Final-Entrada De Detentos Admin -->

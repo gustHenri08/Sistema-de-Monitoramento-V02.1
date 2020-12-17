@@ -185,6 +185,17 @@
            </div>
            <!-- /.box-header -->
            <div class="box-body">
+              <div>
+                <form action="<?=site_url('home/buscaAgente')?>" method="post">
+                  <div class="col-sm-6">
+                    <div id="example1_filter" class="dataTables_filter">
+                      <label>Procurar Agente:  <input type="text" name="buscaagente" id="buscaagente" class="form-control input-sm" placeholder="Nome" aria-controls="example1">
+                        <br><button type="submit" class="btn btn-primary">Buscar</button></br>
+                      </label> <!--colocar um if-else para tentar fazer o campo busca buscar os dados pelo que foi solicitado -->
+                    </div>
+                  </div>
+                </form>
+              </div>
              <table id="example2" class="table table-bordered table-hover">
                <thead>
                <tr>

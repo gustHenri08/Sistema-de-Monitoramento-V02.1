@@ -200,20 +200,22 @@
             <!--Em Testes | chama o controller responsavel por cadastro-->
           <?php endif; ?>
 
+          <?php if(isset($detentos)) : ?>
             <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Agente Penitenciário</label>
-          		<input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-            
-            <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Função Agente</label>
-          		<input type="text" class="form-control" name="funcaocadastrante" placeholder="Função Agente" value="<?= isset($agentes) ? ($this->session->userdata("funcao")) : ($this->session->userdata("funcao"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-            
-            <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Matrícula Agente</label>
-          		<input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
+                <label>Policial Penal</label>
+                <input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+              </div>
+              
+              <div class="form-group"> <!-- Nome do Detento-->
+                <label>Função</label>
+                <input type="text" class="form-control" name="funcaocadastrante" placeholder="Função Agente" value="<?= isset($agentes) ? ($this->session->userdata("funcao")) : ($this->session->userdata("funcao"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+              </div>
+              
+              <div class="form-group"> <!-- Nome do Detento-->
+                <label>Matrícula</label>
+                <input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+              </div>
+            <?php endif; ?>
 
           	<div class="form-group"> <!--Campo Cadeia Publica-->
               <label>Cadeia Publica</label>
@@ -248,12 +250,12 @@
           	</div>
             <div class="form-group">
               <label>Data de Entrada</label>
-              <input type="text" class="form-control" name="dataentrada" placeholder="dd/mm/aaaa" value="<?= isset($detentos) ? $detentos["dataentrada"] : ""?>" style="width:140px" maxlength="10" ><!-- 'name=' adicionado-->
+              <input type="date" class="form-control" required name="dataentrada" placeholder="dd/mm/aaaa" value="<?= isset($detentos) ? $detentos["dataentrada"] : ""?>" style="width:140px" maxlength="10" ><!-- 'name=' adicionado-->
             </div>
 
           	<div class="form-group"> <!-- Nome do Detento-->
           		<label>Nome Detento</label>
-          		<input type="text" class="form-control" name="nome" placeholder="Nome" value="<?= isset($detentos) ? $detentos["nome"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" required name="nome" placeholder="Nome" value="<?= isset($detentos) ? $detentos["nome"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
             </div>
             
             <div class="form-group"> <!--Crime de Repercussão-->
@@ -274,12 +276,12 @@
 
           	<div class="form-group"> <!-- Nome da Mãe-->
           		<label>Nome da Mãe</label>
-          		<input type="text" class="form-control" name="nomemae" placeholder="Nome da Mãe" value="<?= isset($detentos) ? $detentos["nomemae"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" required name="nomemae" placeholder="Nome da Mãe" value="<?= isset($detentos) ? $detentos["nomemae"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
           	<div class="form-group"> <!-- Nome do Pai-->
           		<label>Nome do Pai</label>
-          		<input type="text" class="form-control" name="nomepai" placeholder="Nome do Pai" value="<?= isset($detentos) ? $detentos["nomepai"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" required name="nomepai" placeholder="Nome do Pai" value="<?= isset($detentos) ? $detentos["nomepai"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
             <div class="form-group"> <!--Motivo-->
@@ -344,12 +346,12 @@
 
             <div class="form-group"> <!--Data de Prisão-->
           		<label>Data da Prisão</label>
-          		<input type="text" class="form-control" name="dataprisao" placeholder="dd/mm/aaaa" value="<?= isset($detentos) ? $detentos["dataprisao"] : "" ?>" style="width:140px" maxlength="10"><!-- 'name=' adicionado-->
+          		<input type="date" class="form-control" required name="dataprisao" placeholder="dd/mm/aaaa" value="<?= isset($detentos) ? $detentos["dataprisao"] : "" ?>" style="width:140px" maxlength="10"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group">
               <label>N° SIAP</label>
-              <input type="int" class="form-control" name="nsiap" placeholder="N° SIAP" value="<?= isset($detentos) ? $detentos["nsiap"] : ""?>" style="width:140px" maxlength="9" ><!-- 'name=' adicionado-->
+              <input type="int" class="form-control" required name="nsiap" placeholder="N° SIAP" value="<?= isset($detentos) ? $detentos["nsiap"] : ""?>" style="width:140px" maxlength="9" ><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group">
@@ -361,16 +363,16 @@
                 <label>Regime</label>
                 <?php if(isset($detentos)) :?>
                   <select class="form-control" style="width: 120px" name="regime"><!-- 'name=' adicionado-->
-                    <option><?= $detentos["regime"]?></option>
-                    <option>Aberto</option>
+                    <option><?= $detentos["regime"]?></option>                    
+                    <option>Fechado</option>                    
                     <option>Semi-Aberto</option>
-                    <option>Fechado</option>
+                    <option>Aberto</option>
                   </select>
                 <?php else :?>
                   <select class="form-control" style="width: 120px" name="regime"><!-- 'name=' adicionado-->                    
-                    <option>Aberto</option>
+                    <option>Fechado</option>                    
                     <option>Semi-Aberto</option>
-                    <option>Fechado</option>
+                    <option>Aberto</option>
                   </select>
                 <?php endif;?>
             </div>

@@ -208,11 +208,6 @@
               <form method="post" action="<?php echo site_url('Cadastro/createMaster') ?>">
               <!--Em Testes | chama o controller responsavel por cadastro-->
             <?php endif; ?>
-
-            <div class="form-group">
-              <label>Administrador</label>
-          		<input type="text" required="required" class="form-control" name="admincadastro" placeholder="Administrador" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-          	</div>
          
            <div class="form-group">
           		<label>Nome Completo</label>
