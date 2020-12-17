@@ -62,6 +62,10 @@ class Home extends CI_Controller{
         $this->load->view('agentes/outras-ocorrencias-view'); // Carrega a view(Tela) outras Ocorrências;
     }
 
+    public function cadastrarOutrasOcorrencias()
+    {
+        $this->load->view('agentes/cadastros/cadastrar-outras-ocorrencias-view');
+    }
     public function revistasApreensoes()
     {
         $this->load->view('agentes/revistas-e-apreensoes-view'); // Carrega a view(Tela) Revistas e Apreensões;

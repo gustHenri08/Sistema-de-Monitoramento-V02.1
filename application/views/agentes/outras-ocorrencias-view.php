@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SMP | Outras Ocorrências </title>
+  <title>SMP | Cadastrar Ocorrências</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -12,13 +12,28 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/Ionicons/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!--DataTables-->
+  <script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap.css"></script>
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/dist/css/skins/_all-skins.min.css">
+
+  <!----------------------- ------------------------------->
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.css">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/datepicker/datepicker3.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/iCheck/all.css">
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/colorpicker/bootstrap-colorpicker.min.css">
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/timepicker/bootstrap-timepicker.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/select2/select2.min.css">
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,9 +53,9 @@
     <!-- Logo -->
     <a href="<?php echo site_url('Home'); ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>SMT</b></span>
+      <span class="logo-mini"><b>SMP</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>SMT</b></span>
+      <span class="logo-lg"><b>SMP</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -98,7 +113,7 @@
           </a>
         </li>
         <li>
-          <a href="<?php echo site_url('Home/entradaPresos'); ?> ">
+          <a href="<?php echo site_url('Home/entradaPresos'); ?> "> <!--  Estava com o controller errado   -->
             <i class="fa fa-user-plus"></i>
             <span>Entrada de Detentos</span>
           </a>
@@ -126,7 +141,7 @@
         <li class="treeview">
           <a href="<?php echo site_url(''); ?>">
             <i class="fa fa-user-times"></i>
-            <span>Saida do Detento</span>
+            <span>Saída de Detentos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -150,42 +165,48 @@
           </ul>
         </li>
     </section>
-    <!-- /.sidebar -->
   </aside>
 
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Cabeçalho da Página -->
+    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Outras Ocorrências
       </h1>
-      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
+      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)mlp-->
         <li><a href="<?php echo site_url('Home'); ?>">Home</a></li>
-        <li class="active">Outras Ocorrências</li>
+        <li class="active">Outras Ocorrências </li>
       </ol>
-    </section>
-
-    <!-- Main content -->
+    </section>  
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="col-sm-6">
-              <div id="example1_filter" class="dataTables_filter">
-                <label>CP:<input type="search" class="form-control input-sm" placeholder="Centro Prisional" aria-controls="example1"></label>
-                <br>
-                <button type="submit" class="btn btn-primary">Buscar</button>
-                <br>
+            <div class="box-header">
+              <h3 class="box-title">Lista de Ocorrências </h3>
+              <a href="<?php echo site_url('Home/cadastrarOutrasOcorrencias'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
+
+              <br>
+              <br>
+              <div class="form-group col-xs-4">
+                <label>Busca por Data:</label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                  </div>
+                  <input type="text" class="form-control pull-right" id="reservation">
+                </div>
+                <!-- /.input group -->
               </div>
             </div>
-            <table id="tabela" class="table table-bordered table-striped">
+            <div class="box-body">
+              <table id="tabela" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>Data Inicial</th>
-                    <th>Núcleo</th>
+                    <th>Data</th>
                     <th>CP</th>
                     <th>Tipo</th>
                     <th>Ações</td>
@@ -193,113 +214,43 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>
-                      <input type="text" class="form-control" name="datainicial" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10">
-                    </td> 
-                    <td>
-                      <select class="form-control" style="width: 200px" name="nucleo">
-                        <option>Arcoverde</option>
-                        <option>Caruaru</option>
-                        <option>Garanhuns</option>
-                        <option>Lagoa</option>
-                        <option>Petrolina</option>
-                        <option>Salgueiro</option>
-                      </select>  
-                    </td>  
-                    <td>
-                      <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-                        <option>CP de Aliança</option>
-                        <option>CP de Carpina</option>
-                        <option>CP de Glória do Goitá</option>
-                        <option>CP de Goiana</option>
-                        <option>CP de Itambé</option>
-                        <option>CP de Lagoa do Carro</option>
-                        <option>CP de Macaparana</option>
-                        <option>CP de Nazaré da Mata</option>
-                        <option>CP de Timbauba</option>
-                        <option>CP de Vicência</option> 
-                      </select>
-                    </td>
-                    <td>
-                      <select class="form-control" style="width: 200px" name="tipoOcorrencia"><!-- 'name=' adicionado-->
-                        <option>Motim</option>
-                        <option>Rebelião</option>
-                        <option>Tumulto</option>
-                        <option>Outro</option>
-                      </select>
-                    </td>
-                    <td class="sorting_1">
-                      <a href="#" class="btn btn-success btn-xs">Salvar</a>        
-                      <a href="#" class="btn btn-warning btn-xs">Editar</a>
+                    <td>23/05/2019</td>
+                    <td>CP Aliança</td>
+                    <td>Agressão</td>
+                    <td class="sorting_1"> 
+                      <a href="<?php echo site_url('Home/cadastrarOutrasOcorrencias'); ?>" class="btn btn-warning btn-xs">Editar</a>      
                       <a href="#" class="btn btn-danger btn-xs">Deletar</a>               
                     </td>
+                  </tr> 
+                  <tr>
+                    <td colspan="4"><textarea readonly style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
                   </tr>
-                </tbody>  
-                <tr>
-                  <td colspan="5">
-                    <textarea style ="resize: none; height: 300px; width:1031px;"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea>
-                  </td>
-                </tr>
-                </tbody>
-                <tr>
-                    <td>
-                      <input type="text" class="form-control" name="datainicial" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10">
-                    </td> 
-                    <td>
-                      <select class="form-control" style="width: 200px" name="nucleo">
-                        <option>Arcoverde</option>
-                        <option>Caruaru</option>
-                        <option>Garanhuns</option>
-                        <option>Lagoa</option>
-                        <option>Petrolina</option>
-                        <option>Salgueiro</option>
-                      </select>  
-                    </td>  
-                    <td>
-                      <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-                        <option>CP de Aliança</option>
-                        <option>CP de Carpina</option>
-                        <option>CP de Glória do Goitá</option>
-                        <option>CP de Goiana</option>
-                        <option>CP de Itambé</option>
-                        <option>CP de Lagoa do Carro</option>
-                        <option>CP de Macaparana</option>
-                        <option>CP de Nazaré da Mata</option>
-                        <option>CP de Timbauba</option>
-                        <option>CP de Vicência</option> 
-                      </select>
-                    </td>
-                    <td>
-                      <select class="form-control" style="width: 200px" name="tipoOcorrencia"><!-- 'name=' adicionado-->
-                        <option>Motim</option>
-                        <option>Rebelião</option>
-                        <option>Tumulto</option>
-                        <option>Outro</option>
-                      </select>
-                    </td>
-                    <td class="sorting_1">
-                      <a href="#" class="btn btn-success btn-xs">Salvar</a>        
-                      <a href="#" class="btn btn-warning btn-xs">Editar</a>
+                  <tr>
+                    <th>Data</th>
+                    <th>CP</th>
+                    <th>Tipo</th>
+                    <th>Ações</th>
+                    <tr>
+                      <td>15/01/2018</td>
+                      <td>CP Carpina</td>
+                      <td>Rebelião/td>
+                      <td class="sorting_1"> 
+                      <a href="<?php echo site_url('Home/cadastrarOutrasOcorrencias'); ?>" class="btn btn-warning btn-xs">Editar</a>         
                       <a href="#" class="btn btn-danger btn-xs">Deletar</a>               
-                    </td>
+                      </td>
+                    </tr>
                   </tr>
+                  <tr>
+                    <td colspan="4"><textarea readonly   style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
+                  </tr>  
                 </tbody>
-                <tr>
-                  <td colspan="5">
-                    <textarea style ="resize: none; height: 300px; width:1031px;"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea>
-                  </td>
-                </tr>
-              </table>
+              </table>  
+            </div>  
           </div>
-         <!-- /.box -->
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
+    </section>      
   </div>
-  <!-- /.content-wrapper --> 
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -308,37 +259,122 @@
     <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
     reserved.
   </footer>
-</div> <!-- Fim da DIV Wrapper-->
 
+</div>
 
+  
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
 <!-- DataTables -->
-<script src="<?php echo base_url(); ?>assets/datatables.net-bs/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>assets/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 <!--Font Awesome My Link-->
 <script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>
+<!------------------------------------- ------------------------------>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo base_url(); ?>assets/plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="<?php echo base_url(); ?>assets/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="<?php echo base_url(); ?>assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url(); ?>assets/plugins/iCheck/icheck.min.js"></script>
+<!--Font Awesome My Link-->
+<script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>
 <script>
+  $(document).ready(function () {
+    $('.sidebar-menu').tree()
+  })
+
   $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
+    //Initialize Select2 Elements
+    $(".select2").select2();
+
+    //Datemask dd/mm/yyyy
+    $("#datemask").inputmask("dd/mm/aaaa", {"placeholder": "dd/mm/aaaa"});
+    //Datemask2 mm/dd/yyyy
+    $("#datemask2").inputmask("mm/dd/aaaa", {"placeholder": "mm/dd/aaaa"});
+    //Money Euro
+    $("[data-mask]").inputmask();
+
+    //Date range picker
+    $('#reservation').daterangepicker();
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+        {
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+        },
+        function (start, end) {
+          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+    );
+
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue'
+    });
+    //Red color scheme for iCheck
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+      checkboxClass: 'icheckbox_minimal-red',
+      radioClass: 'iradio_minimal-red'
+    });
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass: 'iradio_flat-green'
+    });
+
+    //Colorpicker
+    $(".my-colorpicker1").colorpicker();
+    //color picker with addon
+    $(".my-colorpicker2").colorpicker();
+
+    //Timepicker
+    $(".timepicker").timepicker({
+      showInputs: false
+    });
+  });
+</script>
+<script>
+  $(document).ready(function () {
+    $('.sidebar-menu').tree()
   })
 </script>
 </body>

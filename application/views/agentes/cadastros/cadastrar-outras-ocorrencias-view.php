@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SMP | Cadastro de Detentos</title>
+  <title>SMP | Cadastro de Outras Ocorrências</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -169,25 +169,15 @@
   <div class="content-wrapper">
     <!-- Cabeçalho da Página -->
     <section class="content-header">
-      <?php if(isset($detentos)) :?>
+
         <h1>
-          Edição de Detentos
+          Cadastro de Outras Ocorrências
         </h1>
-      <?php else: ?>
-        <h1>
-          Cadastro de Ocorrências
-        </h1>
-      <?php endif; ?>
+
       <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
         <li><a href="<?php echo site_url('Home'); ?>">Home</a></li>
-        <li class="active"><a href="<?php echo site_url('Home/listarOcorrencias'); ?>">Ocorrência</a></li>
-        <?php if(isset($detentos)) :?>
-          <li class="active">Edição de Detentos</a></li>
-        <?php else: ?>
-
-          <li class="active">Cadastro de Ocorrências</a></li>
-
-        <?php endif; ?>
+        <li class="active"><a href="<?php echo site_url('Home/outrasOcorrencias'); ?>">Ocorrência</a></li>
+          <li class="active">Cadastro de Outras Ocorrências</a></li>
       </ol>
     </section>
     <!-- Main content -->
@@ -246,15 +236,10 @@
             <div class="form-group"> <!--Motivo-->
                 <label>Motivo</label>
                   <select class="form-control" style="width: 250px" name="motivo"><!-- 'name=' adicionado-->
-                    <option>Agressão</option>
-                    <option>Apreensão</option>
-                    <option>Custódia Hospitalar</option>
-                    <option>Emergência Hospitalar</option>
-                    <option>Fuga</option>
-                    <option>Óbito - Natural</option>
-                    <option>Óbito - Suícidio</option>
-                    <option>Óbito - CVLI</option>
-                    <option>Outros</option>
+                    <option>Morim</option>
+                    <option>Rebelião</option>
+                    <option>Tumulto</option>
+                    <option>Outro</option>
                   </select>
             </div>
             <div class="form-group"> <!--Observações-->
