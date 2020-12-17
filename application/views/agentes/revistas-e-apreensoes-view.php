@@ -19,6 +19,18 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.css">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/datepicker/datepicker3.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/iCheck/all.css">
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/colorpicker/bootstrap-colorpicker.min.css">
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/timepicker/bootstrap-timepicker.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/select2/select2.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -174,19 +186,19 @@
         <div class="col-xs-12">
           <div class="box" style="margin-bottom: 20px;">
             <div class="box-header">
-              <label> &#160 Centro Prisional</label> <!-- "&#160" se referem a dar um espaçamento no texto-->
-              <select class="form-control" style="width: 200px" name="cadeiapublica">
-                <option>CP de Aliança</option>
-                <option>CP de Carpina</option>
-                <option>CP de Glória do Goitá</option>
-                <option>CP de Goiana</option>
-                <option>CP de Itambé</option>
-                <option>CP de Lagoa do Carro</option>
-                <option>CP de Macaparana</option>
-                <option>CP de Nazaré da Mata</option>
-                <option>CP de Timbauba</option>
-                <option>CP de Vicência</option>
-              </select>    
+              <h4>CP de Petrolina</h4> <!-- "&#160" se referem a dar um espaçamento no texto-->
+              <div class="form-group col-xs-4">
+                <label>Busca por Data:</label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                  </div>
+                  <input type="text" class="form-control pull-right" id="reservation">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <a href="<?php echo site_url('Home/cadastrarApreensoes');?>"class="btn btn-primary btn-xs pull-right">Cadastrar</a>
+
             </div>
             <div class="box-body">
               <table id="tabela" class="table table-bordered table-hover">
@@ -196,63 +208,62 @@
                     <th>Quantidade</th>
                     <th>Itens Apreendidos</th>
                     <th>Quantidade</th>
-                    <th><button class="btn btn-primary btn-xs pull-right">Registrar</button></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>Armas artesanais - Branca</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>1</td>
                     <td>Chips de celular</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>2</td>
                   </tr>
                   <tr>
                     <td>Armas artesanais - Fogo</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>2</td>
                     <td>Cocaína</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                    <td>100 Gramas</td>
                   </tr>
                     <tr>
                     <td>Armas industriais - Branca</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>2</td>
                     <td>Cola de sapateiro</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                    <td>100 Gramas</td>
                   </tr>
                   <tr>
                     <td>Armas industriais - Fogo</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>2</td>
                     <td>Corda artesanal</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>2</td>
                   </tr>
                   <tr>
                     <td>Bateria de celular</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>2</td>
                     <td>Crack</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                    <td>100 Gramas</td>
                   </tr>
                   <tr>
                     <td>Bebida artesanal</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>2</td>
                     <td>Maconha</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                    <td>100 Gramas</td>
                   </tr>
                     <tr>
                     <td>Bebida industrial</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>2</td>
                     <td>Medicação Psicotrópicos</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                    <td>100 Gramas</td>
                   </tr>
                   <tr>
                     <td>Carregador celular</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>2</td>
                     <td>Munições</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>2</td>
                   </tr>
                   <tr>
                     <td>Celular</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>2</td>
                     <td>Outro</td>
-                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td>2</td>
                   </tr>
                 </tbody>  
               </table>
@@ -270,9 +281,9 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.18
+      
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    <strong>Copyright &copy; 2020 Fábrica de Software.</strong> All rights
     reserved.
   </footer>
 
@@ -296,6 +307,96 @@
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 <!--Font Awesome My Link-->
 <script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo base_url(); ?>assets/plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="<?php echo base_url(); ?>assets/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="<?php echo base_url(); ?>assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url(); ?>assets/plugins/iCheck/icheck.min.js"></script>
+<!--Font Awesome My Link-->
+<script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function () {
+    $('.sidebar-menu').tree()
+  })
+
+  $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2();
+
+    //Datemask dd/mm/yyyy
+    $("#datemask").inputmask("dd/mm/aaaa", {"placeholder": "dd/mm/aaaa"});
+    //Datemask2 mm/dd/yyyy
+    $("#datemask2").inputmask("mm/dd/aaaa", {"placeholder": "mm/dd/aaaa"});
+    //Money Euro
+    $("[data-mask]").inputmask();
+
+    //Date range picker
+    $('#reservation').daterangepicker();
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+        {
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+        },
+        function (start, end) {
+          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+    );
+
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue'
+    });
+    //Red color scheme for iCheck
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+      checkboxClass: 'icheckbox_minimal-red',
+      radioClass: 'iradio_minimal-red'
+    });
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass: 'iradio_flat-green'
+    });
+
+    //Colorpicker
+    $(".my-colorpicker1").colorpicker();
+    //color picker with addon
+    $(".my-colorpicker2").colorpicker();
+
+    //Timepicker
+    $(".timepicker").timepicker({
+      showInputs: false
+    });
+  });
+</script>
 <script>
   $(function () {
     $('#example1').DataTable()

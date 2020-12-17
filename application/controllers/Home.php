@@ -81,6 +81,12 @@ class Home extends CI_Controller{
         $this->load->view('agentes/revistas-e-apreensoes-view'); // Carrega a view(Tela) Revistas e Apreensões;
     }
 
+    public function cadastrarApreensoes()
+    {
+        $this->load->view('agentes/cadastros/cadastrar-revistas-e-apreensoes'); // Carrega a view(Tela) Revistas e Apreensões;
+
+    }
+
     // <-- Final-Ocorrências -->
 
     // <-- Inicio-Relação Aberto e Semi-Aberto -->
