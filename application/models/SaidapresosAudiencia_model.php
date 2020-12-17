@@ -26,6 +26,14 @@ class SaidapresosAudiencia_model extends CI_Model{
         return $this->db->get("tbl_saidadetentos")->result_array();
     }
 
+    public function cadastradoi(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
+        return $this->db->get("tbl_interno")->result_array();
+    }
+
+    public function cadastradoe(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
+        return $this->db->get("tbl_enterno")->result_array();
+    }
+
     public function buscar($busca){
         
         if(empty($busca))
@@ -87,5 +95,66 @@ class SaidapresosAudiencia_model extends CI_Model{
             "id" => $id
         ))->row_array();
     }
+
+    //modal transito interno
+      function cadastroMasteri(){ // Função reponsável por cadastrar os presos ao bando de dados: db_presos
+        $data = array(
+            'cadeiapublica'=> $this->input->post('cadeiapublica'), //Recebe os dados via post
+            'data'=> $this->input->post('data'),
+            'numsiap'=> $this->input->post('numsiap'),
+            'sic'=> $this->input->post('sic'),
+            'nome'=> $this->input->post('nome'),
+            'motivo'=> $this->input->post('motivo'),
+            'obs'=> $this->input->post('condutores'),
+            'documentacao'=> $this->input->post('condutores')
+            );
+        $this->db->insert('tbl_saidasaude', $data);
+
+    }
+
+    public function updatemedicoi($id, $atualizar){
+        $this->db->where('id', $id);
+        return $this->db->update("tbl_saidasaude", $atualizar);
+
+    }
+    public function showssi($id){
+        return $this->db->get_where('tbl_saidasaude', array(
+            "id" => $id
+        ))->row_array();
+    }
+
+
+
+    //modal transito enterno
+
+
+    function cadastroMastere(){ // Função reponsável por cadastrar os presos ao bando de dados: db_presos
+        $data = array(
+            'cadeiapublica'=> $this->input->post('cadeiapublica'), //Recebe os dados via post
+            'data'=> $this->input->post('data'),
+            'numsiap'=> $this->input->post('numsiap'),
+            'sic'=> $this->input->post('sic'),
+            'nome'=> $this->input->post('nome'),
+            'motivo'=> $this->input->post('motivo'),
+            'obs'=> $this->input->post('condutores'),
+            'documentacao'=> $this->input->post('condutores')
+            );
+        $this->db->insert('tbl_saidasaude', $data);
+
+    }
+
+    public function updatemedicoe($id, $atualizar){
+        $this->db->where('id', $id);
+        return $this->db->update("tbl_saidasaude", $atualizar);
+
+    }
+    public function showsse($id){
+        return $this->db->get_where('tbl_saidasaude', array(
+            "id" => $id
+        ))->row_array();
+    }
+
+
+
 
 }

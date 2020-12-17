@@ -98,12 +98,16 @@ class Home extends CI_Controller{
     
     public function transitoInterno()
     {
-        $this->load->view('agentes/transito-interno-view'); // Carrega a view(Tela) Trânsito Interno;
+        $this->load->model('SaidapresosAudiencia_model');//carregando o model dos presos
+        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastradoi();
+        $this->load->view('agentes/transito-interno-view',$data); // Carrega a view(Tela) Trânsito Interno;
     }
 
     public function transitoExterno() 
     {
-        $this->load->view('agentes/transito-externo-view'); // Carrega a view(Tela) Trânsito Externo;
+        $this->load->model('SaidapresosAudiencia_model');//carregando o model dos presos
+        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastradoe();
+        $this->load->view('agentes/transito-externo-view',$data); // Carrega a view(Tela) Trânsito Externo;
     }
 
     // <-- Final-Trânsito -->
@@ -216,16 +220,18 @@ class Home extends CI_Controller{
 
     // <-- Final-Saida de Detentos Admin-->
 
-    // <-- Inicio-Trânsito Admin-->
-
     public function transitoInternoAdmin()
     {
-        $this->load->view('administrador/transito-interno-view-admin'); // Carrega a view(Tela) Trânsito Interno do Admin;
+        $this->load->model('SaidapresosAudiencia_model');//carregando o model dos presos
+        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastradoi();
+        $this->load->view('administrador/transito-interno-view-admin',$data); // Carrega a view(Tela) Trânsito Interno do Admin;
     }
 
     public function transitoExternoAdmin() 
     {
-        $this->load->view('administrador/transito-externo-view-admin'); // Carrega a view(Tela) Trânsito Externo do Admin;
+        $this->load->model('SaidapresosAudiencia_model');//carregando o model dos presos
+        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastradoe();
+        $this->load->view('administrador/transito-externo-view-admin',$data); // Carrega a view(Tela) Trânsito Externo do Admin;
     }
 
     // <-- Final-Trânsito Admin-->

@@ -172,17 +172,28 @@
       </ol>
       <!-- Main content -->
       <div class="box">
-        <!-- /.box-header -->
+      <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
             <div class="col-sm-6">
               <div class="dataTables_length" id="example1_length">
-              
+
               </div>
+              <div id="example1_filter" class="dataTables_filter">
               <div class="col-sm-6">
-                <div id="example1_filter" class="dataTables_filter">
-                  <label>Procurar Detento:<input type="search" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1"></label>
+              <form action="<?=site_url('SaidapresosAudiencia/resultadoe')?>" method="post">
+                <div class="col-sm-6">
+                  <div id="example1_filter" class="dataTables_filter">
+                    <label>Procurar Detento:  <input type="text" name="busca" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
+                      <br><button type="submit" class="btn btn-primary">Buscar</button></br>
+                    </label>
+                  </div>
+                  </div>
                 </div>
+              </form>
+                  </div>
+                </div>
+              </form>
               </div>
             </div>
             <table id="example1" class="table table-bordered table-striped">
@@ -201,30 +212,29 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>CP Carpina</td>
-                  <td>CP Timbauba </td>
-                  <td><a href="tela de edição">Felipe Henrique Moura Canuto</a></td>
-                  <td>129401</td>
-                  <td>123491</td>
-                  <td>23/01/2019</td>
-                  <td>Fuga</td>
-                  <td>CI SSPEN</td>
-                  <td><a href="link"> Link obs</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>CP Timbauba</td>
-                  <td>CP Carpina</td>
-                  <td><a href="tela de edição">Zaqueu Souza</a></td>
-                  <td>129404</td>
-                  <td>192910</td>
-                  <td>22/12/2018</td>
-                  <td>Evasão</td>
-                  <td>CI SSPEN</td>
-                  <td><a href="link"> Link obs</td>
-                </tr>
+               
+               
+              <?php foreach($saidadetentos as $agents) : ?>
+                            <tr>
+                            <td><?= $agents['id']?></td>
+                            <td><?= $agents['cadeiapublica']?></td>
+                            <td><?= $agents['destino']?></td>
+                            <td>  <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/cadastrarMasteradmini/<?= $agents["id"] ?>">
+                               <?= $agents['nome']?> </a> </td>
+                            <td><?= $agents['numsiap']?></td>
+                            <td><?= $agents['sic']?></td>
+                            <td><?= $agents['datasaida']?></td>
+                            <td><?= $agents['motivo']?></td>
+                            <td><?= $agents['documentacao']?></td>
+                            <td><?= $agents['obs']?></td>
+                            <td> 
+                            <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/editMasteradmini/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
+                            </td>
+
+                        </tr>
+                    <?php endforeach;?>
+
+    
               </tbody>
             </table>
           </div>

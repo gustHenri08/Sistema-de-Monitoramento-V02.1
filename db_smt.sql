@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Dez-2020 às 04:53
--- Versão do servidor: 10.4.14-MariaDB
--- versão do PHP: 7.4.11
+-- Tempo de geração: 17-Dez-2020 às 02:09
+-- Versão do servidor: 10.4.11-MariaDB
+-- versão do PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -87,6 +88,50 @@ INSERT INTO `tbl_agente` (`id`, `nomecompleto`, `matricula`, `nucleo`, `unidadep
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tbl_enterno`
+--
+
+CREATE TABLE `tbl_enterno` (
+  `id` int(11) NOT NULL,
+  `cadeiapublica` varchar(50) NOT NULL,
+  `nome` varchar(40) NOT NULL,
+  `numsiap` int(30) NOT NULL,
+  `sic` int(30) NOT NULL,
+  `data` varchar(12) NOT NULL,
+  `motivo` varchar(30) NOT NULL,
+  `documentacao` varchar(50) NOT NULL,
+  `obs` varchar(30) NOT NULL,
+  `sexo` varchar(10) NOT NULL,
+  `cadastrante` varchar(40) NOT NULL,
+  `funcaocadastrante` varchar(20) NOT NULL,
+  `matriculacadastrante` char(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbl_interno`
+--
+
+CREATE TABLE `tbl_interno` (
+  `id` int(11) NOT NULL,
+  `cadeiapublica` varchar(50) NOT NULL,
+  `nome` varchar(40) NOT NULL,
+  `numsiap` int(30) NOT NULL,
+  `sic` int(30) NOT NULL,
+  `data` varchar(12) NOT NULL,
+  `motivo` varchar(30) NOT NULL,
+  `documentacao` varchar(50) NOT NULL,
+  `obs` varchar(30) NOT NULL,
+  `sexo` varchar(10) NOT NULL,
+  `cadastrante` varchar(40) NOT NULL,
+  `funcaocadastrante` varchar(20) NOT NULL,
+  `matriculacadastrante` char(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tbl_presos`
 --
 
@@ -151,6 +196,15 @@ CREATE TABLE `tbl_saidaaudiencia` (
   `matriculacadastrante` char(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `tbl_saidaaudiencia`
+--
+
+INSERT INTO `tbl_saidaaudiencia` (`id`, `cadeiapublica`, `nome`, `numsiap`, `sic`, `data`, `cidade-forum`, `condutores`, `sexo`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`) VALUES
+(1, 'CP de Aliança', '    Alerta', 12322, 1515, '  11/03/18', '  abreu e lima', '   PCPE', 'Masculino', 'Rafael José da Silva', 'Administrador', '1'),
+(2, 'CP de Aliança', '   rer', 12322222, 12345, '11/03/18', 'abreu e lima', ' PCPE', '', '', '', ''),
+(3, 'CP de Aliança', '  ricardo', 354444, 1515, '11/12/21', 'paulista', ' PCPE', '', '', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -175,8 +229,19 @@ CREATE TABLE `tbl_saidadetentos` (
   `cadastrante` varchar(40) NOT NULL,
   `funcaocadastrante` varchar(20) NOT NULL,
   `matriculacadastrante` char(8) NOT NULL,
-  `obs` varchar(300) NOT NULL
+  `obs` varchar(300) NOT NULL,
+  `origem` text NOT NULL,
+  `crimerepercurssao` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tbl_saidadetentos`
+--
+
+INSERT INTO `tbl_saidadetentos` (`id`, `cadeiapublica`, `nome`, `mae`, `pai`, `motivo`, `datasaida`, `numprocesso`, `numsiap`, `sic`, `documentacao`, `destino`, `condutores`, `sexo`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `obs`, `origem`, `crimerepercurssao`) VALUES
+(1, 'CP de Aliança', '  Alerta', '  ad', '  asdfa', 0, ' 12/01/20', 1515, 354444, 1515, 'ALVARÁ DE SOLTURA', 'PCPE', 'PCPE', '', 'Rafael José da Silva', 'Administrador', '1', '', 'CP de Altinho', 'Sim'),
+(2, 'CP de Aliança', ' AAAA', ' asdad', ' pai', 0, '22/22/22', 2147483647, 0, 0, 'ALVARÁ DE SOLTURA', 'PM', 'PCPE', '', '', '', '', 'obt', 'CP de Altinho', 'Sim'),
+(3, 'CP de Aliança', '  r', '  r', '  r', 0, '  11/01/20', 23222, 12322222, 12345, 'ALVARÁ DE SOLTURA', 'PCPE', 'PCPE', 'Masculino', 'Rafael José da Silva', 'Administrador', '1', '', 'CP de Altinho', 'Sim');
 
 -- --------------------------------------------------------
 
@@ -193,12 +258,20 @@ CREATE TABLE `tbl_saidasaude` (
   `data` varchar(12) NOT NULL,
   `motivo` varchar(30) NOT NULL,
   `condutores` varchar(50) NOT NULL,
-   `sexo` varchar(10) NOT NULL,
+  `sexo` varchar(10) NOT NULL,
   `cadastrante` varchar(40) NOT NULL,
   `funcaocadastrante` varchar(20) NOT NULL,
   `matriculacadastrante` char(8) NOT NULL,
   `descricaosaida` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tbl_saidasaude`
+--
+
+INSERT INTO `tbl_saidasaude` (`id`, `cadeiapublica`, `nome`, `numsiap`, `sic`, `data`, `motivo`, `condutores`, `sexo`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `descricaosaida`) VALUES
+(1, 'CP de Aliança', '   Alerta', 354444, 1515, '11/03/18', 'brin', 'kilolopi', '', '', '', '', 'morto'),
+(2, 'CP de Aliança', '   r', 12322222, 12345, '11/03/18', 'brin', ' kilolop', '', '', '', '', 'morto');
 
 --
 -- Índices para tabelas despejadas
@@ -215,6 +288,18 @@ ALTER TABLE `ci_sessions`
 -- Índices para tabela `tbl_agente`
 --
 ALTER TABLE `tbl_agente`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `tbl_enterno`
+--
+ALTER TABLE `tbl_enterno`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `tbl_interno`
+--
+ALTER TABLE `tbl_interno`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -252,6 +337,18 @@ ALTER TABLE `tbl_agente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
+-- AUTO_INCREMENT de tabela `tbl_enterno`
+--
+ALTER TABLE `tbl_enterno`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT de tabela `tbl_interno`
+--
+ALTER TABLE `tbl_interno`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
 -- AUTO_INCREMENT de tabela `tbl_presos`
 --
 ALTER TABLE `tbl_presos`
@@ -261,19 +358,19 @@ ALTER TABLE `tbl_presos`
 -- AUTO_INCREMENT de tabela `tbl_saidaaudiencia`
 --
 ALTER TABLE `tbl_saidaaudiencia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_saidadetentos`
 --
 ALTER TABLE `tbl_saidadetentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_saidasaude`
 --
 ALTER TABLE `tbl_saidasaude`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -198,30 +198,27 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>CP Carpina</td>
-                  <td>CP Timbauba </td>
-                  <td><a href="tela de edição">Felipe Henrique Moura Canuto</a></td>
-                  <td>129401</td>
-                  <td>123491</td>
-                  <td>23/01/2019</td>
-                  <td>Fuga</td>
-                  <td>CI SSPEN</td>
-                  <td><a href="link"> Link obs</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>CP Timbauba</td>
-                  <td>CP Carpina</td>
-                  <td><a href="tela de edição">Zaqueu Souza</a></td>
-                  <td>129404</td>
-                  <td>192910</td>
-                  <td>22/12/2018</td>
-                  <td>Evasão</td>
-                  <td>CI SSPEN</td>
-                  <td><a href="link"> Link obs</td>
-                </tr>
+            
+              <?php foreach($saidadetentos as $agents) : ?>
+                            <tr>
+                            <td><?= $agents['id']?></td>
+                            <td><?= $agents['cadeiapublica']?></td>
+                            <td><?= $agents['destino']?></td>
+                            <td>  <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/cadastrarMasteri/<?= $agents["id"] ?>">
+                               <?= $agents['nome']?> </a> </td>
+                            <td><?= $agents['numsiap']?></td>
+                            <td><?= $agents['sic']?></td>
+                            <td><?= $agents['datasaida']?></td>
+                            <td><?= $agents['motivo']?></td>
+                            <td><?= $agents['documentacao']?></td>
+                            <td><?= $agents['obs']?></td>
+                            <td> 
+                            <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/editMasteri/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
+                            </td>
+
+                        </tr>
+                    <?php endforeach;?>
+            
               </body>
             </table>
           </div>
