@@ -21,16 +21,20 @@ class CadastroPresos extends CI_Controller{
         $sic = $this->input->post('sic');
         $nsiap = $this->input->post('nsiap');
 
-        if(!$this->Presos_model->verificaSic($sic) && !$this->Presos_model->verificaSiap($nsiap)){// Função que verifica se a sic e o siap já esta no banco:
+        if($sic == "" && !$this->Presos_model->verificaSiap($nsiap)){//Função que verifica se a sic está vazio(Não é obrigatorio) e o siap já esta no banco.
+            $this->Presos_model->cadastroPresos();
+            redirect('Home/entradaPresos');
+
+        }elseif(!$this->Presos_model->verificaSic($sic) && !$this->Presos_model->verificaSiap($nsiap)){// Função que verifica se a sic e o siap já esta no banco:
            
             $this->Presos_model->cadastroPresos();
             redirect('Home/entradaPresos');
 
         }else{
-            redirect('Home/cadastropresos');// se ja estiver voltará para tela de cadastro
+            redirect('Home/cadastropresos');// Se os dados ja estiverem cadastrados a pessoa será para tela de cadastro(não pode haver duas pessoas com o sic e o siap iguais)
         }
   
-      }
+    }
 
     public function editPresos($idpresos){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
         $edit['detentos'] = $this->Presos_model->showpresos($idpresos);
@@ -41,8 +45,22 @@ class CadastroPresos extends CI_Controller{
 
     public function updatepresos($idpresos){// Recebe os dados de 'cadastro-agente-view' e envia para a funcao update do Agente_Model
         $atualizar = $_POST;
-        $this->Presos_model->updatepresos($idpresos, $atualizar);
-        redirect('Home/entradaPresos');
+        $sic = $this->input->post('sic');
+        $nsiap = $this->input->post('nsiap');
+
+        if($sic == "" && !$this->Presos_model->verificaSiap($nsiap)){//Função que verifica se a sic está vazio(Não é obrigatorio) e o siap já esta no banco:
+            $this->Presos_model->updatepresos($idpresos, $atualizar);
+            redirect('Home/entradaPresos');
+
+        }elseif(!$this->Presos_model->verificaSic($sic) && !$this->Presos_model->verificaSiap($nsiap)){// Função que verifica se a sic e o siap já esta no banco:
+           
+            $this->Presos_model->updatepresos($idpresos, $atualizar);
+            redirect('Home/entradaPresos');
+
+        }else{
+            $edit['detentos'] = $this->Presos_model->showpresos($idpresos);
+            $this->load->view('administrador/cadastros/cadastrar-presos-view-admin', $edit);// Se os dados ja estiverem cadastrados a pessoa será para tela de edição(não pode haver duas pessoas com o sic e o siap iguais)
+        }
 
     }
 
@@ -52,34 +70,52 @@ class CadastroPresos extends CI_Controller{
         $this->load->view('administrador/cadastros/cadastrar-presos-view-admin');
     }
   
-      public function createAdmin(){ // Chama a função responsável pelo cadastro dos presos ao banco de dados
+    public function createAdmin(){ // Chama a função responsável pelo cadastro dos presos ao banco de dados
         $sic = $this->input->post('sic');
         $nsiap = $this->input->post('nsiap');
 
-        if(!$this->Presos_model->verificaSic($sic) && !$this->Presos_model->verificaSiap($nsiap)){// Função que verifica se a sic e o siap já esta no banco:
+        if($sic == "" && !$this->Presos_model->verificaSiap($nsiap)){//Função que verifica se a sic está vazio(Não é obrigatorio) e o siap já esta no banco.
+            $this->Presos_model->cadastroPresos();
+            redirect('Home/entradaPresosAdmin');
+
+        }elseif(!$this->Presos_model->verificaSic($sic) && !$this->Presos_model->verificaSiap($nsiap)){// Função que verifica se a sic e o siap já esta no banco:
            
             $this->Presos_model->cadastroPresos();
             redirect('Home/entradaPresosAdmin');
 
         }else{
-            redirect('Home/cadastropresosAdmin');// se ja estiver voltará para tela de cadastro
+            redirect('Home/cadastropresosAdmin');// Se os dados ja estiverem cadastrados a pessoa será para tela de edição(não pode haver duas pessoas com o sic e o siap iguais)
         }
   
-      }
+    }
   
-      public function editPresosAdmin($idpresos){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
+    public function editPresosAdmin($idpresos){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
           $edit['detentos'] = $this->Presos_model->showpresos($idpresos);
   
   
           $this->load->view('administrador/cadastros/cadastrar-presos-view-admin', $edit);
-      }
+    }
   
-      public function updatepresosAdmin($idpresos){// Recebe os dados de 'cadastro-agente-view' e envia para a funcao update do Agente_Model
+    public function updatepresosAdmin($idpresos){// Recebe os dados de 'cadastro-agente-view' e envia para a funcao update do Agente_Model
           $atualizar = $_POST;
-          $this->Presos_model->updatepresos($idpresos, $atualizar);
-          redirect('Home/entradaPresosAdmin');
-  
-      }
+          $sic = $this->input->post('sic');
+        $nsiap = $this->input->post('nsiap');
+
+        if($sic == "" && !$this->Presos_model->verificaSiap($nsiap)){//Função que verifica se a sic está vazio(Não é obrigatorio) e o siap já esta no banco.
+            $this->Presos_model->updatepresos($idpresos, $atualizar);
+            redirect('Home/entradaPresosAdmin');
+
+        }elseif(!$this->Presos_model->verificaSic($sic) && !$this->Presos_model->verificaSiap($nsiap)){// Função que verifica se a sic e o siap já esta no banco:
+           
+            $this->Presos_model->updatepresos($idpresos, $atualizar);
+            redirect('Home/entradaPresosAdmin');
+
+        }else{
+            $edit['detentos'] = $this->Presos_model->showpresos($idpresos);
+            $this->load->view('administrador/cadastros/cadastrar-presos-view-admin', $edit);// Se os dados ja estiverem cadastrados a pessoa será para tela de edição(não pode haver duas pessoas com o sic e o siap iguais)
+        }
+          
+    }
 
 
 }

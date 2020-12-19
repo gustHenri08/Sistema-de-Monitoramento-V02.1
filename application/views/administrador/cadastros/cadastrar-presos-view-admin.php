@@ -382,16 +382,16 @@
                 <label>Regime</label>
                 <?php if(isset($detentos)) :?>
                   <select class="form-control" style="width: 120px" name="regime"><!-- 'name=' adicionado-->
-                    <option><?= $detentos["regime"]?></option>
-                    <option>Aberto</option>
+                    <option><?= $detentos["regime"]?></option>                    
+                    <option>Fechado</option>                    
                     <option>Semi-Aberto</option>
-                    <option>Fechado</option>
+                    <option>Aberto</option>
                   </select>
                 <?php else :?>
                   <select class="form-control" style="width: 120px" name="regime"><!-- 'name=' adicionado-->                    
-                    <option>Aberto</option>
+                    <option>Fechado</option>                    
                     <option>Semi-Aberto</option>
-                    <option>Fechado</option>
+                    <option>Aberto</option>
                   </select>
                 <?php endif;?>
             </div>
@@ -455,7 +455,7 @@
             <?php endif;?>
 
             <div class="col-xs-2"> <!--Botão Cadastrar-->
-            <a href="<?php echo site_url('Home/entradaPresosAdmin'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
+            <a href="<?php echo site_url('Home/entradaPresosAdmin'); ?>" class="btn btn-danger btn-block btn-flat">Cancelar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
             </div>
 
           </form>
