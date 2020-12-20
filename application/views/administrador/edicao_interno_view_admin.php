@@ -196,7 +196,7 @@
           <!--Inicio do Formulario-->
             <!--Inicio do Formulario-->
             <?php if(isset($saidadetentos)) : ?>
-              <form method="post" action="<?= base_url() ?>index.php/SaidapresosAudiencia/createMasteradmin/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
+              <form method="post" action="<?= base_url() ?>index.php/SaidapresosAudiencia/updateadmini/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
   
               <!--Em Testes | chama o controller responsavel por cadastro-->              
             <?php endif; ?>
@@ -233,26 +233,9 @@
                 </select>
             </div>
 
-            
-            <div class="form-group"> <!--Crime de Repercussão-->
-                <label>Sexo</label>
-                <?php if(isset($saidadetentos)) :?>
-                  <select class="form-control" style="width: 110px" name="sexo"><!-- 'name=' adicionado-->
-                    <option><?= $saidadetentos["sexo"]?></option>
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                  </select>
-                <?php else :?>
-                  <select class="form-control" style="width: 110px" name="sexo"><!-- 'name=' adicionado-->                    
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                  </select>
-                <?php endif;?>
-            </div>
-
             <div class="form-group">
-              <label>Data de Entrada</label>
-              <input type="text" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px"  ><!-- 'name=' adicionado-->
+              <label>Data</label>
+              <input type="text" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["data"] : "" ?>" ><!-- 'name=' adicionado-->
               </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
@@ -270,14 +253,34 @@
               <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"value=" <?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"><!-- 'name=' adicionado-->
             </div>
 
+            <div class="form-group"> <!--Campo Cadeia Publica-->
+                <label>Motivo</label>
+                <select class="form-control" style="width: 200px" name="motivo" value=" <?= isset($saidadetentos) ? $saidadetentos["motivo"] : "" ?>">  <!-- 'name=' adicionado-->
+                  <option>AUDIÊNCIA</option>
+                  <option>CUSTÓDIA HOSPITALAR</option>
+                  <option>DETERMINAÇÃO SERES</option>
+                  <option>DETERMINAÇÃO SSPEN </option>
+                  <option>MEDIDA DE SEGURANÇA</option>
+                  <option>OUTRO MOTIVO</option>
+                  <option>TRATAMENTO MÉDICO</option>
+                  <option>OUTRO</option>
+                </select>
+            </div>
+            
+
               <div class="form-group"> <!-- Nome do Pai-->
-              <label>Cidade - Fórum</label>
-              <input type="text" class="form-control" name="cidade-forum" placeholder="Cidade - Fórum" style="width:300px" ><!-- 'name=' adicionado-->
+              <label>Obs Gerais</label>
+              <input type="text" class="form-control" name="obs" placeholder=" " style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["obs"] : "" ?>" ><!-- 'name=' adicionado-->
             </div>
 
               <div class="form-group"> <!-- Nome do Pai-->
-              <label>Condutores</label>
-              <input type="text" class="form-control" name="condutores" placeholder="Condutores" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["condutores"] : "" ?>"><!-- 'name=' adicionado-->
+              <label>Documentação</label>
+              <input type="text" class="form-control" name="documentacao" placeholder="Documentação" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["documentacao"] : "" ?>"><!-- 'name=' adicionado-->
+            </div>
+
+            <div class="form-group"> <!-- Nome do Pai-->
+              <label>Destino</label>
+              <input type="text" class="form-control" name="destino" placeholder="Destino" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["destino"] : "" ?>"><!-- 'name=' adicionado-->
             </div>
 
             <br>
@@ -294,8 +297,8 @@
 </div>
 
 <?php endif; ?>
-
-<div> <!--Botão Cadastrar-->
+<div class="col-xs-2"> <!--Botão Cadastrar-->
+<a href="<?php echo site_url('Home/transitoInternoAdmin'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
 </div>
 
           </form>

@@ -52,7 +52,7 @@ class SaidapresosAudiencia extends CI_Controller{
 
     public function createadmin(){ // Chama a função responsável pelo cadastro dos presos ao banco de dados
         $this->SaidapresosAudiencia_model->cadastroMaster();
-        redirect('Home/saidaAudienciaAdmin');
+        redirect('Home/transitoInterno');
 
     }
     
@@ -98,39 +98,35 @@ class SaidapresosAudiencia extends CI_Controller{
     
     public function createi(){ // Chama a função responsável pelo cadastro dos presos ao banco de dados
         $this->SaidapresosAudiencia_model->cadastroMaster();
-        redirect('Home/saidaAudiencia');
+        redirect('Home/transitoInterno');
 
-    }
-
-    public function usuarios(){
-        return $this->db->get('tbl_presos')->result_array();
     }
      
     public function resultadoi(){
         $this->load->model('SaidapresosAudiencia_model');
         $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
-        $this->load->view('agentes/saida-presosAudiencia-view',$dados);
+        $this->load->view('agentes/transito-interno-view',$dados);
         }
     public function createMasteri(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model
-        $this->SaidapresosAudiencia_model->cadastroMaster();
-        redirect('Home/saidaAudiencia');
+        $this->SaidapresosAudiencia_model->cadastroMasteri();
+        redirect('Home/transitoInterno');
 
     }
 
        public function editMasteri($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
         $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->show($id);
-        $this->load->view('agentes/editar_audiencia-view', $edit);
+        $this->load->view('agentes/edicao_interno_view', $edit);
     }
     public function cadastrarMasteri($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
         $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->shows($id);
-        $this->load->view('agentes/cadastrar_audiencia_view', $edit);
+        $this->load->view('agentes/cadastrar-transito-interno-view', $edit);
     }
     
 
     public function updatei($id){
         $atualizar = $_POST;
         $this->SaidapresosAudiencia_model->update($id, $atualizar);
-        redirect("Home/saidaAudiencia");
+        redirect("Home/transitoInterno");
 
     }
 
@@ -139,8 +135,8 @@ class SaidapresosAudiencia extends CI_Controller{
     // parte do admin
 
     public function createadmini(){ // Chama a função responsável pelo cadastro dos presos ao banco de dados
-        $this->SaidapresosAudiencia_model->cadastroMaster();
-        redirect('Home/saidaAudienciaAdmin');
+        $this->SaidapresosAudiencia_model->cadastroMasteri();
+        redirect('Home/transitoInternoAdmin');
 
     }
     
@@ -153,30 +149,30 @@ class SaidapresosAudiencia extends CI_Controller{
 
         $this->load->model('SaidapresosAudiencia_model');
         $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
-        $this->load->view('administrador/saida-presosAudiencia-view-admin',$dados);
+        $this->load->view('administrador/transito-interno-view-admin',$dados);
 
     }
-
+ 
     public function createMasteradmini(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model
-        $this->SaidapresosAudiencia_model->cadastroMaster();
-        redirect('Home/saidaAudienciaAdmin');
+        $this->SaidapresosAudiencia_model->cadastroMasteri();
+        redirect('Home/transitoInternoAdmin');
 
     }
 
        public function editMasteradmini($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
         $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->show($id);
-        $this->load->view('administrador/editar_audiencia-view_admin', $edit);
+        $this->load->view('administrador/edicao_interno_view_admin', $edit);
     }
     public function cadastrarMasteradmini($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
         $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->shows($id);
-        $this->load->view('administrador/cadastrar_audiencia_view_admin', $edit);
+        $this->load->view('administrador/cadastrar-transito-interno-view_admin', $edit);
     }
     
 
     public function updateadmini($id){
         $atualizar = $_POST;
         $this->SaidapresosAudiencia_model->update($id, $atualizar);
-        redirect("Home/saidaAudienciaAdmin");
+        redirect("Home/transitoInternoAdmin");
 
     }
     
@@ -187,7 +183,7 @@ class SaidapresosAudiencia extends CI_Controller{
              
     public function createe(){ // Chama a função responsável pelo cadastro dos presos ao banco de dados
         $this->SaidapresosAudiencia_model->cadastroMaster();
-        redirect('Home/saidaAudiencia');
+        redirect('Home/transitoExternoAdmin');
 
     }
 
@@ -198,28 +194,28 @@ class SaidapresosAudiencia extends CI_Controller{
     public function resultadoe(){
         $this->load->model('SaidapresosAudiencia_model');
         $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
-        $this->load->view('agentes/saida-presosAudiencia-view',$dados);
+        $this->load->view('agentes/transito-externo-view',$dados);
         }
     public function createMastere(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model
-        $this->SaidapresosAudiencia_model->cadastroMaster();
-        redirect('Home/saidaAudiencia');
+        $this->SaidapresosAudiencia_model->cadastroMastere();
+        redirect('Home/transitoExterno');
 
     }
 
        public function editMastere($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
         $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->show($id);
-        $this->load->view('agentes/editar_audiencia-view', $edit);
+        $this->load->view('agentes/edicao_enterno_view', $edit);
     }
     public function cadastrarMastere($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
         $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->shows($id);
-        $this->load->view('agentes/cadastrar_audiencia_view', $edit);
+        $this->load->view('agentes/cadastrar-transito-externo-view', $edit);
     }
     
 
     public function updatee($id){
         $atualizar = $_POST;
         $this->SaidapresosAudiencia_model->update($id, $atualizar);
-        redirect("Home/saidaAudiencia");
+        redirect("Home/transitoExterno");
 
     }
 
@@ -229,7 +225,7 @@ class SaidapresosAudiencia extends CI_Controller{
 
     public function createadmine(){ // Chama a função responsável pelo cadastro dos presos ao banco de dados
         $this->SaidapresosAudiencia_model->cadastroMaster();
-        redirect('Home/saidaAudienciaAdmin');
+        redirect('Home/transitoExternoAdmin');
 
     }
     
@@ -242,30 +238,30 @@ class SaidapresosAudiencia extends CI_Controller{
 
         $this->load->model('SaidapresosAudiencia_model');
         $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
-        $this->load->view('administrador/saida-presosAudiencia-view-admin',$dados);
+        $this->load->view('administrador/transito-externo-view_admin',$dados);
 
     }
 
     public function createMasteradmine(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model
-        $this->SaidapresosAudiencia_model->cadastroMaster();
-        redirect('Home/saidaAudienciaAdmin');
+        $this->SaidapresosAudiencia_model->cadastroMastere();
+        redirect('Home/transitoExternoAdmin');
 
     }
 
        public function editMasteradmine($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
         $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->show($id);
-        $this->load->view('administrador/editar_audiencia-view_admin', $edit);
+        $this->load->view('administrador/edicao_enterno_view_admin', $edit);
     }
     public function cadastrarMasteradmine($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
         $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->shows($id);
-        $this->load->view('administrador/cadastrar_audiencia_view_admin', $edit);
+        $this->load->view('administrador/cadastrar-transito-externo-view_admin', $edit);
     }
     
 
     public function updateadmine($id){
         $atualizar = $_POST;
         $this->SaidapresosAudiencia_model->update($id, $atualizar);
-        redirect("Home/saidaAudienciaAdmin");
+        redirect("Home/transitoExternoAdmin");
 
     }
     

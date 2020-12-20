@@ -208,7 +208,7 @@
                                <?= $agents['nome']?> </a> </td>
                             <td><?= $agents['numsiap']?></td>
                             <td><?= $agents['sic']?></td>
-                            <td><?= $agents['datasaida']?></td>
+                            <td><?= $agents['data']?></td>
                             <td><?= $agents['motivo']?></td>
                             <td><?= $agents['documentacao']?></td>
                             <td><?= $agents['obs']?></td>

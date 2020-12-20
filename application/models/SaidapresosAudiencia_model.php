@@ -105,20 +105,22 @@ class SaidapresosAudiencia_model extends CI_Model{
             'sic'=> $this->input->post('sic'),
             'nome'=> $this->input->post('nome'),
             'motivo'=> $this->input->post('motivo'),
-            'obs'=> $this->input->post('condutores'),
-            'documentacao'=> $this->input->post('condutores')
+            'obs'=> $this->input->post('obs'),
+            'documentacao'=> $this->input->post('documentacao'),
+            'destino'=> $this->input->post('destino')
+            
             );
-        $this->db->insert('tbl_saidasaude', $data);
+        $this->db->insert('tbl_interno', $data);
 
     }
 
     public function updatemedicoi($id, $atualizar){
         $this->db->where('id', $id);
-        return $this->db->update("tbl_saidasaude", $atualizar);
+        return $this->db->update("tbl_interno", $atualizar);
 
     }
     public function showssi($id){
-        return $this->db->get_where('tbl_saidasaude', array(
+        return $this->db->get_where('tbl_interno', array(
             "id" => $id
         ))->row_array();
     }
@@ -137,19 +139,20 @@ class SaidapresosAudiencia_model extends CI_Model{
             'nome'=> $this->input->post('nome'),
             'motivo'=> $this->input->post('motivo'),
             'obs'=> $this->input->post('condutores'),
+            'destino'=> $this->input->post('destino'),
             'documentacao'=> $this->input->post('condutores')
             );
-        $this->db->insert('tbl_saidasaude', $data);
+        $this->db->insert('tbl_enterno', $data);
 
     }
 
     public function updatemedicoe($id, $atualizar){
         $this->db->where('id', $id);
-        return $this->db->update("tbl_saidasaude", $atualizar);
+        return $this->db->update("tbl_enterno", $atualizar);
 
     }
     public function showsse($id){
-        return $this->db->get_where('tbl_saidasaude', array(
+        return $this->db->get_where('tbl_enterno', array(
             "id" => $id
         ))->row_array();
     }

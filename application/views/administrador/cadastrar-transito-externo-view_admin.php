@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SMP | Saída de detentos da CP</title>
+  <title>SMT | Trânsito Externo </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -75,7 +75,7 @@
           <img src="" class="" alt=""> <!--Foto do Usuario, não pode tirar esse bloco se n quebra a view-->
         </div>
         <div class="pull-left info">
-          <p><?php echo ($this->session->userdata("nomecompleto"));?></p>
+        <p><?php echo ($this->session->userdata("nomecompleto"));?></p>
         </div>
       </div>
       <!-- search form -->
@@ -156,84 +156,158 @@
           </ul>
         </li>
     </section>
+    <!-- /.sidebar -->
   </aside>
 
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- Cabeçalho da Página -->
     <section class="content-header">
-      <h1><p>Saída de Detentos da CP</p></h1>
-      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
-        <li><a href="<?php echo site_url('Home/adminHome');?>">Home</a></li>
-        <li class="active">Saída de Detentos</li>
+      <h1>
+        Cadastrar Saída de Presos Para Audiência
+      </h1>
+      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)mlp-->
+        <li><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/Home">Home</a></li>
+        <li class="active"><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/SaidapresosAudiencia">Saída de Detentos</a></li>
+        <li class="active">Cadastro</li>
       </ol>
-      <p></p>
-      <!-- Main content -->
-      <div class="box">
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="dataTables_length" id="example1_length">
-              
-              </div>
-              <form action="<?=site_url('Saidapresos/resultadoadmin')?>" method="post">
-                <div class="col-sm-6">
-                  <div id="example1_filter" class="dataTables_filter">
-                    <label>Procurar Detento:  <input type="text" name="busca" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
-                      <br><button type="submit" class="btn btn-primary">Buscar</button></br>
-                      </label>
-                  </div>
-                </div>
-              </form>
-            </div>
-              
-            <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>id</th>
-                    <th>CP</th>
-                    <th>Nome</th>
-                    <th>Nome da Mãe</th>
-                    <th>Nome do Pai</th>
-                    <th>Siap</th>
-                    <th></th>
-                  </tr>
-               </thead>
-               <tbody>
-               <?php foreach($saidadetentos as $agents) : ?>
-                        <tr>
-                            <td><?= $agents['id']?></td>
-                            <td><?= $agents['cadeiapublica']?></td>
-                            <td>  <a href="<?= base_url() ?>index.php/Cadastrar_sair/cadastrarMasteradmin/<?= $agents["id"] ?>">
-                            <?= $agents['nome']?></td> </a>  
-                            <td><?= $agents['nomemae']?></td>
-                            <td><?= $agents['nomepai']?></td>
-                            <td><?= $agents['nsiap']?></td>
-                        
-                            <td>
-                            <a href="<?= base_url() ?>index.php/Cadastrar_sair/editMasteradmin/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">editar</a>
-                            </td>
-        
-                        </tr>
-                    <?php endforeach;?>
+    </section>
 
-               </tbody>
-              </table>
-            </div>
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Cadastro</h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                    title="Collapse">
+              <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fa fa-times"></i></button>
           </div>
-          <!-- /.row -->
         </div>
-        <!-- /.box-body -->
+        <!--Inicio do Box Body-->
+        <div class="box-body">
+          <!--Inicio do Formulario-->
+            <!--Inicio do Formulario-->
+            <?php if(isset($saidadetentos)) : ?>
+              <form method="post" action="<?= base_url() ?>index.php/SaidapresosAudiencia/createadmine/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
+  
+              <!--Em Testes | chama o controller responsavel por cadastro-->              
+            <?php endif; ?>
+             <!--Em Testes | chama o controller responsavel por cadastro-->
+           
+             <div class="form-group"> <!-- Nome do Detento-->
+          		<label>Agente Penitenciário</label>
+          		<input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+            </div>
+            
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<label>Função Agente</label>
+          		<input type="text" class="form-control" name="funcaocadastrante" placeholder="Função Agente" value="<?= isset($agentes) ? ($this->session->userdata("funcao")) : ($this->session->userdata("funcao"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+            </div>
+            
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<label>Matrícula Agente</label>
+          		<input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+            </div>
+           
+            <div class="form-group"> <!--Campo Cadeia Publica-->
+                <label>Cadeia Publica</label>
+                <select class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>">  <!-- 'name=' adicionado-->
+                  <option>CP de Aliança</option>
+                  <option>CP de Carpina</option>
+                  <option>CP de Glória do Goitá</option>
+                  <option>CP de Goiana</option>
+                  <option>CP de Itambé</option>
+                  <option>CP de Lagoa do Carro</option>
+                  <option>CP de Macaparana</option>
+                  <option>CP de Nazaré da Mata</option>
+                  <option>CP de Timbauba</option>
+                  <option>CP de Vicência</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+              <label>Data</label>
+              <input type="text" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px"  ><!-- 'name=' adicionado-->
+              </div>
+
+            <div class="form-group"> <!-- Nome do Detento-->
+              <label>Nome</label>
+              <input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>"><!-- 'name=' adicionado-->
+            </div>
+
+            <div class="form-group"> <!-- Nome dpa Mãjbejjee-->
+              <label>Nº SIAP</label>
+              <input type="text" class="form-control" name="numsiap" placeholder="Nº SIAP" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["numsiap"] : "" ?>"><!-- 'name=' adicionado-->
+            </div>
+
+            <div class="form-group"> <!-- Nome do Pai-->
+              <label>SIC</label>
+              <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"value=" <?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"><!-- 'name=' adicionado-->
+            </div>
+
+            <div class="form-group"> <!--Campo Cadeia Publica-->
+                <label>Motivo</label>
+                <select class="form-control" style="width: 200px" name="motivo">  <!-- 'name=' adicionado-->
+                  <option>AUDIÊNCIA</option>
+                  <option>CUSTÓDIA HOSPITALAR</option>
+                  <option>DETERMINAÇÃO SERES</option>
+                  <option>DETERMINAÇÃO SSPEN </option>
+                  <option>MEDIDA DE SEGURANÇA</option>
+                  <option>OUTRO MOTIVO</option>
+                  <option>TRATAMENTO MÉDICO</option>
+                  <option>OUTRO</option>
+                </select>
+            </div>
+            
+
+              <div class="form-group"> <!-- Nome do Pai-->
+              <label>Obs Gerais</label>
+              <input type="text" class="form-control" name="motivo" placeholder="Motivo" style="width:300px" ><!-- 'name=' adicionado-->
+            </div>
+
+              <div class="form-group"> <!-- Nome do Pai-->
+              <label>Documentação</label>
+              <input type="text" class="form-control" name="documentacao" placeholder="Documentação" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["condutores"] : "" ?>"><!-- 'name=' adicionado-->
+            </div>
+
+            <div class="form-group"> <!-- Nome do Pai-->
+              <label>Destino</label>
+              <input type="text" class="form-control" name="destino" placeholder="Destino" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["condutores"] : "" ?>"><!-- 'name=' adicionado-->
+            </div>
+
+            <br>
+
+            <?php if(isset($criars)) :?>
+
+<div class="col-xs-2"> <!--Botão Cadastrar-->
+  <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+</div>
+
+<?php endif; ?>
+
+<div class="col-xs-2"> <!--Botão Cadastrar-->
+<a href="<?php echo site_url('Home/transitoExternoAdmin'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
+</div>
+
+          </form>
+          <!--Fim do Formulario-->
+        </div>
+        <!-- Fim do Box Body -->
       </div>
-      <!-- /.box -->
+      <!-- Fim do Box -->
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.Wrapper -->
+  <!-- /.content-wrapper -->
+
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.18
@@ -241,32 +315,24 @@
     <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
     reserved.
   </footer>
-</div>
-
-        
-
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>assets/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 <!--Font Awesome My Link-->
 <script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>
 <script>
   $(document).ready(function () {
-    $('.sidebar-menu').tree()
+    $('.sidebar-menu').tree();
   })
 </script>
 </body>
