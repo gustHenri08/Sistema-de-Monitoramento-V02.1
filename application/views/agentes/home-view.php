@@ -245,7 +245,7 @@
                     }
                   }
                 });
-                async function init() {
+                async function char_getinfo() {
                     const blob = await fetch("<?php echo site_url('Chart/getinfo'); ?>");
                     const data = await blob.json();
 
@@ -257,7 +257,7 @@
                   
                     chartGraph.update();
                 }
-                init();
+               char_getinfo();
               });
             </script>
 
@@ -270,7 +270,7 @@
               <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
               <script>
                 var ctx = document.getElementsByClassName("doughnut-chart2");
-
+                var getexit_VALUES = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
                 var chartGraph = new Chart(ctx, {
                   type: 'doughnut',
                   data: {
@@ -278,13 +278,39 @@
                     datasets: [{
                       label: "Nome da CP",
                       //*Número de presos por Núcleo*//
-                      data: [50, 300, 210, 300, 400, 201, 190, 103, 401, 021, 491, 030, 194, 102, 100, 190, 102, 193],
+                      data : getexit_VALUES,
                       backgroundColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)", "rgba(0, 0, 0, 10)", "rgba(0, 0, 255, 10)", "rgba(0, 191, 255, 10)", "rgba(0, 0, 128, 10)", "rgba(0, 255, 127, 10)", "rgba(210,105,30,10)", "rgba(75,0,130,10)", "rgba(255,228,181,10)", "rgba(238,232,170,10)"],
                       borderColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)", "rgba(0, 0, 0, 10)", "rgba(0, 0, 255, 10)", "rgba(0, 191, 255, 10)", "rgba(0, 0, 128, 10)", "rgba(0, 255, 127, 10)", "rgba(210,105,30,10)", "rgba(75,0,130,10)", "rgba(255,228,181,10)", "rgba(238,232,170,10)"],
                       borderWidth: 2
                     }, ],
                   }
                 });
+                async function chart_getexit() {
+                    const blob = await fetch("<?php echo site_url('Chart/getexit'); ?>");
+                    const data = await blob.json();
+
+                    getexit_VALUES[0] = data.alvaraCount.MOT_COUNT;
+                    getexit_VALUES[1] = data.delegCount.MOT_COUNT;
+                    getexit_VALUES[2] = data.domicCount.MOT_COUNT;
+                    getexit_VALUES[3] = data.evasaoCount.MOT_COUNT;
+                    getexit_VALUES[4] = data.fimPrazoCivilCount.MOT_COUNT;
+                    getexit_VALUES[5] = data.fugaCount.MOT_COUNT;
+                    getexit_VALUES[6] = data.delegCount.MOT_COUNT;
+                    getexit_VALUES[7] = data.HarmCount.MOT_COUNT;
+                    getexit_VALUES[8] = data.condCount.MOT_COUNT;
+                    getexit_VALUES[9] = data.obitoCount.MOT_COUNT;
+                    getexit_VALUES[10] = data.obitoCVLICount.MOT_COUNT;
+                    getexit_VALUES[11] = data.PrisaoDomiCount.MOT_COUNT;
+                    getexit_VALUES[12] = data.ProgressRegimeCount.MOT_COUNT;
+                    getexit_VALUES[13] = data.transfCpCount.MOT_COUNT;
+                    getexit_VALUES[14] = data.transfUfCount.MOT_COUNT;
+                    getexit_VALUES[15] = data.transfUpCount.MOT_COUNT;
+                    getexit_VALUES[16] = data.transitoCount.MOT_COUNT;
+                    getexit_VALUES[17] = data.outrosCount.MOT_COUNT;
+                  
+                    chartGraph.update();
+                }
+                chart_getexit();
               </script>
               <br>
             </div>
