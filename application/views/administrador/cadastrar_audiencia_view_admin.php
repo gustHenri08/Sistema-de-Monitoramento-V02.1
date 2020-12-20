@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SMT | Trânsito Externo </title>
+  <title>SMT | Cadastro </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -202,24 +202,9 @@
             <?php endif; ?>
              <!--Em Testes | chama o controller responsavel por cadastro-->
            
-             <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Agente Penitenciário</label>
-          		<input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-            
-            <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Função Agente</label>
-          		<input type="text" class="form-control" name="funcaocadastrante" placeholder="Função Agente" value="<?= isset($agentes) ? ($this->session->userdata("funcao")) : ($this->session->userdata("funcao"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-            
-            <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Matrícula Agente</label>
-          		<input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-           
             <div class="form-group"> <!--Campo Cadeia Publica-->
                 <label>Cadeia Publica</label>
-                <select class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>">  <!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>" readonly style="width:300px" >  <!-- 'name=' adicionado-->
                   <option>CP de Aliança</option>
                   <option>CP de Carpina</option>
                   <option>CP de Glória do Goitá</option>
@@ -233,27 +218,10 @@
                 </select>
             </div>
 
-            
-            <div class="form-group"> <!--Crime de Repercussão-->
-                <label>Sexo</label>
-                <?php if(isset($saidadetentos)) :?>
-                  <select class="form-control" style="width: 110px" name="sexo"readonly style="width:300px"><!-- 'name=' adicionado-->
-                    <option><?= $saidadetentos["sexo"]?></option>
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                  </select>
-                <?php else :?>
-                  <select class="form-control" style="width: 110px" name="sexo"readonly style="width:300px"><!-- 'name=' adicionado-->                    
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                  </select>
-                <?php endif;?>
+            <div class="form-group"> <!--Data de Prisão-->
+              <label>Data da Entrada</label>
+              <input type="date" class="form-control" required name="data" style="width:140px" maxlength="10"><!-- 'name=' adicionado-->
             </div>
-
-            <div class="form-group">
-              <label>Data de Entrada</label>
-              <input type="text" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px"  ><!-- 'name=' adicionado-->
-              </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
               <label>Nome</label>
@@ -275,9 +243,16 @@
               <input type="text" class="form-control" name="cidade-forum" placeholder="Cidade - Fórum" style="width:300px" ><!-- 'name=' adicionado-->
             </div>
 
-              <div class="form-group"> <!-- Nome do Pai-->
-              <label>Condutores</label>
-              <input type="text" class="form-control" name="condutores" placeholder="Condutores" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["condutores"] : "" ?>"><!-- 'name=' adicionado-->
+            <div class="form-group"> <!--Documentação-->
+                <label>Condutores</label>
+                <select class="form-control" style="width: 230px" name="condutores"  ><!-- 'name=' adicionado-->
+                  <option>PCPE</option>
+                  <option>PF</option>
+                  <option>PM</option>
+                  <option>PP</option>
+                  <option>PP/PM</option>
+                  <option>Outro</option>
+                </select>
             </div>
 
             <br>
@@ -294,7 +269,9 @@
 </div>
 
 <?php endif; ?>
-
+<div class="col-xs-2"> <!--Botão Cadastrar-->
+<a href="<?php echo site_url('Home/saidaAudienciaAdmin'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
+</div>
 <div> <!--Botão Cadastrar-->
 </div>
 

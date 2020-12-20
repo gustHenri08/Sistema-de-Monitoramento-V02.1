@@ -237,7 +237,7 @@
 
             <div class="form-group">
               <label>Data de Entrada</label>
-              <input type="text" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10" value=" <?= isset($saidadetentos) ? $saidadetentos["data"] : "" ?>"><!-- 'name=' adicionado-->
+              <input type="date" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10" value=" <?= isset($saidadetentos) ? $saidadetentos["data"] : "" ?>"><!-- 'name=' adicionado-->
               </div>
 
           	<div class="form-group"> <!-- Nome do Detento-->

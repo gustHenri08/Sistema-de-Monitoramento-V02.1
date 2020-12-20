@@ -195,24 +195,10 @@
              
             <?php endif; ?>
          	
-            <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Agente Penitenciário</label>
-          		<input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-            
-            <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Função Agente</label>
-          		<input type="text" class="form-control" name="funcaocadastrante" placeholder="Função Agente" value="<?= isset($agentes) ? ($this->session->userdata("funcao")) : ($this->session->userdata("funcao"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-            
-            <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Matrícula Agente</label>
-          		<input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-           
+      
            <div class="form-group"> <!--Campo Cadeia Publica-->
           			<label>Cadeia Publica</label>
-          			<select class="form-control" style="width: 200px" name="cadeiapublica" value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>"><!-- 'name=' adicionado-->
+          			<select class="form-control" style="width: 200px" name="cadeiapublica" value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
           				<option>CP de Aliança</option>
           				<option>CP de Carpina</option>
           				<option>CP de Glória do Goitá</option>
@@ -226,10 +212,10 @@
           			</select>
           	</div>
       
-            <div class="form-group">
-              <label>Data de Saida</label>
-              <input type="text" class="form-control" name="datasaida" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10" ><!-- 'name=' adicionado-->
-              </div>
+            <div class="form-group"> <!--Data de Prisão-->
+              <label>Data da Saida</label>
+              <input type="date" class="form-control" required name="datasaida" style="width:140px" maxlength="10"><!-- 'name=' adicionado-->
+            </div>
 
           	<div class="form-group"> <!-- Nome do Detento-->
           		<label>Nome</label>
@@ -324,30 +310,6 @@
                   <option>PP</option>
                   <option>PP/PM</option>
                   <option>Outro</option>
-                </select>
-            </div>
-
-            <div class="form-group"> <!--Crime de Repercussão-->
-                <label>Sexo</label>
-                <?php if(isset($saidadetentos)) :?>
-                  <select class="form-control" style="width: 110px" name="sexo"><!-- 'name=' adicionado-->
-                    <option><?= $saidadetentos["sexo"]?></option>
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                  </select>
-                <?php else :?>
-                  <select class="form-control" style="width: 110px" name="sexo"><!-- 'name=' adicionado-->                    
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                  </select>
-                <?php endif;?>
-            </div>
-
-            <div class="form-group"> <!--Crime de Repercussão-->
-                <label>Crime de Repercussão</label>
-                <select class="form-control" style="width: 90px" name="crimerepercurssao"  value=" <?= isset($saidadetentos) ? $saidadetentos["crimerepercurssao"] : "" ?>"><!-- 'name=' adicionado-->
-                  <option>Sim</option>
-                  <option>Não</option>
                 </select>
             </div>
 
