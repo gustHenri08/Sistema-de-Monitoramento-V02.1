@@ -47,19 +47,30 @@ class CadastroPresos extends CI_Controller{
         $atualizar = $_POST;
         $sic = $this->input->post('sic');
         $nsiap = $this->input->post('nsiap');
+        $nsiapBanco = $this->Presos_model->verificaSiap($nsiap);
+        $sicBanco = $this->Presos_model->verificaSic($sic);
 
-        if($sic == "" && !$this->Presos_model->verificaSiap($nsiap)){//Função que verifica se a sic está vazio(Não é obrigatorio) e o siap já esta no banco:
+        if(!$this->Presos_model->verificaSiap($nsiap)){
+            $edit['detentos'] = $this->Presos_model->showpresos($idpresos);
+            $this->load->view('agentes/cadastros/cadastrar-presos-view', $edit);// Se o numero do SIAP for trocado a pessoa será redirecionada a tela de cadastro
+
+        }elseif($sic == 0 && $nsiap == $nsiapBanco['nsiap']){//Função que verifica se a sic está vazio(Não é obrigatorio) e o siap já esta no banco.
             $this->Presos_model->updatepresos($idpresos, $atualizar);
             redirect('Home/entradaPresos');
 
-        }elseif(!$this->Presos_model->verificaSic($sic) && !$this->Presos_model->verificaSiap($nsiap)){// Função que verifica se a sic e o siap já esta no banco:
+        }elseif(!$this->Presos_model->verificaSic($sic) && $nsiap == $nsiapBanco['nsiap']){// Função que verifica se a sic e o siap já esta no banco:
+           
+            $this->Presos_model->updatepresos($idpresos, $atualizar);
+            redirect('Home/entradaPresos');
+
+        }elseif($sic == $sicBanco['sic'] && $nsiap == $nsiapBanco['nsiap']){// Função que verifica se a sic e o siap já esta no banco:
            
             $this->Presos_model->updatepresos($idpresos, $atualizar);
             redirect('Home/entradaPresos');
 
         }else{
             $edit['detentos'] = $this->Presos_model->showpresos($idpresos);
-            $this->load->view('administrador/cadastros/cadastrar-presos-view-admin', $edit);// Se os dados ja estiverem cadastrados a pessoa será para tela de edição(não pode haver duas pessoas com o sic e o siap iguais)
+            $this->load->view('agentes/cadastros/cadastrar-presos-view', $edit);// Se os dados ja estiverem cadastrados a pessoa será para tela de edição(não pode haver duas pessoas com o sic e o siap iguais)
         }
 
     }
@@ -97,15 +108,26 @@ class CadastroPresos extends CI_Controller{
     }
   
     public function updatepresosAdmin($idpresos){// Recebe os dados de 'cadastro-agente-view' e envia para a funcao update do Agente_Model
-          $atualizar = $_POST;
-          $sic = $this->input->post('sic');
+        $atualizar = $_POST;
+        $sic = $this->input->post('sic');
         $nsiap = $this->input->post('nsiap');
+        $nsiapBanco = $this->Presos_model->verificaSiap($nsiap);
+        $sicBanco = $this->Presos_model->verificaSic($sic);
 
-        if($sic == "" && !$this->Presos_model->verificaSiap($nsiap)){//Função que verifica se a sic está vazio(Não é obrigatorio) e o siap já esta no banco.
+        if(!$this->Presos_model->verificaSiap($nsiap)){
+            $edit['detentos'] = $this->Presos_model->showpresos($idpresos);
+            $this->load->view('administrador/cadastros/cadastrar-presos-view-admin', $edit);// Se o numero do SIAP for trocado a pessoa será redirecionada a tela de cadastro
+
+        }elseif($sic == 0 && $nsiap == $nsiapBanco['nsiap']){//Função que verifica se a sic está vazio(Não é obrigatorio) e o siap já esta no banco.
             $this->Presos_model->updatepresos($idpresos, $atualizar);
             redirect('Home/entradaPresosAdmin');
 
-        }elseif(!$this->Presos_model->verificaSic($sic) && !$this->Presos_model->verificaSiap($nsiap)){// Função que verifica se a sic e o siap já esta no banco:
+        }elseif(!$this->Presos_model->verificaSic($sic) && $nsiap == $nsiapBanco['nsiap']){// Função que verifica se a sic e o siap já esta no banco:
+           
+            $this->Presos_model->updatepresos($idpresos, $atualizar);
+            redirect('Home/entradaPresosAdmin');
+
+        }elseif($sic == $sicBanco['sic'] && $nsiap == $nsiapBanco['nsiap']){// Função que verifica se a sic e o siap já esta no banco:
            
             $this->Presos_model->updatepresos($idpresos, $atualizar);
             redirect('Home/entradaPresosAdmin');
