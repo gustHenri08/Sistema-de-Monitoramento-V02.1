@@ -167,7 +167,7 @@
     <!-- Cabeçalho da Página -->
     <section class="content-header">
       <h1>
-        Cadastrar Saída de Presos Para Audiência
+        Cadastrar Saída do Presos para Medico
       </h1>
       <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)mlp-->
         <li><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/Home">Home</a></li>
@@ -203,21 +203,6 @@
             <?php endif; ?>
              <!--Em Testes | chama o controller responsavel por cadastro-->
            
-             <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Agente Penitenciário</label>
-          		<input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-            
-            <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Função Agente</label>
-          		<input type="text" class="form-control" name="funcaocadastrante" placeholder="Função Agente" value="<?= isset($agentes) ? ($this->session->userdata("funcao")) : ($this->session->userdata("funcao"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-            
-            <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Matrícula Agente</label>
-          		<input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-           
             <div class="form-group"> <!--Campo Cadeia Publica-->
                 <label>Cadeia Publica</label>
                 <select class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>"readonly style="width:300px">  <!-- 'name=' adicionado-->
@@ -236,7 +221,7 @@
 
             <div class="form-group">
               <label>Data de Entrada</label>
-              <input type="text" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px"  ><!-- 'name=' adicionado-->
+              <input type="date" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px"  ><!-- 'name=' adicionado-->
               </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
@@ -284,6 +269,12 @@
 </div>
 
 <?php endif; ?>
+
+
+<div class="col-xs-2"> <!--Botão Cadastrar-->
+<a href="<?php echo site_url('Home/saidaMedica'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
+</div>
+
 
 <div> <!--Botão Cadastrar-->
 </div>

@@ -232,7 +232,7 @@
       
             <div class="form-group">
               <label>Data de Saida</label>
-              <input type="text" class="form-control" name="datasaida" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10" value=" <?= isset($saidadetentos) ? $saidadetentos["datasaida"] : "" ?>"  ><!-- 'name=' adicionado-->
+              <input type="date" class="form-control"  name="datasaida" style="width:140px" maxlength="10" value=" <?= isset($saidadetentos) ? $saidadetentos["datasaida"] : "" ?>"  ><!-- 'name=' adicionado-->
               </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
@@ -291,22 +291,6 @@
                 </select>
             </div>
 
-            <div class="form-group"> <!--Crime de Repercussão-->
-                <label>Sexo</label>
-                <?php if(isset($saidadetentos)) :?>
-                  <select class="form-control" style="width: 110px" name="sexo"><!-- 'name=' adicionado-->
-                    <option><?= $saidadetentos["sexo"]?></option>
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                  </select>
-                <?php else :?>
-                  <select class="form-control" style="width: 110px" name="sexo"><!-- 'name=' adicionado-->                    
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                  </select>
-                <?php endif;?>
-            </div>
-
             <div class="form-group"> <!--Origem-->
               <label>Origem</label><!-- Origem alterada para ficar de acordo com documentação, versão antiga estava com os options errados-->
                 <select class="form-control" style="width: 250px" name="origem"  value=" <?= isset($saidadetentos) ? $saidadetentos["origem"] : "" ?>"><!-- 'name=' adicionado-->
@@ -343,16 +327,6 @@
                   <option>PP</option>
                   <option>PP/PM</option>
                   <option>Outro</option>
-                </select>
-            </div>
-
-            
-
-            <div class="form-group"> <!--Crime de Repercussão-->
-                <label>Crime de Repercussão</label>
-                <select class="form-control" style="width: 90px" name="crimerepercurssao"  value=" <?= isset($saidadetentos) ? $saidadetentos["crimerepercurssao"] : "" ?>"><!-- 'name=' adicionado-->
-                  <option>Sim</option>
-                  <option>Não</option>
                 </select>
             </div>
 
