@@ -22,5 +22,9 @@ class Chart extends REST_Controller {
             ]
         , REST_Controller::HTTP_OK);
     }
+    public function getexit_get() {
+        $value = (object)['alvaraSoltura' => 12, 'delegacia' => 30];
+        $this->response($value);
+    }
 }
 ?>
