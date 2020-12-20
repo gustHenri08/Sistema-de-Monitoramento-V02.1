@@ -196,7 +196,7 @@
           <!--Inicio do Formulario-->
             <!--Inicio do Formulario-->
             <?php if(isset($saidadetentos)) : ?>
-              <form method="post" action="<?= base_url() ?>index.php/SaidapresosAudiencia/updateadmini/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
+              <form method="post" action="<?= base_url() ?>index.php/SaidapresosAudiencia/editMasteradmini/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
   
               <!--Em Testes | chama o controller responsavel por cadastro-->              
             <?php endif; ?>

@@ -219,7 +219,7 @@
                             <td><?= $agents['id']?></td>
                             <td><?= $agents['cadeiapublica']?></td>
                             <td><?= $agents['destino']?></td>
-                            <td>  <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/cadastrarMasteradmini/<?= $agents["id"] ?>">
+                            <td>  <a href="<?= base_url() ?>index.php/Saidatransito/cadastrarMasteradmini/<?= $agents["id"] ?>">
                                <?= $agents['nome']?> </a> </td>
                             <td><?= $agents['numsiap']?></td>
                             <td><?= $agents['sic']?></td>
@@ -228,7 +228,7 @@
                             <td><?= $agents['documentacao']?></td>
                             <td><?= $agents['obs']?></td>
                             <td> 
-                            <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/editMasteradmini/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
+                            <a href="<?= base_url() ?>index.php/Saidatransito/editMasteradmini/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
                             </td>
 
                         </tr>

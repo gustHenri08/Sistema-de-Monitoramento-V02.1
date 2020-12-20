@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SMT | Trânsito Externo </title>
+  <title>SMT | Cadastro </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -12,8 +12,6 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/Ionicons/css/ionicons.min.css">
-  <!--DataTables-->
-  <script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap.css"></script>
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -36,11 +34,11 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?php echo site_url('Home/adminHome'); ?>" class="logo">
+    <a href="<?php echo site_url('Home'); ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>Admin</b></span>
+      <span class="logo-mini"><b>SMP</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b></span>
+      <span class="logo-lg"><b>SMP</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -91,26 +89,20 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-      <li class="header">Principal</li>
+        <li class="header">Principal</li>
         <li>
-          <a href="<?php echo site_url('Home/adminHome'); ?>"> <!-- Link do Home, ao ser clicado ele retorna o controller-->
+          <a href="<?php echo site_url('Home'); ?>"> <!-- Link do Home, ao ser clicado ele retorna o controller-->
             <i class="fa fa-home"></i> <span>Home</span>
           </a>
         </li>
         <li>
-          <a href="<?php echo site_url('Home/agentes'); ?>"> <!-- Link do Home, ao ser clicado ele retorna o controller-->
-          <i class="fa fa-user-plus"></i>
-            <span>Agentes</span>
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo site_url('Home/entradaPresosAdmin'); ?> ">
+          <a href="<?php echo site_url('Home/entradaPresos'); ?> ">
             <i class="fa fa-user-plus"></i>
             <span>Entrada de Detentos</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo site_url(''); ?>">
+          <a href="<?php echo site_url('Home'); ?>">
             <i class="fa fa-registered"></i>
             <span>Ocorrências</span>
             <span class="pull-right-container">
@@ -118,19 +110,20 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('Home/registroOcorrenciasAdmin'); ?>"><i class="fa fa-registered"></i> Registro de Ocorrências </a></li>
-            <li><a href="<?php echo site_url('Home/outrasOcorrenciasAdmin'); ?>"><i class="fa fa-registered"></i> Outras Ocorrências </a></li>
-            <li><a href="<?php echo site_url('Home/revistasApreensoesAdmin'); ?>"><i class="fa fa-ban"></i> Revistas e Apreensões </a></li>
+            <li><a href="<?php echo site_url('OcorrenciasAdmin'); ?>"><i class="fa fa-registered"></i> Registro de Ocorrências </a></li>
+            <li><a href="<?php echo site_url('Outras_ocorrenciasAdmin'); ?>"><i class="fa fa-registered"></i> Outras Ocorrências </a></li>
+            <li><a href="<?php echo site_url('ApreensoesAdmin'); ?>"><i class="fa fa-ban"></i> Revistas e Apreensões </a></li>
+
           </ul>
         </li>
         <li>
-          <a href="<?php echo site_url('Home/abertoSemiabertoAdmin'); ?> ">
+          <a href="<?php echo site_url('SemiAberto_e_Aberto'); ?> ">
             <i class="fa fa-file-text-o"></i>
             <span>Relação Aberto / Semi-Aberto</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo site_url(''); ?>">
+          <a href="<?php echo site_url('Home'); ?>">
             <i class="fa fa-user-times"></i>
             <span>Saida do Detento</span>
             <span class="pull-right-container">
@@ -138,21 +131,21 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('Home/saidaCadeiaPublicaAdmin'); ?>"><i class="fa fa-key"></i> Saída da Cadeia Pública</a></li>
+          <li><a href="<?php echo site_url('Home/saidaCadeiaPublicaAdmin'); ?>"><i class="fa fa-key"></i> Saída da Cadeia Pública</a></li>
             <li><a href="<?php echo site_url('Home/saidaAudienciaAdmin'); ?>"><i class="fa fa-cab"></i> Saída para Audiência</a></li>
             <li><a href="<?php echo site_url('Home/saidaMedicaAdmin'); ?>"><i class="fa fa-ambulance"></i> Saída Médica</a></li>
-          </ul>
+            </ul>
         </li>
         <li class="treeview">
-          <a href="<?php echo site_url(''); ?>">
+          <a href="<?php echo site_url('Home'); ?>">
             <i class="fa fa-edit"></i> <span>Trânsito</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('Home/transitoInternoAdmin'); ?>"><i class="fa fa-refresh"></i> Trânsito Interno</a></li>
-            <li><a href="<?php echo site_url('Home/transitoExternoAdmin'); ?>"><i class="fa fa-exchange"></i> Trânsito Externo</a></li>
+            <li><a href="<?php echo site_url('TransitoInternoAdmin'); ?>"><i class="fa fa-refresh"></i> Trânsito Interno</a></li>
+            <li><a href="<?php echo site_url('TransitoExternoAdmin'); ?>"><i class="fa fa-exchange"></i> Trânsito Externo</a></li>
           </ul>
         </li>
     </section>
@@ -166,13 +159,14 @@
     <!-- Cabeçalho da Página -->
     <section class="content-header">
       <h1>
-        Cadastrar Saída de Presos Para Audiência
+        Cadastrar Saída de Detentos
       </h1>
       <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)mlp-->
         <li><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/Home">Home</a></li>
-        <li class="active"><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/SaidapresosAudiencia">Saída de Detentos</a></li>
+        <li class="active"><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/Saidapresos">Saída de Detentos</a></li>
         <li class="active">Cadastro</li>
       </ol>
+      
     </section>
 
     <!-- Main content -->
@@ -194,29 +188,14 @@
         <!--Inicio do Box Body-->
         <div class="box-body">
           <!--Inicio do Formulario-->
-            <!--Inicio do Formulario-->
-            <?php if(isset($saidadetentos)) : ?>                                          
-              <form method="post" action="<?= base_url() ?>index.php/SaidapresosAudiencia/createadmini/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
-  
-              <!--Em Testes | chama o controller responsavel por cadastro-->              
+          <?php if(isset($saidadetentos)) : ?>
+              <form method="post" action="<?= base_url() ?>index.php/Saidatransito/createMasteradmini/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
+              <!--Em Testes | chama o controller responsavel pela edição-->
+        
+             
             <?php endif; ?>
-             <!--Em Testes | chama o controller responsavel por cadastro-->
-           
-             <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Agente Penitenciário</label>
-          		<input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-            
-            <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Função Agente</label>
-          		<input type="text" class="form-control" name="funcaocadastrante" placeholder="Função Agente" value="<?= isset($agentes) ? ($this->session->userdata("funcao")) : ($this->session->userdata("funcao"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-            
-            <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Matrícula Agente</label>
-          		<input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-           
+         	
+          
             <div class="form-group"> <!--Campo Cadeia Publica-->
                 <label>Cadeia Publica</label>
                 <select class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>">  <!-- 'name=' adicionado-->
@@ -234,7 +213,7 @@
             </div>
 
             <div class="form-group">
-              <label>Data</label>
+              <label>Data Entrada</label>
               <input type="text" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px"  ><!-- 'name=' adicionado-->
               </div>
 
@@ -285,10 +264,10 @@
 
             <br>
 
-            <?php if(isset($criars)) :?>
+            <?php if(isset($saidadetentos)) :?>
 
 <div class="col-xs-2"> <!--Botão Cadastrar-->
-  <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+  <button type="submit" class="btn btn-primary btn-block btn-flat">Salvar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
 </div>
 
 <?php else: ?>
@@ -297,9 +276,12 @@
 </div>
 
 <?php endif; ?>
+
 <div class="col-xs-2"> <!--Botão Cadastrar-->
 <a href="<?php echo site_url('Home/transitoInternoAdmin'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
 </div>
+
+         </div>
 
           </form>
           <!--Fim do Formulario-->

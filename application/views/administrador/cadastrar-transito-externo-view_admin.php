@@ -193,15 +193,13 @@
         </div>
         <!--Inicio do Box Body-->
         <div class="box-body">
-          <!--Inicio do Formulario-->
-            <!--Inicio do Formulario-->
-            <?php if(isset($saidadetentos)) : ?>
-              <form method="post" action="<?= base_url() ?>index.php/SaidapresosAudiencia/createadmine/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
-  
-              <!--Em Testes | chama o controller responsavel por cadastro-->              
+        <?php if(isset($saidadetentos)) : ?>
+              <form method="post" action="<?= base_url() ?>index.php/Cadastrar_sair/createMasteradmin/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
+              <!--Em Testes | chama o controller responsavel pela edição-->
+        
+             
             <?php endif; ?>
-             <!--Em Testes | chama o controller responsavel por cadastro-->
-           
+
              <div class="form-group"> <!-- Nome do Detento-->
           		<label>Agente Penitenciário</label>
           		<input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
@@ -290,6 +288,12 @@
 <div class="col-xs-2"> <!--Botão Cadastrar-->
   <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
 </div>
+
+<?php else: ?>
+<div class="col-xs-2"> <!--Botão Cadastrar-->
+  <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+</div>
+
 
 <?php endif; ?>
 
