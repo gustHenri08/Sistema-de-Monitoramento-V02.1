@@ -233,7 +233,13 @@
                         scaleLabel: {
                           display: true,
                           labelString: 'Número de Presos'
-                        }
+                          
+                        },
+                        ticks: {
+                          suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                          // OR //
+                          beginAtZero: true   // minimum value will be 0.
+                         }
                       }],
                       xAxes: [{
                         scaleLabel: {
@@ -283,6 +289,10 @@
                       borderColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)", "rgba(0, 0, 0, 10)", "rgba(0, 0, 255, 10)", "rgba(0, 191, 255, 10)", "rgba(0, 0, 128, 10)", "rgba(0, 255, 127, 10)", "rgba(210,105,30,10)", "rgba(75,0,130,10)", "rgba(255,228,181,10)", "rgba(238,232,170,10)"],
                       borderWidth: 2
                     }, ],
+                  },
+                  options:{
+                    legend:{
+                    }
                   }
                 });
                 async function chart_getexit() {
