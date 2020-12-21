@@ -61,7 +61,7 @@ class Chart extends REST_Controller {
                 'transfUfCount' => $transfUfCount,
                 'transfUpCount' =>  $transfUpCount, 
                 'transitoCount' => $transitoCount,
-                'outrosCount' => $HarmCount
+                'outrosCount' => $outrosCount
             ]
         );
     }
