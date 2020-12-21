@@ -294,8 +294,8 @@
                     getexit_VALUES[2] = data.domicCount.MOT_COUNT;
                     getexit_VALUES[3] = data.evasaoCount.MOT_COUNT;
                     getexit_VALUES[4] = data.fimPrazoCivilCount.MOT_COUNT;
+                    getexit_VALUES[6] = data.fimPrazoTempCount.MOT_COUNT;
                     getexit_VALUES[5] = data.fugaCount.MOT_COUNT;
-                    getexit_VALUES[6] = data.delegCount.MOT_COUNT;
                     getexit_VALUES[7] = data.HarmCount.MOT_COUNT;
                     getexit_VALUES[8] = data.condCount.MOT_COUNT;
                     getexit_VALUES[9] = data.obitoCount.MOT_COUNT;
@@ -323,21 +323,40 @@
               <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
               <script>
                 var ctx = document.getElementsByClassName("doughnut-chart");
-
-                var chartGraph = new Chart(ctx, {
+                var getEntrada_VALUES = [0,0,0,0,0,0,0,0,0];
+                var getEntrada_chartGraph = new Chart(ctx, {
                   type: 'doughnut',
                   data: {
                     labels: ["Expiração de Prazo", "Mandado de Prisão Civil", "Mandado de Prisão Preventiva", "Mandado de Prisão Temporária", "Mandado de Recolhimento", "Recaptura - Mandado de Prisão", "Tansferência", "Trânsito", "Outros"],
                     datasets: [{
                       label: "Entrada de Presos",
                       //*Número de presos por Núcleo*//
-                      data: [50, 300, 210, 300, 400, 500, 600, 700, 800],
+                      data: getEntrada_VALUES,
                       backgroundColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)"],
                       borderColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)"],
                       borderWidth: 2
                     }, ],
                   }
                 });
+                async function chart_getEntrada() {
+                    const blob = await fetch("<?php echo site_url('Chart/getEntrada'); ?>");
+                    const data = await blob.json();
+
+                    getEntrada_VALUES[0] = data.expiraPrazoCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[1] = data.mandadoPrisCivilCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[2] = data.mandadoPrisPrevCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[3] = data.mandadoPrisTempCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[4] = data.mandadoRecolhimentoCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[6] = data.recapturaCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[5] = data.transferenciaCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[7] = data.transitoCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[8] = data.outrosCount.MOT_ENT_COUNT;
+                    
+
+                    getexit_chartGraph.data.datasets[0].data=getEntrada_VALUES.map(x => parseInt(x));
+                    getexit_chartGraph.update();
+                }
+                chart_getEntrada();
               </script>
             </div>
 
