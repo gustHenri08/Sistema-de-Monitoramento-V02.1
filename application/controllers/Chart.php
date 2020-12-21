@@ -57,7 +57,7 @@ class Chart extends REST_Controller {
                 'obitoCVLICount' =>  $obitoCVLICount, 
                 'PrisaoDomiCount' => $PrisaoDomiCount,
                 'ProgressRegimeCount' => $ProgressRegimeCount,
-                'transfCpCount ' => $transfCpCount ,
+                'transfCpCount' => $transfCpCount ,
                 'transfUfCount' => $transfUfCount,
                 'transfUpCount' =>  $transfUpCount, 
                 'transitoCount' => $transitoCount,

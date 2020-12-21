@@ -271,7 +271,7 @@
               <script>
                 var ctx = document.getElementsByClassName("doughnut-chart2");
                 var getexit_VALUES = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-                var chartGraph = new Chart(ctx, {
+                var getexit_chartGraph = new Chart(ctx, {
                   type: 'doughnut',
                   data: {
                     labels: ["Alvará de Soltura", "Delegacia", "Domiciliar COVID", "Evasão", "Fim de Prazo da Prisão Civil", "Fim de prazo da Prisão Temporária", "Fuga", "Harmonizado", "Liberdade Condicional", "Óbito", "Óbito CVLI", "Prisão Domicilar", "Progressão de Regime", "Transferência P/CP", "Transferência P/UF", "Transferência P/UP", "Trânsito", "Outros"],
@@ -307,8 +307,9 @@
                     getexit_VALUES[15] = data.transfUpCount.MOT_COUNT;
                     getexit_VALUES[16] = data.transitoCount.MOT_COUNT;
                     getexit_VALUES[17] = data.outrosCount.MOT_COUNT;
-                  
-                    chartGraph.update();
+
+                    getexit_Chart.data.datasets[0].data=getexit_VALUES.map(x => parseInt(x));
+                    getexit_chartGraph.update();
                 }
                 chart_getexit();
               </script>
