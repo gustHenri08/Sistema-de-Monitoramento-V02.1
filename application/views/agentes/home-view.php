@@ -308,7 +308,7 @@
                     getexit_VALUES[16] = data.transitoCount.MOT_COUNT;
                     getexit_VALUES[17] = data.outrosCount.MOT_COUNT;
 
-                    getexit_Chart.data.datasets[0].data=getexit_VALUES.map(x => parseInt(x));
+                    getexit_chartGraph.data.datasets[0].data=getexit_VALUES.map(x => parseInt(x));
                     getexit_chartGraph.update();
                 }
                 chart_getexit();
