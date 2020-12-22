@@ -398,7 +398,7 @@ ALTER TABLE `tbl_presos`
 ALTER TABLE `tbl_saidaaudiencia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
+
 -- AUTO_INCREMENT de tabela `tbl_saidadetentos`
 --
 ALTER TABLE `tbl_saidadetentos`
