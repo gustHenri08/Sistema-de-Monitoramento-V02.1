@@ -180,6 +180,16 @@
             <div class="box-header">
               <h3 class="box-title"> Cadastrar </h3>
             </div>
+
+            <?php if(isset($detentos)) : ?>
+            <form method="post" action="<?= base_url() ?>index.php/CadastroPresos/updatepresosAdmin/<?= $detentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
+            <!--Em Testes | chama o controller responsavel pela edição-->
+          <?php else : ?>
+            <form method="post" action="<?php echo site_url('CadastroPresos/createAdmin') ?>">
+            <!--Em Testes | chama o controller responsavel por cadastro-->
+          <?php endif; ?>
+
+          <?php if(isset($detentos)) : ?>
             <div class="box-body">
               <table id="tabela" class="table table-bordered table-striped">
                 <thead>
@@ -220,48 +230,11 @@
                       </select>
                     </td>
                     <td class="sorting_1">
-                      <a href="#" class="btn btn-success btn-xs">Salvar</a>        
-                      <a href="#" class="btn btn-warning btn-xs">Editar</a>
-                      <a href="#" class="btn btn-danger btn-xs">Deletar</a>               
+                      <a href="#" class="btn btn-success btn-xs">Salvar</a>                    
                     </td>
                   </tr> 
                   <tr>
-                    <td colspan="4"><textarea style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
-                  </tr>
-                  <tr>
-                  <td><input type="text" class="form-control" name="dataentrada" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10"></td>
-                    <td>
-                      <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-                        <option>CP de Aliança</option>
-                        <option>CP de Carpina</option>
-                        <option>CP de Glória do Goitá</option>
-                        <option>CP de Goiana</option>
-                        <option>CP de Itambé</option>
-                        <option>CP de Lagoa do Carro</option>
-                        <option>CP de Macaparana</option>
-                        <option>CP de Nazaré da Mata</option>
-                        <option>CP de Timbauba</option>
-                        <option>CP de Vicência</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select class="form-control" style="width: 200px" name="tipoOcorrencia"><!-- 'name=' adicionado-->
-                        <option>Agressão</option>
-                        <option>Apreensão</option>
-                        <option>Custódia Hospitalar</option>
-                        <option>Emergência Hospitalar</option>
-                        <option>Fuga</option>
-                        <option>Óbito - Natural</option>
-                        <option>Óbito - Suicídio</option>
-                        <option>Óbito - CVLI</option>
-                      </select>
-                    </td>
-                    <td class="sorting_1">
-                      <a href="#" class="btn btn-success btn-xs">Salvar</a>     
-                      <a href="#" class="btn btn-warning btn-xs">Editar</a>   
-                      <a href="#" class="btn btn-danger btn-xs">Deletar</a>            
-                    </td>
-                  </tr>
+                  
                   <tr>
                     <td colspan="4"><textarea style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
                   </tr>  

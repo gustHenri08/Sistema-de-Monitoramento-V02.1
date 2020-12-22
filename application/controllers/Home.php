@@ -209,16 +209,19 @@ class Home extends CI_Controller{
 
     public function registroOcorrenciasAdmin()
     {
-        $this->load->view('administrador/ocorrencias-view-admin'); // Carrega a view(Tela) Ocorrências do Admin;
+        $this->load->model('ocorrencias_modal');
+        $data['saidadetentos'] = $this->ocorrencias_modal->cadastrados();
+        $this->load->view('administrador/ocorrencias-view-admin',$data); // Carrega a view(Tela) Ocorrências do Admin;
     }
 
     public function cadastrarOcorrenciasAdmin(){
-
+        
         $this->load->view('administrador/cadastros/cadastrar-ocorrencia-view-admin');
     }
 
     public function outrasOcorrenciasAdmin() 
     {
+        
         $this->load->view('administrador/outras-ocorrencias-view-admin'); // Carrega a view(Tela) outras Ocorrências do Admin;
     }
 

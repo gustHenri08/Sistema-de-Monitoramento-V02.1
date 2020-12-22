@@ -39,7 +39,7 @@ class Saidatransito extends CI_Controller{
 
     public function updatei($id){
         $atualizar = $_POST;
-        $this->SaidapresosAudiencia_model->update($id, $atualizar);
+        $this->SaidapresosAudiencia_model->updatei($id, $atualizar);
         redirect("Home/transitoInterno");
 
     }
@@ -85,7 +85,7 @@ class Saidatransito extends CI_Controller{
 
     public function updateadmini($id){
         $atualizar = $_POST;
-        $this->SaidapresosAudiencia_model->update($id, $atualizar);
+        $this->SaidapresosAudiencia_model->updatei($id, $atualizar);
         redirect("Home/transitoInternoAdmin");
 
     }
@@ -128,7 +128,7 @@ class Saidatransito extends CI_Controller{
 
     public function updatee($id){
         $atualizar = $_POST;
-        $this->SaidapresosAudiencia_model->update($id, $atualizar);
+        $this->SaidapresosAudiencia_model->updatee($id, $atualizar);
         redirect("Home/transitoExterno");
 
     }

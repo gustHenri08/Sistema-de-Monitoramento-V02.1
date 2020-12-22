@@ -186,11 +186,16 @@
            <!-- /.box-header -->
            <div class="box-body">
               <div class="col-sm-6">
-                <div id="example1_filter" class="dataTables_filter">
-                  <label>Procurar Detento:<input type="search" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1"></label>
-                  <br></br>
-                  <button type="submit" class="btn btn-primary">Buscar</button>
-                  <br></br>
+              <form action="<?=site_url('ocorrencias/resultadoadmin')?>" method="post">
+                  <div class="col-sm-6">
+                    <div id="example1_filter" class="dataTables_filter">
+                      <label>Procurar Presos:  <input type="text" name="busca" id="busca" class="form-control input-sm" placeholder="Nome" aria-controls="example1">
+                        <br><button type="submit" class="btn btn-primary">Buscar</button></br>
+                      </label> <!--colocar um if-else para tentar fazer o campo busca buscar os dados pelo que foi solicitado -->
+                    </div>
+                  </div>
+                </form>
+                <br></br>
                 </div>
               </div>
              <table id="example2" class="table table-bordered table-hover">
@@ -205,11 +210,19 @@
                </thead>
                <tbody>
                  <tr>
-                   <td>CP de Paulista</td>
-                   <td><a href="<?php echo site_url('Home/cadastrarOcorrenciasAdmin'); ?>">Fulano de Tal</td>
-                   <td>Mãe do Fulano de Tal</td>
-                   <td>Pai do Fulano de Tal</td>
-                   <td>123123</td>
+                 <?php foreach($saidadetentos as $presos) : ?>
+                    <tr>
+                      <td><?= $presos['cadeiapublica']?></td>
+                      <td><a href="<?php echo site_url('Home/listarOcorrencias'); ?>"><?= $presos['nome']?></a>
+                      </td>
+                      <td><?= $presos['nomemae']?></td>
+                      <td><?= $presos['nomepai']?></td>
+                      <td><?= $presos['nsiap']?></td>
+                      <td style='text-align:center'>
+                      <a href="<?= base_url() ?>index.php/CadastroPresos/editPresosAdmin/<?= $presos["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
+                      </td>
+                    </tr>
+                  <?php endforeach?>
                  </tr>
                </tbody>
              </table>

@@ -114,7 +114,7 @@ class SaidapresosAudiencia_model extends CI_Model{
 
     }
 
-    public function updatemedicoi($id, $atualizar){
+    public function updatei($id, $atualizar){
         $this->db->where('id', $id);
         return $this->db->update("tbl_interno", $atualizar);
 
@@ -146,7 +146,7 @@ class SaidapresosAudiencia_model extends CI_Model{
 
     }
 
-    public function updatemedicoe($id, $atualizar){
+    public function updatee($id, $atualizar){
         $this->db->where('id', $id);
         return $this->db->update("tbl_enterno", $atualizar);
 

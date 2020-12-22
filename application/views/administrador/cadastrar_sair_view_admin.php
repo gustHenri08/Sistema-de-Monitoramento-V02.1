@@ -255,21 +255,20 @@
             <div class="form-group"> <!--Motivo-->
                 <label>Motivo</label>
                 <select class="form-control" style="width: 250px" name="motivo"  value=" <?= isset($saidadetentos) ? $saidadetentos["motivo"] : "" ?>"><!-- 'name=' adicionado-->
-                  <option>ALVARÁ DE SOLTURA</option>
-                  <option>EVASÃO</option>
-                  <option>FIM DE PRAZO DA PRISÃO CIVIL</option>
-                  <option>FIM DE PRAZO DA PRISÃO TEMPORÁRIA</option>
-                  <option>FUGA</option>
-                  <option>HARMONIZADO</option>
-                  <option>ÓBITO</option>
-                  <option>PROGRESSÃO DE REGIME</option>
-                  <option>LIBERDADE CONDICIONAL</option>
-                  <option>PRISÃO DOMICILIAR</option>
+                  <option>Alvára De Soltura </option>
+                  <option>Evasão</option>           
+                  <option>Fim De Prazo Da Prisão civil</option>
+                  <option>Fim De Prazo Da Prisão Temporária</option>
+                  <option>Fuga</option>
+                  <option>Harmonizado</option>
+                  <option>Óbito</option>
+                  <option>Progressão De Regime</option>
+                  <option>Liberdade Condicional</option>
+                  <option> Prisão Domiciliar</option>
                   <option>Transferência P/ CP</option>
                   <option>Transferência P/ UF</option>
                   <option>Transferência P/ UP</option>
                   <option>Trânsito</option>
-                  <option>Medico</option>
                   <option>Outros</option>
                 </select>
             </div>

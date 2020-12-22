@@ -239,9 +239,16 @@
               <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"value=" <?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
-              <div class="form-group"> <!-- Nome do Pai-->
-              <label>Motivo</label>
-              <input type="text" class="form-control" name="motivo" placeholder="Motivo" style="width:300px" ><!-- 'name=' adicionado-->
+            <div class="form-group"> <!--Documentação-->
+                <label>Motivo</label>
+                <select class="form-control" style="width: 230px" name="motivo"  ><!-- 'name=' adicionado-->
+                  <option>Consulta Médica</option>
+                  <option>Consulta Odontológica</option>
+                  <option>Emergência</option>
+                  <option>Exames Complexos</option>
+                  <option>Exames Laboratoriais</option>
+                  <option>Outro</option>
+                </select>
             </div>
 
               <div class="form-group"> <!-- Nome do Pai-->
