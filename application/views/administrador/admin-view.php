@@ -8,8 +8,6 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/Ionicons/css/ionicons.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.css">
@@ -212,12 +210,112 @@
           </div>
         </div>
         <div class="box-body">
-          <div class="col-md-12">
-            <h3>Número de Presos por Categorias</h3>
-            <br>
-            <br>
-            <canvas class="bar-chart"></canvas>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <h3>Número de Presos por Categorias</h3>
+              <canvas class="bar-chart"></canvas>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              <h3>Motivo de Entrada de Presos</h3>
+              <canvas class="bar-chart2"></canvas>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+              <h3>Motivo de Saída de Presos</h3>
+              <div class="col-sm-8">
+                <div id="example1_filter" class="dataTables_filter">
+                  <label>Procurar Núcleo:  
+                    <select class="form-control" style="width: 200px" name="nucleo">
+                      <option>Arcoverde</option>
+                      <option>Caruaru</option>
+                      <option>Garanhuns</option>
+                      <option>Lagoa</option>
+                      <option>Petrolina</option>
+                      <option>Salgueiro</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <canvas class="doughnut-chart2"></canvas>
+            </div>
+            <div class="col-md-5">
+              <h3>Motivo de Autorização de Saída de Presos</h3>
+              <canvas id="chart-legend-bottom" class="doughnut-chart3"></canvas>
+            </div>  
+            <div class="col-md-1"></div>      
+          </div>
+
+
+          
+        </div>
+        <!-- /.box-body -->
+        
+      
+      </div>
+      <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.18
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    reserved.
+  </footer>
+
+</div> <!--Fim da DIV Wrapper-->
+
+
+<!-- jQuery 3 -->
+<script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url(); ?>assets/datatables.net-bs/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="<?php echo base_url(); ?>assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="<?php echo base_url(); ?>assets/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo base_url(); ?>assets/plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="<?php echo base_url(); ?>assets/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="<?php echo base_url(); ?>assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url(); ?>assets/plugins/iCheck/icheck.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?php echo base_url(); ?>assets/dist/js/app.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
             <script>
               var ctx = document.getElementsByClassName("bar-chart");
 
@@ -295,15 +393,8 @@
                   });
                   
             </script>
-          </div>
 
-          <div class="col-md-12">
-            <h3>Motivo de Entrada de Presos</h3>
-            <br>
-            <br>
-            <canvas class="bar-chart2"></canvas>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-            <script>
+<script>
               var ctx = document.getElementsByClassName("bar-chart2");
 
               var chartGraph = new Chart(ctx, {
@@ -379,30 +470,33 @@
                     }
                   });
                   
-            </script>
-          </div>
+            </script>        
+            
+            <script>
+            var ctx = document.getElementsByClassName("doughnut-chart3");
 
-          <div class="col-md-6">
-            <br><br><br>
-            <h3>Motivo de Saída de Presos</h3>
-            <div class="col-sm-6">
-              <div id="example1_filter" class="dataTables_filter">
-                <label>Procurar Núcleo:  
-                  <select class="form-control" style="width: 200px" name="nucleo">
-                    <option>Arcoverde</option>
-                    <option>Caruaru</option>
-                    <option>Garanhuns</option>
-                    <option>Lagoa</option>
-                    <option>Petrolina</option>
-                    <option>Salgueiro</option>
-                  </select>
-                </label>
-              </div>
-            </div>
-          <br>
-          <br>
-          <canvas class="doughnut-chart2"></canvas>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+            var chartGraph = new Chart(ctx, {
+                type: 'doughnut',
+                data:{
+                  labels: ["Audiência Presencial","Consulta Médica","Consulta Odontológica","Emergência","Escolta Funeral","Exames Complexos","Exames Laboratoriais","Internação Hospitalar","Outros"],
+                  datasets:[
+                    { label:"Entrada de Presos",
+                      //*Número de presos por Núcleo*//
+                      data:[50,300,210,300,400,500,600,700,800],
+                      backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)"],
+                      borderColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)"],
+                      borderWidth:2
+                      },
+                    ],
+                  },
+                  options:{
+                    legend:{
+                      position: 'left'
+                    }
+                  }
+                });
+          </script>       
+          
           <script>
             var ctx = document.getElementsByClassName("doughnut-chart2");
 
@@ -419,97 +513,14 @@
                       borderWidth:2
                       },
                     ],
+                  },
+                  options:{
+                    legend:{
+                      position: 'left'
+                    }
                   }
                 });
-          </script>
-          <br>
-        </div>
-        <div class="col-md-6">
-          <br><br><br>
-          <h3>Motivo de Autorização de Saída de Presos</h3>
-          <br>
-          <br>
-          <br>
-          <canvas id="chart-legend-bottom" class="doughnut-chart3"></canvas>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-          <script>
-            var ctx = document.getElementsByClassName("doughnut-chart3");
-
-            var chartGraph = new Chart(ctx, {
-                type: 'doughnut',
-                data:{
-                  labels: ["Audiência Presencial","Consulta Médica","Consulta Odontológica","Emergência","Escolta Funeral","Exames Complexos","Exames Laboratoriais","Internação Hospitalar","Outros"],
-                  datasets:[
-                    { label:"Entrada de Presos",
-                      //*Número de presos por Núcleo*//
-                      data:[50,300,210,300,400,500,600,700,800],
-                      backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)"],
-                      borderColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)"],
-                      borderWidth:2
-                      },
-                    ],
-                  }
-                });
-          </script>
-        </div>
-          
-        </div>
-        <!-- /.box-body -->
-        
-      
-      </div>
-      <!-- /.box -->
-
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.18
-    </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
-    reserved.
-  </footer>
-
-</div> <!--Fim da DIV Wrapper-->
-
-
-<!-- jQuery 3 -->
-<script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="<?php echo base_url(); ?>assets/datatables.net-bs/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="<?php echo base_url(); ?>assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="<?php echo base_url(); ?>assets/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
-<!-- InputMask -->
-<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-<!-- date-range-picker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- bootstrap datepicker -->
-<script src="<?php echo base_url(); ?>assets/plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- bootstrap color picker -->
-<script src="<?php echo base_url(); ?>assets/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-<!-- bootstrap time picker -->
-<script src="<?php echo base_url(); ?>assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-<!-- iCheck 1.0.1 -->
-<script src="<?php echo base_url(); ?>assets/plugins/iCheck/icheck.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?php echo base_url(); ?>assets/dist/js/app.min.js"></script>
+          </script>          
 
 <!--Font Awesome My Link-->
 <script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>

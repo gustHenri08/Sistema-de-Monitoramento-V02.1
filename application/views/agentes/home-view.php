@@ -9,8 +9,6 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/Ionicons/css/ionicons.min.css">
   <!-- daterange picker -->
@@ -207,210 +205,35 @@
             </div>
           </div>
           <div class="box-body">
-            <canvas class="line-chart"></canvas>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-            <script>
-              setTimeout(() => {
-                //            Homens, Mulheres, Regime Aberto, Semi Aberto, Fechado
-                var VALUES = [0, 0, 0, 0, 0];
-                var ctx = document.getElementsByClassName("line-chart");
-                var chartGraph = new Chart(ctx, {
-                  type: 'bar',
-                  data: {
-                    labels: ["Homens", "Mulheres", "Regime Aberto", "Regime Semi-Aberto", "Regime Fechado", ],
-                    datasets: [{
-                      label: "Nome da CP",
-                      //*Número de presos por Núcleo*//
-                      data: VALUES,
-                      backgroundColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)"],
-                      borderColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)"],
-                      borderWidth: 2
-                    }, ],
-                  },
-                  options: {
-                    scales: {
-                      yAxes: [{
-                        scaleLabel: {
-                          display: true,
-                          labelString: 'Número de Presos'
-                          
-                        },
-                        ticks: {
-                          suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
-                          // OR //
-                          beginAtZero: true   // minimum value will be 0.
-                         }
-                      }],
-                      xAxes: [{
-                        scaleLabel: {
-                          fontColor: 'black',
-                          display: true,
-                          labelString: 'Categorias'
-                        }
-                      }]
-                    }
-                  }
-                });
-                async function chart_getinfo() {
-                    const blob = await fetch("<?php echo site_url('Chart/getinfo'); ?>");
-                    const data = await blob.json();
-
-                    VALUES[0] = data.maleCount.SEX_COUNT;
-                    VALUES[1] = data.femaleCount.SEX_COUNT;
-                    VALUES[2] = data.regimeAberto.SEX_COUNT;
-                    VALUES[3] = data.regimeSemi.SEX_COUNT;
-                    VALUES[4] = data.regimeFechado.SEX_COUNT;
-                  
-                    chartGraph.update();
-                }
-               chart_getinfo();
-              });
-            </script>
-
-            <div class="col-md-7">
-              <br><br><br><br><br><br><br><br>
-              <h3>Motivo de Saída de Presos</h3>
-              <br>
-              <br>
-              <canvas class="doughnut-chart2"></canvas>
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-              <script>
-                var getexit_VALUES = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-                var ctx = document.getElementsByClassName("doughnut-chart2");
-                var getexit_chartGraph = new Chart(ctx, {
-                  type: 'doughnut',
-                  data: {
-                    labels: ["Alvará de Soltura", "Delegacia", "Domiciliar COVID", "Evasão", "Fim de Prazo da Prisão Civil", "Fim de prazo da Prisão Temporária", "Fuga", "Harmonizado", "Liberdade Condicional", "Óbito", "Óbito CVLI", "Prisão Domicilar", "Progressão de Regime", "Transferência P/CP", "Transferência P/UF", "Transferência P/UP", "Trânsito", "Outros"],
-                    datasets: [{
-                      label: "Nome da CP",
-                      //*Número de presos por Núcleo*//
-                      data : getexit_VALUES,
-                      backgroundColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)", "rgba(0, 0, 0, 10)", "rgba(0, 0, 255, 10)", "rgba(0, 191, 255, 10)", "rgba(0, 0, 128, 10)", "rgba(0, 255, 127, 10)", "rgba(210,105,30,10)", "rgba(75,0,130,10)", "rgba(255,228,181,10)", "rgba(238,232,170,10)"],
-                      borderColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)", "rgba(0, 0, 0, 10)", "rgba(0, 0, 255, 10)", "rgba(0, 191, 255, 10)", "rgba(0, 0, 128, 10)", "rgba(0, 255, 127, 10)", "rgba(210,105,30,10)", "rgba(75,0,130,10)", "rgba(255,228,181,10)", "rgba(238,232,170,10)"],
-                      borderWidth: 2
-                    }, ],
-                  },
-                  options:{
-                    legend:{
-                    }
-                  }
-                });
-                async function chart_getexit() {
-                    const blob = await fetch("<?php echo site_url('Chart/getexit'); ?>");
-                    const data = await blob.json();
-
-                    getexit_VALUES[0] = data.alvaraCount.MOT_COUNT;
-                    getexit_VALUES[1] = data.delegCount.MOT_COUNT;
-                    getexit_VALUES[2] = data.domicCount.MOT_COUNT;
-                    getexit_VALUES[3] = data.evasaoCount.MOT_COUNT;
-                    getexit_VALUES[4] = data.fimPrazoCivilCount.MOT_COUNT;
-                    getexit_VALUES[5] = data.fimPrazoTempCount.MOT_COUNT;
-                    getexit_VALUES[6] = data.fugaCount.MOT_COUNT;
-                    getexit_VALUES[7] = data.HarmCount.MOT_COUNT;
-                    getexit_VALUES[8] = data.condCount.MOT_COUNT;
-                    getexit_VALUES[9] = data.obitoCount.MOT_COUNT;
-                    getexit_VALUES[10] = data.obitoCVLICount.MOT_COUNT;
-                    getexit_VALUES[11] = data.PrisaoDomiCount.MOT_COUNT;
-                    getexit_VALUES[12] = data.ProgressRegimeCount.MOT_COUNT;
-                    getexit_VALUES[13] = data.transfCpCount.MOT_COUNT;
-                    getexit_VALUES[14] = data.transfUfCount.MOT_COUNT;
-                    getexit_VALUES[15] = data.transfUpCount.MOT_COUNT;
-                    getexit_VALUES[16] = data.transitoCount.MOT_COUNT;
-                    getexit_VALUES[17] = data.outrosCount.MOT_COUNT;
-                    getexit_chartGraph.update();
-                }
-                chart_getexit();
-              </script>
-              <br>
-            </div>
-            <div class="col-md-5">
-              <h3>Motivo de Entrada de Presos</h3>
-              <br>
-              <br>
-              <canvas id="chart-legend-bottom" class="doughnut-chart"></canvas>
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-              <script>
-                var ctx = document.getElementsByClassName("doughnut-chart");
-                var getEntrada_VALUES = [0,0,0,0,0,0,0,0,0];
-                var getEntrada_chartGraph = new Chart(ctx, {
-                  type: 'doughnut',
-                  data: {
-                    labels: ["Expiração de Prazo", "Mandado de Prisão Civil", "Mandado de Prisão Preventiva", "Mandado de Prisão Temporária", "Mandado de Recolhimento", "Recaptura - Mandado de Prisão", "Tansferência", "Trânsito", "Outros"],
-                    datasets: [{
-                      label: "Entrada de Presos",
-                      //*Número de presos por Núcleo*//
-                      data: getEntrada_VALUES,
-                      backgroundColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)"],
-                      borderColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)"],
-                      borderWidth: 2
-                    }, ],
-                  }
-                });
-                async function chart_getEntrada() {
-                    const blob = await fetch("<?php echo site_url('Chart/getEntrada'); ?>");
-                    const data = await blob.json();
-
-                    getEntrada_VALUES[0] = data.expiraPrazoCount.MOT_ENT_COUNT;
-                    getEntrada_VALUES[1] = data.mandadoPrisCivilCount.MOT_ENT_COUNT;
-                    getEntrada_VALUES[2] = data.mandadoPrisPrevCount.MOT_ENT_COUNT;
-                    getEntrada_VALUES[3] = data.mandadoPrisTempCount.MOT_ENT_COUNT;
-                    getEntrada_VALUES[4] = data.mandadoRecolhimentoCount.MOT_ENT_COUNT;
-                    getEntrada_VALUES[6] = data.recapturaCount.MOT_ENT_COUNT;
-                    getEntrada_VALUES[5] = data.transferenciaCount.MOT_ENT_COUNT;
-                    getEntrada_VALUES[7] = data.transito2Count.MOT_ENT_COUNT;
-                    getEntrada_VALUES[8] = data.outros2Count.MOT_ENT_COUNT;
-                    
-
-                    getEntrada_chartGraph.data.datasets[0].data=getEntrada_VALUES.map(x => parseInt(x));
-                    getEntrada_chartGraph.update();
-                }
-                chart_getEntrada();
-              </script>
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <canvas class="line-chart"></canvas>
+              </div>
+              <div class="col-md-2"></div>
             </div>
 
-            <div class="col-md-5">
-              <h3>Motivo de Autorização de Saída de Presos</h3>
-              <br>
-              <br>
-              <canvas id="chart-legend-bottom" class="doughnut-chart3"></canvas>
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-              <script>
-                var ctx = document.getElementsByClassName("doughnut-chart3");
-                var getAutSaida_VALUES = [0,0,0,0,0,0,0,0];
-                var getAutSaida_chartGraph = new Chart(ctx, {
-                  type: 'doughnut',
-                  data: {
-                    labels: ["Audiência Presencial", "Consulta Médica", "Consulta Odontológica", "Emergência", "Escolta Funeral", "Exames Complexos", "Exames Laboratoriais", "Outros"],
-                    datasets: [{
-                      label: "Entrada de Presos",
-                      //*Número de presos por Núcleo*//
-                      data: getAutSaida_VALUES,
-                      backgroundColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)"],
-                      borderColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)"],
-                      borderWidth: 2
-                    }, ],
-                  }
-                });
-                async function chart_getAutSaida() {
-                    const blob = await fetch("<?php echo site_url('Chart/getAutorizaSaida'); ?>");
-                    const data = await blob.json();
+            <div class="row" style="padding: 30px 40px 20px 40px;">
+              <div class="col-md-6">
+                <h3>Motivo de Saída de Presos</h3>
+                <canvas id="chart-legend-bottom" class="doughnut-chart2"></canvas>
+              </div>
+              <div class="col-md-6">
+                <h3>Motivo de Entrada de Presos</h3>
+                <canvas id="chart-legend-bottom" class="doughnut-chart"></canvas>        
+              </div>
 
-                    getAutSaida_VALUES[0] = data.audienciaCount.AUT_AUD_COUNT;
-                    getAutSaida_VALUES[1] = data.consultaMedCount.AUT_AUD_COUNT;
-                    getAutSaida_VALUES[2] = data.consultaOdontoCount.AUT_AUD_COUNT;
-                    getAutSaida_VALUES[3] = data.EmergenciaCount.AUT_AUD_COUNT;
-                    getAutSaida_VALUES[4] = data.EscoltaFunCount.AUT_AUD_COUNT;
-                    getAutSaida_VALUES[6] = data.ExamesComplexCount.AUT_AUD_COUNT;
-                    getAutSaida_VALUES[5] = data.ExamesLaboratorCount.AUT_AUD_COUNT;
-                    getAutSaida_VALUES[7] = data.outros3Count.AUT_AUD_COUNT;
-                    
 
-                    getAutSaida_chartGraph.data.datasets[0].data=getAutSaida_VALUES.map(x => parseInt(x));
-                    getAutSaida_chartGraph.update();
-                }
-                chart_getAutSaida();
-              </script>
             </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-5">
+                <h3>Motivo de Autorização de Saída de Presos</h3>
+                <canvas id="chart-legend-bottom" class="doughnut-chart3"></canvas>
+              </div>
+              <div class="col-md-4"></div>
+
+              </div>
           </div>
           <!-- /.box-footer-->
         </div>
@@ -657,6 +480,201 @@
   <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+  <script>
+              setTimeout(() => {
+                //            Homens, Mulheres, Regime Aberto, Semi Aberto, Fechado
+                var VALUES = [0, 0, 0, 0, 0];
+                var ctx = document.getElementsByClassName("line-chart");
+                var chartGraph = new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                    labels: ["Homens", "Mulheres", "Regime Aberto", "Regime Semi-Aberto", "Regime Fechado", ],
+                    datasets: [{
+                      label: "Nome da CP",
+                      //*Número de presos por Núcleo*//
+                      data: VALUES,
+                      backgroundColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)"],
+                      borderColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)"],
+                      borderWidth: 2
+                    }, ],
+                  },
+                  options: {
+                    scales: {
+                      yAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Número de Presos'
+                          
+                        },
+                        ticks: {
+                          suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                          // OR //
+                          beginAtZero: true   // minimum value will be 0.
+                         }
+                      }],
+                      xAxes: [{
+                        scaleLabel: {
+                          fontColor: 'black',
+                          display: true,
+                          labelString: 'Categorias'
+                        }
+                      }]
+                    }
+                  }
+                });
+                async function chart_getinfo() {
+                    const blob = await fetch("<?php echo site_url('Chart/getinfo'); ?>");
+                    const data = await blob.json();
+
+                    VALUES[0] = data.maleCount.SEX_COUNT;
+                    VALUES[1] = data.femaleCount.SEX_COUNT;
+                    VALUES[2] = data.regimeAberto.SEX_COUNT;
+                    VALUES[3] = data.regimeSemi.SEX_COUNT;
+                    VALUES[4] = data.regimeFechado.SEX_COUNT;
+                  
+                    chartGraph.update();
+                }
+               chart_getinfo();
+              });
+            </script>
+
+  <script>
+                var getexit_VALUES = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                var ctx = document.getElementsByClassName("doughnut-chart2");
+                var getexit_chartGraph = new Chart(ctx, {
+                  type: 'doughnut',
+                  data: {
+                    labels: ["Alvará de Soltura", "Delegacia", "Domiciliar COVID", "Evasão", "Fim de Prazo da Prisão Civil", "Fim de prazo da Prisão Temporária", "Fuga", "Harmonizado", "Liberdade Condicional", "Óbito", "Óbito CVLI", "Prisão Domicilar", "Progressão de Regime", "Transferência P/CP", "Transferência P/UF", "Transferência P/UP", "Trânsito", "Outros"],
+                    datasets: [{
+                      label: "Nome da CP",
+                      //*Número de presos por Núcleo*//
+                      data : getexit_VALUES,
+                      backgroundColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)", "rgba(0, 0, 0, 10)", "rgba(0, 0, 255, 10)", "rgba(0, 191, 255, 10)", "rgba(0, 0, 128, 10)", "rgba(0, 255, 127, 10)", "rgba(210,105,30,10)", "rgba(75,0,130,10)", "rgba(255,228,181,10)", "rgba(238,232,170,10)"],
+                      borderColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)", "rgba(0, 0, 0, 10)", "rgba(0, 0, 255, 10)", "rgba(0, 191, 255, 10)", "rgba(0, 0, 128, 10)", "rgba(0, 255, 127, 10)", "rgba(210,105,30,10)", "rgba(75,0,130,10)", "rgba(255,228,181,10)", "rgba(238,232,170,10)"],
+                      borderWidth: 2
+                    }, ],
+                  },
+                  options:{
+                    legend:{
+                      position: 'left'
+                    }
+                  }
+                });
+                async function chart_getexit() {
+                    const blob = await fetch("<?php echo site_url('Chart/getexit'); ?>");
+                    const data = await blob.json();
+
+                    getexit_VALUES[0] = data.alvaraCount.MOT_COUNT;
+                    getexit_VALUES[1] = data.delegCount.MOT_COUNT;
+                    getexit_VALUES[2] = data.domicCount.MOT_COUNT;
+                    getexit_VALUES[3] = data.evasaoCount.MOT_COUNT;
+                    getexit_VALUES[4] = data.fimPrazoCivilCount.MOT_COUNT;
+                    getexit_VALUES[5] = data.fimPrazoTempCount.MOT_COUNT;
+                    getexit_VALUES[6] = data.fugaCount.MOT_COUNT;
+                    getexit_VALUES[7] = data.HarmCount.MOT_COUNT;
+                    getexit_VALUES[8] = data.condCount.MOT_COUNT;
+                    getexit_VALUES[9] = data.obitoCount.MOT_COUNT;
+                    getexit_VALUES[10] = data.obitoCVLICount.MOT_COUNT;
+                    getexit_VALUES[11] = data.PrisaoDomiCount.MOT_COUNT;
+                    getexit_VALUES[12] = data.ProgressRegimeCount.MOT_COUNT;
+                    getexit_VALUES[13] = data.transfCpCount.MOT_COUNT;
+                    getexit_VALUES[14] = data.transfUfCount.MOT_COUNT;
+                    getexit_VALUES[15] = data.transfUpCount.MOT_COUNT;
+                    getexit_VALUES[16] = data.transitoCount.MOT_COUNT;
+                    getexit_VALUES[17] = data.outrosCount.MOT_COUNT;
+                    getexit_chartGraph.update();
+                }
+                chart_getexit();
+              </script>
+
+<script>
+                var ctx = document.getElementsByClassName("doughnut-chart");
+                var getEntrada_VALUES = [0,0,0,0,0,0,0,0,0];
+                var getEntrada_chartGraph = new Chart(ctx, {
+                  type: 'doughnut',
+                  data: {
+                    labels: ["Expiração de Prazo", "Mandado de Prisão Civil", "Mandado de Prisão Preventiva", "Mandado de Prisão Temporária", "Mandado de Recolhimento", "Recaptura - Mandado de Prisão", "Tansferência", "Trânsito", "Outros"],
+                    datasets: [{
+                      label: "Entrada de Presos",
+                      //*Número de presos por Núcleo*//
+                      data: getEntrada_VALUES,
+                      backgroundColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)"],
+                      borderColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)"],
+                      borderWidth: 2
+                    }, ],
+                  },
+                  options:{
+                    legend:{
+                      position: 'left'
+                    }
+                  }
+                });
+                async function chart_getEntrada() {
+                    const blob = await fetch("<?php echo site_url('Chart/getEntrada'); ?>");
+                    const data = await blob.json();
+
+                    getEntrada_VALUES[0] = data.expiraPrazoCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[1] = data.mandadoPrisCivilCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[2] = data.mandadoPrisPrevCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[3] = data.mandadoPrisTempCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[4] = data.mandadoRecolhimentoCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[6] = data.recapturaCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[5] = data.transferenciaCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[7] = data.transito2Count.MOT_ENT_COUNT;
+                    getEntrada_VALUES[8] = data.outros2Count.MOT_ENT_COUNT;
+                    
+
+                    getEntrada_chartGraph.data.datasets[0].data=getEntrada_VALUES.map(x => parseInt(x));
+                    getEntrada_chartGraph.update();
+                }
+                chart_getEntrada();
+              </script>  
+              
+              <script>
+                var ctx = document.getElementsByClassName("doughnut-chart3");
+                var getAutSaida_VALUES = [0,0,0,0,0,0,0,0];
+                var getAutSaida_chartGraph = new Chart(ctx, {
+                  type: 'doughnut',
+                  data: {
+                    labels: ["Audiência Presencial", "Consulta Médica", "Consulta Odontológica", "Emergência", "Escolta Funeral", "Exames Complexos", "Exames Laboratoriais", "Outros"],
+                    datasets: [{
+                      label: "Entrada de Presos",
+                      //*Número de presos por Núcleo*//
+                      data: getAutSaida_VALUES,
+                      backgroundColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)"],
+                      borderColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)"],
+                      borderWidth: 2
+                    }, ],
+                  },
+                  options:{
+                    legend:{
+                      position: 'left'
+                    }
+                  }
+                });
+                async function chart_getAutSaida() {
+                    const blob = await fetch("<?php echo site_url('Chart/getAutorizaSaida'); ?>");
+                    const data = await blob.json();
+
+                    getAutSaida_VALUES[0] = data.audienciaCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[1] = data.consultaMedCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[2] = data.consultaOdontoCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[3] = data.EmergenciaCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[4] = data.EscoltaFunCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[6] = data.ExamesComplexCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[5] = data.ExamesLaboratorCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[7] = data.outros3Count.AUT_AUD_COUNT;
+                    
+
+                    getAutSaida_chartGraph.data.datasets[0].data=getAutSaida_VALUES.map(x => parseInt(x));
+                    getAutSaida_chartGraph.update();
+                }
+                chart_getAutSaida();
+              </script>              
+
   <!--Font Awesome My Link-->
   <script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>
   <script>
