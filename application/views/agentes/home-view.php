@@ -304,8 +304,8 @@
                     getexit_VALUES[2] = data.domicCount.MOT_COUNT;
                     getexit_VALUES[3] = data.evasaoCount.MOT_COUNT;
                     getexit_VALUES[4] = data.fimPrazoCivilCount.MOT_COUNT;
-                    getexit_VALUES[6] = data.fimPrazoTempCount.MOT_COUNT;
-                    getexit_VALUES[5] = data.fugaCount.MOT_COUNT;
+                    getexit_VALUES[5] = data.fimPrazoTempCount.MOT_COUNT;
+                    getexit_VALUES[6] = data.fugaCount.MOT_COUNT;
                     getexit_VALUES[7] = data.HarmCount.MOT_COUNT;
                     getexit_VALUES[8] = data.condCount.MOT_COUNT;
                     getexit_VALUES[9] = data.obitoCount.MOT_COUNT;
@@ -376,21 +376,39 @@
               <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
               <script>
                 var ctx = document.getElementsByClassName("doughnut-chart3");
-
-                var chartGraph = new Chart(ctx, {
+                var getAutSaida_VALUES = [0,0,0,0,0,0,0,0];
+                var getAutSaida_chartGraph = new Chart(ctx, {
                   type: 'doughnut',
                   data: {
-                    labels: ["Audiência Presencial", "Consulta Médica", "Consulta Odontológica", "Emergência", "Escolta Funeral", "Exames Complexos", "Exames Laboratoriais", "Internação Hospitalar", "Outros"],
+                    labels: ["Audiência Presencial", "Consulta Médica", "Consulta Odontológica", "Emergência", "Escolta Funeral", "Exames Complexos", "Exames Laboratoriais", "Outros"],
                     datasets: [{
                       label: "Entrada de Presos",
                       //*Número de presos por Núcleo*//
-                      data: [50, 300, 210, 300, 400, 500, 600, 700, 800],
+                      data: getAutSaida_VALUES,
                       backgroundColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)"],
                       borderColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)", "rgba(255,20,14,10)", "rgba(255,255,0,10)", "rgba(139,0,139,10)"],
                       borderWidth: 2
                     }, ],
                   }
                 });
+                async function chart_getAutSaida() {
+                    const blob = await fetch("<?php echo site_url('Chart/getAutorizaSaida'); ?>");
+                    const data = await blob.json();
+
+                    getAutSaida_VALUES[0] = data.audienciaCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[1] = data.consultaMedCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[2] = data.consultaOdontoCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[3] = data.EmergenciaCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[4] = data.EscoltaFunCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[6] = data.ExamesComplexCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[5] = data.ExamesLaboratorCount.AUT_AUD_COUNT;
+                    getAutSaida_VALUES[7] = data.outros3Count.AUT_AUD_COUNT;
+                    
+
+                    getAutSaida_chartGraph.data.datasets[0].data=getAutSaida_VALUES.map(x => parseInt(x));
+                    getAutSaida_chartGraph.update();
+                }
+                chart_getAutSaida();
               </script>
             </div>
           </div>
