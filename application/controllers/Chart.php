@@ -74,7 +74,7 @@ class Chart extends REST_Controller {
         $mandadoRecolhimentoCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Recolhimento'")->row_array();
         $recapturaCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Recaptura - Mandado de Prisão'")->row_array();
         $transferenciaCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Transferência'")->row_array();
-        $transitBo2Count = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito'")->row_array();
+        $transito2Count = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito'")->row_array();
         $outros2Count = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros'")->row_array();
         $this->response(
             (object) [
@@ -87,6 +87,29 @@ class Chart extends REST_Controller {
                 'transferenciaCount' => $transferenciaCount,
                 'transito2Count' => $transito2Count,
                 'outros2Count' => $outros2Count
+            ]
+        , REST_Controller::HTTP_OK);
+    }
+
+    public function getAutorizaSaida_get() {
+        $audienciaCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidaaudiencia")->row_array();
+        $consultaMedCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Consulta Médica'")->row_array();
+        $consultaOdontoCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Consulta Odontológica'")->row_array();
+        $EmergenciaCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Emergência'")->row_array();
+        $EscoltaFunCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidadetentos WHERE motivo = 'Óbito'")->row_array();
+        $ExamesComplexCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Exames Complexos'")->row_array();
+        $ExamesLaboratorCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Exames Laboratoriais'")->row_array();
+        $outros3Count = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Outros'")->row_array();
+        $this->response(
+            (object) [
+                'audienciaCount' => $audienciaCount, 
+                'consultaMedCount' => $consultaMedCount,
+                'consultaOdontoCount' => $consultaOdontoCount,
+                'EmergenciaCount' => $EmergenciaCount,
+                'EscoltaFunCount' => $EscoltaFunCount,
+                'ExamesComplexCount' => $ExamesComplexCount, 
+                'ExamesLaboratorCount' => $ExamesLaboratorCount,
+                'outros3Count' => $outros3Count
             ]
         , REST_Controller::HTTP_OK);
     }
