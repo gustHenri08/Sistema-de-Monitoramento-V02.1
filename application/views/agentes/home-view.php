@@ -251,7 +251,7 @@
                     }
                   }
                 });
-                async function char_getinfo() {
+                async function chart_getinfo() {
                     const blob = await fetch("<?php echo site_url('Chart/getinfo'); ?>");
                     const data = await blob.json();
 
@@ -263,7 +263,7 @@
                   
                     chartGraph.update();
                 }
-               char_getinfo();
+               chart_getinfo();
               });
             </script>
 
@@ -275,8 +275,8 @@
               <canvas class="doughnut-chart2"></canvas>
               <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
               <script>
-                var ctx = document.getElementsByClassName("doughnut-chart2");
                 var getexit_VALUES = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                var ctx = document.getElementsByClassName("doughnut-chart2");
                 var getexit_chartGraph = new Chart(ctx, {
                   type: 'doughnut',
                   data: {
@@ -317,8 +317,6 @@
                     getexit_VALUES[15] = data.transfUpCount.MOT_COUNT;
                     getexit_VALUES[16] = data.transitoCount.MOT_COUNT;
                     getexit_VALUES[17] = data.outrosCount.MOT_COUNT;
-
-                    getexit_chartGraph.data.datasets[0].data=getexit_VALUES.map(x => parseInt(x));
                     getexit_chartGraph.update();
                 }
                 chart_getexit();
@@ -359,12 +357,12 @@
                     getEntrada_VALUES[4] = data.mandadoRecolhimentoCount.MOT_ENT_COUNT;
                     getEntrada_VALUES[6] = data.recapturaCount.MOT_ENT_COUNT;
                     getEntrada_VALUES[5] = data.transferenciaCount.MOT_ENT_COUNT;
-                    getEntrada_VALUES[7] = data.transitoCount.MOT_ENT_COUNT;
-                    getEntrada_VALUES[8] = data.outrosCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[7] = data.transito2Count.MOT_ENT_COUNT;
+                    getEntrada_VALUES[8] = data.outros2Count.MOT_ENT_COUNT;
                     
 
-                    getexit_chartGraph.data.datasets[0].data=getEntrada_VALUES.map(x => parseInt(x));
-                    getexit_chartGraph.update();
+                    getEntrada_chartGraph.data.datasets[0].data=getEntrada_VALUES.map(x => parseInt(x));
+                    getEntrada_chartGraph.update();
                 }
                 chart_getEntrada();
               </script>

@@ -48,7 +48,7 @@ class Chart extends REST_Controller {
                 'domicCount' => $domicCount,
                 'evasaoCount' => $evasaoCount,
                 'fimPrazoCivilCount' => $fimPrazoCivilCount,
-                'fimprazoTempCount' => $fimPrazoTempCount,
+                'fimPrazoTempCount' => $fimPrazoTempCount,
                 'fugaCount' =>  $fugaCount, 
                 'HarmCount' => $HarmCount,
                 'condCount' => $condCount,
@@ -61,7 +61,8 @@ class Chart extends REST_Controller {
                 'transfUpCount' =>  $transfUpCount, 
                 'transitoCount' => $transitoCount,
                 'outrosCount' => $outrosCount
-            ]
+            ],
+            REST_Controller::HTTP_OK
         );
     }
 
@@ -73,8 +74,8 @@ class Chart extends REST_Controller {
         $mandadoRecolhimentoCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Recolhimento'")->row_array();
         $recapturaCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Recaptura - Mandado de Prisão'")->row_array();
         $transferenciaCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Transferência'")->row_array();
-        $transitoCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito'")->row_array();
-        $outrosCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros'")->row_array();
+        $transitBo2Count = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito'")->row_array();
+        $outros2Count = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros'")->row_array();
         $this->response(
             (object) [
                 'expiraPrazoCount' => $expiraPrazoCount, 
@@ -84,8 +85,8 @@ class Chart extends REST_Controller {
                 'mandadoRecolhimentoCount' => $mandadoRecolhimentoCount,
                 'recapturaCount' => $recapturaCount, 
                 'transferenciaCount' => $transferenciaCount,
-                'transitoCount' => $transitoCount,
-                'outrosCount' => $outrosCount
+                'transito2Count' => $transito2Count,
+                'outros2Count' => $outros2Count
             ]
         , REST_Controller::HTTP_OK);
     }
