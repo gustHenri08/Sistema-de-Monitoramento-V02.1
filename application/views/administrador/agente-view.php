@@ -180,8 +180,11 @@
        <div class="col-xs-12">
          <div class="box">
            <div class="box-header">
-             <h3 class="box-title"> Lista de Agentes </h3>
-             <a href="<?php echo site_url('Home/cadastrarAgente'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
+              <h3 class="box-title"> Lista de Agentes </h3>
+              <button type="button" class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target=".bd-example-modal-lg" style="margin-left:5px ">
+                Cadastrar
+              </button>
+              <a href="<?php echo site_url('#'); ?>" class="btn btn-success btn-xs pull-right">Extrair</a>
            </div>
            <!-- /.box-header -->
            <div class="box-body">
@@ -231,6 +234,150 @@
                     <?php endforeach;?>
                </tbody>
              </table>
+             <!-- Modal de Cadastro-->
+             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+               <div class="modal-dialog modal-lg">
+                 <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Cadastro</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                      <span aria-hidden="true">&times;</span>
+                  </div>
+                  <div class="modal-body">
+                    
+                    <div class="box-body">
+                      <?php if(isset($agentes)) : ?>
+                        <form method="post" action="<?= base_url() ?>index.php/Cadastro/update/<?= $agentes["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
+                        <!--Em Testes | chama o controller responsavel pela edição-->
+                      <?php else : ?>
+                          <form method="post" action="<?php echo site_url('Cadastro/createMaster') ?>">
+                          <!--Em Testes | chama o controller responsavel por cadastro-->
+                      <?php endif; ?>
+                      <div class="form-group">
+          		          <label>Nome Completo</label>
+          		          <input type="text" required="required" class="form-control" name="nomecompleto" placeholder="Nome Completo" value="<?= isset($agentes) ? $agentes["nomecompleto"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
+                      </div> 
+                      <div class="form-group">
+          		          <label>Matrícula</label>
+          		          <input type="int" required="required" class="form-control" name="matricula" maxlength="7" placeholder="Matricula" value="<?= isset($agentes) ? $agentes["matricula"] : "" ?>" style="width:150px"><!-- 'name=' adicionado-->
+          	          </div>   
+                      <div class="form-group"> <!--Campo Cadeia Publica-->
+                        <label>Núcleo Prisional</label>
+                        <?php if(isset($agentes)) :?>
+                          <select class="form-control" style="width: 200px" name="nucleo">
+                            <option><?=$agentes["nucleo"]?></option>
+                            <option>Arcoverde</option>
+                            <option>Caruaru</option>
+                            <option>Garanhuns</option>
+                            <option>Lagoa</option>
+                            <option>Petrolina</option>
+                            <option>Salgueiro</option>
+                          </select>
+                        <?php else: ?>
+                          <select class="form-control" style="width: 200px" name="nucleo">
+                            <option>Arcoverde</option>
+                            <option>Caruaru</option>
+                            <option>Garanhuns</option>
+                            <option>Lagoa</option>
+                            <option>Petrolina</option>
+                            <option>Salgueiro</option>
+                          </select>
+                        <?php endif; ?>
+                      </div>
+                      <div class="form-group"> <!--Campo Cadeia Publica-->
+                        <label>Centro Prisional</label>
+                        <?php if(isset($agentes)) :?>
+                          <select class="form-control" style="width: 200px" name="unidadeprisional">
+                            <option><?=$agentes["unidadeprisional"]?></option>
+                            <option>CP</option>
+                            <option>CP</option>
+                            <option>CP</option>
+                            <option>CP</option>
+                            <option>CP</option>
+                            <option>CP</option>
+                          </select>
+                        <?php else: ?>
+                          <select class="form-control" style="width: 200px" name="unidadeprisional">
+                            <option>CP</option>
+                            <option>CP</option>
+                            <option>CP</option>
+                            <option>CP</option>
+                            <option>CP</option>
+                            <option>CP</option>
+                          </select>
+                        <?php endif; ?>
+                      </div>
+                      <div class="form-group"> <!--Campo função-->
+                        <label>Função</label>
+                        <?php if(isset($agentes)) :?>
+                          <select class="form-control" style="width: 200px" name="funcao">
+                            <option><?=$agentes["funcao"]?></option>
+                            <option>Agente</option>
+                            <option>Administrador</option>                    
+                          </select>
+                        <?php else: ?>
+                          <select class="form-control" style="width: 200px" name="funcao">
+                            <option>Agente</option>
+                            <option>Administrador</option>                    
+                          </select>
+                        <?php endif; ?>		
+          	          </div>
+                      <div class="form-group"> <!--Campo Cadeia Publica-->
+                        <label>Funcionario Ativo</label>
+                        <?php if(isset($agentes)) :?>
+                        <select class="form-control" style="width: 200px" name="funcionarioativo">
+                          <option><?=$agentes["funcionarioativo"]?></option>
+                          <option>Inativo</option>  
+                          <option>Ativo</option>          				
+                        </select>
+                        <?php else: ?>
+                          <select class="form-control" style="width: 200px" name="funcionarioativo">
+                          <option>Inativo</option>  
+                          <option>Ativo</option>          				
+                        </select>
+                        <?php endif; ?>
+                      </div>
+                      <div class="form-group"> <!-- Nome do Pai-->
+          		          <label>E-mail Institucional</label>
+          		          <input type="email" required="required" class="form-control" name="emailinstitucional" placeholder="E-mail Institucional" value="<?= isset($agentes) ? $agentes["emailinstitucional"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
+                      </div>
+                      <div class="form-group"> <!--Data de Prisão-->
+                        <label>Login</label>
+                        <input type="text" class="form-control" name="login" placeholder="Login" value="<?= isset($agentes) ? $agentes["login"] : "" ?>" style="width:300px" maxlength="16"><!-- 'name=' adicionado-->
+                      </div>
+                      <div class="form-group"> <!--Observações-->
+                        <label>Senha</label>
+                        <input type="text" class="form-control" name="senha" placeholder="Senha" value="<?= isset($agentes) ? $agentes["senha"] : "" ?>" style="width:300px" maxlength="16"><!-- 'name=' adicionado-->
+                      </div>
+                      
+                      <br>
+                      
+                      <?php if(isset($agentes)) :?>
+
+                        <div class="col-xs-2"> <!--Botão Cadastrar-->
+                          <button type="submit" class="btn btn-primary btn-block btn-flat">Salvar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+                        </div>
+
+                      <?php else: ?>
+                        <div class="col-xs-2"> <!--Botão Cadastrar-->
+                          <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+                        </div>
+
+                      <?php endif; ?>
+                      <div class="col-xs-2"> <!--Botão Cadastrar-->
+                        <a href="<?php echo site_url('Home/agentes'); ?>" class="btn btn-danger btn-block btn-flat">Cancelar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
+                      </div>
+                    </div>  
+
+                  </div>
+                  <div class="modal-footer">
+
+                  </div>
+                 </div>
+               </div>
+             </div> 
+            <!--Modal-End-->      
+
            </div>
            <!-- /.box-body -->
          </div>

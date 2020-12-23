@@ -209,7 +209,7 @@
               <!--Em Testes | chama o controller responsavel por cadastro-->
             <?php endif; ?>
          
-           <div class="form-group">
+            <div class="form-group">
           		<label>Nome Completo</label>
           		<input type="text" required="required" class="form-control" name="nomecompleto" placeholder="Nome Completo" value="<?= isset($agentes) ? $agentes["nomecompleto"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
           	</div>
