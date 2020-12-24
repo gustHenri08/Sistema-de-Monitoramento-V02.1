@@ -40,15 +40,15 @@
 
       $('#nucleo').change(function(){
         
-        $('#unidadeprisional').html("<option>Carregando...</option>");
+        $('#cadeiapublica').html("<option>Carregando...</option>");
 
         var idNucleo = $('#nucleo').val();
 
         $.post(base_url+'index.php/ajax/CentroPrisional/getCps', {
           idNucleo : idNucleo
         }, function(data){
-            $('#unidadeprisional').html(data);
-            $('#unidadeprisional').removeAttr('disabled');
+            $('#cadeiapublica').html(data);
+            $('#cadeiapublica').removeAttr('disabled');
         });
       });
     });
@@ -270,7 +270,7 @@
             </div>
             
           	<div class="form-group">
-              <label for="nucleos">Núcleos</label>
+              <label for="nucleos">Núcleo</label>
               <?php if(isset($detentos)): ?>
                 <select class="form-control" id="nucleo" name="nucleo" style="width: 155px">
                   <option><?=$detentos["nucleo"]?></option>
@@ -286,12 +286,12 @@
             <div class="form-group">
                <label for="nucleos">Centro Prisional</label>
                <?php if(isset($detentos)): ?>
-                <select class="form-control" id="unidadeprisional" name="unidadeprisional" style="width: 250px">
+                <select class="form-control" id="cadeiapublica" name="cadeiapublica" style="width: 250px">
                   <option><?=$detentos["cadeiapublica"]?></option>
                   <option>Selecione o Núcleo Acima</option>
                 </select>
               <?php else: ?>
-                <select class="form-control" id="unidadeprisional" name="unidadeprisional" style="width: 250px"  disabled>
+                <select class="form-control" id="cadeiapublica" name="cadeiapublica" style="width: 250px"  disabled>
                   <option>Selecione o Núcleo Acima</option>
                 </select>
               <?php endif; ?>
