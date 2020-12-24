@@ -56,7 +56,9 @@ class Cadastro extends CI_Controller{
             redirect("Login");
         }else{}
 
+       
         $edit['agentes'] = $this->Agente_model->show($id);
+        $edit['option_nucleo'] = $this->NucleoCp_model->selectNucleo();
 
 
         $this->load->view('administrador/cadastros/cadastro-agente-view', $edit);

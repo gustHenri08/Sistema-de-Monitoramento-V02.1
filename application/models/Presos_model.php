@@ -8,7 +8,8 @@ class Presos_model extends CI_Model{
  
     function cadastroPresos(){ // Função reponsável por cadastrar os presos ao bando de dados: db_presos
         $data = array(
-            'cadeiapublica'=> $this->input->post('cadeiapublica'), //Recebe os dados via post
+            'cadeiapublica'=> $this->input->post('unidadeprisional'),
+            'nucleo'=> $this->input->post('nucleo'), //Recebe os dados via post
             'dataentrada'=> $this->input->post('dataentrada'),
             'nome'=> $this->input->post('nome'),
             'nomemae'=> $this->input->post('nomemae'),

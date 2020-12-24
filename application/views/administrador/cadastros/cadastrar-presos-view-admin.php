@@ -27,6 +27,35 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
+  <!-- Responsável por carregar os Nucleos e as Cidades via ajax -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+
+    $(function(){
+
+      var base_url = "<?php echo base_url()?>";
+
+      $('#nucleo').change(function(){
+        
+        $('#unidadeprisional').html("<option>Carregando...</option>");
+
+        var idNucleo = $('#nucleo').val();
+
+        $.post(base_url+'index.php/ajax/CentroPrisional/getCps', {
+          idNucleo : idNucleo
+        }, function(data){
+            $('#unidadeprisional').html(data);
+            $('#unidadeprisional').removeAttr('disabled');
+        });
+      });
+    });
+
+  </script>
+
+  <!-- Fim do script de carregamento -->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -233,48 +262,44 @@
                 <label>Matrícula</label>
                 <input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
               </div>
-            <?php endif; ?>
-            
-          	<div class="form-group"> <!--Campo Cadeia Publica-->
-                <label>Cadeia Publica</label>
-                <?php if(isset($detentos)): ?>
-                  <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-                    <option><?=$detentos["cadeiapublica"]?></option>
-                    <option>CP de Aliança</option>
-                    <option>CP de Carpina</option>
-                    <option>CP de Glória do Goitá</option>
-                    <option>CP de Goiana</option>
-                    <option>CP de Itambé</option>
-                    <option>CP de Lagoa do Carro</option>
-                    <option>CP de Macaparana</option>
-                    <option>CP de Nazaré da Mata</option>
-                    <option>CP de Timbauba</option>
-                    <option>CP de Vicência</option>
-                  </select>
-                <?php else :?>
-                  <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-                    <option>CP de Aliança</option>
-                    <option>CP de Carpina</option>
-                    <option>CP de Glória do Goitá</option>
-                    <option>CP de Goiana</option>
-                    <option>CP de Itambé</option>
-                    <option>CP de Lagoa do Carro</option>
-                    <option>CP de Macaparana</option>
-                    <option>CP de Nazaré da Mata</option>
-                    <option>CP de Timbauba</option>
-                    <option>CP de Vicência</option>
-                  </select>
-                <?php endif;?>
-          	</div>
-
-            <div class="form-group">
-              <label>Data de Entrada</label>
-              <input type="date" class="form-control" required name="dataentrada" placeholder="dd/mm/aaaa" value="<?= isset($detentos) ? $detentos["dataentrada"] : ""?>" style="width:140px" maxlength="10" ><!-- 'name=' adicionado-->
-            </div>
+            <?php endif; ?>            
 
           	<div class="form-group"> <!-- Nome do Detento-->
           		<label>Nome Detento</label>
           		<input type="text" class="form-control" required name="nome" placeholder="Nome" value="<?= isset($detentos) ? $detentos["nome"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
+            </div>
+            
+          	<div class="form-group">
+              <label for="nucleos">Núcleos</label>
+              <?php if(isset($detentos)): ?>
+                <select class="form-control" id="nucleo" name="nucleo" style="width: 155px">
+                  <option><?=$detentos["nucleo"]?></option>
+                  <?php echo $option_nucleo; ?>
+                </select>
+              <?php else: ?>
+                <select class="form-control" id="nucleo" name="nucleo" style="width: 155px">
+                  <?php echo $option_nucleo; ?>
+                </select>
+              <?php endif; ?>
+            </div>
+
+            <div class="form-group">
+               <label for="nucleos">Centro Prisional</label>
+               <?php if(isset($detentos)): ?>
+                <select class="form-control" id="unidadeprisional" name="unidadeprisional" style="width: 250px">
+                  <option><?=$detentos["cadeiapublica"]?></option>
+                  <option>Selecione o Núcleo Acima</option>
+                </select>
+              <?php else: ?>
+                <select class="form-control" id="unidadeprisional" name="unidadeprisional" style="width: 250px"  disabled>
+                  <option>Selecione o Núcleo Acima</option>
+                </select>
+              <?php endif; ?>
+            </div>
+
+            <div class="form-group">
+              <label>Data de Entrada</label>
+              <input type="date" class="form-control" required name="dataentrada" placeholder="dd/mm/aaaa" value="<?= isset($detentos) ? $detentos["dataentrada"] : ""?>" style="width:140px" maxlength="10" ><!-- 'name=' adicionado-->
             </div>
             
             <div class="form-group"> <!--Crime de Repercussão-->

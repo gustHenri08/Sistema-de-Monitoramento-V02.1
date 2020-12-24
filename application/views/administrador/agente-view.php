@@ -29,6 +29,35 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  <!-- Responsável por carregar os Nucleos e as Cidades via ajax -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+
+    $(function(){
+
+      var base_url = "<?php echo base_url()?>";
+
+      $('#nucleo').change(function(){
+        
+        $('#unidadeprisional').html("<option>Carregando...</option>");
+
+        var idNucleo = $('#nucleo').val();
+
+        $.post(base_url+'index.php/ajax/CentroPrisional/getCps', {
+          idNucleo : idNucleo
+        }, function(data){
+            $('#unidadeprisional').html(data);
+            $('#unidadeprisional').removeAttr('disabled');
+        });
+      });
+    });
+
+  </script>
+
+  <!-- Fim do script de carregamento -->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -243,8 +272,8 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                       <span aria-hidden="true">&times;</span>
                   </div>
-                  <div class="modal-body">
-                    
+                  <div class="modal-body">                  
+                                      
                     <div class="box-body">
                       <?php if(isset($agentes)) : ?>
                         <form method="post" action="<?= base_url() ?>index.php/Cadastro/update/<?= $agentes["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
@@ -261,51 +290,32 @@
           		          <label>Matrícula</label>
           		          <input type="int" required="required" class="form-control" name="matricula" maxlength="7" placeholder="Matricula" value="<?= isset($agentes) ? $agentes["matricula"] : "" ?>" style="width:150px"><!-- 'name=' adicionado-->
           	          </div>   
-                      <div class="form-group"> <!--Campo Cadeia Publica-->
-                        <label>Núcleo Prisional</label>
-                        <?php if(isset($agentes)) :?>
-                          <select class="form-control" style="width: 200px" name="nucleo">
+                      <div class="form-group">
+                          <label for="nucleos">Núcleos</label>
+                          <?php if(isset($agentes)) :?>
+                            <select class="form-control" id="nucleo" name="nucleo" style="width: 155px">
                             <option><?=$agentes["nucleo"]?></option>
-                            <option>Arcoverde</option>
-                            <option>Caruaru</option>
-                            <option>Garanhuns</option>
-                            <option>Lagoa</option>
-                            <option>Petrolina</option>
-                            <option>Salgueiro</option>
-                          </select>
-                        <?php else: ?>
-                          <select class="form-control" style="width: 200px" name="nucleo">
-                            <option>Arcoverde</option>
-                            <option>Caruaru</option>
-                            <option>Garanhuns</option>
-                            <option>Lagoa</option>
-                            <option>Petrolina</option>
-                            <option>Salgueiro</option>
-                          </select>
-                        <?php endif; ?>
+                              <?php echo $option_nucleo; ?>
+                            </select>
+                          <?php else: ?>
+                            <select class="form-control" id="nucleo" name="nucleo" style="width: 155px">
+                              <?php echo $option_nucleo; ?>
+                            </select>
+                          <?php endif; ?>
                       </div>
-                      <div class="form-group"> <!--Campo Cadeia Publica-->
-                        <label>Centro Prisional</label>
-                        <?php if(isset($agentes)) :?>
-                          <select class="form-control" style="width: 200px" name="unidadeprisional">
-                            <option><?=$agentes["unidadeprisional"]?></option>
-                            <option>CP</option>
-                            <option>CP</option>
-                            <option>CP</option>
-                            <option>CP</option>
-                            <option>CP</option>
-                            <option>CP</option>
-                          </select>
-                        <?php else: ?>
-                          <select class="form-control" style="width: 200px" name="unidadeprisional">
-                            <option>CP</option>
-                            <option>CP</option>
-                            <option>CP</option>
-                            <option>CP</option>
-                            <option>CP</option>
-                            <option>CP</option>
-                          </select>
-                        <?php endif; ?>
+
+                      <div class="form-group">
+                          <label for="nucleos">Centro Prisional</label>
+                          <?php if(isset($agentes)) :?>
+                            <select class="form-control" id="unidadeprisional" name="unidadeprisional" style="width: 250px">
+                              <option><?=$agentes["unidadeprisional"]?></option>
+                              <option>Selecione o Núcleo Acima</option>
+                            </select>
+                          <?php else: ?>
+                            <select class="form-control" id="unidadeprisional" name="unidadeprisional" style="width: 250px"  disabled>
+                              <option>Selecione o Núcleo Acima</option>
+                            </select>
+                          <?php endif; ?>
                       </div>
                       <div class="form-group"> <!--Campo função-->
                         <label>Função</label>

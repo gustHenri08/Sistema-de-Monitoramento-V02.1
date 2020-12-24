@@ -155,6 +155,7 @@ class Home extends CI_Controller{
     {
         $this->load->model("Agente_model");
         $data['agent'] = $this->Agente_model->cadastrados();
+        $data['option_nucleo'] = $this->NucleoCp_model->selectNucleo();
 
         $this->load->view('administrador/agente-view', $data); // Carrega a view de login
         //$data -> envia os dados para a 'agente-view'
@@ -171,7 +172,8 @@ class Home extends CI_Controller{
 
     public function cadastrarAgente()
     {
-        $this->load->view("administrador/cadastros/cadastro-agente-view"); // Função ao clicar no botão cadastrar chama a view de cadastro de agentes;
+        $edit['option_nucleo'] = $this->NucleoCp_model->selectNucleo();
+        $this->load->view("administrador/cadastros/cadastro-agente-view", $edit); // Função ao clicar no botão cadastrar chama a view de cadastro de agentes;
     }
 
     // <-- Final-Agentes -->
@@ -190,7 +192,9 @@ class Home extends CI_Controller{
     public function cadastropresosAdmin()
     { //Carrega a Função cadastroPresos que está no Presos_model
 
-        $this->load->view("administrador/cadastros/cadastrar-presos-view-admin");
+        $data['option_nucleo'] = $this->NucleoCp_model->selectNucleo();
+
+        $this->load->view("administrador/cadastros/cadastrar-presos-view-admin", $data);
 
     }
 
