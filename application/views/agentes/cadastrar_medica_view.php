@@ -257,7 +257,7 @@
             </div>
               
             <div class="form-group"> <!-- Nome do Pai-->
-              <label>descricaosaida</label>
+              <label>Descrição Saida</label>
               <input type="text" class="form-control" name="descricaosaida" placeholder="descrição saida" style="width:300px"> <!-- 'name=' adicionado-->
             </div>
 

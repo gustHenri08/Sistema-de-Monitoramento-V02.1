@@ -187,9 +187,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Lista de Ocorrências </h3>
-              <a href="<?php echo site_url('Home/cadastrarOcorrencias'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
-
+              <h3 class="box-title">Lista de Ocorrências </h3>     
               <br>
               <br>
               <div class="form-group col-xs-4">
@@ -207,6 +205,7 @@
               <table id="tabela" class="table table-bordered table-striped">
                 <thead>
                   <tr>
+                    <th>ID</th>
                     <th>Data</th>
                     <th>CP</th>
                     <th>Tipo</th>
@@ -215,35 +214,21 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>23/05/2019</td>
-                    <td>CP Aliança</td>
-                    <td>Agressão</td>
-                    <td class="sorting_1">       
-                      <a href="#" class="btn btn-warning btn-xs">Editar</a>
-                      <a href="#" class="btn btn-danger btn-xs">Deletar</a>               
-                    </td>
+                  <?php foreach($saidadetentos as $presos) : ?>
+                            <tr>
+                            <td><?= $presos['idd']?></td>
+                            <td><?= $presos['data']?></td>
+                            <td><?= $presos['cadeiapublica']?> </a> </td>
+                            <td><?= $presos['tipo']?></td>
+                            <td> 
+                            <a href="<?= base_url() ?>index.php/ocorrencias/editMaster/<?= $presos["idd"] ?>" class="btn btn-warning btn-xs" onclick ="return confirm('Deseja editar á ocorrencia');">Editar</a>
+                            <a href="<?= base_url() ?>index.php/ocorrencias/delete/<?= $presos["idd"] ?>" class="btn btn-danger btn-xs"onclick ="return confirm('Deseja excluir á ocorrencia');">Deletar</a>             
+                            </td>
+
+                        </tr>
+                    <?php endforeach;?>
                   </tr> 
-                  <tr>
-                    <td colspan="4"><textarea readonly style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
-                  </tr>
-                  <tr>
-                    <th>Data</th>
-                    <th>CP</th>
-                    <th>Motivo</th>
-                    <th>Ações</th>
-                    <tr>
-                      <td>15/01/2018</td>
-                      <td>CP Carpina</td>
-                      <td>Apreensão</td>
-                      <td class="sorting_1">    
-                        <a href="#" class="btn btn-warning btn-xs">Editar</a>   
-                        <a href="#" class="btn btn-danger btn-xs">Deletar</a>            
-                      </td>
-                    </tr>
-                  </tr>
-                  <tr>
-                    <td colspan="4"><textarea readonly   style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
-                  </tr>  
+                 
                 </tbody>
               </table>  
             </div>  

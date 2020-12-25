@@ -181,8 +181,8 @@
          <div class="box">
            <div class="box-header">
              <h3 class="box-title"> Lista de Detentos </h3>
-             <a href="<?php echo site_url('Home/cadastrarOcorrenciasAdmin'); ?>" class="btn btn-primary btn-xs pull-right">Cadastrar</a>
-           </div>
+            
+              </div>
            <!-- /.box-header -->
            <div class="box-body">
               <div class="col-sm-6">
@@ -195,7 +195,7 @@
                     </div>
                   </div>
                 </form>
-                <br></br>
+                <br></br>   
                 </div>
               </div>
              <table id="example2" class="table table-bordered table-hover">
@@ -206,6 +206,8 @@
                  <th>Nome da Mãe</th>
                  <th>Nome do Pai</th>
                  <th>SIAP</td>
+                 <th>Cadastro</td>
+                 <th>Visualizar</td>
                </tr>
                </thead>
                <tbody>
@@ -213,13 +215,20 @@
                  <?php foreach($saidadetentos as $presos) : ?>
                     <tr>
                       <td><?= $presos['cadeiapublica']?></td>
-                      <td><a href="<?php echo site_url('Home/listarOcorrencias'); ?>"><?= $presos['nome']?></a>
-                      </td>
+                      <td> <?= $presos['nome']?> </td>
                       <td><?= $presos['nomemae']?></td>
                       <td><?= $presos['nomepai']?></td>
                       <td><?= $presos['nsiap']?></td>
+
+                      <td>
+                            <a href="<?= base_url() ?>index.php/ocorrencias/cadastrarMasteradmin/<?= $presos["id"] ?>" class="btn btn-primary btn-xs">Cadastrar</a>
+                      </td>
+                      <td> <form action="<?=site_url('ocorrencias/resultado_lista')?>" method="post"> 
+                      <input  type="hidden" name="busca" id="busca"  value="<?= $presos['nome']?>" >  <!-- 'name=' adicionado-->
+                      <button type="submit" class="btn btn-primary btn-xs"  >Visualizar</button>
+                       </form>                 
+                      </td>
                       <td style='text-align:center'>
-                      <a href="<?= base_url() ?>index.php/CadastroPresos/editPresosAdmin/<?= $presos["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
                       </td>
                     </tr>
                   <?php endforeach?>

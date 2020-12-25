@@ -158,103 +158,149 @@
     </section>
   </aside>
 
-  <!-- =============================================== -->
+ <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- Cabeçalho da Página -->
     <section class="content-header">
-      <h1>
-        Cadastrar Ocorrências 
-      </h1>
-      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)mlp-->
-        <li><a href="<?php echo site_url('Home/adminHome'); ?>">Home</a></li>
-        <li><a href="<?php echo site_url('Home/registroOcorrenciasAdmin'); ?>">Ocorrência</a></li>
-        <li class="active">Cadastrar Ocorrências </li>
-      </ol>
-    </section>  
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title"> Cadastrar </h3>
-            </div>
+      <?php if(isset($detentos)) :?>
+        <h1>
+          Edição de Detentos
+        </h1>
+      <?php else: ?>
+        <h1>
+          Cadastro de Ocorrências
+        </h1>
+      <?php endif; ?>
+      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
+        <li><a href="<?php echo site_url('Home'); ?>">Home</a></li>
+        <li class="active"><a href="<?php echo site_url('Home/listarOcorrencias'); ?>">Ocorrência</a></li>
+        <?php if(isset($detentos)) :?>
+          <li class="active">Edição de Detentos</a></li>
+        <?php else: ?>
 
-            <?php if(isset($detentos)) : ?>
-            <form method="post" action="<?= base_url() ?>index.php/CadastroPresos/updatepresosAdmin/<?= $detentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
-            <!--Em Testes | chama o controller responsavel pela edição-->
-          <?php else : ?>
-            <form method="post" action="<?php echo site_url('CadastroPresos/createAdmin') ?>">
+          <li class="active">Cadastro de Ocorrências</a></li>
+
+        <?php endif; ?>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <!-- Default box -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Cadastro</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!--Inicio do Box Body-->
+        <div class="box-body">
+          <!--Inicio do Formulario-->
+          <?php if(isset($presos)) : ?>
+            <form method="post" action="<?php echo site_url('ocorrencias/createMasteradmin') ?>"> <!--Em Testes | chama o controller responsavel pela edição-->
             <!--Em Testes | chama o controller responsavel por cadastro-->
           <?php endif; ?>
 
-          <?php if(isset($detentos)) : ?>
-            <div class="box-body">
-              <table id="tabela" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>Data</th>
-                    <th>CP</th>
-                    <th>Tipo</th>
-                    <th>Ações</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><input type="text" class="form-control" name="dataentrada" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10"></td>
-                    <td>
-                      <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-                        <option>CP de Aliança</option>
-                        <option>CP de Carpina</option>
-                        <option>CP de Glória do Goitá</option>
-                        <option>CP de Goiana</option>
-                        <option>CP de Itambé</option>
-                        <option>CP de Lagoa do Carro</option>
-                        <option>CP de Macaparana</option>
-                        <option>CP de Nazaré da Mata</option>
-                        <option>CP de Timbauba</option>
-                        <option>CP de Vicência</option> 
-                      </select>
-                    </td>
-                    <td>
-                      <select class="form-control" style="width: 200px" name="tipoOcorrencia"><!-- 'name=' adicionado-->
-                        <option>Agressão</option>
-                        <option>Apreensão</option>
-                        <option>Custódia Hospitalar</option>
-                        <option>Emergência Hospitalar</option>
-                        <option>Fuga</option>
-                        <option>Óbito - Natural</option>
-                        <option>Óbito - Suicídio</option>
-                        <option>Óbito CVLI</option> 
-                      </select>
-                    </td>
-                    <td class="sorting_1">
-                      <a href="#" class="btn btn-success btn-xs">Salvar</a>                    
-                    </td>
-                  </tr> 
-                  <tr>
-                  
-                  <tr>
-                    <td colspan="4"><textarea style ="resize: none; height: 300px"  class="form-control" rows="5" name="resumoOcorrencia" placeholder="Resumo da Ocorrência"></textarea></td>
-                  </tr>  
-                </tbody>
-              </table>  
-            </div>  
-          </div>
-        </div>
-      </div>
-    </section>      
-  </div>
 
+              
+          <?php if(isset($presos)) : ?>
+            <div class="form-group"> <!-- Nome do Detento-->
+                <label>Policial Penal</label>
+                <input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+              </div>
+              
+              <div class="form-group"> <!-- Nome do Detento-->
+                <label>Função</label>
+                <input type="text" class="form-control" name="funcaocadastrante" placeholder="Função Agente" value="<?= isset($agentes) ? ($this->session->userdata("funcao")) : ($this->session->userdata("funcao"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+              </div>
+              
+              <div class="form-group"> <!-- Nome do Detento-->
+                <label>Matrícula</label>
+                <input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+              </div>
+            <?php endif; ?>
+          
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<input type="hidden" class="form-control" name="id" placeholder="Matricula Agente" value=" <?= isset($presos) ? $presos["id"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+            </div>
+
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<label>Nome</label>
+          		<input type="text" class="form-control" name="nome" placeholder="Agente Penitenciário" value=" <?= isset($presos) ? $presos["nome"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+            </div>
+            
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<label>Siap</label>
+          		<input type="text" class="form-control" name="nsiap" placeholder="Função Agente" value=" <?= isset($presos) ? $presos["nsiap"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
+            </div>
+
+            <div class="form-group"> <!--Campo Cadeia Publica-->
+              	<input  type="hidden"  class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($presos) ? $presos["cadeiapublica"] : "" ?>" readonly style="width:300px" >  <!-- 'name=' adicionado-->
+
+            </div>
+
+              <div class="form-group" style="width:200px">
+                <label>Data:</label>
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="date" name="data" class="form-control pull-right" id="datepicker">
+                </div>
+                <!-- /.input group -->
+            </div>
+
+            <div class="form-group"> <!--Motivo-->
+                <label>Motivo</label>
+                  <select class="form-control" style="width: 250px" name="tipo"><!-- 'name=' adicionado-->
+                    <option>Agressão</option>
+                    <option>Apreensão</option>
+                    <option>Custódia Hospitalar</option>
+                    <option>Emergência Hospitalar</option>
+                    <option>Fuga</option>
+                    <option>Óbito - Natural</option>
+                    <option>Óbito - Suícidio</option>
+                    <option>Óbito - CVLI</option>
+                    <option>Outros</option>
+                  </select>
+            </div>
+            <div class="form-group"> <!--Observações-->
+              <label>Resumo da Ocorrência</label>
+              <textarea class="form-control" rows="5" name="resumo_Ocorrencia" placeholder="Resumo da Ocorrência"> <?= isset($detentos) ? $detentos["observacoesgerais"] : "" ?> </textarea><!-- 'name=' adicionado-->
+            </div>
+            <br>
+            <?php if (isset($detentos)) :?>
+              <div class="col-xs-2"> <!--Botão Cadastrar-->
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Salvar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+              </div>
+            <?php else :?>
+              <div class="col-xs-2"> <!--Botão Cadastrar-->
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+              </div>
+            <?php endif;?>
+            <div class="col-xs-2"> <!--Botão Cadastrar-->
+              <a href="<?php echo site_url('Home/entradaPresos'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
+            </div>
+          </form>
+          <!--Fim do Formulario-->
+        </div>
+        <!-- Fim do Box Body -->
+      </div>
+      <!-- Fim do Box -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.18
+      
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    <strong>Copyright &copy; 2020 Fábrica de Software.</strong> All rights
     reserved.
   </footer>
-
 </div>
 
   

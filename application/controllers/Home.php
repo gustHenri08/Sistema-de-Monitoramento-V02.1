@@ -56,11 +56,7 @@ class Home extends CI_Controller{
     {
         $this->load->view('agentes/ocorrencias-view'); // Carrega a view(Tela) Ocorrências;
     }
-
-    public function listarOcorrencias(){
-
-        $this->load->view('agentes/listar-ocorrencia-view');
-    }
+    
 
     public function cadastrarOcorrencias(){
 
@@ -211,7 +207,7 @@ class Home extends CI_Controller{
 
     // <-- Inicio-Ocorrências Admin -->
 
-    public function registroOcorrenciasAdmin()
+   public function registroOcorrenciasAdmin()
     {
         $this->load->model('ocorrencias_modal');
         $data['saidadetentos'] = $this->ocorrencias_modal->cadastrados();
@@ -219,8 +215,9 @@ class Home extends CI_Controller{
     }
 
     public function cadastrarOcorrenciasAdmin(){
-        
-        $this->load->view('administrador/cadastros/cadastrar-ocorrencia-view-admin');
+        $this->load->model('ocorrencias_modal');
+        $edit['saidadetentos'] = $this->ocorrencias_modal->shows($id);
+        $this->load->view('administrador/cadastros/cadastrar-ocorrencia-view-admin', $edit);
     }
 
     public function outrasOcorrenciasAdmin() 
