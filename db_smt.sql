@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Dez-2020 às 22:40
+-- Tempo de geração: 26-Dez-2020 às 03:43
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.1
 
@@ -243,14 +243,26 @@ INSERT INTO `tbl_nucleo` (`id`, `nucleo`) VALUES
 --
 
 CREATE TABLE `tbl_ocorrencia` (
-  `id` int(11) NOT NULL,
   `nome` text NOT NULL,
-  `numsiap` int(11) NOT NULL,
+  `nsiap` int(11) NOT NULL,
   `cadeiapublica` text NOT NULL,
   `resumo_Ocorrencia` text NOT NULL,
   `tipo` text NOT NULL,
-  `data` date NOT NULL
+  `data` date NOT NULL,
+  `cadastrante` text NOT NULL,
+  `funcaocadastrante` varchar(50) NOT NULL,
+  `matriculacadastrante` varchar(9) NOT NULL,
+  `id` int(11) NOT NULL,
+  `idd` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbl_ocorrencia`
+--
+
+INSERT INTO `tbl_ocorrencia` (`nome`, `nsiap`, `cadeiapublica`, `resumo_Ocorrencia`, `tipo`, `data`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `id`, `idd`) VALUES
+(' Alerta', 0, ' CP de Aliança', '  aaaa', 'Óbito - Suícidio', '2020-12-09', '', '', '', 1, 1),
+(' Alerta', 0, ' CP de Aliança', '  aaa', 'Agressão', '0000-00-00', '', '', '', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -286,8 +298,8 @@ CREATE TABLE `tbl_presos` (
 --
 
 INSERT INTO `tbl_presos` (`id`, `nucleo`, `cadeiapublica`, `dataentrada`, `nome`, `nomemae`, `nomepai`, `motivo`, `origem`, `dataprisao`, `nsiap`, `sic`, `regime`, `sexo`, `documentacao`, `crimerepercurssao`, `observacoesgerais`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`) VALUES
-(1, '', 'CP de Aliança', '25/09/2020', 'Alerta', 'ad', 'asdfa', 'Mandado de Prisão Preventiva', 'CP de Glória do Goitá', '30/08/2020', 0, 1515, 'Fechado', 'Masculino', 'Auto de Prisão em Flagrante', 'Sim', '   asdfas   ', 'Gustavo', 'Administrador', '2'),
-(2, '', 'CP de Aliança', '2020-12-01', 'AAAA', 'asdad', 'pai', 'Expiração de Prazo', 'CP de Lagoa do Carro', '2020-12-03', 786787, 456564, 'Fechado', 'Feminino', 'Auto de Prisão em Flagrante', 'Sim', '   werwr   ', 'Rafael José da Silva', 'Administrador', '1'),
+(1, '', 'CP de Itambé', '2020-12-16', 'Alerta', 'ad', 'asdfa', 'Expiração de Prazo', 'CP de Glória do Goitá', '2020-12-30', 0, 1515, 'Fechado', 'Masculino', 'Auto de Prisão em Flagrante', 'Sim', '     asdfas     ', 'Rafael José da Silva', 'Administrador', '1'),
+(2, '', 'CP de Nazaré da Mata', '2020-12-01', 'AAAA', 'asdad', 'pai', 'Expiração de Prazo', 'CP de Lagoa do Carro', '2020-12-03', 786787, 456564, 'Fechado', 'Feminino', 'Auto de Prisão em Flagrante', 'Sim', '    werwr    ', 'Rafael José da Silva', 'Administrador', '1'),
 (3, '', 'CP de Carpina', '26/10/2020', 'r', 'r', 'r', 'Expiração de Prazo', 'CP de Altinho', '25/10/2020', 0, 0, '', '', 'Auto de Prisão em Flagrante', 'Sim', 'r', '', '', ''),
 (4, '', 'CP de Goiana', '2020-12-01', 'y', 'y', 'y', 'Trânsito', 'Outra UF', '2020-12-02', 54555, 655675, 'Fechado', 'Masculino', 'Mandado de Recolhimento', 'Sim', '   yy   ', 'Teste', 'Agente', '56'),
 (5, '', 'CP de Goiana', '25/09/2020', 'Teste', 'Teste', 'Teste', 'Outros', 'Outra Origem', '25/10/2020', 25, 26, '', '', 'Outro', 'Sim', 'outro', '', '', ''),
@@ -444,6 +456,12 @@ ALTER TABLE `tbl_nucleo`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `tbl_ocorrencia`
+--
+ALTER TABLE `tbl_ocorrencia`
+  ADD PRIMARY KEY (`idd`);
+
+--
 -- Índices para tabela `tbl_presos`
 --
 ALTER TABLE `tbl_presos`
@@ -488,6 +506,12 @@ ALTER TABLE `tbl_enterno`
 --
 ALTER TABLE `tbl_interno`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT de tabela `tbl_ocorrencia`
+--
+ALTER TABLE `tbl_ocorrencia`
+  MODIFY `idd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_presos`

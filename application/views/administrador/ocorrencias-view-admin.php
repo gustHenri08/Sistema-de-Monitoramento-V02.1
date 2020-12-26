@@ -207,7 +207,6 @@
                  <th>Nome do Pai</th>
                  <th>SIAP</td>
                  <th>Cadastro</td>
-                 <th>Visualizar</td>
                </tr>
                </thead>
                <tbody>
@@ -222,11 +221,6 @@
 
                       <td>
                             <a href="<?= base_url() ?>index.php/ocorrencias/cadastrarMasteradmin/<?= $presos["id"] ?>" class="btn btn-primary btn-xs">Cadastrar</a>
-                      </td>
-                      <td> <form action="<?=site_url('ocorrencias/resultado_lista')?>" method="post"> 
-                      <input  type="hidden" name="busca" id="busca"  value="<?= $presos['nome']?>" >  <!-- 'name=' adicionado-->
-                      <button type="submit" class="btn btn-primary btn-xs"  >Visualizar</button>
-                       </form>                 
                       </td>
                       <td style='text-align:center'>
                       </td>

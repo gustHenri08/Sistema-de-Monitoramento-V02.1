@@ -175,42 +175,65 @@
          <div class="box">
            <div class="box-header">
              <h3 class="box-title"> Lista de Detentos </h3>
-           </div>
+            
+              </div>
            <!-- /.box-header -->
            <div class="box-body">
               <div class="col-sm-6">
-                <div id="example1_filter" class="dataTables_filter">
-                  <label>Procurar Detento:<input type="search" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1"></label>
-                  <br></br>
-                  <button type="submit" class="btn btn-primary">Buscar</button>
-                  <br></br>
+              <form action="<?=site_url('ocorrencias/resultado')?>" method="post">
+                  <div class="col-sm-6">
+                    <div id="example1_filter" class="dataTables_filter">
+                      <label>Procurar Presos:  <input type="text" name="busca" id="busca" class="form-control input-sm" placeholder="Nome" aria-controls="example1">
+                        <br><button type="submit" class="btn btn-primary">Buscar</button></br>
+                      </label> <!--colocar um if-else para tentar fazer o campo busca buscar os dados pelo que foi solicitado -->
+                    </div>
+                  </div>
+                </form>
+                <br></br>   
                 </div>
               </div>
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>CP</th>
-                    <th>Nome</th>
-                    <th>Nome da Mãe</th>
-                    <th>Nome do Pai</th>
-                    <th>SIAP</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>CP de Paulista</td>
-                    <td><a href="<?php echo site_url('Home/listarOcorrencias'); ?>">Fulano de Tal</td>
-                    <td>Mãe do Fulano de Tal</td>
-                    <td>Pai do Fulano de Tal</td>
-                    <td>123123</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
+             <table id="example2" class="table table-bordered table-hover">
+               <thead>
+               <tr>
+                 <th>CP</th>
+                 <th>Nome</th>
+                 <th>Nome da Mãe</th>
+                 <th>Nome do Pai</th>
+                 <th>SIAP</td>
+                 <th>Cadastro</td>
+                 <th>Visualizar</td>
+               </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                 <?php foreach($saidadetentos as $presos) : ?>
+                    <tr>
+                      <td><?= $presos['cadeiapublica']?></td>
+                      <td> <?= $presos['nome']?> </td>
+                      <td><?= $presos['nomemae']?></td>
+                      <td><?= $presos['nomepai']?></td>
+                      <td><?= $presos['nsiap']?></td>
+
+                      <td>
+                      <a href="<?= base_url() ?>index.php/ocorrencias/cadastrarMaster/<?= $presos["id"] ?>" class="btn btn-primary btn-xs">Cadastrar</a>
+                      </td>
+                      <td> <form action="<?=site_url('ocorrencias/resultado_lista')?>" method="post"> 
+                      <input  type="hidden" name="busca" id="busca"  value="<?= $presos['nome']?>" >  <!-- 'name=' adicionado-->
+                      <button type="submit" class="btn btn-success btn-xs"  >Visualizar</button>
+                       </form>                 
+                      </td>
+                      <td style='text-align:center'>
+                      </td>
+                    </tr>
+                  <?php endforeach?>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
+           <!-- /.box-body -->
+         </div>
+         <!-- /.box -->
+       </div>
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -221,12 +244,13 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      
+      <b>Version</b> 2.4.18
     </div>
-    <strong>Copyright &copy; 2020 Fábrica de Software.</strong> All rights
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
     reserved.
   </footer>
-</div>
+
+</div>  <!--Fim da div Wrapper-->
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>

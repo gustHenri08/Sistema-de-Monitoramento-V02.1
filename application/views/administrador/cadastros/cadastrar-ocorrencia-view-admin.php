@@ -165,18 +165,6 @@
     <!-- Cabeçalho da Página -->
     <section class="content-header">
       <?php if(isset($detentos)) :?>
-        <h1>
-          Edição de Detentos
-        </h1>
-      <?php else: ?>
-        <h1>
-          Cadastro de Ocorrências
-        </h1>
-      <?php endif; ?>
-      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
-        <li><a href="<?php echo site_url('Home'); ?>">Home</a></li>
-        <li class="active"><a href="<?php echo site_url('Home/listarOcorrencias'); ?>">Ocorrência</a></li>
-        <?php if(isset($detentos)) :?>
           <li class="active">Edição de Detentos</a></li>
         <?php else: ?>
 
@@ -282,7 +270,7 @@
               </div>
             <?php endif;?>
             <div class="col-xs-2"> <!--Botão Cadastrar-->
-              <a href="<?php echo site_url('Home/entradaPresos'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
+              <a href="<?php echo site_url('Home/registroOcorrenciasAdmin'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
             </div>
           </form>
           <!--Fim do Formulario-->

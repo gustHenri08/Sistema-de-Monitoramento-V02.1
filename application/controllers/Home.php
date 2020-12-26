@@ -51,16 +51,18 @@ class Home extends CI_Controller{
     // <-- Final-EntradaDeDetentos -->
     
     // <-- Inicio-Ocorrências -->
-
+    
     public function registroOcorrencias()
-    {
-        $this->load->view('agentes/ocorrencias-view'); // Carrega a view(Tela) Ocorrências;
+    {   $this->load->model('ocorrencias_modal');
+        $data['saidadetentos'] = $this->ocorrencias_modal->cadastrados();
+        $this->load->view('agentes/ocorrencias-view',$data); // Carrega a view(Tela) Ocorrências;
     }
     
 
     public function cadastrarOcorrencias(){
-
-        $this->load->view('agentes/cadastros/cadastrar-ocorrencias-view');
+        $this->load->model('ocorrencias_modal');
+        $edit['saidadetentos'] = $this->ocorrencias_modal->shows($id);
+        $this->load->view('agentes/cadastros/cadastrar-ocorrencias-view',$data);
     }
 
     public function outrasOcorrencias()

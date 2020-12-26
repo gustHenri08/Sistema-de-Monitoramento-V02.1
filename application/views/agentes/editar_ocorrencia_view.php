@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SMP | Lista de Ocorrências</title>
+  <title>SMP | Edição </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -12,15 +13,11 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/Ionicons/css/ionicons.min.css">
-  <!--DataTables-->
-  <script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap.css"></script>
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/dist/css/skins/_all-skins.min.css">
-
-  <!----------------------- ------------------------------->
   <!-- daterange picker -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.css">
   <!-- bootstrap datepicker -->
@@ -33,7 +30,6 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/timepicker/bootstrap-timepicker.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/select2/select2.min.css">
-
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -113,7 +109,7 @@
           </a>
         </li>
         <li>
-          <a href="<?php echo site_url('Home/entradaPresos'); ?> "> <!--  Estava com o controller errado   -->
+          <a href="<?php echo site_url('Home/entradaPresos'); ?> ">
             <i class="fa fa-user-plus"></i>
             <span>Entrada de Detentos</span>
           </a>
@@ -141,7 +137,7 @@
         <li class="treeview">
           <a href="<?php echo site_url(''); ?>">
             <i class="fa fa-user-times"></i>
-            <span>Saída de Detentos</span>
+            <span>Saida do Detento</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -165,81 +161,128 @@
           </ul>
         </li>
     </section>
+    <!-- /.sidebar -->
   </aside>
 
-  <!-- =============================================== -->
-
+ 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- Cabeçalho da Página -->
     <section class="content-header">
-      <h1>
-        Ocorrências do Detento
-      </h1>
-      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)mlp-->
-        <li><a href="<?php echo site_url('Home'); ?>">Home</a></li>
-        <li><a href="<?php echo site_url('Home/registroOcorrencias'); ?>">Ocorrência</a></li>
-        <li class="active">Ocorrências do Detento </li>
-      </ol>
-    </section>  
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Lista de Ocorrências </h3>     
-              <br>
-              <br>
-              <div class="form-group col-xs-4">
-                <label>Busca por Data:</label>
-                <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                  </div>
-                  <input type="text" class="form-control pull-right" id="reservation">
-                </div>
-                <!-- /.input group -->
-              </div>
-            </div>
-            <div class="box-body">
-              <table id="tabela" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Data</th>
-                    <th>CP</th>
-                    <th>Tipo</th>
-                    <th>Ações</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                  <?php foreach($saidadetentos as $presos) : ?>
-                            <tr>
-                            <td><?= $presos['idd']?></td>
-                            <td><?= $presos['data']?></td>
-                            <td><?= $presos['cadeiapublica']?> </a> </td>
-                            <td><?= $presos['tipo']?></td>
-                            <td> 
-                            <a href="<?= base_url() ?>index.php/ocorrencias/editMaster/<?= $presos["idd"] ?>" class="btn btn-warning btn-xs" onclick ="return confirm('Deseja editar á ocorrencia');">Editar</a>
-                            <a href="<?= base_url() ?>index.php/ocorrencias/delete/<?= $presos["idd"] ?>" class="btn btn-danger btn-xs"onclick ="return confirm('Deseja excluir á ocorrencia');">Deletar</a>             
-                            <a href="<?php echo site_url('Home/registroOcorrencias'); ?>" class="btn btn-primary btn-prim btn-xs">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
-          
-                            </td>
+      <?php if(isset($detentos)) :?>
+          <li class="active">Edição de Detentos</a></li>
+        <?php else: ?>
 
-                        </tr>
-                    <?php endforeach;?>
-                  </tr> 
-                 
-                </tbody>
-              </table>  
-            </div>  
+          <li class="active">Edição de Detentos</a></li>
+
+        <?php endif; ?>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <!-- Default box -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Editar</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
           </div>
         </div>
-      </div>
-    </section>      
-  </div>
+        <!--Inicio do Box Body-->
+        <div class="box-body">
+          <!--Inicio do Formulario-->
 
+            <form method="post" action="<?php echo site_url('ocorrencias/update') ?>"> <!--Em Testes | chama o controller responsavel pela edição-->
+            <!--Em Testes | chama o controller responsavel por cadastro-->
+              
+      
+            <div class="form-group"> <!-- Nome do Detento-->
+                <label>Policial Penal</label>
+                <input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+              </div>
+              
+              <div class="form-group"> <!-- Nome do Detento-->
+                <label>Função</label>
+                <input type="text" class="form-control" name="funcaocadastrante" placeholder="Função Agente" value="<?= isset($agentes) ? ($this->session->userdata("funcao")) : ($this->session->userdata("funcao"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+              </div>
+              
+              <div class="form-group"> <!-- Nome do Detento-->
+                <label>Matrícula</label>
+                <input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+              </div>    
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<input type="hidden" class="form-control" name="id" placeholder="Matricula Agente" value=" <?= isset($presos) ? $presos["id"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+            </div>
+
+            <div class="form-group"> <!--Campo Cadeia Publica-->
+              	<input  type="hidden"  class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($presos) ? $presos["cadeiapublica"] : "" ?>" readonly style="width:300px" >  <!-- 'name=' adicionado-->
+
+            </div>
+
+              <div class="form-group" style="width:200px" >
+                <label>Data:</label>
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="date" name="data" class="form-control pull-right" id="datepicker"  value=" <?= isset($saidadetentos) ? $saidadetentos["data"] : "" ?>">
+                </div>
+                <!-- /.input group -->
+            </div>
+            <div class="form-group"> <!--Crime de Repercussão-->
+                <label>Motivo</label>
+                <?php if(isset($saidadetentos)) :?>
+                  <select class="form-control" style="width: 110px" name="tipo"><!-- 'name=' adicionado-->
+                    <option><?= $saidadetentos["tipo"]?></option>
+                    <option>Agressão</option>
+                    <option>Apreensão</option>
+                    <option>Custódia Hospitalar</option>
+                    <option>Emergência Hospitalar</option>
+                    <option>Fuga</option>
+                    <option>Óbito - Natural</option>
+                    <option>Óbito - Suícidio</option>
+                    <option>Óbito - CVLI</option>
+                    <option>Outros</option>
+                  </select>
+                <?php else :?>
+                  <select class="form-control" style="width: 110px" name="tipo"><!-- 'name=' adicionado-->                    
+                  <option>Agressão</option>
+                    <option>Apreensão</option>
+                    <option>Custódia Hospitalar</option>
+                    <option>Emergência Hospitalar</option>
+                    <option>Fuga</option>
+                    <option>Óbito - Natural</option>
+                    <option>Óbito - Suícidio</option>
+                    <option>Óbito - CVLI</option>
+                    <option>Outros</option>
+                  </select>
+                <?php endif;?>
+            </div>
+
+            <div class="form-group"> <!--Observações-->
+              <label>Resumo da Ocorrência</label>
+              <textarea class="form-control" rows="5" name="resumo_Ocorrencia" placeholder="Resumo da Ocorrência"> <?= isset($saidadetentos) ? $saidadetentos["resumo_Ocorrencia"] : "" ?> </textarea><!-- 'name=' adicionado-->
+            </div>
+            <br>
+           
+              <div class="col-xs-2"> <!--Botão Cadastrar-->
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Salvar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+              </div>
+            
+             <div class="col-xs-2"> <!--Botão Cadastrar-->
+              <a href="<?php echo site_url('Home/registroOcorrencias'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
+            </div>
+          </form>
+          <!--Fim do Formulario-->
+        </div>
+        <!-- Fim do Box Body -->
+      </div>
+      <!-- Fim do Box -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       
@@ -247,7 +290,6 @@
     <strong>Copyright &copy; 2020 Fábrica de Software.</strong> All rights
     reserved.
   </footer>
-
 </div>
 
   
@@ -269,97 +311,6 @@
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 <!--Font Awesome My Link-->
 <script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>
-<!------------------------------------- ------------------------------>
-<!-- Select2 -->
-<script src="<?php echo base_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
-<!-- InputMask -->
-<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-<!-- date-range-picker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- bootstrap datepicker -->
-<script src="<?php echo base_url(); ?>assets/plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- bootstrap color picker -->
-<script src="<?php echo base_url(); ?>assets/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-<!-- bootstrap time picker -->
-<script src="<?php echo base_url(); ?>assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-<!-- iCheck 1.0.1 -->
-<script src="<?php echo base_url(); ?>assets/plugins/iCheck/icheck.min.js"></script>
-<!--Font Awesome My Link-->
-<script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>
-<script>
-  $(document).ready(function () {
-    $('.sidebar-menu').tree()
-  })
-
-  $(function () {
-    //Initialize Select2 Elements
-    $(".select2").select2();
-
-    //Datemask dd/mm/yyyy
-    $("#datemask").inputmask("dd/mm/aaaa", {"placeholder": "dd/mm/aaaa"});
-    //Datemask2 mm/dd/yyyy
-    $("#datemask2").inputmask("mm/dd/aaaa", {"placeholder": "mm/dd/aaaa"});
-    //Money Euro
-    $("[data-mask]").inputmask();
-
-    //Date range picker
-    $('#reservation').daterangepicker();
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
-    //Date range as a button
-    $('#daterange-btn').daterangepicker(
-        {
-          ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment()
-        },
-        function (start, end) {
-          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        }
-    );
-
-    //Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    });
-
-    //iCheck for checkbox and radio inputs
-    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-      checkboxClass: 'icheckbox_minimal-blue',
-      radioClass: 'iradio_minimal-blue'
-    });
-    //Red color scheme for iCheck
-    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-      checkboxClass: 'icheckbox_minimal-red',
-      radioClass: 'iradio_minimal-red'
-    });
-    //Flat red color scheme for iCheck
-    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-      checkboxClass: 'icheckbox_flat-green',
-      radioClass: 'iradio_flat-green'
-    });
-
-    //Colorpicker
-    $(".my-colorpicker1").colorpicker();
-    //color picker with addon
-    $(".my-colorpicker2").colorpicker();
-
-    //Timepicker
-    $(".timepicker").timepicker({
-      showInputs: false
-    });
-  });
-</script>
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()

@@ -52,9 +52,9 @@ class ocorrencias_modal extends CI_Model{
         return $query->result_array(); 	
     }
 
-    public function show($id){
+    public function show($idd){
         return $this->db->get_where('tbl_ocorrencia', array(
-            "id" => $id
+            "id" => $idd
         ))->row_array();
     }
     public function shows($id){
@@ -64,8 +64,8 @@ class ocorrencias_modal extends CI_Model{
     }
     
 
-    public function update($id, $atualizar){
-        $this->db->where('id', $id);
+    public function update($idd, $atualizar){
+        $this->db->where('idd', $idd);
         return $this->db->update("tbl_ocorrencia", $atualizar);
 
     }
