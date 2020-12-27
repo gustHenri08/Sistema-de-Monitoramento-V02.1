@@ -7,13 +7,17 @@ class Presos_model extends CI_Model{
     }
  
     function cadastroPresos(){ // Função reponsável por cadastrar os presos ao bando de dados: db_presos
+        $pai =  $this->input->post('nomepai');
+        if($pai == ""){
+            $pai = "Não Declarado";
+        }
         $data = array(
             'cadeiapublica'=>  $this->session->userdata("unidadeprisional"),
             'nucleo'=>  $this->session->userdata("nucleo"), //Recebe os dados da session do agente
             'dataentrada'=> $this->input->post('dataentrada'),
             'nome'=> $this->input->post('nome'),
             'nomemae'=> $this->input->post('nomemae'),
-            'nomepai'=> $this->input->post('nomepai'),
+            'nomepai'=> $pai,
             'motivo'=> $this->input->post('motivo'),
             'origem'=> $this->input->post('origem'),
             'dataprisao'=> $this->input->post('dataprisao'),
@@ -33,6 +37,10 @@ class Presos_model extends CI_Model{
     }
 
     function cadastroPresosAdmin(){ // Função reponsável por cadastrar os presos ao bando de dados: db_presos
+        $pai =  $this->input->post('nomepai');
+        if($pai == ""){
+            $pai = "Não Declarado";
+        }
         $data = array(
             'cadeiapublica'=> $this->input->post('cadeiapublica'),
             'nucleo'=> $this->input->post('nucleo'), //Recebe os dados via post

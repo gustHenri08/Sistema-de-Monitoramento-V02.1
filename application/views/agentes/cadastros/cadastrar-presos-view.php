@@ -183,7 +183,11 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Cadastro</h3>          
+          <?php if(isset($detentos)) :?>
+            <h3 class="box-title">Edição</h3>
+          <?php else: ?>
+            <h3 class="box-title">Cadastro</h3>
+          <?php endif;?>       
           <h5>(*) Campo Obrigatório</h5>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
@@ -256,7 +260,7 @@
 
           	<div class="form-group"> <!-- Nome do Pai-->
           		<label>Nome do Pai</label>
-          		<input type="text" class="form-control" required name="nomepai" placeholder="Nome do Pai" value="<?= isset($detentos) ? $detentos["nomepai"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="nomepai" placeholder="Nome do Pai" value="<?= isset($detentos) ? $detentos["nomepai"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
             <div class="form-group"> <!--Motivo-->
@@ -294,26 +298,182 @@
               <?php if(isset($detentos)): ?>
                 <select class="form-control" style="width: 250px" name="origem"><!-- 'name=' adicionado-->
                   <option><?= $detentos["origem"]?></option>
+                  <option>CP de Afogados da Ingazeira</option>
+                  <option>CP de Afrânio</option>
+                  <option>CP de Aliança</option>
+                  <option>CP de Agrestina</option>
                   <option>CP de Altinho</option>
-                  <option>CP de Bom Conselho</option> 
+                  <option>CP de Araripina</option>
+                  <option>CP de Belém do São Francisco</option>
+                  <option>CP de Bezerros</option>
+                  <option>CP de Bom Conselho</option>
+                  <option>CP de Cabrobó</option>
+                  <option>CP de Cachoeirinha</option>
+                  <option>CP de Camocim de São Félix</option>
+                  <option>CP de Capoeiras</option>
+                  <option>CP de Carnaíba</option>
                   <option>CP de Carpina</option>
+                  <option>CP de Custódia</option>
+                  <option>CP de Escada</option>
+                  <option>CP de Exu</option>
+                  <option>CP de Flores</option>
+                  <option>CP de Gameleira</option>
+                  <option>CP de Garanhuns</option>
                   <option>CP de Glória do Goitá</option>
+                  <option>CP de Goiana</option>
+                  <option>CP de Gravatá</option>
+                  <option>CP de Ibimirim</option>
+                  <option>CP de Ipubi</option>
+                  <option>CP de Itambé</option>
+                  <option>CP de Itapetim</option>
+                  <option>CP de Jataúba</option>
+                  <option>CP de João Alfredo</option>
                   <option>CP de Lagoa do Carro</option>
+                  <option>CP de Lajedo</option>
+                  <option>CP de Macaparana</option>
+                  <option>CP de Moreilândia</option>
+                  <option>CP de Nazaré da Mata</option>
+                  <option>CP de Ouricuri</option>
+                  <option>CP de Parnamirim</option>
+                  <option>CP de Pedra</option>
+                  <option>CP de Petrolândia</option>
+                  <option>CP de Petrolina</option>
+                  <option>CP de Riacho das Almas</option>
+                  <option>CP de Ribeirão</option>
+                  <option>CP de Saloá</option>
+                  <option>CP de Santa Maria da Boa Vista</option>
+                  <option>CP de Santa Maria do Cambucá</option>
+                  <option>CP de São Joaquim do Monte</option>
+                  <option>CP de São José do Belmonte</option>
+                  <option>CP de São José do Egito</option>
+                  <option>CP de Serra Talhada</option>
+                  <option>CP de Sertânia</option>
+                  <option>CP de Tabira</option>
+                  <option>CP de Taquaritinga do Norte</option>
+                  <option>CP de Timbaúba</option>
+                  <option>CP de Trindade</option>
+                  <option>CP de Tuparetama</option>
+                  <option>CP de Venturosa</option>
+                  <option>CP de Verdejante</option>
+                  <option>CP de Vicência</option>
+                  <option>Audiência de Custódia</option>
+                  <option>COTEL</option>
+                  <option>CPFAL</option>
+                  <option>CPFB</option>
+                  <option>CPFR</option>
+                  <option>CRA</option>
                   <option>Delegacia - PC</option>
+                  <option>Delegacia - PF</option>
+                  <option>HCTP</option>
                   <option>Outra UF</option>
+                  <option>PABA</option>
+                  <option>PAISJ</option>
+                  <option>PAMFA</option>
+                  <option>PDAD</option>
+                  <option>PDEG</option>
+                  <option>PDEPG</option>
+                  <option>PFDB</option>
+                  <option>PI</option>
+                  <option>PIT</option>
+                  <option>PJALLB</option>
+                  <option>PJPS</option>
                   <option>Polícia Militar</option>
+                  <option>PPBC</option>
+                  <option>PRRL</option>
+                  <option>PSAL</option>
+                  <option>PSCC</option>
+                  <option>PTAC</option>
+                  <option>PVSA</option>
                   <option>Outra Origem</option>
                 </select>
               <?php else: ?>
                 <select class="form-control" style="width: 250px" name="origem"><!-- 'name=' adicionado-->
+                  <option>CP de Afogados da Ingazeira</option>
+                  <option>CP de Afrânio</option>
+                  <option>CP de Aliança</option>
+                  <option>CP de Agrestina</option>
                   <option>CP de Altinho</option>
-                  <option>CP de Bom Conselho</option> 
+                  <option>CP de Araripina</option>
+                  <option>CP de Belém do São Francisco</option>
+                  <option>CP de Bezerros</option>
+                  <option>CP de Bom Conselho</option>
+                  <option>CP de Cabrobó</option>
+                  <option>CP de Cachoeirinha</option>
+                  <option>CP de Camocim de São Félix</option>
+                  <option>CP de Capoeiras</option>
+                  <option>CP de Carnaíba</option>
                   <option>CP de Carpina</option>
+                  <option>CP de Custódia</option>
+                  <option>CP de Escada</option>
+                  <option>CP de Exu</option>
+                  <option>CP de Flores</option>
+                  <option>CP de Gameleira</option>
+                  <option>CP de Garanhuns</option>
                   <option>CP de Glória do Goitá</option>
+                  <option>CP de Goiana</option>
+                  <option>CP de Gravatá</option>
+                  <option>CP de Ibimirim</option>
+                  <option>CP de Ipubi</option>
+                  <option>CP de Itambé</option>
+                  <option>CP de Itapetim</option>
+                  <option>CP de Jataúba</option>
+                  <option>CP de João Alfredo</option>
                   <option>CP de Lagoa do Carro</option>
+                  <option>CP de Lajedo</option>
+                  <option>CP de Macaparana</option>
+                  <option>CP de Moreilândia</option>
+                  <option>CP de Nazaré da Mata</option>
+                  <option>CP de Ouricuri</option>
+                  <option>CP de Parnamirim</option>
+                  <option>CP de Pedra</option>
+                  <option>CP de Petrolândia</option>
+                  <option>CP de Petrolina</option>
+                  <option>CP de Riacho das Almas</option>
+                  <option>CP de Ribeirão</option>
+                  <option>CP de Saloá</option>
+                  <option>CP de Santa Maria da Boa Vista</option>
+                  <option>CP de Santa Maria do Cambucá</option>
+                  <option>CP de São Joaquim do Monte</option>
+                  <option>CP de São José do Belmonte</option>
+                  <option>CP de São José do Egito</option>
+                  <option>CP de Serra Talhada</option>
+                  <option>CP de Sertânia</option>
+                  <option>CP de Tabira</option>
+                  <option>CP de Taquaritinga do Norte</option>
+                  <option>CP de Timbaúba</option>
+                  <option>CP de Trindade</option>
+                  <option>CP de Tuparetama</option>
+                  <option>CP de Venturosa</option>
+                  <option>CP de Verdejante</option>
+                  <option>CP de Vicência</option>
+                  <option>Audiência de Custódia</option>
+                  <option>COTEL</option>
+                  <option>CPFAL</option>
+                  <option>CPFB</option>
+                  <option>CPFR</option>
+                  <option>CRA</option>
                   <option>Delegacia - PC</option>
+                  <option>Delegacia - PF</option>
+                  <option>HCTP</option>
                   <option>Outra UF</option>
+                  <option>PABA</option>
+                  <option>PAISJ</option>
+                  <option>PAMFA</option>
+                  <option>PDAD</option>
+                  <option>PDEG</option>
+                  <option>PDEPG</option>
+                  <option>PFDB</option>
+                  <option>PI</option>
+                  <option>PIT</option>
+                  <option>PJALLB</option>
+                  <option>PJPS</option>
                   <option>Polícia Militar</option>
+                  <option>PPBC</option>
+                  <option>PRRL</option>
+                  <option>PSAL</option>
+                  <option>PSCC</option>
+                  <option>PTAC</option>
+                  <option>PVSA</option>
                   <option>Outra Origem</option>
                 </select>
               <?php endif;?>

@@ -226,7 +226,13 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Cadastro</h3>
+          <?php if(isset($detentos)) :?>
+            <h3 class="box-title">Edição</h3>
+          <?php else: ?>
+            <h3 class="box-title">Cadastro</h3>
+          <?php endif;?>
+          
+          <h5>(*) Campo Obrigatório</h5>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -265,12 +271,12 @@
             <?php endif; ?>            
 
           	<div class="form-group"> <!-- Nome do Detento-->
-          		<label>Nome Detento</label>
+          		<label>Nome Detento *</label>
           		<input type="text" class="form-control" required name="nome" placeholder="Nome" value="<?= isset($detentos) ? $detentos["nome"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
             </div>
             
           	<div class="form-group">
-              <label for="nucleos">Núcleo</label>
+              <label for="nucleos">Núcleo *</label>
               <?php if(isset($detentos)): ?>
                 <select class="form-control" id="nucleo" name="nucleo" style="width: 155px">
                   <option><?=$detentos["nucleo"]?></option>
@@ -284,7 +290,7 @@
             </div>
 
             <div class="form-group">
-               <label for="nucleos">Centro Prisional</label>
+               <label for="nucleos">Centro Prisional *</label>
                <?php if(isset($detentos)): ?>
                 <select class="form-control" id="cadeiapublica" name="cadeiapublica" style="width: 250px">
                   <option><?=$detentos["cadeiapublica"]?></option>
@@ -298,12 +304,12 @@
             </div>
 
             <div class="form-group">
-              <label>Data de Entrada</label>
+              <label>Data de Entrada *</label>
               <input type="date" class="form-control" required name="dataentrada" placeholder="dd/mm/aaaa" value="<?= isset($detentos) ? $detentos["dataentrada"] : ""?>" style="width:140px" maxlength="10" ><!-- 'name=' adicionado-->
             </div>
             
             <div class="form-group"> <!--Crime de Repercussão-->
-                <label>Sexo</label>
+                <label>Sexo *</label>
                 <?php if(isset($detentos)) :?>
                   <select class="form-control" style="width: 110px" name="sexo"><!-- 'name=' adicionado-->
                     <option><?= $detentos["sexo"]?></option>
@@ -319,17 +325,17 @@
             </div>
 
           	<div class="form-group"> <!-- Nome da Mãe-->
-          		<label>Nome da Mãe</label>
+          		<label>Nome da Mãe *</label>
           		<input type="text" class="form-control" required name="nomemae" placeholder="Nome da Mãe" value="<?= isset($detentos) ? $detentos["nomemae"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
           	<div class="form-group"> <!-- Nome do Pai-->
-          		<label>Nome do Pai</label>
-          		<input type="text" class="form-control" required name="nomepai" placeholder="Nome do Pai" value="<?= isset($detentos) ? $detentos["nomepai"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
+          		<label>Nome do Pai </label>
+          		<input type="text" class="form-control"  name="nomepai" placeholder="Nome do Pai" value="<?= isset($detentos) ? $detentos["nomepai"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
             <div class="form-group"> <!--Motivo-->
-                <label>Motivo</label>
+                <label>Motivo *</label>
                 <?php if(isset($detentos)): ?>
                   <select class="form-control" style="width: 250px" name="motivo"><!-- 'name=' adicionado-->
                     <option><?=$detentos["motivo"]?></option>
@@ -359,42 +365,198 @@
             </div>
 
             <div class="form-group"> <!--Origem-->
-              <label>Origem</label><!-- Origem alterada para ficar de acordo com documentação, versão antiga estava com os options errados-->
+              <label>Origem *</label><!-- Origem alterada para ficar de acordo com documentação, versão antiga estava com os options errados-->
               <?php if(isset($detentos)): ?>
                 <select class="form-control" style="width: 250px" name="origem"><!-- 'name=' adicionado-->
                   <option><?= $detentos["origem"]?></option>
+                  <option>CP de Afogados da Ingazeira</option>
+                  <option>CP de Afrânio</option>
+                  <option>CP de Aliança</option>
+                  <option>CP de Agrestina</option>
                   <option>CP de Altinho</option>
-                  <option>CP de Bom Conselho</option> 
+                  <option>CP de Araripina</option>
+                  <option>CP de Belém do São Francisco</option>
+                  <option>CP de Bezerros</option>
+                  <option>CP de Bom Conselho</option>
+                  <option>CP de Cabrobó</option>
+                  <option>CP de Cachoeirinha</option>
+                  <option>CP de Camocim de São Félix</option>
+                  <option>CP de Capoeiras</option>
+                  <option>CP de Carnaíba</option>
                   <option>CP de Carpina</option>
+                  <option>CP de Custódia</option>
+                  <option>CP de Escada</option>
+                  <option>CP de Exu</option>
+                  <option>CP de Flores</option>
+                  <option>CP de Gameleira</option>
+                  <option>CP de Garanhuns</option>
                   <option>CP de Glória do Goitá</option>
+                  <option>CP de Goiana</option>
+                  <option>CP de Gravatá</option>
+                  <option>CP de Ibimirim</option>
+                  <option>CP de Ipubi</option>
+                  <option>CP de Itambé</option>
+                  <option>CP de Itapetim</option>
+                  <option>CP de Jataúba</option>
+                  <option>CP de João Alfredo</option>
                   <option>CP de Lagoa do Carro</option>
+                  <option>CP de Lajedo</option>
+                  <option>CP de Macaparana</option>
+                  <option>CP de Moreilândia</option>
+                  <option>CP de Nazaré da Mata</option>
+                  <option>CP de Ouricuri</option>
+                  <option>CP de Parnamirim</option>
+                  <option>CP de Pedra</option>
+                  <option>CP de Petrolândia</option>
+                  <option>CP de Petrolina</option>
+                  <option>CP de Riacho das Almas</option>
+                  <option>CP de Ribeirão</option>
+                  <option>CP de Saloá</option>
+                  <option>CP de Santa Maria da Boa Vista</option>
+                  <option>CP de Santa Maria do Cambucá</option>
+                  <option>CP de São Joaquim do Monte</option>
+                  <option>CP de São José do Belmonte</option>
+                  <option>CP de São José do Egito</option>
+                  <option>CP de Serra Talhada</option>
+                  <option>CP de Sertânia</option>
+                  <option>CP de Tabira</option>
+                  <option>CP de Taquaritinga do Norte</option>
+                  <option>CP de Timbaúba</option>
+                  <option>CP de Trindade</option>
+                  <option>CP de Tuparetama</option>
+                  <option>CP de Venturosa</option>
+                  <option>CP de Verdejante</option>
+                  <option>CP de Vicência</option>
+                  <option>Audiência de Custódia</option>
+                  <option>COTEL</option>
+                  <option>CPFAL</option>
+                  <option>CPFB</option>
+                  <option>CPFR</option>
+                  <option>CRA</option>
                   <option>Delegacia - PC</option>
+                  <option>Delegacia - PF</option>
+                  <option>HCTP</option>
                   <option>Outra UF</option>
+                  <option>PABA</option>
+                  <option>PAISJ</option>
+                  <option>PAMFA</option>
+                  <option>PDAD</option>
+                  <option>PDEG</option>
+                  <option>PDEPG</option>
+                  <option>PFDB</option>
+                  <option>PI</option>
+                  <option>PIT</option>
+                  <option>PJALLB</option>
+                  <option>PJPS</option>
                   <option>Polícia Militar</option>
+                  <option>PPBC</option>
+                  <option>PRRL</option>
+                  <option>PSAL</option>
+                  <option>PSCC</option>
+                  <option>PTAC</option>
+                  <option>PVSA</option>
                   <option>Outra Origem</option>
                 </select>
               <?php else: ?>
                 <select class="form-control" style="width: 250px" name="origem"><!-- 'name=' adicionado-->
+                  <option>CP de Afogados da Ingazeira</option>
+                  <option>CP de Afrânio</option>
+                  <option>CP de Aliança</option>
+                  <option>CP de Agrestina</option>
                   <option>CP de Altinho</option>
-                  <option>CP de Bom Conselho</option> 
+                  <option>CP de Araripina</option>
+                  <option>CP de Belém do São Francisco</option>
+                  <option>CP de Bezerros</option>
+                  <option>CP de Bom Conselho</option>
+                  <option>CP de Cabrobó</option>
+                  <option>CP de Cachoeirinha</option>
+                  <option>CP de Camocim de São Félix</option>
+                  <option>CP de Capoeiras</option>
+                  <option>CP de Carnaíba</option>
                   <option>CP de Carpina</option>
+                  <option>CP de Custódia</option>
+                  <option>CP de Escada</option>
+                  <option>CP de Exu</option>
+                  <option>CP de Flores</option>
+                  <option>CP de Gameleira</option>
+                  <option>CP de Garanhuns</option>
                   <option>CP de Glória do Goitá</option>
+                  <option>CP de Goiana</option>
+                  <option>CP de Gravatá</option>
+                  <option>CP de Ibimirim</option>
+                  <option>CP de Ipubi</option>
+                  <option>CP de Itambé</option>
+                  <option>CP de Itapetim</option>
+                  <option>CP de Jataúba</option>
+                  <option>CP de João Alfredo</option>
                   <option>CP de Lagoa do Carro</option>
+                  <option>CP de Lajedo</option>
+                  <option>CP de Macaparana</option>
+                  <option>CP de Moreilândia</option>
+                  <option>CP de Nazaré da Mata</option>
+                  <option>CP de Ouricuri</option>
+                  <option>CP de Parnamirim</option>
+                  <option>CP de Pedra</option>
+                  <option>CP de Petrolândia</option>
+                  <option>CP de Petrolina</option>
+                  <option>CP de Riacho das Almas</option>
+                  <option>CP de Ribeirão</option>
+                  <option>CP de Saloá</option>
+                  <option>CP de Santa Maria da Boa Vista</option>
+                  <option>CP de Santa Maria do Cambucá</option>
+                  <option>CP de São Joaquim do Monte</option>
+                  <option>CP de São José do Belmonte</option>
+                  <option>CP de São José do Egito</option>
+                  <option>CP de Serra Talhada</option>
+                  <option>CP de Sertânia</option>
+                  <option>CP de Tabira</option>
+                  <option>CP de Taquaritinga do Norte</option>
+                  <option>CP de Timbaúba</option>
+                  <option>CP de Trindade</option>
+                  <option>CP de Tuparetama</option>
+                  <option>CP de Venturosa</option>
+                  <option>CP de Verdejante</option>
+                  <option>CP de Vicência</option>
+                  <option>Audiência de Custódia</option>
+                  <option>COTEL</option>
+                  <option>CPFAL</option>
+                  <option>CPFB</option>
+                  <option>CPFR</option>
+                  <option>CRA</option>
                   <option>Delegacia - PC</option>
+                  <option>Delegacia - PF</option>
+                  <option>HCTP</option>
                   <option>Outra UF</option>
+                  <option>PABA</option>
+                  <option>PAISJ</option>
+                  <option>PAMFA</option>
+                  <option>PDAD</option>
+                  <option>PDEG</option>
+                  <option>PDEPG</option>
+                  <option>PFDB</option>
+                  <option>PI</option>
+                  <option>PIT</option>
+                  <option>PJALLB</option>
+                  <option>PJPS</option>
                   <option>Polícia Militar</option>
+                  <option>PPBC</option>
+                  <option>PRRL</option>
+                  <option>PSAL</option>
+                  <option>PSCC</option>
+                  <option>PTAC</option>
+                  <option>PVSA</option>
                   <option>Outra Origem</option>
                 </select>
               <?php endif;?>
             </div>
 
             <div class="form-group"> <!--Data de Prisão-->
-          		<label>Data da Prisão</label>
+          		<label>Data da Prisão *</label>
           		<input type="date" class="form-control" required name="dataprisao" value="<?= isset($detentos) ? $detentos["dataprisao"] : "" ?>" style="width:140px" maxlength="10"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group">
-              <label>N° SIAP</label>
+              <label>N° SIAP *</label>
               <input type="int" class="form-control" required name="nsiap" placeholder="N° SIAP" value="<?= isset($detentos) ? $detentos["nsiap"] : ""?>" style="width:140px" maxlength="9" ><!-- 'name=' adicionado-->
             </div>
 
@@ -404,7 +566,7 @@
             </div>
             
             <div class="form-group"> <!--Crime de Repercussão-->
-                <label>Regime</label>
+                <label>Regime *</label>
                 <?php if(isset($detentos)) :?>
                   <select class="form-control" style="width: 120px" name="regime"><!-- 'name=' adicionado-->
                     <option><?= $detentos["regime"]?></option>                    
@@ -422,7 +584,7 @@
             </div>
 
             <div class="form-group"> <!--Documentação-->
-                <label>Documentação</label>
+                <label>Documentação *</label>
                 <?php if(isset($detentos)): ?>
                   <select class="form-control" style="width: 230px" name="documentacao"><!-- 'name=' adicionado-->
                     <option><?= $detentos["documentacao"]?></option>
@@ -446,7 +608,7 @@
             </div>
 
             <div class="form-group"> <!--Crime de Repercussão-->
-                <label>Crime de Repercussão</label>
+                <label>Crime de Repercussão *</label>
                 <?php if(isset($detentos)) :?>
                   <select class="form-control" style="width: 90px" name="crimerepercurssao"><!-- 'name=' adicionado-->
                     <option><?= $detentos["crimerepercurssao"]?></option>
