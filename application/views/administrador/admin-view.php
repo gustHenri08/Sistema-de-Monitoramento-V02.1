@@ -317,16 +317,23 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
             <script>
-              var ctx = document.getElementsByClassName("bar-chart");
+              var getinfoArcoverde_Values = [0, 0, 0, 0, 0];
+              var getinfoCaruaru_Values = [0, 0, 0, 0, 0];
+              var getinfoGaranhuns_Values = [0, 0, 0, 0, 0];
+              var getinfoLagoa_Values = [0, 0, 0, 0, 0];
+              var getinfoPetrolina_Values = [0, 0, 0, 0, 0];
+              var getinfoSalgueiro_Values = [0, 0, 0, 0, 0];
 
-              var chartGraph = new Chart(ctx, {
+
+              var ctx = document.getElementsByClassName("bar-chart");
+              var chart_Admin = new Chart(ctx, {
                   type: 'bar',
                   data:{
                     labels: ["Homens","Mulheres","Regime Aberto","Regime Semi-Aberto","Regime Fechado"],
                     datasets:[
                       { label:"Núcleo Arco-Verde",
                         //*Número de presos por Núcleo*//
-                        data:[50,300,210,300,400,500,600,700,800,900,1000],
+                        data: getinfoArcoverde_Values,
                         backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
                         borderColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
                         borderWidth:2
@@ -334,7 +341,7 @@
                         {
                         label:"Núcleo Caruaru",
                         //*Número de presos por Núcleo*//
-                        data:[55,250,250,350,450,550,650,750,850,950,1050],
+                        data: getinfoCaruaru_Values,
                         backgroundColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
                         borderColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
                         borderWidth:2
@@ -342,7 +349,7 @@
                         {
                         label:"Núcleo Garanhuns",
                         //*Número de presos por Núcleo*//
-                        data:[60,200,450,350,450,550,650,750,850,950,1050],
+                        data: getinfoGaranhuns_Values,
                         backgroundColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
                         borderColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
                         borderWidth:2
@@ -350,7 +357,7 @@
                         {
                         label:"Núcleo Lagoa",
                         //*Número de presos  no Núcleo*//
-                        data:[65,150,200,350,450,550,650,750,850,950,1050],
+                        data: getinfoLagoa_Values,
                         backgroundColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
                         borderColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
                         borderWidth:2
@@ -358,7 +365,7 @@
                         {
                         label:"Núcleo Petrolina",
                         //*Número de presos por Núcleo*//
-                        data:[70,100,150,350,450,550,650,750,850,950,1050],
+                        data: getinfoPetrolina_Values,
                         backgroundColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
                         borderColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
                         borderWidth:2
@@ -366,7 +373,7 @@
                         {
                         label:"Núcleo Salgueiro",
                         //*Número de presos por Núcleo*//
-                        data:[75,50,250,350,450,550,650,750,850,950,1050],
+                        data: getinfoSalgueiro_Values,
                         backgroundColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
                         borderColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
                         borderWidth:2
@@ -386,11 +393,105 @@
                             fontColor: 'black',
                             display: true,
                             labelString: 'Categorias'
-                          }
+                          },
+                          ticks: {
+                          suggestedMin: 0,
+                          // minimum will be 0, unless there is a lower value.
+                          // OR //
+                          beginAtZero: true   // minimum value will be 0.
+                         }
                         }]
                       }
                     }
                   });
+                  async function chart_getinfoArcoverde() {
+                    const blob = await fetch("<?php echo site_url('Chart/getinfoArcoverde'); ?>");
+                    const data = await blob.json();
+
+                    getinfoArcoverde_Values[0] = data.maleCountArcoverde.SEX_COUNT;
+                    getinfoArcoverde_Values[1] = data.femaleCountArcoverde.SEX_COUNT;
+                    getinfoArcoverde_Values[2] = data.regimeAbertoCountArcoverde.SEX_COUNT;
+                    getinfoArcoverde_Values[3] = data.regimeSemiCountArcoverde.SEX_COUNT;
+                    getinfoArcoverde_Values[4] = data.regimeFechadoCountArcoverde.SEX_COUNT;
+                  
+                    chart_Admin.update();
+                  }
+                  chart_getinfoArcoverde();
+
+                  async function chart_getinfoCaruaru() {
+                    const blob = await fetch("<?php echo site_url('Chart/getinfoCaruaru'); ?>");
+                    const data = await blob.json();
+
+                    getinfoCaruaru_Values[0] = data.maleCountCaruaru.SEX_COUNT;
+                    getinfoCaruaru_Values[1] = data.femaleCountCaruaru.SEX_COUNT;
+                    getinfoCaruaru_Values[2] = data.regimeAbertoCountCaruaru.SEX_COUNT;
+                    getinfoCaruaru_Values[3] = data.regimeSemiCountCaruaru.SEX_COUNT;
+                    getinfoCaruaru_Values[4] = data.regimeFechadoCountCaruaru.SEX_COUNT;
+                  
+                    chart_Admin.update();
+                  }
+                  chart_getinfoCaruaru();
+
+                  async function chart_getinfoGaranhuns() {
+                    const blob = await fetch("<?php echo site_url('Chart/getinfoGaranhuns'); ?>");
+                    const data = await blob.json();
+
+                    getinfoGaranhuns_Values[0] = data.maleCountGaranhuns.SEX_COUNT;
+                    getinfoGaranhuns_Values[1] = data.femaleCountGaranhuns.SEX_COUNT;
+                    getinfoGaranhuns_Values[2] = data.regimeAbertoCountGaranhuns.SEX_COUNT;
+                    getinfoGaranhuns_Values[3] = data.regimeSemiCountGaranhuns.SEX_COUNT;
+                    getinfoGaranhuns_Values[4] = data.regimeFechadoCountGaranhuns.SEX_COUNT;
+                  
+                    chart_Admin.update();
+                  }
+                  chart_getinfoGaranhuns();
+
+                  async function chart_getinfoLagoa() {
+                    const blob = await fetch("<?php echo site_url('Chart/getinfoLagoa'); ?>");
+                    const data = await blob.json();
+
+                    getinfoLagoa_Values[0] = data.maleCountLagoa.SEX_COUNT;
+                    getinfoLagoa_Values[1] = data.femaleCountLagoa.SEX_COUNT;
+                    getinfoLagoa_Values[2] = data.regimeAbertoCountLagoa.SEX_COUNT;
+                    getinfoLagoa_Values[3] = data.regimeSemiCountLagoa.SEX_COUNT;
+                    getinfoLagoa_Values[4] = data.regimeFechadoCountLagoa.SEX_COUNT;
+                  
+                    chart_Admin.update();
+                  }
+                  chart_getinfoLagoa();
+
+                  async function chart_getinfoPetrolina() {
+                    const blob = await fetch("<?php echo site_url('Chart/getinfoPetrolina'); ?>");
+                    const data = await blob.json();
+
+                    getinfoPetrolina_Values[0] = data.maleCountPetrolina.SEX_COUNT;
+                    getinfoPetrolina_Values[1] = data.femaleCountPetrolina.SEX_COUNT;
+                    getinfoPetrolina_Values[2] = data.regimeAbertoCountPetrolina.SEX_COUNT;
+                    getinfoPetrolina_Values[3] = data.regimeSemiCountPetrolina.SEX_COUNT;
+                    getinfoPetrolina_Values[4] = data.regimeFechadoCountPetrolina.SEX_COUNT;
+                  
+                    chart_Admin.update();
+                  }
+                  chart_getinfoPetrolina();
+
+                  async function chart_getinfoSalgueiro() {
+                    const blob = await fetch("<?php echo site_url('Chart/getinfoSalgueiro'); ?>");
+                    const data = await blob.json();
+
+                    getinfoSalgueiro_Values[0] = data.maleCountSalgueiro.SEX_COUNT;
+                    getinfoSalgueiro_Values[1] = data.femaleCountSalgueiro.SEX_COUNT;
+                    getinfoSalgueiro_Values[2] = data.regimeAbertoCountSalgueiro.SEX_COUNT;
+                    getinfoSalgueiro_Values[3] = data.regimeSemiCountSalgueiro.SEX_COUNT;
+                    getinfoSalgueiro_Values[4] = data.regimeFechadoCountSalgueiro.SEX_COUNT;
+                  
+                    chart_Admin.update();
+                  }
+                  chart_getinfoSalgueiro();
+
+
+                  
+
+
                   
             </script>
 

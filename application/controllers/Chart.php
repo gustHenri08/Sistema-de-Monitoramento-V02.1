@@ -113,5 +113,108 @@ class Chart extends REST_Controller {
             ]
         , REST_Controller::HTTP_OK);
     }
+
+    //Admin 
+    public function getinfoArcoverde_get() {
+        $maleCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Masculino' and nucleo = 'Arcoverde'")->row_array();
+        $femaleCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Feminino' and nucleo = 'Arcoverde'")->row_array();
+        $regimeAbertoCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Aberto' and nucleo = 'Arcoverde'")->row_array();
+        $regimeSemiCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Semi-Aberto' and nucleo = 'Arcoverde'")->row_array();
+        $regimeFechadoCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Fechado' and nucleo = 'Arcoverde'")->row_array();
+        $this->response(
+            (object) [
+                'maleCountArcoverde' => $maleCountArcoverde, 
+                'femaleCountArcoverde' => $femaleCountArcoverde,
+                'regimeAbertoCountArcoverde' => $regimeAbertoCountArcoverde,
+                'regimeSemiCountArcoverde' => $regimeSemiCountArcoverde,
+                'regimeFechadoCountArcoverde' => $regimeFechadoCountArcoverde
+            ]
+        , REST_Controller::HTTP_OK);
+    }
+
+    public function getinfoCaruaru_get() {
+        $maleCountCaruaru = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Masculino' and nucleo = 'Caruaru'")->row_array();
+        $femaleCountCaruaru = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Feminino' and nucleo = 'Caruaru'")->row_array();
+        $regimeAbertoCountCaruaru = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Aberto' and nucleo = 'Caruaru'")->row_array();
+        $regimeSemiCountCaruaru = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Semi-Aberto' and nucleo = 'Caruaru'")->row_array();
+        $regimeFechadoCountCaruaru = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Fechado' and nucleo = 'Caruaru'")->row_array();
+        $this->response(
+            (object) [
+                'maleCountCaruaru' => $maleCountCaruaru, 
+                'femaleCountCaruaru' => $femaleCountCaruaru,
+                'regimeAbertoCountCaruaru' => $regimeAbertoCountCaruaru,
+                'regimeSemiCountCaruaru' => $regimeSemiCountCaruaru,
+                'regimeFechadoCountCaruaru' => $regimeFechadoCountCaruaru
+            ]
+        , REST_Controller::HTTP_OK);
+    }
+
+    public function getinfoGaranhuns_get() {
+        $maleCountGaranhuns = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Masculino' and nucleo = 'Garanhuns'")->row_array();
+        $femaleCountGaranhuns = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Feminino' and nucleo = 'Garanhuns'")->row_array();
+        $regimeAbertoCountGaranhuns = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Aberto' and nucleo = 'Garanhuns'")->row_array();
+        $regimeSemiCountGaranhuns = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Semi-Aberto' and nucleo = 'Garanhuns'")->row_array();
+        $regimeFechadoCountGaranhuns = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Fechado' and nucleo = 'Garanhuns'")->row_array();
+        $this->response(
+            (object) [
+                'maleCountGaranhuns' => $maleCountGaranhuns, 
+                'femaleCountGaranhuns' => $femaleCountGaranhuns,
+                'regimeAbertoCountGaranhuns' => $regimeAbertoCountGaranhuns,
+                'regimeSemiCountGaranhuns' => $regimeSemiCountGaranhuns,
+                'regimeFechadoCountGaranhuns' => $regimeFechadoCountGaranhuns
+            ]
+        , REST_Controller::HTTP_OK);
+    }
+
+    public function getinfoLagoa_get() {
+        $maleCountLagoa = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Masculino' and nucleo = 'Lagoa'")->row_array();
+        $femaleCountLagoa = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Feminino' and nucleo = 'Lagoa'")->row_array();
+        $regimeAbertoCountLagoa = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Aberto' and nucleo = 'Lagoa'")->row_array();
+        $regimeSemiCountLagoa = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Semi-Aberto' and nucleo = 'Lagoa'")->row_array();
+        $regimeFechadoCountLagoa = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Fechado' and nucleo = 'Lagoa'")->row_array();
+        $this->response(
+            (object) [
+                'maleCountLagoa' => $maleCountLagoa, 
+                'femaleCountLagoa' => $femaleCountLagoa,
+                'regimeAbertoCountLagoa' => $regimeAbertoCountLagoa,
+                'regimeSemiCountLagoa' => $regimeSemiCountLagoa,
+                'regimeFechadoCountLagoa' => $regimeFechadoCountLagoa
+            ]
+        , REST_Controller::HTTP_OK);
+    }
+
+    public function getinfoPetrolina_get() {
+        $maleCountPetrolina = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Masculino' and nucleo = 'Petrolina'")->row_array();
+        $femaleCountPetrolina = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Feminino' and nucleo = 'Petrolina'")->row_array();
+        $regimeAbertoCountPetrolina = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Aberto' and nucleo = 'Petrolina'")->row_array();
+        $regimeSemiCountPetrolina = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Semi-Aberto' and nucleo = 'Petrolina'")->row_array();
+        $regimeFechadoCountPetrolina = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Fechado' and nucleo = 'Petrolina'")->row_array();
+        $this->response(
+            (object) [
+                'maleCountPetrolina' => $maleCountPetrolina, 
+                'femaleCountPetrolina' => $femaleCountPetrolina,
+                'regimeAbertoCountPetrolina' => $regimeAbertoCountPetrolina,
+                'regimeSemiCountPetrolina' => $regimeSemiCountPetrolina,
+                'regimeFechadoCountPetrolina' => $regimeFechadoCountPetrolina
+            ]
+        , REST_Controller::HTTP_OK);
+    }
+
+    public function getinfoSalgueiro_get() {
+        $maleCountSalgueiro = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Masculino' and nucleo = 'Salgueiro'")->row_array();
+        $femaleCountSalgueiro = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Feminino' and nucleo = 'Salgueiro'")->row_array();
+        $regimeAbertoCountSalgueiro = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Aberto' and nucleo = 'Salgueiro'")->row_array();
+        $regimeSemiCountSalgueiro = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Semi-Aberto' and nucleo = 'Salgueiro'")->row_array();
+        $regimeFechadoCountSalgueiro = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Fechado' and nucleo = 'Salgueiro'")->row_array();
+        $this->response(
+            (object) [
+                'maleCountSalgueiro' => $maleCountSalgueiro, 
+                'femaleCountSalgueiro' => $femaleCountSalgueiro,
+                'regimeAbertoCountSalgueiro' => $regimeAbertoCountSalgueiro,
+                'regimeSemiCountSalgueiro' => $regimeSemiCountSalgueiro,
+                'regimeFechadoCountSalgueiro' => $regimeFechadoCountSalgueiro
+            ]
+        , REST_Controller::HTTP_OK);
+    }
 }
 ?>
