@@ -239,19 +239,21 @@
               <form method="post" action="<?php echo site_url('Cadastro/createMaster') ?>">
               <!--Em Testes | chama o controller responsavel por cadastro-->
             <?php endif; ?>
+
+            <h5>(*) Campo Obrigatório</h5>
          
             <div class="form-group">
-          		<label>Nome Completo</label>
+          		<label>Nome Completo *</label>
           		<input type="text" required="required" class="form-control" name="nomecompleto" placeholder="Nome Completo" value="<?= isset($agentes) ? $agentes["nomecompleto"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
             <div class="form-group">
-          		<label>Matrícula</label>
+          		<label>Matrícula *</label>
           		<input type="int" required="required" class="form-control" name="matricula" maxlength="7" placeholder="Matricula" value="<?= isset($agentes) ? $agentes["matricula"] : "" ?>" style="width:150px"><!-- 'name=' adicionado-->
           	</div>
             
             <div class="form-group">
-                <label for="nucleos">Núcleos</label>
+                <label for="nucleos">Núcleos *</label>
                 <?php if(isset($agentes)) :?>
                   <select class="form-control" id="nucleo" name="nucleo" style="width: 155px">
                   <option><?=$agentes["nucleo"]?></option>
@@ -265,7 +267,7 @@
             </div>
 
             <div class="form-group">
-                <label for="nucleos">Centro Prisional</label>
+                <label for="nucleos">Centro Prisional *</label>
                 <?php if(isset($agentes)) :?>
                   <select class="form-control" id="unidadeprisional" name="unidadeprisional" style="width: 250px">
                     <option><?=$agentes["unidadeprisional"]?></option>
@@ -279,7 +281,7 @@
             </div>
 
             <div class="form-group"> <!--Campo função-->
-                <label>Função</label>
+                <label>Função *</label>
                 <?php if(isset($agentes)) :?>
                   <select class="form-control" style="width: 200px" name="funcao">
                     <option><?=$agentes["funcao"]?></option>
@@ -296,7 +298,7 @@
           	</div>
 
             <div class="form-group"> <!--Campo Cadeia Publica-->
-                <label>Funcionario Ativo</label>
+                <label>Funcionario Ativo *</label>
                 <?php if(isset($agentes)) :?>
                 <select class="form-control" style="width: 200px" name="funcionarioativo">
                   <option><?=$agentes["funcionarioativo"]?></option>
@@ -314,7 +316,7 @@
 
 
           	<div class="form-group"> <!-- Nome do Pai-->
-          		<label>E-mail Institucional</label>
+          		<label>E-mail Institucional *</label>
           		<input type="email" required="required" class="form-control" name="emailinstitucional" placeholder="E-mail Institucional" value="<?= isset($agentes) ? $agentes["emailinstitucional"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 

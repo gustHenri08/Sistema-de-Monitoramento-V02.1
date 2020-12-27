@@ -183,7 +183,8 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Cadastro</h3>
+          <h3 class="box-title">Cadastro</h3>          
+          <h5>(*) Campo Obrigatório</h5>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
             <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
@@ -217,49 +218,23 @@
               </div>
             <?php endif; ?>
 
-          	<div class="form-group"> <!--Campo Cadeia Publica-->
-              <label>Cadeia Publica</label>
-              <?php if(isset($detentos)): ?>
-                <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-                  <option><?=$detentos["cadeiapublica"]?></option>
-                  <option>CP de Aliança</option>
-                  <option>CP de Carpina</option>
-                  <option>CP de Glória do Goitá</option>
-                  <option>CP de Goiana</option>
-                  <option>CP de Itambé</option>
-                  <option>CP de Lagoa do Carro</option>
-                  <option>CP de Macaparana</option>
-                  <option>CP de Nazaré da Mata</option>
-                  <option>CP de Timbauba</option>
-                  <option>CP de Vicência</option>
-                </select>
-              <?php else :?>
-                <select class="form-control" style="width: 200px" name="cadeiapublica"><!-- 'name=' adicionado-->
-                  <option>CP de Aliança</option>
-                  <option>CP de Carpina</option>
-                  <option>CP de Glória do Goitá</option>
-                  <option>CP de Goiana</option>
-                  <option>CP de Itambé</option>
-                  <option>CP de Lagoa do Carro</option>
-                  <option>CP de Macaparana</option>
-                  <option>CP de Nazaré da Mata</option>
-                  <option>CP de Timbauba</option>
-                  <option>CP de Vicência</option>
-                </select>
-              <?php endif;?>
-          	</div>
+          	<div class="form-group"> <!-- Nome do Detento-->
+                <label>Cadeia Publica</label>
+                <input type="text" class="form-control" name="cadeiapublica" placeholder="Cp" value="<?= isset($agentes) ? ($this->session->userdata("unidadeprisional")) : ($this->session->userdata("unidadeprisional"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+            </div>
+
             <div class="form-group">
-              <label>Data de Entrada</label>
+              <label>Data de Entrada *</label>
               <input type="date" class="form-control" required name="dataentrada" placeholder="dd/mm/aaaa" value="<?= isset($detentos) ? $detentos["dataentrada"] : ""?>" style="width:140px" maxlength="10" ><!-- 'name=' adicionado-->
             </div>
 
           	<div class="form-group"> <!-- Nome do Detento-->
-          		<label>Nome Detento</label>
+          		<label>Nome Detento *</label>
           		<input type="text" class="form-control" required name="nome" placeholder="Nome" value="<?= isset($detentos) ? $detentos["nome"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
             </div>
             
             <div class="form-group"> <!--Crime de Repercussão-->
-                <label>Sexo</label>
+                <label>Sexo *</label>
                 <?php if(isset($detentos)) :?>
                   <select class="form-control" style="width: 110px" name="sexo"><!-- 'name=' adicionado-->
                     <option><?= $detentos["sexo"]?></option>
@@ -275,7 +250,7 @@
             </div>
 
           	<div class="form-group"> <!-- Nome da Mãe-->
-          		<label>Nome da Mãe</label>
+          		<label>Nome da Mãe *</label>
           		<input type="text" class="form-control" required name="nomemae" placeholder="Nome da Mãe" value="<?= isset($detentos) ? $detentos["nomemae"] : "" ?>" style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
@@ -285,7 +260,7 @@
           	</div>
 
             <div class="form-group"> <!--Motivo-->
-                <label>Motivo</label>
+                <label>Motivo *</label>
                 <?php if(isset($detentos)): ?>
                   <select class="form-control" style="width: 250px" name="motivo"><!-- 'name=' adicionado-->
                     <option><?=$detentos["motivo"]?></option>
@@ -315,7 +290,7 @@
             </div>
 
             <div class="form-group"> <!--Origem-->
-              <label>Origem</label><!-- Origem alterada para ficar de acordo com documentação, versão antiga estava com os options errados-->
+              <label>Origem *</label><!-- Origem alterada para ficar de acordo com documentação, versão antiga estava com os options errados-->
               <?php if(isset($detentos)): ?>
                 <select class="form-control" style="width: 250px" name="origem"><!-- 'name=' adicionado-->
                   <option><?= $detentos["origem"]?></option>
@@ -345,14 +320,21 @@
             </div>
 
             <div class="form-group"> <!--Data de Prisão-->
-          		<label>Data da Prisão</label>
+          		<label>Data da Prisão *</label>
           		<input type="date" class="form-control" required name="dataprisao" placeholder="dd/mm/aaaa" value="<?= isset($detentos) ? $detentos["dataprisao"] : "" ?>" style="width:140px" maxlength="10"><!-- 'name=' adicionado-->
             </div>
 
-            <div class="form-group">
-              <label>N° SIAP</label>
-              <input type="int" class="form-control" required name="nsiap" placeholder="N° SIAP" value="<?= isset($detentos) ? $detentos["nsiap"] : ""?>" style="width:140px" maxlength="9" ><!-- 'name=' adicionado-->
-            </div>
+            <?php if(isset($detentos)) :?>
+              <div class="form-group">
+                <label>N° SIAP</label>
+                <input type="int" class="form-control" required name="nsiap" placeholder="N° SIAP" readonly value="<?=$detentos["nsiap"]?>" style="width:140px" maxlength="9" ><!-- 'name=' adicionado-->
+              </div>
+            <?php else :?>
+              <div class="form-group">
+                <label>N° SIAP *</label>
+                <input type="int" class="form-control" required name="nsiap" placeholder="N° SIAP" value="" style="width:140px" maxlength="9" ><!-- 'name=' adicionado-->
+              </div>
+            <?php endif;?>
 
             <div class="form-group">
               <label>SIC</label>
@@ -360,7 +342,7 @@
             </div>
             
             <div class="form-group"> <!--Crime de Repercussão-->
-                <label>Regime</label>
+                <label>Regime *</label>
                 <?php if(isset($detentos)) :?>
                   <select class="form-control" style="width: 120px" name="regime"><!-- 'name=' adicionado-->
                     <option><?= $detentos["regime"]?></option>                    
@@ -378,7 +360,7 @@
             </div>
 
             <div class="form-group"> <!--Documentação-->
-              <label>Documentação</label>
+              <label>Documentação *</label>
               <?php if(isset($detentos)): ?>
                 <select class="form-control" style="width: 230px" name="documentacao"><!-- 'name=' adicionado-->
                   <option><?= $detentos["documentacao"]?></option>
@@ -402,7 +384,7 @@
             </div>
 
             <div class="form-group"> <!--Crime de Repercussão-->
-              <label>Crime de Repercussão</label>
+              <label>Crime de Repercussão *</label>
               <?php if(isset($detentos)) :?>
                 <select class="form-control" style="width: 90px" name="crimerepercurssao"><!-- 'name=' adicionado-->
                   <option><?= $detentos["crimerepercurssao"]?></option>

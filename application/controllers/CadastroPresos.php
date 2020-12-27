@@ -87,7 +87,7 @@ class CadastroPresos extends CI_Controller{
         $nsiap = $this->input->post('nsiap');
 
         if($sic == "" && !$this->Presos_model->verificaSiap($nsiap)){//Função que verifica se a sic está vazio(Não é obrigatorio) e o siap já esta no banco.
-            $this->Presos_model->cadastroPresos();
+            $this->Presos_model->cadastroPresosAdmin();
             redirect('Home/entradaPresosAdmin');
 
         }elseif(!$this->Presos_model->verificaSic($sic) && !$this->Presos_model->verificaSiap($nsiap)){// Função que verifica se a sic e o siap já esta no banco:
