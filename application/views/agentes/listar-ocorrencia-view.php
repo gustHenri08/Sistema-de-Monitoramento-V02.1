@@ -191,13 +191,17 @@
               <br>
               <br>
               <div class="form-group col-xs-4">
+              <form action="<?=site_url('ocorrencias/result_data')?>" method="post">
                 <label>Busca por Data:</label>
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                   </div>
-                  <input type="text" class="form-control pull-right" id="reservation">
-                </div>
+                  <input type="date" class="form-control pull-right" name="data" >
+                  </div>
+                  <br><button type="submit" class="btn btn-primary">Buscar</button></br>
+                </form>
+
                 <!-- /.input group -->
               </div>
             </div>

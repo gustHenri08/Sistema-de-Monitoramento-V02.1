@@ -12,7 +12,13 @@ class ocorrencias extends CI_Controller{
         $dados['saidadetentos'] = $this->ocorrencias_modal->buscar($_POST);
         $this->load->view('agentes/ocorrencias-view',$dados);
     }
-      
+
+     public function result_data(){
+        $this->load->model('ocorrencias_modal');
+        $dados['saidadetentos'] = $this->ocorrencias_modal->buscadata($_POST);
+        $this->load->view('agentes/listar-ocorrencia-view',$dados);
+    }
+
     public function resultado_lista(){
         $this->load->model('ocorrencias_modal');
         $dados['saidadetentos'] = $this->ocorrencias_modal->busca($_POST);
@@ -20,7 +26,7 @@ class ocorrencias extends CI_Controller{
     }
 
     public function createMaster(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model
-        $this->SaidapresosAudiencia_model->cadastroMaster();
+        $this->ocorrencias_modal->cadastroocorrencia();
         redirect('Home/registroOcorrencias');
 
     }
@@ -32,19 +38,16 @@ class ocorrencias extends CI_Controller{
     }
     public function cadastrarMaster($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
         $this->load->model('ocorrencias_modal');
-        $edit['saidadetentos'] = $this->ocorrencias_modal->shows($id);
-        $this->load->view('agentes/cadastros/cadastrar-ocorrencia-view');
+        $edit['presos'] = $this->ocorrencias_modal->shows($id);
+        $this->load->view('agentes/cadastros/cadastrar-ocorrencias-view', $edit);
     }
     
-
     public function update($idd){
         $atualizar = $_POST;
-        $this->ocorrencias_modal->update($idd,$atualizar);
+        $this->ocorrencias_modal->update($idd, $atualizar);
         redirect("Home/registroOcorrencias");
 
     }
- 
-
 
     public function delete($idd){
        $this->load->model('ocorrencias_modal');
@@ -70,7 +73,7 @@ class ocorrencias extends CI_Controller{
     public function resultadoadmin(){
         $this->load->model('ocorrencias_modal');
         $dados['saidadetentos'] = $this->ocorrencias_modal->buscar($_POST);
-        $this->load->view('Home/ocorrencias-view_admin',$dados);
+        $this->load->view('administrador/ocorrencias-view-admin',$dados);
     }
 
 }

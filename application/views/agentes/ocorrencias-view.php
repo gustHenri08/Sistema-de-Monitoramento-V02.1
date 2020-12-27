@@ -218,7 +218,7 @@
                       <a href="<?= base_url() ?>index.php/ocorrencias/cadastrarMaster/<?= $presos["id"] ?>" class="btn btn-primary btn-xs">Cadastrar</a>
                       </td>
                       <td> <form action="<?=site_url('ocorrencias/resultado_lista')?>" method="post"> 
-                      <input  type="hidden" name="busca" id="busca"  value="<?= $presos['nome']?>" >  <!-- 'name=' adicionado-->
+                      <input  type="hidden" name="busca" id="busca"  value="<?= $presos['id']?>" >  <!-- 'name=' adicionado-->
                       <button type="submit" class="btn btn-success btn-xs"  >Visualizar</button>
                        </form>                 
                       </td>

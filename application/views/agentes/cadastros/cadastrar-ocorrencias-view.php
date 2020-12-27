@@ -169,13 +169,7 @@
   <div class="content-wrapper">
     <!-- Cabeçalho da Página -->
     <section class="content-header">
-      <?php if(isset($detentos)) :?>
-          <li class="active">Edição de Detentos</a></li>
-        <?php else: ?>
-
-          <li class="active">Cadastro de Ocorrências</a></li>
-
-        <?php endif; ?>
+          <li class="active">Cadastro de Ocorrências</a></li>    
       </ol>
     </section>
     <!-- Main content -->
@@ -192,12 +186,7 @@
         <!--Inicio do Box Body-->
         <div class="box-body">
           <!--Inicio do Formulario-->
-          <?php if(isset($presos)) : ?>
-            <form method="post" action="<?php echo site_url('ocorrencias/createMasteradmin') ?>"> <!--Em Testes | chama o controller responsavel pela edição-->
-            <!--Em Testes | chama o controller responsavel por cadastro-->
-          <?php endif; ?>
-
-
+          <form method="post" action="<?= base_url() ?>index.php/ocorrencias/createMaster/<?= $presos["id"] ?>">
               
           <?php if(isset($presos)) : ?>
             <div class="form-group"> <!-- Nome do Detento-->
@@ -221,13 +210,13 @@
             </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Nome</label>
-          		<input type="text" class="form-control" name="nome" placeholder="Agente Penitenciário" value=" <?= isset($presos) ? $presos["nome"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+          	
+          		<input type="hidden" class="form-control" name="nome" placeholder="Agente Penitenciário" value=" <?= isset($presos) ? $presos["nome"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
             </div>
             
             <div class="form-group"> <!-- Nome do Detento-->
-          		<label>Siap</label>
-          		<input type="text" class="form-control" name="nsiap" placeholder="Função Agente" value=" <?= isset($presos) ? $presos["nsiap"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
+          	
+          		<input type="hidden" class="form-control" name="nsiap" placeholder="Função Agente" value=" <?= isset($presos) ? $presos["nsiap"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!--Campo Cadeia Publica-->
@@ -265,17 +254,13 @@
               <textarea class="form-control" rows="5" name="resumo_Ocorrencia" placeholder="Resumo da Ocorrência"> <?= isset($detentos) ? $detentos["observacoesgerais"] : "" ?> </textarea><!-- 'name=' adicionado-->
             </div>
             <br>
-            <?php if (isset($detentos)) :?>
-              <div class="col-xs-2"> <!--Botão Cadastrar-->
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Salvar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
-              </div>
-            <?php else :?>
+           
+            
               <div class="col-xs-2"> <!--Botão Cadastrar-->
                 <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
               </div>
-            <?php endif;?>
             <div class="col-xs-2"> <!--Botão Cadastrar-->
-              <a href="<?php echo site_url('Home/registroOcorrenciasAdmin'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
+              <a href="<?php echo site_url('Home/registroOcorrencias'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
             </div>
           </form>
           <!--Fim do Formulario-->

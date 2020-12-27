@@ -47,14 +47,24 @@ class ocorrencias_modal extends CI_Model{
         if(empty($busca))
             return array();
         $busca = $this->input->post('busca');
-        $this->db->like('nome', $busca);
+        $this->db->like('id', $busca);
+        $query = $this->db->get('tbl_ocorrencia');
+        return $query->result_array(); 	
+    }
+
+    public function buscadata($busca){
+        
+        if(empty($busca))
+            return array();
+        $busca = $this->input->post('busca');
+        $this->db->like('data', $busca);
         $query = $this->db->get('tbl_ocorrencia');
         return $query->result_array(); 	
     }
 
     public function show($idd){
         return $this->db->get_where('tbl_ocorrencia', array(
-            "id" => $idd
+            "idd" => $idd
         ))->row_array();
     }
     public function shows($id){
@@ -63,12 +73,12 @@ class ocorrencias_modal extends CI_Model{
         ))->row_array();
     }
     
-
     public function update($idd, $atualizar){
         $this->db->where('idd', $idd);
         return $this->db->update("tbl_ocorrencia", $atualizar);
 
     }
+
 
     public function destroy ($idd){
         $this->db->where('idd', $idd);

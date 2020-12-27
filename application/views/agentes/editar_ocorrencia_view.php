@@ -169,13 +169,8 @@
   <div class="content-wrapper">
     <!-- Cabeçalho da Página -->
     <section class="content-header">
-      <?php if(isset($detentos)) :?>
+     
           <li class="active">Edição de Detentos</a></li>
-        <?php else: ?>
-
-          <li class="active">Edição de Detentos</a></li>
-
-        <?php endif; ?>
       </ol>
     </section>
     <!-- Main content -->
@@ -192,11 +187,8 @@
         <!--Inicio do Box Body-->
         <div class="box-body">
           <!--Inicio do Formulario-->
-
-            <form method="post" action="<?php echo site_url('ocorrencias/update') ?>"> <!--Em Testes | chama o controller responsavel pela edição-->
-            <!--Em Testes | chama o controller responsavel por cadastro-->
-              
-      
+          <form method="post" action="<?= base_url() ?>index.php/ocorrencias/update/<?= $saidadetentos["idd"] ?>">
+               
             <div class="form-group"> <!-- Nome do Detento-->
                 <label>Policial Penal</label>
                 <input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
@@ -212,11 +204,11 @@
                 <input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
               </div>    
             <div class="form-group"> <!-- Nome do Detento-->
-          		<input type="hidden" class="form-control" name="id" placeholder="Matricula Agente" value=" <?= isset($presos) ? $presos["id"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+          		<input type="hidden" class="form-control" name="id" placeholder="Matricula Agente" value=" <?= isset($saidadetentos) ? $saidadetentos["idd"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!--Campo Cadeia Publica-->
-              	<input  type="hidden"  class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($presos) ? $presos["cadeiapublica"] : "" ?>" readonly style="width:300px" >  <!-- 'name=' adicionado-->
+              	<input  type="hidden"  class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>" readonly style="width:300px" >  <!-- 'name=' adicionado-->
 
             </div>
 
