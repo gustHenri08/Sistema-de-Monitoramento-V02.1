@@ -213,7 +213,7 @@
               <button type="button" class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target=".bd-example-modal-lg" style="margin-left:5px ">
                 Cadastrar
               </button>
-              <a href="<?php echo site_url('#'); ?>" class="btn btn-success btn-xs pull-right">Extrair</a>
+              <a href="<?php echo site_url('GerarPlanilhas'); ?>" class="btn btn-success btn-xs pull-right">Extrair</a>
            </div>
            <!-- /.box-header -->
            <div class="box-body">
