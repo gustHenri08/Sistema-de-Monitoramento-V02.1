@@ -188,7 +188,7 @@
                       </label> <!--colocar um if-else para tentar fazer o campo busca buscar os dados pelo que foi solicitado -->
                       <?php if(isset($fechado)):?>
                         <div class="form-group">
-                          <label>Total de Presos Regime Fechado</label>
+                          <label>Total de Detentos</label>
                           <input type="text" class="form-control" name="funcaocadastrante" value="<?= isset($fechado) ? $fechado : ""?>"  readonly style="width:50px"><!-- 'name=' adicionado-->
                         </div>
                       <?php endif;?>

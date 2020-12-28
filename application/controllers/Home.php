@@ -27,7 +27,7 @@ class Home extends CI_Controller{
     {
         $this->load->model("Presos_model");
         $data['presos'] = $this->Presos_model->presoscadastrados();
-        $data['fechado'] = $this->Presos_model->totalfechado();
+        $data['fechado'] = $this->Presos_model->totalPresos();
 
         $this->load->view("agentes/entrada-presos-view", $data); // Carrega a view(Tela) Entrada de Detentos do Admin;
     }
@@ -182,7 +182,7 @@ class Home extends CI_Controller{
     {
         $this->load->model("Presos_model");
         $data['presos'] = $this->Presos_model->presoscadastradosAdmin();
-        $data['fechado'] = $this->Presos_model->totalfechado();// Traz o total de presos em regime fechado
+        $data['fechado'] = $this->Presos_model->totalPresosAdmin();// Traz o total de presos em regime fechado
 
         $this->load->view("administrador/entrada-presos-admin", $data); // Carrega a view(Tela) Entrada de Detentos do Admin;
     }

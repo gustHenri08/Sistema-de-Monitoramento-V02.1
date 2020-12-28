@@ -111,12 +111,20 @@ class Presos_model extends CI_Model{
         ))->row_array();
     }
 
-    public function totalfechado()// função responsável por contar o total de presos em regime Fechado
-{
-    $query = $this->db->query("SELECT * FROM tbl_presos WHERE regime = 'Fechado'");
+    public function totalPresos(){// função responsável por contar o total de presos em regime Fechado
+        $cp= $this->session->userdata("unidadeprisional");
 
-    return $query->num_rows();
-}
+        $query = $this->db->query("SELECT * FROM tbl_presos WHERE cadeiapublica= '$cp'");
+
+        return $query->num_rows();
+    }
+
+    public function totalPresosAdmin(){// função responsável por contar o total de presos em regime Fechado
+
+        $query = $this->db->query("SELECT * FROM tbl_presos");
+
+        return $query->num_rows();
+    }
 
     public function updatepresos($idpresos, $atualizar){ // Recebe os dados do controller de cadastro e atualiza os dados dos presos no banco de dados
         $this->db->where('id', $idpresos);
