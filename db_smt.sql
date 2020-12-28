@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Dez-2020 às 01:21
+-- Tempo de geração: 26-Dez-2020 às 03:43
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.1
 
@@ -261,12 +261,8 @@ CREATE TABLE `tbl_ocorrencia` (
 --
 
 INSERT INTO `tbl_ocorrencia` (`nome`, `nsiap`, `cadeiapublica`, `resumo_Ocorrencia`, `tipo`, `data`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `id`, `idd`) VALUES
-(' Alerta', 0, '  CP de Aliança', '   aaaa ', 'Fuga', '0000-00-00', 'Rafael José da Silva', 'Administrador', '1', 1, 1),
-(' Alerta', 0, '  CP de Aliança', '   aaa ', 'Fuga', '0000-00-00', 'Rafael José da Silva', 'Administrador', '1', 2, 2),
-(' Alerta', 0, ' CP de Itambé', '  wqw', 'Fuga', '2020-12-16', 'Rafael José da Silva', 'Administrador', '1', 1, 7),
-(' Alerta', 0, ' CP de Itambé', '  wqw', 'Fuga', '2020-12-16', 'Rafael José da Silva', 'Administrador', '1', 1, 8),
-(' ', 0, ' CP de Itambé', '  outros', 'Outros', '2021-01-09', 'Rafael José da Silva', 'Administrador', '1', 2, 9),
-(' r', 0, ' CP de Carpina', '  aaa', 'Emergência Hospitalar', '2020-12-06', 'Rafael José da Silva', 'Administrador', '1', 3, 11);
+(' Alerta', 0, ' CP de Aliança', '  aaaa', 'Óbito - Suícidio', '2020-12-09', '', '', '', 1, 1),
+(' Alerta', 0, ' CP de Aliança', '  aaa', 'Agressão', '0000-00-00', '', '', '', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -302,7 +298,7 @@ CREATE TABLE `tbl_presos` (
 --
 
 INSERT INTO `tbl_presos` (`id`, `nucleo`, `cadeiapublica`, `dataentrada`, `nome`, `nomemae`, `nomepai`, `motivo`, `origem`, `dataprisao`, `nsiap`, `sic`, `regime`, `sexo`, `documentacao`, `crimerepercurssao`, `observacoesgerais`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`) VALUES
-(1, 'Garanhus', 'CP de Itambé', '2020-12-16', 'Alerta', 'ad', 'asdfa', 'Expiração de Prazo', 'CP de Glória do Goitá', '2020-12-30', 0, 1515, 'Fechado', 'Masculino', 'Auto de Prisão em Flagrante', 'Sim', '     asdfas     ', 'Rafael José da Silva', 'Administrador', '1'),
+(1, '', 'CP de Itambé', '2020-12-16', 'Alerta', 'ad', 'asdfa', 'Expiração de Prazo', 'CP de Glória do Goitá', '2020-12-30', 0, 1515, 'Fechado', 'Masculino', 'Auto de Prisão em Flagrante', 'Sim', '     asdfas     ', 'Rafael José da Silva', 'Administrador', '1'),
 (2, '', 'CP de Nazaré da Mata', '2020-12-01', 'AAAA', 'asdad', 'pai', 'Expiração de Prazo', 'CP de Lagoa do Carro', '2020-12-03', 786787, 456564, 'Fechado', 'Feminino', 'Auto de Prisão em Flagrante', 'Sim', '    werwr    ', 'Rafael José da Silva', 'Administrador', '1'),
 (3, '', 'CP de Carpina', '26/10/2020', 'r', 'r', 'r', 'Expiração de Prazo', 'CP de Altinho', '25/10/2020', 0, 0, '', '', 'Auto de Prisão em Flagrante', 'Sim', 'r', '', '', ''),
 (4, '', 'CP de Goiana', '2020-12-01', 'y', 'y', 'y', 'Trânsito', 'Outra UF', '2020-12-02', 54555, 655675, 'Fechado', 'Masculino', 'Mandado de Recolhimento', 'Sim', '   yy   ', 'Teste', 'Agente', '56'),
@@ -311,50 +307,13 @@ INSERT INTO `tbl_presos` (`id`, `nucleo`, `cadeiapublica`, `dataentrada`, `nome`
 (7, '', 'CP de Aliança', '2020-11-10', 'veio', 'veia', 'idoso', 'Expiração de Prazo', 'CP de Altinho', '2020-11-19', 0, 9874, 'Aberto', 'Masculino', 'Auto de Prisão em Flagrante', 'Sim', '  ', 'Teste', 'Agente', '56'),
 (8, '', 'CP de Aliança', '2020-12-01', 'z', 'z', 'z', 'Mandado de Prisão Civil', 'CP de Altinho', '2020-12-16', 789, 78979, 'Fechado', 'Feminino', 'Mandado de Prisão', 'Não', '   Teste da Nova versão do aplicativo     ', 'Rafael José da Silva', 'Administrador', '1'),
 (9, '', 'CP de Aliança', '2020-12-01', 'yy', 'yy', 'yy', 'Expiração de Prazo', 'CP de Altinho', '2020-12-16', 0, 0, 'Aberto', 'Feminino', 'Auto de Prisão em Flagrante', 'Sim', '  ', 'Teste', 'Agente', '56'),
-(10, 'Garanhus', 'CP de Aliança', '2020-12-02', 'jj', 'jj', 'jj', 'Mandado de Prisão Temporária', 'CP de Carpina', '2020-12-04', 0, 0, 'Aberto', 'Masculino', 'Mandado de Recolhimento', 'Não', ' Fazendo a mudança para conferir se está tudo certo de acordo com os conformes ', 'Teste', 'Agente', '56'),
+(10, '', 'CP de Aliança', '2020-12-02', 'jj', 'jj', 'jj', 'Mandado de Prisão Temporária', 'CP de Carpina', '2020-12-04', 0, 0, 'Aberto', 'Masculino', 'Mandado de Recolhimento', 'Não', ' Fazendo a mudança para conferir se está tudo certo de acordo com os conformes ', 'Teste', 'Agente', '56'),
 (11, '', 'CP de Aliança', '2020-12-01', 'teste3', 'teste3', 'teste3', 'Transferência', 'CP de Altinho', '2020-12-17', 7727, 575, 'Semi-Aberto', 'Masculino', 'Ofício de Transferência', 'Sim', '  teste 3  ', 'Rafael José da Silva', 'Administrador', '1'),
 (12, '', 'CP de Aliança', '2020-12-01', 'a', 'a', 'a', 'Mandado de Recolhimento', 'CP de Glória do Goitá', '2020-12-02', 0, 987989, 'Semi-Aberto', 'Feminino', 'Ofício de Transferência', 'Sim', '   a ', 'Teste', 'Agente', '56'),
 (13, '', 'CP de Aliança', '2020-12-01', 'Condenado', 'jj', 'z', 'Mandado de Prisão Preventiva', 'CP de Altinho', '2020-12-17', 54654, 64, 'Semi-Aberto', 'Masculino', 'Auto de Prisão em Flagrante', 'Sim', '      ', 'Teste', 'Agente', '56'),
 (14, '', 'CP de Goiana', '2020-12-02', 'Condenado 2', 'yy', 'z', 'Transferência', 'CP de Carpina', '2020-12-15', 8498, 30, 'Fechado', 'Masculino', 'Auto de Prisão em Flagrante', 'Sim', '                                                      ', 'Teste', 'Agente', '56'),
 (15, '', 'CP de Aliança', '2020-12-01', 'Maria', 'a', 'z', 'Mandado de Prisão Preventiva', 'CP de Altinho', '2020-12-02', 78946, 789456, 'Fechado', 'Feminino', 'Auto de Prisão em Flagrante', 'Sim', '    ', 'Teste', 'Agente', '56'),
 (16, 'Garanhus', 'CP de Garanhus', '2020-12-02', 'Condenado 3', 'yy', 'teste3', 'Mandado de Prisão Temporária', 'CP de Lagoa do Carro', '2020-12-10', 9841654, 8479846, 'Fechado', 'Masculino', 'Auto de Prisão em Flagrante', 'Sim', '  ', 'Rafael José da Silva', 'Administrador', '1');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `tbl_revista`
---
-
-CREATE TABLE `tbl_revista` (
-  `cadeiapublica` text NOT NULL,
-  `armasbranca` text NOT NULL,
-  `coca` text NOT NULL,
-  `chips` text NOT NULL,
-  `armasbranca2` text NOT NULL,
-  `cola` text NOT NULL,
-  `armasfogo2` text NOT NULL,
-  `corda` text NOT NULL,
-  `bateria` text NOT NULL,
-  `crack` text NOT NULL,
-  `bebida` text NOT NULL,
-  `maconha` text NOT NULL,
-  `bebida2` text NOT NULL,
-  `medicacao` text NOT NULL,
-  `carregador` text NOT NULL,
-  `municao` text NOT NULL,
-  `celular` text NOT NULL,
-  `outro` text NOT NULL,
-  `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `tbl_revista`
---
-
-INSERT INTO `tbl_revista` (`cadeiapublica`, `armasbranca`, `coca`, `chips`, `armasbranca2`, `cola`, `armasfogo2`, `corda`, `bateria`, `crack`, `bebida`, `maconha`, `bebida2`, `medicacao`, `carregador`, `municao`, `celular`, `outro`, `id`) VALUES
-('CP de Aliança', '1', '1', '11', '11', '1', '1', '1', '1', '1', '1', '1', '1', '1', '11', '1', '1', '1', 5),
-('CP Paulista', '2', '2', '2', '2', '2', '2', '2', '22', '2', '2', '2', '2', '2', '2', '2', '2', '2', 6),
-('CP Paulista', '2', '2', '2', '2', '2', '2', '2', '22', '2', '2', '2', '2', '2', '2', '2', '2', '2', 7);
 
 -- --------------------------------------------------------
 
@@ -385,8 +344,7 @@ INSERT INTO `tbl_saidaaudiencia` (`id`, `cadeiapublica`, `nome`, `numsiap`, `sic
 (1, 'CP de Aliança', '    Alerta', 12322, 1515, '  11/03/18', '  abreu e lima', '   PCPE', 'Masculino', 'Rafael José da Silva', 'Administrador', '1'),
 (2, 'CP de Aliança', '   rer', 12322222, 12345, '11/03/18', 'abreu e lima', ' PCPE', '', '', '', ''),
 (3, 'CP de Aliança', '  ricardo', 354444, 1515, '11/12/21', 'paulista', ' PCPE', '', '', '', ''),
-(4, 'CP de Aliança', '  AAAA', 0, 0, '2020-12-16', 'Paulista', ' PCPE', '', '', '', ''),
-(5, 'CP de Aliança', '        Alerta', 354444, 1515, '2020-12-16', 'abreu e lima', 'PM', '', '', '', '');
+(4, 'CP de Aliança', '  AAAA', 0, 0, '2020-12-16', 'Paulista', ' PCPE', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -414,18 +372,17 @@ CREATE TABLE `tbl_saidadetentos` (
   `matriculacadastrante` char(8) NOT NULL,
   `obs` varchar(300) NOT NULL,
   `origem` text NOT NULL,
-  `nucleo` text NOT NULL
+  `crimerepercurssao` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tbl_saidadetentos`
 --
 
-INSERT INTO `tbl_saidadetentos` (`id`, `cadeiapublica`, `nome`, `mae`, `pai`, `motivo`, `datasaida`, `numprocesso`, `numsiap`, `sic`, `documentacao`, `destino`, `condutores`, `sexo`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `obs`, `origem`, `nucleo`) VALUES
-(1, 'CP de Aliança', '       Alerta', '       ad', '       asdfa', 'ALVARÁ DE SOLTURA', '2020-12-10', 1515, 354444, 1515, 'ALVARÁ DE SOLTURA', 'PM', 'PCPE', '', 'Rafael José da Silva', 'Administrador', '1', 'zz', 'CP de Altinho', ''),
-(2, 'CP de Aliança', ' AAAA', ' asdad', ' pai', 'Alvará de Soltura', '22/22/22', 2147483647, 0, 0, 'ALVARÁ DE SOLTURA', 'PM', 'PCPE', '', '', '', '', 'obt', 'CP de Altinho', ''),
-(3, 'CP de Aliança', '  r', '  r', '  r', 'Óbito', '  11/01/20', 23222, 12322222, 12345, 'ALVARÁ DE SOLTURA', 'PCPE', 'PCPE', 'Masculino', 'Rafael José da Silva', 'Administrador', '1', '', 'CP de Altinho', ''),
-(4, 'CP de Aliança', ' Alerta', ' ad', ' asdfa', 'Alvára De Soltura', '2020-12-24', 0, 0, 1515, 'ALVARÁ DE SOLTURA', '', 'PCPE', '', '', '', '', '', 'CP de Altinho', 'Garanhus');
+INSERT INTO `tbl_saidadetentos` (`id`, `cadeiapublica`, `nome`, `mae`, `pai`, `motivo`, `datasaida`, `numprocesso`, `numsiap`, `sic`, `documentacao`, `destino`, `condutores`, `sexo`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `obs`, `origem`, `crimerepercurssao`) VALUES
+(1, 'CP de Aliança', '  Alerta', '  ad', '  asdfa', 'fuga', ' 12/01/20', 1515, 354444, 1515, 'ALVARÁ DE SOLTURA', 'PCPE', 'PCPE', '', 'Rafael José da Silva', 'Administrador', '1', '', 'CP de Altinho', 'Sim'),
+(2, 'CP de Aliança', ' AAAA', ' asdad', ' pai', 'Alvará de Soltura', '22/22/22', 2147483647, 0, 0, 'ALVARÁ DE SOLTURA', 'PM', 'PCPE', '', '', '', '', 'obt', 'CP de Altinho', 'Sim'),
+(3, 'CP de Aliança', '  r', '  r', '  r', 'Óbito', '  11/01/20', 23222, 12322222, 12345, 'ALVARÁ DE SOLTURA', 'PCPE', 'PCPE', 'Masculino', 'Rafael José da Silva', 'Administrador', '1', '', 'CP de Altinho', 'Sim');
 
 -- --------------------------------------------------------
 
@@ -511,12 +468,6 @@ ALTER TABLE `tbl_presos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `tbl_revista`
---
-ALTER TABLE `tbl_revista`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Índices para tabela `tbl_saidaaudiencia`
 --
 ALTER TABLE `tbl_saidaaudiencia`
@@ -560,7 +511,7 @@ ALTER TABLE `tbl_interno`
 -- AUTO_INCREMENT de tabela `tbl_ocorrencia`
 --
 ALTER TABLE `tbl_ocorrencia`
-  MODIFY `idd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_presos`
@@ -569,22 +520,16 @@ ALTER TABLE `tbl_presos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de tabela `tbl_revista`
---
-ALTER TABLE `tbl_revista`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT de tabela `tbl_saidaaudiencia`
 --
 ALTER TABLE `tbl_saidaaudiencia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_saidadetentos`
 --
 ALTER TABLE `tbl_saidadetentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_saidasaude`
