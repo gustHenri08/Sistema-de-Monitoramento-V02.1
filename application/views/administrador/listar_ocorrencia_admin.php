@@ -159,133 +159,199 @@
     <!-- /.sidebar -->
   </aside>
 
-  <!-- =============================================== -->
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Cabeçalho da Página -->
+    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Ocorrências de Presos
+        Ocorrências do Detento
       </h1>
-      <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)-->
-        <li><a href="<?php echo site_url('Home/adminHome'); ?>">Home</a></li>
-        <li class="active">Ocorrências</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
+    </section>  
     <section class="content">
-     <div class="row">
-       <div class="col-xs-12">
-         <div class="box">
-           <div class="box-header">
-             <h3 class="box-title"> Lista de Detentos </h3>
-            
-              </div>
-           <!-- /.box-header -->
-           <div class="box-body">
-              <div class="col-sm-6">
-              <form action="<?=site_url('ocorrencias/resultadoadmin')?>" method="post">
-                  <div class="col-sm-6">
-                    <div id="example1_filter" class="dataTables_filter">
-                      <label>Procurar Presos:  <input type="text" name="busca" id="busca" class="form-control input-sm" placeholder="Nome" aria-controls="example1">
-                        <br><button type="submit" class="btn btn-primary">Buscar</button></br>
-                      </label> <!--colocar um if-else para tentar fazer o campo busca buscar os dados pelo que foi solicitado -->
-                    </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Lista de Ocorrências </h3>     
+              <br>
+              <br>
+              <div class="form-group col-xs-4">
+              <form action="<?=site_url('ocorrencias/result_dataadmin')?>" method="post">
+                <label>Busca por Data:</label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
                   </div>
+                  <input type="date" class="form-control pull-right" name="data" >
+                  </div>
+                  <br><button type="submit" class="btn btn-primary">Buscar</button></br>
                 </form>
-                <br></br>   
-                </div>
-              </div>
-             <table id="example2" class="table table-bordered table-hover">
-               <thead>
-               <tr>
-                 <th>CP</th>
-                 <th>Nome</th>
-                 <th>Nome da Mãe</th>
-                 <th>Nome do Pai</th>
-                 <th>SIAP</td>
-                 <th>Cadastro</td>
-                 <th>Visualizar</td>
-               </tr>
-               </thead>
-               <tbody>
-                 <tr>
-                 <?php foreach($saidadetentos as $presos) : ?>
-                    <tr>
-                      <td><?= $presos['cadeiapublica']?></td>
-                      <td> <?= $presos['nome']?> </td>
-                      <td><?= $presos['nomemae']?></td>
-                      <td><?= $presos['nomepai']?></td>
-                      <td><?= $presos['nsiap']?></td>
 
-                      <td>
-                            <a href="<?= base_url() ?>index.php/ocorrencias/cadastrarMasteradmin/<?= $presos["id"] ?>" class="btn btn-primary btn-xs">Cadastrar</a>
-                      </td>
-                      <td> <form action="<?=site_url('ocorrencias/resultado_listaadmin')?>" method="post"> 
-                      <input  type="hidden" name="busca" id="busca"  value="<?= $presos['id']?>" >  <!-- 'name=' adicionado-->
-                      <button type="submit" class="btn btn-success btn-xs"  >Visualizar</button>
-                       </form>                 
-                      </td>
-                      <td style='text-align:center'>
-                      </td>
-                    </tr>
-                  <?php endforeach?>
-                 </tr>
-               </tbody>
-             </table>
-           </div>
-           <!-- /.box-body -->
-         </div>
-         <!-- /.box -->
-       </div>
-        <!-- /.col -->
+                <!-- /.input group -->
+              </div>
+            </div>
+            <div class="box-body">
+              <table id="tabela" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Data</th>
+                    <th>CP</th>
+                    <th>Tipo</th>
+                    <th>Ações</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <?php foreach($saidadetentos as $presos) : ?>
+                            <tr>
+                            <td><?= $presos['idd']?></td>
+                            <td><?= $presos['data']?></td>
+                            <td><?= $presos['cadeiapublica']?> </a> </td>
+                            <td><?= $presos['tipo']?></td>
+                            <td> 
+                            <a href="<?= base_url() ?>index.php/ocorrencias/editMasteradmin/<?= $presos["idd"] ?>" class="btn btn-warning btn-xs" onclick ="return confirm('Deseja editar á ocorrencia');">Editar</a>
+                            <a href="<?= base_url() ?>index.php/ocorrencias/deleteadmin/<?= $presos["idd"] ?>" class="btn btn-danger btn-xs"onclick ="return confirm('Deseja excluir á ocorrencia');">Deletar</a>             
+                            <a href="<?php echo site_url('Home/registroOcorrenciasAdmin'); ?>" class="btn btn-primary btn-prim btn-xs">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
+          
+                            </td>
+
+                        </tr>
+                    <?php endforeach;?>
+                  </tr> 
+                 
+                </tbody>
+              </table>  
+            </div>  
+          </div>
+        </div>
       </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
+    </section>      
   </div>
-  <!-- /.content-wrapper -->
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.18
+      
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    <strong>Copyright &copy; 2020 Fábrica de Software.</strong> All rights
     reserved.
   </footer>
 
-</div>  <!--Fim da div Wrapper-->
+</div>
 
+  
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
 <!-- DataTables -->
-<script src="<?php echo base_url(); ?>assets/datatables.net-bs/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>assets/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 <!--Font Awesome My Link-->
 <script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>
+<!------------------------------------- ------------------------------>
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>assets/plugins/select2/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo base_url(); ?>assets/plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="<?php echo base_url(); ?>assets/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="<?php echo base_url(); ?>assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url(); ?>assets/plugins/iCheck/icheck.min.js"></script>
+<!--Font Awesome My Link-->
+<script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>
 <script>
+  $(document).ready(function () {
+    $('.sidebar-menu').tree()
+  })
+
   $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
+    //Initialize Select2 Elements
+    $(".select2").select2();
+
+    //Datemask dd/mm/yyyy
+    $("#datemask").inputmask("dd/mm/aaaa", {"placeholder": "dd/mm/aaaa"});
+    //Datemask2 mm/dd/yyyy
+    $("#datemask2").inputmask("mm/dd/aaaa", {"placeholder": "mm/dd/aaaa"});
+    //Money Euro
+    $("[data-mask]").inputmask();
+
+    //Date range picker
+    $('#reservation').daterangepicker();
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+        {
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+        },
+        function (start, end) {
+          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+    );
+
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue'
+    });
+    //Red color scheme for iCheck
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+      checkboxClass: 'icheckbox_minimal-red',
+      radioClass: 'iradio_minimal-red'
+    });
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass: 'iradio_flat-green'
+    });
+
+    //Colorpicker
+    $(".my-colorpicker1").colorpicker();
+    //color picker with addon
+    $(".my-colorpicker2").colorpicker();
+
+    //Timepicker
+    $(".timepicker").timepicker({
+      showInputs: false
+    });
+  });
+</script>
+<script>
+  $(document).ready(function () {
+    $('.sidebar-menu').tree()
   })
 </script>
 </body>

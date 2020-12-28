@@ -170,7 +170,7 @@
     <!-- Cabeçalho da Página -->
     <section class="content-header">
      
-          <li class="active">Edição de Detentos</a></li>
+          <li class="active">Edição </a></li>
       </ol>
     </section>
     <!-- Main content -->
