@@ -18,7 +18,7 @@ class Saidatransito extends CI_Controller{
      
     public function resultadoi(){
         $this->load->model('SaidapresosAudiencia_model');
-        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
+        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscari($_POST);
         $this->load->view('agentes/transito-interno-view',$dados);
         }
     public function createMasteri(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model
@@ -28,7 +28,7 @@ class Saidatransito extends CI_Controller{
     }
 
        public function editMasteri($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
-        $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->show($id);
+        $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->showssi($id);
         $this->load->view('agentes/edicao_interno_view', $edit);
     }
     public function cadastrarMasteri($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
@@ -62,7 +62,7 @@ class Saidatransito extends CI_Controller{
     public function resultadoadmini(){
 
         $this->load->model('SaidapresosAudiencia_model');
-        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
+        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscari($_POST);
         $this->load->view('administrador/transito-interno-view-admin',$dados);
 
     }
@@ -74,7 +74,7 @@ class Saidatransito extends CI_Controller{
     }
 
        public function editMasteradmini($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
-        $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->show($id);
+        $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->showssi($id);
         $this->load->view('administrador/edicao_interno_view_admin', $edit);
     }
     public function cadastrarMasteradmini($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
@@ -107,7 +107,7 @@ class Saidatransito extends CI_Controller{
      
     public function resultadoe(){
         $this->load->model('SaidapresosAudiencia_model');
-        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
+        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscare($_POST);
         $this->load->view('agentes/transito-externo-view',$dados);
         }
     public function createMastere(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model
@@ -128,7 +128,7 @@ class Saidatransito extends CI_Controller{
 
     public function updatee($id){
         $atualizar = $_POST;
-        $this->SaidapresosAudiencia_model->updatee($id, $atualizar);
+        $this->SaidapresosAudiencia_model->updateadmine($id, $atualizar);
         redirect("Home/transitoExterno");
 
     }
@@ -151,8 +151,8 @@ class Saidatransito extends CI_Controller{
     public function resultadoadmine(){
 
         $this->load->model('SaidapresosAudiencia_model');
-        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscar($_POST);
-        $this->load->view('administrador/transito-externo-view_admin',$dados);
+        $dados['saidadetentos'] = $this->SaidapresosAudiencia_model->buscare($_POST);
+        $this->load->view('administrador/transito-externo-view-admin',$dados);
 
     }
 
@@ -163,7 +163,7 @@ class Saidatransito extends CI_Controller{
     }
 
        public function editMasteradmine($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
-        $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->show($id);
+        $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->showsse($id);
         $this->load->view('administrador/edicao_enterno_view_admin', $edit);
     }
     public function cadastrarMasteradmine($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
@@ -174,7 +174,7 @@ class Saidatransito extends CI_Controller{
 
     public function updateadmine($id){
         $atualizar = $_POST;
-        $this->SaidapresosAudiencia_model->update($id, $atualizar);
+        $this->SaidapresosAudiencia_model->updateadmine($id, $atualizar);
         redirect("Home/transitoExternoAdmin");
 
     }

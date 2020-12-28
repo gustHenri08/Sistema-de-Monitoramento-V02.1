@@ -181,7 +181,7 @@
               </div>
               <div id="example1_filter" class="dataTables_filter">
               <div class="col-sm-6">
-              <form action="<?=site_url('SaidapresosAudiencia/resultadoe')?>" method="post">
+              <form action="<?=site_url('Saidatransito/resultadoadmini')?>" method="post">
                 <div class="col-sm-6">
                   <div id="example1_filter" class="dataTables_filter">
                     <label>Procurar Detento:  <input type="text" name="busca" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">

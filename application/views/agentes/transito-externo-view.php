@@ -174,7 +174,7 @@
               <div class="dataTables_length" id="example1_length">
     
               </div>
-              <form action="<?=site_url('SaidapresosAudiencia/resultadoe')?>" method="post">
+              <form action="<?=site_url('Saidatransito/resultadoe')?>" method="post">
                 <div class="col-sm-6">
                   <div id="example1_filter" class="dataTables_filter">
                     <label>Procurar Detento:  <input type="text" name="busca" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
@@ -205,7 +205,7 @@
                             <td><?= $agents['id']?></td>
                             <td><?= $agents['cadeiapublica']?></td>
                             <td><?= $agents['destino']?></td>
-                            <td>  <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/cadastrarMastere/<?= $agents["id"] ?>">
+                            <td>  <a href="<?= base_url() ?>index.php/Saidatransito/cadastrarMastere/<?= $agents["id"] ?>">
                                <?= $agents['nome']?> </a> </td>
                             <td><?= $agents['numsiap']?></td>
                             <td><?= $agents['sic']?></td>
@@ -214,7 +214,7 @@
                             <td><?= $agents['documentacao']?></td>
                             <td><?= $agents['obs']?></td>
                             <td> 
-                            <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/editMastere/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
+                            <a href="<?= base_url() ?>index.php/Saidatransito/editMastere/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
                             </td>
 
                         </tr>

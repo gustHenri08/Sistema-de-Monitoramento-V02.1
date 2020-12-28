@@ -166,8 +166,9 @@
     <!-- Cabeçalho da Página -->
     <section class="content-header">
       <h1>
-        Cadastrar Saída de Presos Para Audiência
-      </h1>
+       
+      Edição Interno
+            </h1>
       <ol class="breadcrumb"> <!--Area referente ao Mapa de navegação do site (Precisa de melhorias)mlp-->
         <li><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/Home">Home</a></li>
         <li class="active"><a href="http://localhost/Sistema-de-Monitoramento-V02/index.php/SaidapresosAudiencia">Saída de Detentos</a></li>
@@ -196,7 +197,7 @@
           <!--Inicio do Formulario-->
             <!--Inicio do Formulario-->
             <?php if(isset($saidadetentos)) : ?>
-              <form method="post" action="<?= base_url() ?>index.php/SaidapresosAudiencia/editMasteradmini/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
+              <form method="post" action="<?= base_url() ?>index.php/Saidatransito/updateadmini/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
   
               <!--Em Testes | chama o controller responsavel por cadastro-->              
             <?php endif; ?>
@@ -219,7 +220,9 @@
            
             <div class="form-group"> <!--Campo Cadeia Publica-->
                 <label>Cadeia Publica</label>
-                <select class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>">  <!-- 'name=' adicionado-->
+                <?php if(isset($saidadetentos)): ?>  
+                <select class="form-control" style="width: 200px" name="cadeiapublica">  <!-- 'name=' adicionado-->
+                <option><?=$saidadetentos["cadeiapublica"]?></option>
                   <option>CP de Aliança</option>
                   <option>CP de Carpina</option>
                   <option>CP de Glória do Goitá</option>
@@ -231,31 +234,32 @@
                   <option>CP de Timbauba</option>
                   <option>CP de Vicência</option>
                 </select>
+                <?php else: ?>
+                <select class="form-control" style="width: 200px" name="cadeiapublica">  <!-- 'name=' adicionado-->
+                  <option>CP de Aliança</option>
+                  <option>CP de Carpina</option>
+                  <option>CP de Glória do Goitá</option>
+                  <option>CP de Goiana</option>
+                  <option>CP de Itambé</option>
+                  <option>CP de Lagoa do Carro</option>
+                  <option>CP de Macaparana</option>
+                  <option>CP de Nazaré da Mata</option>
+                  <option>CP de Timbauba</option>
+                  <option>CP de Vicência</option>
+                </select>
+                <?php endif; ?>
             </div>
 
             <div class="form-group">
               <label>Data</label>
-              <input type="text" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["data"] : "" ?>" ><!-- 'name=' adicionado-->
+              <input type="date" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["data"] : "" ?>" ><!-- 'name=' adicionado-->
               </div>
-
-            <div class="form-group"> <!-- Nome do Detento-->
-              <label>Nome</label>
-              <input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>"><!-- 'name=' adicionado-->
-            </div>
-
-            <div class="form-group"> <!-- Nome dpa Mãjbejjee-->
-              <label>Nº SIAP</label>
-              <input type="text" class="form-control" name="numsiap" placeholder="Nº SIAP" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["numsiap"] : "" ?>"><!-- 'name=' adicionado-->
-            </div>
-
-            <div class="form-group"> <!-- Nome do Pai-->
-              <label>SIC</label>
-              <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"value=" <?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"><!-- 'name=' adicionado-->
-            </div>
 
             <div class="form-group"> <!--Campo Cadeia Publica-->
                 <label>Motivo</label>
-                <select class="form-control" style="width: 200px" name="motivo" value=" <?= isset($saidadetentos) ? $saidadetentos["motivo"] : "" ?>">  <!-- 'name=' adicionado-->
+                <?php if(isset($saidadetentos)): ?>  
+                <select class="form-control" style="width: 200px" name="motivo" >  <!-- 'name=' adicionado-->
+                <option><?=$saidadetentos["motivo"]?></option>
                   <option>AUDIÊNCIA</option>
                   <option>CUSTÓDIA HOSPITALAR</option>
                   <option>DETERMINAÇÃO SERES</option>
@@ -265,6 +269,18 @@
                   <option>TRATAMENTO MÉDICO</option>
                   <option>OUTRO</option>
                 </select>
+                <?php else: ?>
+                <select class="form-control" style="width: 200px" name="motivo">  <!-- 'name=' adicionado-->
+                  <option>AUDIÊNCIA</option>
+                  <option>CUSTÓDIA HOSPITALAR</option>
+                  <option>DETERMINAÇÃO SERES</option>
+                  <option>DETERMINAÇÃO SSPEN </option>
+                  <option>MEDIDA DE SEGURANÇA</option>
+                  <option>OUTRO MOTIVO</option>
+                  <option>TRATAMENTO MÉDICO</option>
+                  <option>OUTRO</option>
+                </select>
+                <?php endif; ?>
             </div>
             
 

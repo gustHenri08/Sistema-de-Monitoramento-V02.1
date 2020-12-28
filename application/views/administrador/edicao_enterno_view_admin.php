@@ -219,7 +219,9 @@
            
             <div class="form-group"> <!--Campo Cadeia Publica-->
                 <label>Cadeia Publica</label>
-                <select class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>">  <!-- 'name=' adicionado-->
+                <?php if(isset($saidadetentos)): ?>  
+                <select class="form-control" style="width: 200px" name="cadeiapublica">  <!-- 'name=' adicionado-->
+                <option><?=$saidadetentos["cadeiapublica"]?></option>
                   <option>CP de Aliança</option>
                   <option>CP de Carpina</option>
                   <option>CP de Glória do Goitá</option>
@@ -231,31 +233,49 @@
                   <option>CP de Timbauba</option>
                   <option>CP de Vicência</option>
                 </select>
+                <?php else: ?>
+                <select class="form-control" style="width: 200px" name="cadeiapublica">  <!-- 'name=' adicionado-->
+                <option><?=$saidadetentos["cadeiapublica"]?></option>
+                  <option>CP de Aliança</option>
+                  <option>CP de Carpina</option>
+                  <option>CP de Glória do Goitá</option>
+                  <option>CP de Goiana</option>
+                  <option>CP de Itambé</option>
+                  <option>CP de Lagoa do Carro</option>
+                  <option>CP de Macaparana</option>
+                  <option>CP de Nazaré da Mata</option>
+                  <option>CP de Timbauba</option>
+                  <option>CP de Vicência</option>
+                </select>
+                <?php endif; ?>
             </div>
+
 
             <div class="form-group">
               <label>Data</label>
-              <input type="text" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["data"] : "" ?>" ><!-- 'name=' adicionado-->
+              <input type="date" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px"  ><!-- 'name=' adicionado-->
               </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
               <label>Nome</label>
-              <input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome dpa Mãjbejjee-->
               <label>Nº SIAP</label>
-              <input type="text" class="form-control" name="numsiap" placeholder="Nº SIAP" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["numsiap"] : "" ?>"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="numsiap" placeholder="Nº SIAP" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["numsiap"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome do Pai-->
               <label>SIC</label>
-              <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"value=" <?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"value=" <?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!--Campo Cadeia Publica-->
                 <label>Motivo</label>
-                <select class="form-control" style="width: 200px" name="motivo" value=" <?= isset($saidadetentos) ? $saidadetentos["motivo"] : "" ?>">  <!-- 'name=' adicionado-->
+                <?php if(isset($saidadetentos)): ?>  
+                <select class="form-control" style="width: 200px" name="motivo" >  <!-- 'name=' adicionado-->
+                <option><?=$saidadetentos["motivo"]?></option>
                   <option>AUDIÊNCIA</option>
                   <option>CUSTÓDIA HOSPITALAR</option>
                   <option>DETERMINAÇÃO SERES</option>
@@ -265,12 +285,24 @@
                   <option>TRATAMENTO MÉDICO</option>
                   <option>OUTRO</option>
                 </select>
+                <?php else: ?>
+                <select class="form-control" style="width: 200px" name="motivo" >  <!-- 'name=' adicionado-->
+                  <option>AUDIÊNCIA</option>
+                  <option>CUSTÓDIA HOSPITALAR</option>
+                  <option>DETERMINAÇÃO SERES</option>
+                  <option>DETERMINAÇÃO SSPEN </option>
+                  <option>MEDIDA DE SEGURANÇA</option>
+                  <option>OUTRO MOTIVO</option>
+                  <option>TRATAMENTO MÉDICO</option>
+                  <option>OUTRO</option>
+                </select>
+                <?php endif; ?>
             </div>
             
 
               <div class="form-group"> <!-- Nome do Pai-->
               <label>Obs Gerais</label>
-              <input type="text" class="form-control" name="obs" placeholder=" " style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["obs"] : "" ?>" ><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="obs" placeholder="obs" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["obs"] : "" ?>" ><!-- 'name=' adicionado-->
             </div>
 
               <div class="form-group"> <!-- Nome do Pai-->
@@ -285,7 +317,7 @@
 
             <br>
 
-            <?php if(isset($criars)) :?>
+            <?php if(isset($saidadetentos)) :?>
 
 <div class="col-xs-2"> <!--Botão Cadastrar-->
   <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->

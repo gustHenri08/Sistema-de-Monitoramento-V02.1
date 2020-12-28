@@ -50,6 +50,36 @@ class SaidapresosAudiencia_model extends CI_Model{
 
     }
 
+    public function buscare($busca){
+        
+        if(empty($busca))
+            return array();
+
+        $busca = $this->input->post('busca');
+
+        $this->db->like('nome', $busca);
+        $query = $this->db->get('tbl_enterno');
+        return $query->result_array();
+
+    	
+
+    }
+
+    public function buscari($busca){
+        
+        if(empty($busca))
+            return array();
+
+        $busca = $this->input->post('busca');
+
+        $this->db->like('nome', $busca);
+        $query = $this->db->get('tbl_interno');
+        return $query->result_array();
+
+    	
+
+    }
+
     public function show($id){
         return $this->db->get_where('tbl_saidaaudiencia', array(
             "id" => $id
@@ -139,15 +169,15 @@ class SaidapresosAudiencia_model extends CI_Model{
             'sic'=> $this->input->post('sic'),
             'nome'=> $this->input->post('nome'),
             'motivo'=> $this->input->post('motivo'),
-            'obs'=> $this->input->post('condutores'),
+            'obs'=> $this->input->post('obs'),
             'destino'=> $this->input->post('destino'),
-            'documentacao'=> $this->input->post('condutores')
+            'documentacao'=> $this->input->post('documentacao')
             );
         $this->db->insert('tbl_enterno', $data);
 
     }
 
-    public function updatee($id, $atualizar){
+    public function updateadmine($id, $atualizar){
         $this->db->where('id', $id);
         return $this->db->update("tbl_enterno", $atualizar);
 

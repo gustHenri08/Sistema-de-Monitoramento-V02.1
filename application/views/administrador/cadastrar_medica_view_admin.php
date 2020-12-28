@@ -207,7 +207,7 @@
                 <label>Cadeia Publica</label>
                 
             <?php if(isset($saidadetentos)): ?>    
-                <select class="form-control" style="width: 200px" name="cadeiapublica" >  <!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 200px" name="cadeiapublica" readonly style="width:300px" >  <!-- 'name=' adicionado-->
                 <option><?=$saidadetentos["cadeiapublica"]?></option>
                   <option>CP de Aliança</option>
                   <option>CP de Carpina</option>
@@ -220,6 +220,21 @@
                   <option>CP de Timbauba</option>
                   <option>CP de Vicência</option>
                 </select>
+                <?php else: ?>
+                <select class="form-control" style="width: 200px" name="cadeiapublica" readonly style="width:300px" >  <!-- 'name=' adicionado-->
+               
+                  <option>CP de Aliança</option>
+                  <option>CP de Carpina</option>
+                  <option>CP de Glória do Goitá</option>
+                  <option>CP de Goiana</option>
+                  <option>CP de Itambé</option>
+                  <option>CP de Lagoa do Carro</option>
+                  <option>CP de Macaparana</option>
+                  <option>CP de Nazaré da Mata</option>
+                  <option>CP de Timbauba</option>
+                  <option>CP de Vicência</option>
+                </select>
+                <?php endif; ?>
             </div>
 
             <div class="form-group"> <!--Data de Prisão-->

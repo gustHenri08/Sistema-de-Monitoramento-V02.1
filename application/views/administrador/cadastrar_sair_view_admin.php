@@ -216,6 +216,20 @@
           				<option>CP de Timbauba</option>
           				<option>CP de Vicência</option>
           			</select>
+                <?php else: ?>
+                  <select class="form-control" style="width: 200px" name="cadeiapublica"  ><!-- 'name=' adicionado-->
+              		<option>CP de Aliança</option>
+          				<option>CP de Carpina</option>
+          				<option>CP de Glória do Goitá</option>
+          				<option>CP de Goiana</option>
+          				<option>CP de Itambé</option>
+          				<option>CP de Lagoa do Carro</option>
+          				<option>CP de Macaparana</option>
+          				<option>CP de Nazaré da Mata</option>
+          				<option>CP de Timbauba</option>
+          				<option>CP de Vicência</option>
+          			</select>
+                <?php endif; ?>
           	</div>
       
             <div class="form-group"> <!--Data de Prisão-->
@@ -280,6 +294,26 @@
                   <option>Trânsito</option>
                   <option>Outros</option>
                 </select>
+                <?php else: ?>
+                  <select class="form-control" style="width: 250px" name="motivo"  ><!-- 'name=' adicionado-->
+       
+                  <option>Alvára De Soltura </option>
+                  <option>Evasão</option>           
+                  <option>Fim De Prazo Da Prisão civil</option>
+                  <option>Fim De Prazo Da Prisão Temporária</option>
+                  <option>Fuga</option>
+                  <option>Harmonizado</option>
+                  <option>Óbito</option>
+                  <option>Progressão De Regime</option>
+                  <option>Liberdade Condicional</option>
+                  <option> Prisão Domiciliar</option>
+                  <option>Transferência P/ CP</option>
+                  <option>Transferência P/ UF</option>
+                  <option>Transferência P/ UP</option>
+                  <option>Trânsito</option>
+                  <option>Outros</option>
+                </select>
+                <?php endif; ?>
             </div>
 
             <div class="form-group"> <!--Origem-->
@@ -298,6 +332,20 @@
                   <option>Polícia Militar</option>
                   <option>Outra Origem</option>
                 </select>
+                <?php else: ?>
+                <select class="form-control" style="width: 250px" name="origem" ><!-- 'name=' adicionado-->
+      
+                  <option>CP de Altinho</option>
+                  <option>CP de Bom Conselho</option> 
+                  <option>CP de Carpina</option>
+                  <option>CP de Glória do Goitá</option>
+                  <option>CP de Lagoa do Carro</option>
+                  <option>Delegacia - PC</option>
+                  <option>Outra UF</option>
+                  <option>Polícia Militar</option>
+                  <option>Outra Origem</option>
+                </select>
+                <?php endif; ?>
             </div>
 
             <div class="form-group"> <!--Documentação-->
@@ -313,6 +361,17 @@
                   <option>Prisão Temporária</option>
                   <option>Outro</option>
                 </select>
+                <?php else: ?>
+                <select class="form-control" style="width: 230px" name="documentacao"  ><!-- 'name=' adicionado-->
+            
+                  <option>ALVARÁ DE SOLTURA</option>
+                  <option>CI - TRANSFERÊNCIA</option>
+                  <option>FIM DA PRISÃO TEMPORÁRIA</option>
+                  <option>Ofício de Transferência</option>
+                  <option>Prisão Temporária</option>
+                  <option>Outro</option>
+                </select>
+                <?php endif; ?>
             </div>
 
              <div class="form-group"> <!--Documentação-->

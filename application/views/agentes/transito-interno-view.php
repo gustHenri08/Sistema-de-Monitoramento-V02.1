@@ -165,22 +165,31 @@
         <li class="active">Trânsito Interno</li>
       </ol>
       <p></p>
-      <!-- Main content -->
-      <div class="box">
-        <!-- /.box-header -->
+    <!-- Main content -->
+    <div class="box">
+      <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
             <div class="col-sm-6">
               <div class="dataTables_length" id="example1_length">
-    
+
               </div>
-              <form action="<?=site_url('Saidapresos/pesquisar')?>" method="post">
+              <div id="example1_filter" class="dataTables_filter">
+              <div class="col-sm-6">
+              <form action="<?=site_url('Saidatransito/resultadoi')?>" method="post">
                 <div class="col-sm-6">
                   <div id="example1_filter" class="dataTables_filter">
-                    <label>Procurar Detento:<input type="search" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1"></label>
+                    <label>Procurar Detento:  <input type="text" name="busca" id="busca" class="form-control input-sm" placeholder="Nome, Mãe ou SIAP " aria-controls="example1">
+                      <br><button type="submit" class="btn btn-primary">Buscar</button></br>
+                    </label>
+                  </div>
                   </div>
                 </div>
               </form>
+                  </div>
+                </div>
+              </form>
+              </div>
             </div>
             <table id="example1" class="table table-bordered table-striped">
               <thead>
@@ -198,13 +207,14 @@
                 </tr>
               </thead>
               <tbody>
-            
+               
+               
               <?php foreach($saidadetentos as $agents) : ?>
                             <tr>
                             <td><?= $agents['id']?></td>
                             <td><?= $agents['cadeiapublica']?></td>
                             <td><?= $agents['destino']?></td>
-                            <td>  <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/cadastrarMasteri/<?= $agents["id"] ?>">
+                            <td>  <a href="<?= base_url() ?>index.php/Saidatransito/cadastrarMasteri/<?= $agents["id"] ?>">
                                <?= $agents['nome']?> </a> </td>
                             <td><?= $agents['numsiap']?></td>
                             <td><?= $agents['sic']?></td>
@@ -213,19 +223,24 @@
                             <td><?= $agents['documentacao']?></td>
                             <td><?= $agents['obs']?></td>
                             <td> 
-                            <a href="<?= base_url() ?>index.php/SaidapresosAudiencia/editMasteri/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
+                            <a href="<?= base_url() ?>index.php/Saidatransito/editMasteri/<?= $agents["id"] ?>" class="btn btn-warning btn-xs">Editar</a>
                             </td>
 
                         </tr>
                     <?php endforeach;?>
-            
-              </body>
+
+    
+              </tbody>
             </table>
           </div>
+          <!--row -->
         </div>
+        <!-- box-body -->
       </div>
+      <!-- /.box-->
     </section>
   </div>
+  <!--wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.18
@@ -233,9 +248,8 @@
     <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
     reserved.
   </footer>
-  
 </div>  
-</div>  
+
   
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
