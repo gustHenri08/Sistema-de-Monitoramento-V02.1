@@ -493,7 +493,7 @@
                   data: {
                     labels: ["Homens", "Mulheres", "Regime Aberto", "Regime Semi-Aberto", "Regime Fechado", ],
                     datasets: [{
-                      label: "Nome da CP",
+                      label: "<?php echo ($this->session->userdata("unidadeprisional"));?>",
                       //*Número de presos por Núcleo*//
                       data: VALUES,
                       backgroundColor: ["rgba(255, 99, 132, 10)", "rgba(255, 159, 64, 10)", "rgba(255, 205, 86, 10)", "rgba(75, 192, 192, 10)", "rgba(54, 162, 235, 10)", "rgba(153, 102, 255, 10)"],

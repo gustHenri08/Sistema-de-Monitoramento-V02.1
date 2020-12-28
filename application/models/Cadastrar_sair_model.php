@@ -28,6 +28,10 @@ class cadastrar_sair_model extends CI_Model{
     }
 
     public function cadastrados(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
+        return $this->db->get_where("tbl_presos", array('cadeiapublica' => $this->session->userdata('unidadeprisional')) )->result_array();
+    }
+
+    public function cadastradosAdmin(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
         return $this->db->get("tbl_presos")->result_array();
     }
     public function buscar($busca){

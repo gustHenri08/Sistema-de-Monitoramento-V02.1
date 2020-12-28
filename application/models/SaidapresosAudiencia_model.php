@@ -10,6 +10,7 @@ class SaidapresosAudiencia_model extends CI_Model{
     function cadastroMaster(){ // Função reponsável por cadastrar os presos ao bando de dados: db_presos
         $data = array(
             'cadeiapublica'=> $this->input->post('cadeiapublica'), //Recebe os dados via post
+            'nucleo'=>$this->session->userdata("nucleo"),
             'data'=> $this->input->post('data'),
             'numsiap'=> $this->input->post('numsiap'),
             'sic'=> $this->input->post('sic'),

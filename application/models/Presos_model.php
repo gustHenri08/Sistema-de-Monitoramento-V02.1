@@ -79,9 +79,15 @@ class Presos_model extends CI_Model{
     }
 
     public function presoscadastrados(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
+        return $this->db->get_where('tbl_presos', array( "cadeiapublica" => $this->session->userdata('unidadeprisional')))->result_array();
+
+        //Função envia os dados dos agentes para o controller de 'Home'
+    }
+
+    public function presoscadastradosAdmin(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
         return $this->db->get("tbl_presos")->result_array();
 
-        //Função envia os dados dos agentes para o controller de 'Agente'
+        //Função envia os dados dos agentes para o controller de 'Home'
     }
 
     public function buscarPresos($buscapresos){ // Responsável por buscar o preso atraves do campo de busca na view de entrada de presos 

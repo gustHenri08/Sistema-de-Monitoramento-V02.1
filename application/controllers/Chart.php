@@ -7,11 +7,12 @@ class Chart extends REST_Controller {
         $this->load->database();
     }
     public function getinfo_get() {
-        $maleCount = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Masculino'")->row_array();
-        $femaleCount = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Feminino'")->row_array();
-        $regimeAbertoCount = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Aberto'")->row_array();
-        $regimeSemiCount = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Semi-Aberto'")->row_array();
-        $regimeFechadoCount = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Fechado'")->row_array();
+        $cp = $this->session->userdata("unidadeprisional");
+        $maleCount = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Masculino' and cadeiapublica = '$cp' ")->row_array();
+        $femaleCount = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Feminino' and cadeiapublica = '$cp' ")->row_array();
+        $regimeAbertoCount = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Aberto' and cadeiapublica = '$cp' ")->row_array();
+        $regimeSemiCount = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Semi-Aberto' and cadeiapublica = '$cp' ")->row_array();
+        $regimeFechadoCount = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Fechado' and cadeiapublica = '$cp' ")->row_array();
         $this->response(
             (object) [
                 'maleCount' => $maleCount, 
@@ -23,24 +24,25 @@ class Chart extends REST_Controller {
         , REST_Controller::HTTP_OK);
     }
     public function getexit_get() {
-        $alvaraCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE 	motivo = 'Alvará de Soltura'")->row_array();
-        $delegCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE 	motivo = 'Delegacia'")->row_array();
-        $domicCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Domiciliar COVID'")->row_array();
-        $evasaoCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Evasão'")->row_array();
-        $fimPrazoCivilCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Fim de Prazo da Prisão Civil'")->row_array();
-        $fimPrazoTempCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE 	motivo = 'Fim de Prazo da Prisão Temporario'")->row_array();
-        $fugaCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE 	motivo = 'Fuga'")->row_array();
-        $HarmCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Harmonizado'")->row_array();
-        $condCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Liberdade Condicional'")->row_array();
-        $obitoCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Óbito'")->row_array();
-        $obitoCVLICount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Óbito CVLI'")->row_array();
-        $PrisaoDomiCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Prisão Domiciliar'")->row_array();
-        $ProgressRegimeCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Progressão de Regime'")->row_array();
-        $transfCpCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE 	motivo = 'Transferência P/CP'")->row_array();
-        $transfUfCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE 	motivo = 'Transferência P/UF'")->row_array();
-        $transfUpCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE    motivo = 'Transferência P/UP'")->row_array();
-        $transitoCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE    motivo = 'Transito'")->row_array();
-        $outrosCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE      motivo = 'Outros'")->row_array();
+        $cp = $this->session->userdata("unidadeprisional");
+        $alvaraCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE 	motivo = 'Alvará de Soltura' and cadeiapublica = '$cp'")->row_array();
+        $delegCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE 	motivo = 'Delegacia' and cadeiapublica = '$cp'")->row_array();
+        $domicCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Domiciliar COVID' and cadeiapublica = '$cp'")->row_array();
+        $evasaoCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Evasão' and cadeiapublica = '$cp'")->row_array();
+        $fimPrazoCivilCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Fim de Prazo da Prisão Civil' and cadeiapublica = '$cp'")->row_array();
+        $fimPrazoTempCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE 	motivo = 'Fim de Prazo da Prisão Temporario' and cadeiapublica = '$cp'")->row_array();
+        $fugaCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE 	motivo = 'Fuga' and cadeiapublica = '$cp'")->row_array();
+        $HarmCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Harmonizado' and cadeiapublica = '$cp'")->row_array();
+        $condCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Liberdade Condicional' and cadeiapublica = '$cp'")->row_array();
+        $obitoCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Óbito' and cadeiapublica = '$cp'")->row_array();
+        $obitoCVLICount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Óbito CVLI' and cadeiapublica = '$cp'")->row_array();
+        $PrisaoDomiCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Prisão Domiciliar' and cadeiapublica = '$cp'")->row_array();
+        $ProgressRegimeCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE motivo = 'Progressão de Regime' and cadeiapublica = '$cp'")->row_array();
+        $transfCpCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE 	motivo = 'Transferência P/CP' and cadeiapublica = '$cp'")->row_array();
+        $transfUfCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE 	motivo = 'Transferência P/UF' and cadeiapublica = '$cp'")->row_array();
+        $transfUpCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE    motivo = 'Transferência P/UP' and cadeiapublica = '$cp'")->row_array();
+        $transitoCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE    motivo = 'Transito' and cadeiapublica = '$cp'")->row_array();
+        $outrosCount = $this->db->query("SELECT COUNT(*) as MOT_COUNT FROM tbl_saidadetentos WHERE      motivo = 'Outros' and cadeiapublica = '$cp'")->row_array();
         $this->response(
             (object)[
                 'alvaraCount' =>  $alvaraCount, 
@@ -67,15 +69,16 @@ class Chart extends REST_Controller {
     }
 
     public function getEntrada_get() {
-        $expiraPrazoCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Expiração de Prazo'")->row_array();
-        $mandadoPrisCivilCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Civil'")->row_array();
-        $mandadoPrisPrevCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Preventiva'")->row_array();
-        $mandadoPrisTempCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Temporária'")->row_array();
-        $mandadoRecolhimentoCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Recolhimento'")->row_array();
-        $recapturaCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Recaptura - Mandado de Prisão'")->row_array();
-        $transferenciaCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Transferência'")->row_array();
-        $transito2Count = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito'")->row_array();
-        $outros2Count = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros'")->row_array();
+        $cp = $this->session->userdata("unidadeprisional");
+        $expiraPrazoCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Expiração de Prazo' and cadeiapublica = '$cp'")->row_array();
+        $mandadoPrisCivilCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Civil' and cadeiapublica = '$cp'")->row_array();
+        $mandadoPrisPrevCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Preventiva' and cadeiapublica = '$cp'")->row_array();
+        $mandadoPrisTempCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Temporária' and cadeiapublica = '$cp'")->row_array();
+        $mandadoRecolhimentoCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Recolhimento' and cadeiapublica = '$cp'")->row_array();
+        $recapturaCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Recaptura - Mandado de Prisão' and cadeiapublica = '$cp'")->row_array();
+        $transferenciaCount = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Transferência' and cadeiapublica = '$cp'")->row_array();
+        $transito2Count = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito' and cadeiapublica = '$cp'")->row_array();
+        $outros2Count = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros' and cadeiapublica = '$cp'")->row_array();
         $this->response(
             (object) [
                 'expiraPrazoCount' => $expiraPrazoCount, 
@@ -92,14 +95,15 @@ class Chart extends REST_Controller {
     }
 
     public function getAutorizaSaida_get() {
-        $audienciaCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidaaudiencia")->row_array();
-        $consultaMedCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Consulta Médica'")->row_array();
-        $consultaOdontoCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Consulta Odontológica'")->row_array();
-        $EmergenciaCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Emergência'")->row_array();
-        $EscoltaFunCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidadetentos WHERE motivo = 'Óbito'")->row_array();
-        $ExamesComplexCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Exames Complexos'")->row_array();
-        $ExamesLaboratorCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Exames Laboratoriais'")->row_array();
-        $outros3Count = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Outros'")->row_array();
+        $cp = $this->session->userdata("unidadeprisional");
+        $audienciaCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidaaudiencia WHERE cadeiapublica = '$cp' ")->row_array();
+        $consultaMedCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Consulta Médica' and cadeiapublica = '$cp'")->row_array();
+        $consultaOdontoCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Consulta Odontológica' and cadeiapublica = '$cp'")->row_array();
+        $EmergenciaCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Emergência' and cadeiapublica = '$cp'")->row_array();
+        $EscoltaFunCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidadetentos WHERE motivo = 'Óbito' and cadeiapublica = '$cp'")->row_array();
+        $ExamesComplexCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Exames Complexos' and cadeiapublica = '$cp'")->row_array();
+        $ExamesLaboratorCount = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Exames Laboratoriais' and cadeiapublica = '$cp'")->row_array();
+        $outros3Count = $this->db->query("SELECT COUNT(*) as AUT_AUD_COUNT FROM tbl_saidasaude WHERE motivo = 'Outros' and cadeiapublica = '$cp'")->row_array();
         $this->response(
             (object) [
                 'audienciaCount' => $audienciaCount, 

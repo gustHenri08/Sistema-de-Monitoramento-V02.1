@@ -181,7 +181,7 @@ class Home extends CI_Controller{
     public function entradaPresosAdmin()
     {
         $this->load->model("Presos_model");
-        $data['presos'] = $this->Presos_model->presoscadastrados();
+        $data['presos'] = $this->Presos_model->presoscadastradosAdmin();
         $data['fechado'] = $this->Presos_model->totalfechado();// Traz o total de presos em regime fechado
 
         $this->load->view("administrador/entrada-presos-admin", $data); // Carrega a view(Tela) Entrada de Detentos do Admin;
@@ -248,7 +248,7 @@ class Home extends CI_Controller{
     public function saidaCadeiaPublicaAdmin()
     {
         $this->load->model('cadastrar_sair_model');//carregando o model dos presos
-        $data['saidadetentos'] = $this->cadastrar_sair_model->cadastrados();
+        $data['saidadetentos'] = $this->cadastrar_sair_model->cadastradosAdmin();
         $this->load->view('administrador/saida-presos-view-admin',$data); // Carrega a view(Tela) Saida da Cadeia Publica do Admin;
     }
 
