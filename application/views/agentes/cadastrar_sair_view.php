@@ -197,20 +197,9 @@
           		<input type="hidden" class="form-control" required name="nucleo" placeholder="Nome" value="<?= isset($saidadetentos) ? $saidadetentos["nucleo"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
-         	<div class="form-group"> <!--Campo Cadeia Publica-->
-          			<label>Cadeia Publica</label>
-          			<select class="form-control" style="width: 200px" name="cadeiapublica" value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>"><!-- 'name=' adicionado-->
-          				<option>CP de Aliança</option>
-          				<option>CP de Carpina</option>
-          				<option>CP de Glória do Goitá</option>
-          				<option>CP de Goiana</option>
-          				<option>CP de Itambé</option>
-          				<option>CP de Lagoa do Carro</option>
-          				<option>CP de Macaparana</option>
-          				<option>CP de Nazaré da Mata</option>
-          				<option>CP de Timbauba</option>
-          				<option>CP de Vicência</option>
-          			</select>
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<label>Cadeia publica</label>
+          		<input type="text" class="form-control" name="cadeiapublica" placeholder="Cadeia Publica" style="width:300px" readonly value=" <?=$saidadetentos["cadeiapublica"]?>"><!-- 'name=' adicionado-->
           	</div>
       
             <div class="form-group">
@@ -266,9 +255,9 @@
                   <option>Progressão De Regime</option>
                   <option>Liberdade Condicional</option>
                   <option>Prisão Domiciliar</option>
-                  <option>Transferência P/ CP</option>
-                  <option>Transferência P/ UF</option>
-                  <option>Transferência P/ UP</option>
+                  <option>Transferência P/CP</option>
+                  <option>Transferência P/UF</option>
+                  <option>Transferência P/UP</option>
                   <option>Trânsito</option>
                   <option>Outros</option>
                 </select>
