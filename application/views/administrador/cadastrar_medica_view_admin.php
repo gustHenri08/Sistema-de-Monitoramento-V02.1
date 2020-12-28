@@ -205,10 +205,7 @@
            
             <div class="form-group"> <!--Campo Cadeia Publica-->
                 <label>Cadeia Publica</label>
-                
-            <?php if(isset($saidadetentos)): ?>    
-                <select class="form-control" style="width: 200px" name="cadeiapublica" >  <!-- 'name=' adicionado-->
-                <option><?=$saidadetentos["cadeiapublica"]?></option>
+                <select class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>"readonly style="width:300px" >  <!-- 'name=' adicionado-->
                   <option>CP de Aliança</option>
                   <option>CP de Carpina</option>
                   <option>CP de Glória do Goitá</option>

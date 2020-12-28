@@ -21,7 +21,7 @@ class cadastrar_sair_model extends CI_Model{
              'destino'=> $this->input->post('destino'),
             'condutores'=> $this->input->post('condutores'),
             'documentacao'=> $this->input->post('documentacao'),
-            'nucleo'=> $this->input->post('nucleo'),
+            'crimerepercurssao'=> $this->input->post('crimerepercurssao'),
             'obs'=> $this->input->post('obs')
         );
         $this->db->insert('tbl_saidadetentos', $datamaster);

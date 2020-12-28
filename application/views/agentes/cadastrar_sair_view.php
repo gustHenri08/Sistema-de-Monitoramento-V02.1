@@ -189,14 +189,11 @@
         <div class="box-body">
           <!--Inicio do Formulario-->
           <?php if(isset($saidadetentos)) : ?>
-              <form method="post" action="<?= base_url() ?>index.php/Cadastrar_sair/createMaster/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
+              <form method="post" action="<?= base_url() ?>index.php/SaidapresosAudiencia/createMaster/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
                
             <?php endif; ?>
              <!--Em Testes | chama o controller responsavel por cadastro-->
-             <div class="form-group"> <!-- Nome do Detento-->
-          		<input type="hidden" class="form-control" required name="nucleo" placeholder="Nome" value="<?= isset($saidadetentos) ? $saidadetentos["nucleo"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-
+          
          	<div class="form-group"> <!--Campo Cadeia Publica-->
           			<label>Cadeia Publica</label>
           			<select class="form-control" style="width: 200px" name="cadeiapublica" value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>"><!-- 'name=' adicionado-->

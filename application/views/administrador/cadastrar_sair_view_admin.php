@@ -195,17 +195,11 @@
              
             <?php endif; ?>
          	
-            <div class="form-group"> <!-- Nome do Detento-->
-          		<input type="hidden" class="form-control" required name="nucleo" placeholder="Nome" value="<?= isset($saidadetentos) ? $saidadetentos["nucleo"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
-            </div>
-
-        
-            <?php if(isset($saidadetentos)): ?>        
+      
            <div class="form-group"> <!--Campo Cadeia Publica-->
           			<label>Cadeia Publica</label>
-          			<select class="form-control" style="width: 200px" name="cadeiapublica"  ><!-- 'name=' adicionado-->
-                <option><?=$saidadetentos["cadeiapublica"]?></option>
-              		<option>CP de Aliança</option>
+          			<select class="form-control" style="width: 200px" name="cadeiapublica" value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+          				<option>CP de Aliança</option>
           				<option>CP de Carpina</option>
           				<option>CP de Glória do Goitá</option>
           				<option>CP de Goiana</option>
@@ -260,10 +254,7 @@
 
             <div class="form-group"> <!--Motivo-->
                 <label>Motivo</label>
-                
-            <?php if(isset($saidadetentos)): ?>    
-                <select class="form-control" style="width: 250px" name="motivo"  ><!-- 'name=' adicionado-->
-                <option><?=$saidadetentos["motivo"]?></option>
+                <select class="form-control" style="width: 250px" name="motivo"  value=" <?= isset($saidadetentos) ? $saidadetentos["motivo"] : "" ?>"><!-- 'name=' adicionado-->
                   <option>Alvára De Soltura </option>
                   <option>Evasão</option>           
                   <option>Fim De Prazo Da Prisão civil</option>
@@ -283,11 +274,8 @@
             </div>
 
             <div class="form-group"> <!--Origem-->
-              <label>Origem</label>
-            <?php if(isset($saidadetentos)): ?>    
-              <!-- Origem alterada para ficar de acordo com documentação, versão antiga estava com os options errados-->
-                <select class="form-control" style="width: 250px" name="origem" ><!-- 'name=' adicionado-->
-                <option><?=$saidadetentos["origem"]?></option>
+              <label>Origem</label><!-- Origem alterada para ficar de acordo com documentação, versão antiga estava com os options errados-->
+                <select class="form-control" style="width: 250px" name="origem"  value=" <?= isset($saidadetentos) ? $saidadetentos["origem"] : "" ?>"><!-- 'name=' adicionado-->
                   <option>CP de Altinho</option>
                   <option>CP de Bom Conselho</option> 
                   <option>CP de Carpina</option>
@@ -302,10 +290,7 @@
 
             <div class="form-group"> <!--Documentação-->
                 <label>Documentação</label>
-                 
-            <?php if(isset($saidadetentos)): ?>    
-                <select class="form-control" style="width: 230px" name="documentacao"  ><!-- 'name=' adicionado-->
-                <option><?=$saidadetentos["documentacao"]?></option>
+                <select class="form-control" style="width: 230px" name="documentacao"  value=" <?= isset($saidadetentos) ? $saidadetentos["documentacao"] : "" ?>"><!-- 'name=' adicionado-->
                   <option>ALVARÁ DE SOLTURA</option>
                   <option>CI - TRANSFERÊNCIA</option>
                   <option>FIM DA PRISÃO TEMPORÁRIA</option>

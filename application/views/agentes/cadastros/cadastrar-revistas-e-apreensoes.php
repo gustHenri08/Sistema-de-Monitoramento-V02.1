@@ -174,15 +174,12 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box" style="margin-bottom: 20px;">
-          
-            <form method="post" action="<?= base_url() ?>index.php/ocorrencias/cadastrorevista/">   <!-- Chama a funtion de edição e para o id que será editado --> 
+            <div class="box-header">
+              <h4>CP de Petrolina</h4> <!-- "&#160" se referem a dar um espaçamento no texto-->
+              
+              <button class="btn btn-primary btn-xs pull-right">Registrar</button>
 
-            <div class="form-group">
-          	
-          		<input type="hidden" required="required" class="form-control" name="cadeiapublica" placeholder="Matricula" value="<?= isset($agentes) ? ($this->session->userdata("unidadeprisional")) : ($this->session->userdata("unidadeprisional"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
-          	</div>
-            
-
+            </div>
             <div class="box-body">
               <table id="tabela" class="table table-bordered table-hover">
                 <thead>
@@ -191,72 +188,65 @@
                     <th>Quantidade</th>
                     <th>Itens Apreendidos</th>
                     <th>Quantidade</th>
-                    <th><button class="btn btn-primary btn-xs pull-right">Registrar</button></th>
-                   <!--Botão Cadastrar-->
-            <th> 
-             <a href="<?php echo site_url('Home/registroOcorrencias'); ?>" 
-            class="btn btn-danger btn-xs pull-right">Voltar</a> </th><!--Botão atualizado pq não estav fazendo o 'submit'-->
-           
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>Armas artesanais - Branca</td>
-                    <td><input type="text" class="form-control" name="armasbranca" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                     <td>Chips de celular</td>
-                    <td><input type="text" class="form-control" name="chips" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                   </tr>
                   <tr>
                     <td>Armas artesanais - Fogo</td>
-                    <td><input type="text" class="form-control" name="armasfogo" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                     <td>Cocaína</td>
-                    <td><input type="text" class="form-control" name="coca" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
                   </tr>
                     <tr>
                     <td>Armas industriais - Branca</td>
-                    <td><input type="text" class="form-control" name="armasbranca2" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                     <td>Cola de sapateiro</td>
-                    <td><input type="text" class="form-control" name="cola" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
                   </tr>
                   <tr>
                     <td>Armas industriais - Fogo</td>
-                    <td><input type="text" class="form-control" name="armasfogo2" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                     <td>Corda artesanal</td>
-                    <td><input type="text" class="form-control" name="corda" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                   </tr>
                   <tr>
                     <td>Bateria de celular</td>
-                    <td><input type="text" class="form-control" name="bateria" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                     <td>Crack</td>
-                    <td><input type="text" class="form-control" name="crack" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
                   </tr>
                   <tr>
                     <td>Bebida artesanal</td>
-                    <td><input type="text" class="form-control" name="bebida" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                     <td>Maconha</td>
-                    <td><input type="text" class="form-control" name="maconha" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
                   </tr>
                     <tr>
                     <td>Bebida industrial</td>
-                    <td><input type="text" class="form-control" name="bebida2" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                     <td>Medicação Psicotrópicos</td>
-                    <td><input type="text" class="form-control" name="medicacao" placeholder="Gramas" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Gramas" style="width:100px " maxlength="10"></td>
                   </tr>
                   <tr>
                     <td>Carregador celular</td>
-                    <td><input type="text" class="form-control" name="carregador" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                     <td>Munições</td>
-                    <td><input type="text" class="form-control" name="municao" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                   </tr>
                   <tr>
                     <td>Celular</td>
-                    <td><input type="text" class="form-control" name="celular" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                     <td>Outro</td>
-                    <td><input type="text" class="form-control" name="outro" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
+                    <td><input type="text" class="form-control" name="resumoentrada" placeholder="Quantidade" style="width:100px " maxlength="10"></td>
                   </tr>
                 </tbody>  
               </table>
-              </form>
             </div>      
           </div>
           <!-- /.box -->
@@ -271,9 +261,9 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.18
+      
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    <strong>Copyright &copy; 2020 Fábrica de Software.</strong> All rights
     reserved.
   </footer>
 
