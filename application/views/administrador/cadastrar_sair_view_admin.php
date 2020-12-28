@@ -277,8 +277,8 @@
                 
             <?php if(isset($saidadetentos)): ?>    
                 <select class="form-control" style="width: 250px" name="motivo"  ><!-- 'name=' adicionado-->
-                <option><?=$saidadetentos["motivo"]?></option>
-                  <option>Alvára De Soltura </option>
+                  <option><?=$saidadetentos["motivo"]?></option>
+                  <option>Alvará De Soltura </option>
                   <option>Evasão</option>           
                   <option>Fim De Prazo Da Prisão civil</option>
                   <option>Fim De Prazo Da Prisão Temporária</option>
@@ -287,7 +287,7 @@
                   <option>Óbito</option>
                   <option>Progressão De Regime</option>
                   <option>Liberdade Condicional</option>
-                  <option> Prisão Domiciliar</option>
+                  <option>Prisão Domiciliar</option>
                   <option>Transferência P/ CP</option>
                   <option>Transferência P/ UF</option>
                   <option>Transferência P/ UP</option>
@@ -297,7 +297,7 @@
                 <?php else: ?>
                   <select class="form-control" style="width: 250px" name="motivo"  ><!-- 'name=' adicionado-->
        
-                  <option>Alvára De Soltura </option>
+                  <option>Alvará De Soltura </option>
                   <option>Evasão</option>           
                   <option>Fim De Prazo Da Prisão civil</option>
                   <option>Fim De Prazo Da Prisão Temporária</option>
@@ -306,7 +306,7 @@
                   <option>Óbito</option>
                   <option>Progressão De Regime</option>
                   <option>Liberdade Condicional</option>
-                  <option> Prisão Domiciliar</option>
+                  <option>Prisão Domiciliar</option>
                   <option>Transferência P/ CP</option>
                   <option>Transferência P/ UF</option>
                   <option>Transferência P/ UP</option>
@@ -353,20 +353,19 @@
                  
             <?php if(isset($saidadetentos)): ?>    
                 <select class="form-control" style="width: 230px" name="documentacao"  ><!-- 'name=' adicionado-->
-                <option><?=$saidadetentos["documentacao"]?></option>
-                  <option>ALVARÁ DE SOLTURA</option>
-                  <option>CI - TRANSFERÊNCIA</option>
-                  <option>FIM DA PRISÃO TEMPORÁRIA</option>
+                  <option><?=$saidadetentos["documentacao"]?></option>
+                  <option>Alvará de Soltura</option>
+                  <option>CI - Transferência</option>
+                  <option>Fim da Prisão Temporária</option>
                   <option>Ofício de Transferência</option>
                   <option>Prisão Temporária</option>
                   <option>Outro</option>
                 </select>
                 <?php else: ?>
                 <select class="form-control" style="width: 230px" name="documentacao"  ><!-- 'name=' adicionado-->
-            
-                  <option>ALVARÁ DE SOLTURA</option>
-                  <option>CI - TRANSFERÊNCIA</option>
-                  <option>FIM DA PRISÃO TEMPORÁRIA</option>
+                  <option>Alvará de Soltura</option>
+                  <option>CI - Transferência</option>
+                  <option>Fim da Prisão Temporária</option>
                   <option>Ofício de Transferência</option>
                   <option>Prisão Temporária</option>
                   <option>Outro</option>
