@@ -621,8 +621,8 @@
                     getEntrada_VALUES[2] = data.mandadoPrisPrevCount.MOT_ENT_COUNT;
                     getEntrada_VALUES[3] = data.mandadoPrisTempCount.MOT_ENT_COUNT;
                     getEntrada_VALUES[4] = data.mandadoRecolhimentoCount.MOT_ENT_COUNT;
-                    getEntrada_VALUES[6] = data.recapturaCount.MOT_ENT_COUNT;
-                    getEntrada_VALUES[5] = data.transferenciaCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[5] = data.recapturaCount.MOT_ENT_COUNT;
+                    getEntrada_VALUES[6] = data.transferenciaCount.MOT_ENT_COUNT;
                     getEntrada_VALUES[7] = data.transito2Count.MOT_ENT_COUNT;
                     getEntrada_VALUES[8] = data.outros2Count.MOT_ENT_COUNT;
                     

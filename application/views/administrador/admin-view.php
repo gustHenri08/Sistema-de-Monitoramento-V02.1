@@ -230,30 +230,21 @@
 
           <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-5">
+            <div class="col-md-10">
               <h3>Motivo de Saída de Presos</h3>
-              <div class="col-sm-8">
-                <div id="example1_filter" class="dataTables_filter">
-                  <label>Procurar Núcleo:  
-                    <select class="form-control" style="width: 200px" name="nucleo">
-                      <option>Arcoverde</option>
-                      <option>Caruaru</option>
-                      <option>Garanhuns</option>
-                      <option>Lagoa</option>
-                      <option>Petrolina</option>
-                      <option>Salgueiro</option>
-                    </select>
-                  </label>
-                </div>
-              </div>
-              <canvas class="doughnut-chart2"></canvas>
+              <canvas class="bar-chart3"></canvas>
+              <canvas class="bar-chart4">></canvas>
             </div>
-            <div class="col-md-5">
-              <h3>Motivo de Autorização de Saída de Presos</h3>
-              <canvas id="chart-legend-bottom" class="doughnut-chart3"></canvas>
-            </div>  
-            <div class="col-md-1"></div>      
+            <div class="col-md-1"></div>
           </div>
+          <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-10">
+                <h3>Motivo de Autorização de Saída de Presos</h3>
+                <canvas class="bar-chart5"></canvas>
+              </div>  
+              <div class="col-md-1"></div>
+            </div>
 
 
           
@@ -689,53 +680,575 @@
             </script>        
             
             <script>
-            var ctx = document.getElementsByClassName("doughnut-chart3");
+            var ctx = document.getElementsByClassName("bar-chart5");
+            var getAutSaidaArcoverde_VALUES = [0,0,0,0,0,0,0,0];
+            var getAutSaidaCaruaru_VALUES = [0,0,0,0,0,0,0,0];
+            var getAutSaidaGaranhuns_VALUES = [0,0,0,0,0,0,0,0];
+            var getAutSaidaLagoa_VALUES = [0,0,0,0,0,0,0,0];
+            var getAutSaidaPetrolina_VALUES = [0,0,0,0,0,0,0,0];
+            var getAutSaidaSalgueiro_VALUES = [0,0,0,0,0,0,0,0];
 
-            var chartGraph = new Chart(ctx, {
-                type: 'doughnut',
+            var getAutSaidaAdmin_chartGraph = new Chart(ctx, {
+                type: 'bar',
                 data:{
                   labels: ["Audiência Presencial","Consulta Médica","Consulta Odontológica","Emergência","Escolta Funeral","Exames Complexos","Exames Laboratoriais","Internação Hospitalar","Outros"],
                   datasets:[
-                    { label:"Entrada de Presos",
-                      //*Número de presos por Núcleo*//
-                      data:[50,300,210,300,400,500,600,700,800],
-                      backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)"],
-                      borderColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)"],
-                      borderWidth:2
-                      },
+                    { label:"Núcleo Arco-Verde",
+                        //*Número de presos por Núcleo*//
+                        data: getAutSaidaArcoverde_VALUES,
+                        backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
+                        borderColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Caruaru",
+                        //*Número de presos por Núcleo*//
+                        data: getAutSaidaCaruaru_VALUES,
+                        backgroundColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
+                        borderColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Garanhuns",
+                        //*Número de presos por Núcleo*//
+                        data: getAutSaidaGaranhuns_VALUES,
+                        backgroundColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
+                        borderColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)",],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Lagoa",
+                        //*Número de presos  no Núcleo*//
+                        data: getAutSaidaLagoa_VALUES,
+                        backgroundColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
+                        borderColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Petrolina",
+                        //*Número de presos por Núcleo*//
+                        data:getAutSaidaPetrolina_VALUES,
+                        backgroundColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
+                        borderColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Salgueiro",
+                        //*Número de presos por Núcleo*//
+                        data: getAutSaidaSalgueiro_VALUES,
+                        backgroundColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                        borderColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                        borderWidth:2
+                        },
+                      
                     ],
                   },
                   options:{
-                    legend:{
-                      position: 'left'
-                    }
+                    scales: {
+                        yAxes: [{
+                          scaleLabel: {
+                            display: true,
+                            labelString: 'Número de Autorizações'
+                          }
+                        }],
+                        xAxes:[{
+                          scaleLabel:{
+                            fontColor: 'black',
+                            display: true,
+                            labelString: 'Motivos'
+                          },
+                          ticks: {
+                          suggestedMin: 0,
+                          beginAtZero: true
+                         }
+                        }]
+                      }
+                    
+                  
                   }
                 });
+                async function chart_getAutSaidaArcoverde() {
+                    const blob = await fetch("<?php echo site_url('Chart/getAutorizaSaidaArcoverde'); ?>");
+                    const data = await blob.json();
+
+                    getAutSaidaArcoverde_VALUES[0] = data.audienciaCountArcoverde.AUT_AUD_COUNT;
+                    getAutSaidaArcoverde_VALUES[1] = data.consultaMedCountArcoverde.AUT_AUD_COUNT;
+                    getAutSaidaArcoverde_VALUES[2] = data.consultaOdontoCountArcoverde.AUT_AUD_COUNT;
+                    getAutSaidaArcoverde_VALUES[3] = data.EmergenciaCountArcoverde.AUT_AUD_COUNT;
+                    getAutSaidaArcoverde_VALUES[4] = data.EscoltaFunCountArcoverde.AUT_AUD_COUNT;
+                    getAutSaidaArcoverde_VALUES[5] = data.ExamesComplexCountArcoverde.AUT_AUD_COUNT;
+                    getAutSaidaArcoverde_VALUES[6] = data.ExamesLaboratorCountArcoverde.AUT_AUD_COUNT;
+                    getAutSaidaArcoverde_VALUES[7] = data.outros3CountArcoverde.AUT_AUD_COUNT;
+                    getAutSaidaAdmin_chartGraph.update();
+                }
+                chart_getAutSaidaArcoverde();
+
+                async function chart_getAutSaidaCaruaru() {
+                    const blob = await fetch("<?php echo site_url('Chart/getAutorizaSaidaCaruaru'); ?>");
+                    const data = await blob.json();
+
+                    getAutSaidaCaruaru_VALUES[0] = data.audienciaCountCaruaru.AUT_AUD_COUNT;
+                    getAutSaidaCaruaru_VALUES[1] = data.consultaMedCounCaruaru.AUT_AUD_COUNT;
+                    getAutSaidaCaruaru_VALUES[2] = data.consultaOdontoCountCaruaru.AUT_AUD_COUNT;
+                    getAutSaidaCaruaru_VALUES[3] = data.EmergenciaCountCaruaru.AUT_AUD_COUNT;
+                    getAutSaidaCaruaru_VALUES[4] = data.EscoltaFunCountCaruaru.AUT_AUD_COUNT;
+                    getAutSaidaCaruaru_VALUES[5] = data.ExamesComplexCountCaruaru.AUT_AUD_COUNT;
+                    getAutSaidaCaruaru_VALUES[6] = data.ExamesLaboratorCountCaruaru.AUT_AUD_COUNT;
+                    getAutSaidaCaruaru_VALUES[7] = data.outros3CountCaruaru.AUT_AUD_COUNT;
+                    getAutSaidaAdmin_chartGraph.update();
+
+                }
+                chart_getAutSaidaCaruaru();
+
+                async function chart_getAutSaidaGaranhuns() {
+                    const blob = await fetch("<?php echo site_url('Chart/getAutorizaSaidaGaranhuns'); ?>");
+                    const data = await blob.json();
+
+                    getAutSaidaGaranhuns_VALUES[0] = data.audienciaCountGaranhuns.AUT_AUD_COUNT;
+                    getAutSaidaGaranhuns_VALUES[1] = data.consultaMedCounGaranhuns.AUT_AUD_COUNT;
+                    getAutSaidaGaranhuns_VALUES[2] = data.consultaOdontoCountGaranhuns.AUT_AUD_COUNT;
+                    getAutSaidaGaranhuns_VALUES[3] = data.EmergenciaCountGaranhuns.AUT_AUD_COUNT;
+                    getAutSaidaGaranhuns_VALUES[4] = data.EscoltaFunCountGaranhuns.AUT_AUD_COUNT;
+                    getAutSaidaGaranhuns_VALUES[5] = data.ExamesComplexCountGaranhuns.AUT_AUD_COUNT;
+                    getAutSaidaGaranhuns_VALUES[6] = data.ExamesLaboratorCountGaranhuns.AUT_AUD_COUNT;
+                    getAutSaidaGaranhuns_VALUES[7] = data.outros3CountGaranhuns.AUT_AUD_COUNT;
+                    getAutSaidaAdmin_chartGraph.update();
+
+                }
+                chart_getAutSaidaGaranhuns();
+
+                async function chart_getAutSaidaLagoa() {
+                    const blob = await fetch("<?php echo site_url('Chart/getAutorizaSaidaLagoa'); ?>");
+                    const data = await blob.json();
+
+                    getAutSaidaLagoa_VALUES[0] = data.audienciaCountLagoa.AUT_AUD_COUNT;
+                    getAutSaidaLagoa_VALUES[1] = data.consultaMedCountLagoa.AUT_AUD_COUNT;
+                    getAutSaidaLagoa_VALUES[2] = data.consultaOdontoCountLagoa.AUT_AUD_COUNT;
+                    getAutSaidaLagoa_VALUES[3] = data.EmergenciaCountLagoa.AUT_AUD_COUNT;
+                    getAutSaidaLagoa_VALUES[4] = data.EscoltaFunCountLagoa.AUT_AUD_COUNT;
+                    getAutSaidaLagoa_VALUES[5] = data.ExamesComplexCountLagoa.AUT_AUD_COUNT;
+                    getAutSaidaLagoa_VALUES[6] = data.ExamesLaboratorCountLagoa.AUT_AUD_COUNT;
+                    getAutSaidaLagoa_VALUES[7] = data.outros3CountLagoa.AUT_AUD_COUNT;
+                    getAutSaidaAdmin_chartGraph.update();
+
+                }
+                chart_getAutSaidaLagoa();
+
+                async function chart_getAutSaidaPetrolina() {
+                    const blob = await fetch("<?php echo site_url('Chart/getAutorizaSaidaPetrolina'); ?>");
+                    const data = await blob.json();
+
+                    getAutSaidaPetrolina_VALUES[0] = data.audienciaCountPetrolina.AUT_AUD_COUNT;
+                    getAutSaidaPetrolina_VALUES[1] = data.consultaMedCountPetrolina.AUT_AUD_COUNT;
+                    getAutSaidaPetrolina_VALUES[2] = data.consultaOdontoCountPetrolina.AUT_AUD_COUNT;
+                    getAutSaidaPetrolina_VALUES[3] = data.EmergenciaCountPetrolina.AUT_AUD_COUNT;
+                    getAutSaidaPetrolina_VALUES[4] = data.EscoltaFunCountPetrolina.AUT_AUD_COUNT;
+                    getAutSaidaPetrolina_VALUES[5] = data.ExamesComplexCountPetrolina.AUT_AUD_COUNT;
+                    getAutSaidaPetrolina_VALUES[6] = data.ExamesLaboratorCountPetrolina.AUT_AUD_COUNT;
+                    getAutSaidaPetrolina_VALUES[7] = data.outros3CountPetrolina.AUT_AUD_COUNT;
+                    getAutSaidaAdmin_chartGraph.update();
+
+                }
+                chart_getAutSaidaPetrolina();
+
+                async function chart_getAutSaidaSalgueiro() {
+                    const blob = await fetch("<?php echo site_url('Chart/getAutorizaSaidaSalgueiro'); ?>");
+                    const data = await blob.json();
+
+                    getAutSaidaSalgueiro_VALUES[0] = data.audienciaCountSalgueiro.AUT_AUD_COUNT;
+                    getAutSaidaSalgueiro_VALUES[1] = data.consultaMedCountSalgueiro.AUT_AUD_COUNT;
+                    getAutSaidaSalgueiro_VALUES[2] = data.consultaOdontoCountSalgueiro.AUT_AUD_COUNT;
+                    getAutSaidaSalgueiro_VALUES[3] = data.EmergenciaCountSalgueiro.AUT_AUD_COUNT;
+                    getAutSaidaSalgueiro_VALUES[4] = data.EscoltaFunCountSalgueiro.AUT_AUD_COUNT;
+                    getAutSaidaSalgueiro_VALUES[5] = data.ExamesComplexCountSalgueiro.AUT_AUD_COUNT;
+                    getAutSaidaSalgueiro_VALUES[6] = data.ExamesLaboratorCountSalgueiro.AUT_AUD_COUNT;
+                    getAutSaidaSalgueiro_VALUES[7] = data.outros3CountSalgueiro.AUT_AUD_COUNT;
+                    getAutSaidaAdmin_chartGraph.update();
+
+                }
+                chart_getAutSaidaSalgueiro();
+
+                
           </script>       
           
           <script>
-            var ctx = document.getElementsByClassName("doughnut-chart2");
-
-            var chartGraph = new Chart(ctx, {
-                type: 'doughnut',
+            var ctx = document.getElementsByClassName("bar-chart3");
+            var getexitArcoverde_VALUES = [0,0,0,0,0,0,0,0,0];
+            var getexitCaruaru_VALUES = [0,0,0,0,0,0,0,0,0];
+            var getexitGaranhuns_VALUES = [0,0,0,0,0,0,0,0,0];
+            var getexitLagoa_VALUES = [0,0,0,0,0,0,0,0,0];
+            var getexitPetrolina_VALUES = [0,0,0,0,0,0,0,0,0];
+            var getexitSalgueiro_VALUES = [0,0,0,0,0,0,0,0,0];
+            var chart_getexit = new Chart(ctx, {
+                type: 'bar',
                 data:{
-                  labels: ["Alvará de Soltura","Delegacia","Domiciliar COVID","Evasão","Fim de Prazo da Prisão Civil","Fim de prazo da Prisão Temporária","Fuga","Harmonizado","Liberdade Condicional","Óbito","Óbito CVLI","Prisão Domicilar","Progressão de Regime","Transferência P/CP","Transferência P/UF","Transferência P/UP","Trânsito","Outros"],
+                  labels: ["Alvará de Soltura","Delegacia","Domiciliar COVID","Evasão","Fim de Prazo da Prisão Civil","Fim de prazo da Prisão Temporária","Fuga","Harmonizado","Liberdade Condicional"],
                   datasets:[
-                    { label:"Nome da CP",
+                    { label:"Núcleo de Arcoverde",
                       //*Número de presos por Núcleo*//
-                      data:[50,300,210,300,400,201,190,103,401,021,491,030,194,102,100,190,102,193],
-                      backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)","rgba(0, 0, 0, 10)","rgba(0, 0, 255, 10)","rgba(0, 191, 255, 10)","rgba(0, 0, 128, 10)","rgba(0, 255, 127, 10)","rgba(210,105,30,10)","rgba(75,0,130,10)","rgba(255,228,181,10)","rgba(238,232,170,10)"],
-                      borderColor:["rgba(255, 99, 132, 10)","rgba(255, 159, 64, 10)","rgba(255, 205, 86, 10)","rgba(75, 192, 192, 10)","rgba(54, 162, 235, 10)","rgba(153, 102, 255, 10)","rgba(255,20,14,10)","rgba(255,255,0,10)","rgba(139,0,139,10)","rgba(0, 0, 0, 10)","rgba(0, 0, 255, 10)","rgba(0, 191, 255, 10)","rgba(0, 0, 128, 10)","rgba(0, 255, 127, 10)","rgba(210,105,30,10)","rgba(75,0,130,10)","rgba(255,228,181,10)","rgba(238,232,170,10)"],
+                      data: getexitArcoverde_VALUES,
+                      backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
+                      borderColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
                       borderWidth:2
                       },
+                      {
+                      label:"Núcleo Caruaru",
+                        //*Número de presos por Núcleo*//
+                        data: getexitCaruaru_VALUES,
+                        backgroundColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
+                        borderColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Garanhuns",
+                        //*Número de presos por Núcleo*//
+                        data: getexitGaranhuns_VALUES,
+                        backgroundColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
+                        borderColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)",],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Lagoa",
+                        //*Número de presos  no Núcleo*//
+                        data: getexitLagoa_VALUES,
+                        backgroundColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
+                        borderColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Petrolina",
+                        //*Número de presos por Núcleo*//
+                        data:getexitPetrolina_VALUES,
+                        backgroundColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
+                        borderColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Salgueiro",
+                        //*Número de presos por Núcleo*//
+                        data: getexitSalgueiro_VALUES,
+                        backgroundColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                        borderColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                        borderWidth:2
+                        },
                     ],
                   },
                   options:{
-                    legend:{
-                      position: 'left'
+                      scales: {
+                        yAxes: [{
+                          scaleLabel: {
+                            display: true,
+                            labelString: 'Número de Saídas'
+                          }
+                        }],
+                        xAxes:[{
+                          scaleLabel:{
+                            fontColor: 'black',
+                            display: true,
+                            labelString: 'Motivos'
+                          },
+                          ticks: {
+                          suggestedMin: 0,
+                          beginAtZero: true
+                         }
+                        }]
+                      }
                     }
-                  }
                 });
+                async function chart_getexitArcoverde(){
+                  const blob = await fetch("<?php echo site_url('Chart/getexitArcoverde');?>");
+                  const data = await blob.json();
+
+                    getexitArcoverde_VALUES[0] = data.alvaraCountArcoverde.MOT_COUNT;
+                    getexitArcoverde_VALUES[1] = data.delegCountArcoverde.MOT_COUNT;
+                    getexitArcoverde_VALUES[2] = data.domicCountArcoverde.MOT_COUNT;
+                    getexitArcoverde_VALUES[3] = data.evasaoCountArcoverde.MOT_COUNT;
+                    getexitArcoverde_VALUES[4] = data.fimPrazoCivilCountArcoverde.MOT_COUNT;
+                    getexitArcoverde_VALUES[5] = data.fimPrazoTempCountArcoverde.MOT_COUNT;
+                    getexitArcoverde_VALUES[6] = data.fugaCountArcoverde.MOT_COUNT;
+                    getexitArcoverde_VALUES[7] = data.HarmCountArcoverde.MOT_COUNT;
+                    getexitArcoverde_VALUES[8] = data.condCountArcoverde.MOT_COUNT;
+                    chart_getexit.update();
+                }
+                chart_getexitArcoverde();
+
+                async function chart_getexitCaruaru(){
+                  const blob = await fetch("<?php echo site_url('Chart/getexitCaruaru');?>");
+                  const data = await blob.json();
+
+                    getexitCaruaru_VALUES[0] = data.alvaraCountCaruaru.MOT_COUNT;
+                    getexitCaruaru_VALUES[1] = data.delegCountCaruaru.MOT_COUNT;
+                    getexitCaruaru_VALUES[2] = data.domicCountCaruaru.MOT_COUNT;
+                    getexitCaruaru_VALUES[3] = data.evasaoCountCaruaru.MOT_COUNT;
+                    getexitCaruaru_VALUES[4] = data.fimPrazoCivilCountCaruaru.MOT_COUNT;
+                    getexitCaruaru_VALUES[5] = data.fimPrazoTempCountCaruaru.MOT_COUNT;
+                    getexitCaruaru_VALUES[6] = data.fugaCountCaruaru.MOT_COUNT;
+                    getexitCaruaru_VALUES[7] = data.HarmCountCaruaru.MOT_COUNT;
+                    getexitCaruaru_VALUES[8] = data.condCountCaruaru.MOT_COUNT;
+                    chart_getexit.update();
+                }
+                chart_getexitCaruaru();
+
+                async function chart_getexitGaranhuns(){
+                  const blob = await fetch("<?php echo site_url('Chart/getexitGaranhuns');?>");
+                  const data = await blob.json();
+
+                    getexitGaranhuns_VALUES[0] = data.alvaraCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns_VALUES[1] = data.delegCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns_VALUES[2] = data.domicCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns_VALUES[3] = data.evasaoCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns_VALUES[4] = data.fimPrazoCivilCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns_VALUES[5] = data.fimPrazoTempCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns_VALUES[6] = data.fugaCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns_VALUES[7] = data.HarmCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns_VALUES[8] = data.condCountGaranhuns.MOT_COUNT;
+                    chart_getexit.update();
+                }
+                chart_getexitGaranhuns();
+
+                async function chart_getexitLagoa(){
+                  const blob = await fetch("<?php echo site_url('Chart/getexitLagoa');?>");
+                  const data = await blob.json();
+
+                    getexitLagoa_VALUES[0] = data.alvaraCountLagoa.MOT_COUNT;
+                    getexitLagoa_VALUES[1] = data.delegCountLagoa.MOT_COUNT;
+                    getexitLagoa_VALUES[2] = data.domicCountLagoa.MOT_COUNT;
+                    getexitLagoa_VALUES[3] = data.evasaoCountLagoa.MOT_COUNT;
+                    getexitLagoa_VALUES[4] = data.fimPrazoCivilCountLagoa.MOT_COUNT;
+                    getexitLagoa_VALUES[5] = data.fimPrazoTempCountLagoa.MOT_COUNT;
+                    getexitLagoa_VALUES[6] = data.fugaCountLagoa.MOT_COUNT;
+                    getexitLagoa_VALUES[7] = data.HarmCountLagoa.MOT_COUNT;
+                    getexitLagoa_VALUES[8] = data.condCountLagoa.MOT_COUNT;
+                    chart_getexit.update();
+                }
+                chart_getexitLagoa();
+
+                async function chart_getexitPetrolina(){
+                  const blob = await fetch("<?php echo site_url('Chart/getexitPetrolina');?>");
+                  const data = await blob.json();
+
+                    getexitPetrolina_VALUES[0] = data.alvaraCountPetrolina.MOT_COUNT;
+                    getexitPetrolina_VALUES[1] = data.delegCountPetrolina.MOT_COUNT;
+                    getexitPetrolina_VALUES[2] = data.domicCountPetrolina.MOT_COUNT;
+                    getexitPetrolina_VALUES[3] = data.evasaoCountPetrolina.MOT_COUNT;
+                    getexitPetrolina_VALUES[4] = data.fimPrazoCivilCountPetrolina.MOT_COUNT;
+                    getexitPetrolina_VALUES[5] = data.fimPrazoTempCountPetrolina.MOT_COUNT;
+                    getexitPetrolina_VALUES[6] = data.fugaCountPetrolina.MOT_COUNT;
+                    getexitPetrolina_VALUES[7] = data.HarmCountPetrolina.MOT_COUNT;
+                    getexitPetrolina_VALUES[8] = data.condCountPetrolina.MOT_COUNT;
+                    chart_getexit.update();
+                }
+                chart_getexitPetrolina();
+
+                async function chart_getexitSalgueiro(){
+                  const blob = await fetch("<?php echo site_url('Chart/getexitSalgueiro');?>");
+                  const data = await blob.json();
+
+                    getexitSalgueiro_VALUES[0] = data.alvaraCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro_VALUES[1] = data.delegCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro_VALUES[2] = data.domicCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro_VALUES[3] = data.evasaoCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro_VALUES[4] = data.fimPrazoCivilCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro_VALUES[5] = data.fimPrazoTempCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro_VALUES[6] = data.fugaCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro_VALUES[7] = data.HarmCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro_VALUES[8] = data.condCountSalgueiro.MOT_COUNT;
+                    chart_getexit.update();
+                }
+                chart_getexitSalgueiro();
+
+
+                
+          </script>          
+
+          <script>
+            var ctx = document.getElementsByClassName("bar-chart4");
+            var getexitArcoverde2_VALUES = [0,0,0,0,0,0,0,0,0];
+            var getexitCaruaru2_VALUES = [0,0,0,0,0,0,0,0,0];
+            var getexitGaranhuns2_VALUES = [0,0,0,0,0,0,0,0,0];
+            var getexitLagoa2_VALUES = [0,0,0,0,0,0,0,0,0];
+            var getexitPetrolina2_VALUES = [0,0,0,0,0,0,0,0,0];
+            var getexitSalgueiro2_VALUES = [0,0,0,0,0,0,0,0,0];
+            var chart_getexit2 = new Chart(ctx, {
+                type: 'bar',
+                data:{
+                  labels: ["Óbito","Óbito CVLI","Prisão Domiciliar","Progressão de Regime","Transferência P/CP","Transferência P/UF","Transferência P/UP","Trânsito","Outros"],
+                  datasets:[
+                    { label:"Núcleo de Arcoverde",
+                      //*Número de presos por Núcleo*//
+                      data: getexitArcoverde2_VALUES,
+                      backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
+                      borderColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
+                      borderWidth:2
+                      },
+                      {
+                      label:"Núcleo Caruaru",
+                        //*Número de presos por Núcleo*//
+                        data: getexitCaruaru2_VALUES,
+                        backgroundColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
+                        borderColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Garanhuns",
+                        //*Número de presos por Núcleo*//
+                        data: getexitGaranhuns2_VALUES,
+                        backgroundColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
+                        borderColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)",],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Lagoa",
+                        //*Número de presos  no Núcleo*//
+                        data: getexitLagoa2_VALUES,
+                        backgroundColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
+                        borderColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Petrolina",
+                        //*Número de presos por Núcleo*//
+                        data:getexitPetrolina2_VALUES,
+                        backgroundColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
+                        borderColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
+                        borderWidth:2
+                        },
+                        {
+                        label:"Núcleo Salgueiro",
+                        //*Número de presos por Núcleo*//
+                        data: getexitSalgueiro2_VALUES,
+                        backgroundColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                        borderColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
+                        borderWidth:2
+                        },
+                    ],
+                  },
+                  options:{
+                      scales: {
+                        yAxes: [{
+                          scaleLabel: {
+                            display: true,
+                            labelString: 'Número de Saídas'
+                          }
+                        }],
+                        xAxes:[{
+                          scaleLabel:{
+                            fontColor: 'black',
+                            display: true,
+                            labelString: 'Motivos'
+                          },
+                          ticks: {
+                          suggestedMin: 0,
+                          beginAtZero: true
+                         }
+                        }]
+                      }
+                    }
+                });
+                async function chart_getexitArcoverde(){
+                  const blob = await fetch("<?php echo site_url('Chart/getexitArcoverde');?>");
+                  const data = await blob.json();
+
+                    getexitArcoverde2_VALUES[0] = data.obitoCountArcoverde.MOT_COUNT;
+                    getexitArcoverde2_VALUES[1] = data.obitoCVLICountArcoverde.MOT_COUNT;
+                    getexitArcoverde2_VALUES[2] = data.PrisaoDomiCountArcoverde.MOT_COUNT;
+                    getexitArcoverde2_VALUES[3] = data.ProgressRegimeCountArcoverde.MOT_COUNT;
+                    getexitArcoverde2_VALUES[4] = data.transfCpCountArcoverde.MOT_COUNT;
+                    getexitArcoverde2_VALUES[5] = data.transfUfCountArcoverde.MOT_COUNT;
+                    getexitArcoverde2_VALUES[6] = data.transfUpCountArcoverde.MOT_COUNT;
+                    getexitArcoverde2_VALUES[7] = data.transitoCountArcoverde.MOT_COUNT;
+                    getexitArcoverde2_VALUES[8] = data.outrosCountArcoverde.MOT_COUNT;
+                    chart_getexit2.update();
+                }
+                chart_getexitArcoverde();
+
+                async function chart_getexitCaruaru(){
+                  const blob = await fetch("<?php echo site_url('Chart/getexitCaruaru');?>");
+                  const data = await blob.json();
+
+                    getexitCaruaru2_VALUES[0] = data.obitoCountCaruaru.MOT_COUNT;
+                    getexitCaruaru2_VALUES[1] = data.obitoCVLICountCaruaru.MOT_COUNT;
+                    getexitCaruaru2_VALUES[2] = data.PrisaoDomiCountCaruaru.MOT_COUNT;
+                    getexitCaruaru2_VALUES[3] = data.ProgressRegimeCountCaruaru.MOT_COUNT;
+                    getexitCaruaru2_VALUES[4] = data.transfCpCountCaruaru.MOT_COUNT;
+                    getexitCaruaru2_VALUES[5] = data.transfUfCountCaruaru.MOT_COUNT;
+                    getexitCaruaru2_VALUES[6] = data.transfUpCountCaruaru.MOT_COUNT;
+                    getexitCaruaru2_VALUES[7] = data.transitoCountCaruaru.MOT_COUNT;
+                    getexitCaruaru2_VALUES[8] = data.outrosCountCaruaru.MOT_COUNT;
+                    chart_getexit2.update();
+                }
+                chart_getexitCaruaru();
+
+                async function chart_getexitGaranhuns(){
+                  const blob = await fetch("<?php echo site_url('Chart/getexitGaranhuns');?>");
+                  const data = await blob.json();
+
+                    getexitGaranhuns2_VALUES[0] = data.obitoCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns2_VALUES[1] = data.obitoCVLICountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns2_VALUES[2] = data.PrisaoDomiCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns2_VALUES[3] = data.ProgressRegimeCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns2_VALUES[4] = data.transfCpCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns2_VALUES[5] = data.transfUfCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns2_VALUES[6] = data.transfUpCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns2_VALUES[7] = data.transitoCountGaranhuns.MOT_COUNT;
+                    getexitGaranhuns2_VALUES[8] = data.outrosCountGaranhuns.MOT_COUNT;
+                    chart_getexit2.update();
+                }
+                chart_getexitGaranhuns();
+
+                async function chart_getexitLagoa(){
+                  const blob = await fetch("<?php echo site_url('Chart/getexitLagoa');?>");
+                  const data = await blob.json();
+
+                    getexitLagoa2_VALUES[0] = data.obitoCountLagoa.MOT_COUNT;
+                    getexitLagoa2_VALUES[1] = data.obitoCVLICountLagoa.MOT_COUNT;
+                    getexitLagoa2_VALUES[2] = data.PrisaoDomiCountLagoa.MOT_COUNT;
+                    getexitLagoa2_VALUES[3] = data.ProgressRegimeCountLagoa.MOT_COUNT;
+                    getexitLagoa2_VALUES[4] = data.transfCpCountLagoa.MOT_COUNT;
+                    getexitLagoa2_VALUES[5] = data.transfUfCountLagoa.MOT_COUNT;
+                    getexitLagoa2_VALUES[6] = data.transfUpCountLagoa.MOT_COUNT;
+                    getexitLagoa2_VALUES[7] = data.transitoCountLagoa.MOT_COUNT;
+                    getexitLagoa2_VALUES[8] = data.outrosCountLagoa.MOT_COUNT;
+                    chart_getexit2.update();
+                }
+                chart_getexitLagoa();
+
+                async function chart_getexitPetrolina(){
+                  const blob = await fetch("<?php echo site_url('Chart/getexitPetrolina');?>");
+                  const data = await blob.json();
+
+                    getexitPetrolina2_VALUES[0] = data.obitoCountPetrolina.MOT_COUNT;
+                    getexitPetrolina2_VALUES[1] = data.obitoCVLICountPetrolina.MOT_COUNT;
+                    getexitPetrolina2_VALUES[2] = data.PrisaoDomiCountPetrolina.MOT_COUNT;
+                    getexitPetrolina2_VALUES[3] = data.ProgressRegimeCountPetrolina.MOT_COUNT;
+                    getexitPetrolina2_VALUES[4] = data.transfCpCountPetrolina.MOT_COUNT;
+                    getexitPetrolina2_VALUES[5] = data.transfUfCountPetrolina.MOT_COUNT;
+                    getexitPetrolina2_VALUES[6] = data.transfUpCountPetrolina.MOT_COUNT;
+                    getexitPetrolina2_VALUES[7] = data.transitoCountPetrolina.MOT_COUNT;
+                    getexitPetrolina2_VALUES[8] = data.outrosCountPetrolina.MOT_COUNT;
+                    chart_getexit2.update();
+                }
+                chart_getexitPetrolina();
+
+                async function chart_getexitSalgueiro(){
+                  const blob = await fetch("<?php echo site_url('Chart/getexitSalgueiro');?>");
+                  const data = await blob.json();
+
+                    getexitSalgueiro2_VALUES[0] = data.obitoCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro2_VALUES[1] = data.obitoCVLICountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro2_VALUES[2] = data.PrisaoDomiCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro2_VALUES[3] = data.ProgressRegimeCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro2_VALUES[4] = data.transfCpCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro2_VALUES[5] = data.transfUfCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro2_VALUES[6] = data.transfUpCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro2_VALUES[7] = data.transitoCountSalgueiro.MOT_COUNT;
+                    getexitSalgueiro2_VALUES[8] = data.outrosCountSalgueiro.MOT_COUNT;
+                    chart_getexit2.update();
+                }
+                chart_getexitSalgueiro();
+
+
+                
           </script>          
 
 <!--Font Awesome My Link-->
