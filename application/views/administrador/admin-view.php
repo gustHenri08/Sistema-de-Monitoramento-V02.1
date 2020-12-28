@@ -497,15 +497,22 @@
 
 <script>
               var ctx = document.getElementsByClassName("bar-chart2");
+              var getEntradaArcoverde_VALUES = [0,0,0,0,0,0,0,0,0];
+              var getEntradaCaruaru_VALUES = [0,0,0,0,0,0,0,0,0];
+              var getEntradaGaranhuns_VALUES = [0,0,0,0,0,0,0,0,0];             
+              var getEntradaLagoa_VALUES = [0,0,0,0,0,0,0,0,0];
+              var getEntradaPetrolina_VALUES = [0,0,0,0,0,0,0,0,0];
+              var getEntradaSalgueiro_VALUES = [0,0,0,0,0,0,0,0,0];
 
-              var chartGraph = new Chart(ctx, {
+
+              var chart_getEntrada = new Chart(ctx, {
                   type: 'bar',
                   data:{
                     labels: ["Expiração de Prazo","Mandado de Prisão Civil","Mandado de Prisão Preventiva","Mandado de Prisão Temporária","Mandado de Recolhimento","Recaptura - Mandado de Prisão","Tansferência","Trânsito","Outros"],
                     datasets:[
                       { label:"Núcleo Arco-Verde",
                         //*Número de presos por Núcleo*//
-                        data:[50,300,210,300,400,500,600,700,800,900,1000],
+                        data: getEntradaArcoverde_VALUES,
                         backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
                         borderColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
                         borderWidth:2
@@ -513,7 +520,7 @@
                         {
                         label:"Núcleo Caruaru",
                         //*Número de presos por Núcleo*//
-                        data:[55,250,250,350,450,550,650,750,850,950,1050],
+                        data: getEntradaCaruaru_VALUES,
                         backgroundColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
                         borderColor:["rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)","rgba(255, 159, 64, 10)"],
                         borderWidth:2
@@ -521,7 +528,7 @@
                         {
                         label:"Núcleo Garanhuns",
                         //*Número de presos por Núcleo*//
-                        data:[60,200,450,350,450,550,650,750,850,950,1050],
+                        data: getEntradaGaranhuns_VALUES,
                         backgroundColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)"],
                         borderColor:["rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)","rgba(255, 205, 86, 10)",],
                         borderWidth:2
@@ -529,7 +536,7 @@
                         {
                         label:"Núcleo Lagoa",
                         //*Número de presos  no Núcleo*//
-                        data:[65,150,200,350,450,550,650,750,850,950,1050],
+                        data: getEntradaLagoa_VALUES,
                         backgroundColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
                         borderColor:["rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)","rgba(75, 192, 192, 10)"],
                         borderWidth:2
@@ -537,7 +544,7 @@
                         {
                         label:"Núcleo Petrolina",
                         //*Número de presos por Núcleo*//
-                        data:[70,100,150,350,450,550,650,750,850,950,1050],
+                        data:getEntradaPetrolina_VALUES,
                         backgroundColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
                         borderColor:["rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)","rgba(54, 162, 235, 10)"],
                         borderWidth:2
@@ -545,7 +552,7 @@
                         {
                         label:"Núcleo Salgueiro",
                         //*Número de presos por Núcleo*//
-                        data:[75,50,250,350,450,550,650,750,850,950,1050],
+                        data: getEntradaSalgueiro_VALUES,
                         backgroundColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
                         borderColor:["rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)","rgba(153, 102, 255, 10)"],
                         borderWidth:2
@@ -570,7 +577,115 @@
                       }
                     }
                   });
-                  
+                  async function chart_getEntradaArcoverde() {
+                    const blob = await fetch("<?php echo site_url('chart/getEntradaArcoverde'); ?>");
+                    const data = await blob.json();
+
+                    getEntradaArcoverde_VALUES[0] = data.expiraPrazoCountArcoverde.MOT_ENT_COUNT;
+                    getEntradaArcoverde_VALUES[1] = data.mandadoPrisCivilCountArcoverde.MOT_ENT_COUNT;
+                    getEntradaArcoverde_VALUES[2] = data.mandadoPrisPrevCountArcoverde.MOT_ENT_COUNT;
+                    getEntradaArcoverde_VALUES[3] = data.mandadoPrisTempCountArcoverde.MOT_ENT_COUNT;
+                    getEntradaArcoverde_VALUES[4] = data.mandadoRecolhimentoCountArcoverde.MOT_ENT_COUNT;
+                    getEntradaArcoverde_VALUES[6] = data.recapturaCountArcoverde.MOT_ENT_COUNT;
+                    getEntradaArcoverde_VALUES[5] = data.transferenciaCountArcoverde.MOT_ENT_COUNT;
+                    getEntradaArcoverde_VALUES[7] = data.transito2CountArcoverde.MOT_ENT_COUNT;
+                    getEntradaArcoverde_VALUES[8] = data.outros2CountArcoverde.MOT_ENT_COUNT;
+                    
+                    chart_getEntrada.update();
+                }
+                chart_getEntradaArcoverde();
+
+                async function chart_getEntradaCaruaru() {
+                    const blob = await fetch("<?php echo site_url('chart/getEntradaCaruaru'); ?>");
+                    const data = await blob.json();
+
+                    getEntradaCaruaru_VALUES[0] = data.expiraPrazoCountCaruaru.MOT_ENT_COUNT;
+                    getEntradaCaruaru_VALUES[1] = data.mandadoPrisCivilCountCaruaru.MOT_ENT_COUNT;
+                    getEntradaCaruaru_VALUES[2] = data.mandadoPrisPrevCountCaruaru.MOT_ENT_COUNT;
+                    getEntradaCaruaru_VALUES[3] = data.mandadoPrisTempCountCaruaru.MOT_ENT_COUNT;
+                    getEntradaCaruaru_VALUES[4] = data.mandadoRecolhimentoCountCaruaru.MOT_ENT_COUNT;
+                    getEntradaCaruaru_VALUES[6] = data.recapturaCountCaruaru.MOT_ENT_COUNT;
+                    getEntradaCaruaru_VALUES[5] = data.transferenciaCountCaruaru.MOT_ENT_COUNT;
+                    getEntradaCaruaru_VALUES[7] = data.transito2CountCaruaru.MOT_ENT_COUNT;
+                    getEntradaCaruaru_VALUES[8] = data.outros2CountCaruaru.MOT_ENT_COUNT;
+                    
+                    chart_getEntrada.update();
+                }
+                chart_getEntradaCaruaru();
+
+                async function chart_getEntradaGaranhuns() {
+                    const blob = await fetch("<?php echo site_url('chart/getEntradaGaranhuns'); ?>");
+                    const data = await blob.json();
+
+                    getEntradaGaranhuns_VALUES[0] = data.expiraPrazoCountGaranhuns.MOT_ENT_COUNT;
+                    getEntradaGaranhuns_VALUES[1] = data.mandadoPrisCivilCountGaranhuns.MOT_ENT_COUNT;
+                    getEntradaGaranhuns_VALUES[2] = data.mandadoPrisPrevCountGaranhuns.MOT_ENT_COUNT;
+                    getEntradaGaranhuns_VALUES[3] = data.mandadoPrisTempCountGaranhuns.MOT_ENT_COUNT;
+                    getEntradaGaranhuns_VALUES[4] = data.mandadoRecolhimentoCountGaranhuns.MOT_ENT_COUNT;
+                    getEntradaGaranhuns_VALUES[6] = data.recapturaCountGaranhuns.MOT_ENT_COUNT;
+                    getEntradaGaranhuns_VALUES[5] = data.transferenciaCountGaranhuns.MOT_ENT_COUNT;
+                    getEntradaGaranhuns_VALUES[7] = data.transito2CountGaranhuns.MOT_ENT_COUNT;
+                    getEntradaGaranhuns_VALUES[8] = data.outros2CountGaranhuns.MOT_ENT_COUNT;
+                    
+                    chart_getEntrada.update();
+                }
+                chart_getEntradaGaranhuns();
+
+                async function chart_getEntradaLagoa() {
+                    const blob = await fetch("<?php echo site_url('chart/getEntradaLagoa'); ?>");
+                    const data = await blob.json();
+
+                    getEntradaLagoa_VALUES[0] = data.expiraPrazoCountLagoa.MOT_ENT_COUNT;
+                    getEntradaLagoa_VALUES[1] = data.mandadoPrisCivilCountLagoa.MOT_ENT_COUNT;
+                    getEntradaLagoa_VALUES[2] = data.mandadoPrisPrevCountLagoa.MOT_ENT_COUNT;
+                    getEntradaLagoa_VALUES[3] = data.mandadoPrisTempCountLagoa.MOT_ENT_COUNT;
+                    getEntradaLagoa_VALUES[4] = data.mandadoRecolhimentoCountLagoa.MOT_ENT_COUNT;
+                    getEntradaLagoa_VALUES[6] = data.recapturaCountLagoa.MOT_ENT_COUNT;
+                    getEntradaLagoa_VALUES[5] = data.transferenciaCountLagoa.MOT_ENT_COUNT;
+                    getEntradaLagoa_VALUES[7] = data.transito2CountLagoa.MOT_ENT_COUNT;
+                    getEntradaLagoa_VALUES[8] = data.outros2CountLagoa.MOT_ENT_COUNT;
+                    
+                    chart_getEntrada.update();
+                }
+                chart_getEntradaLagoa();
+
+
+
+                async function chart_getEntradaPetrolina() {
+                    const blob = await fetch("<?php echo site_url('chart/getEntradaPetrolina'); ?>");
+                    const data = await blob.json();
+
+                    getEntradaPetrolina_VALUES[0] = data.expiraPrazoCountPetrolina.MOT_ENT_COUNT;
+                    getEntradaPetrolina_VALUES[1] = data.mandadoPrisCivilCountPetrolina.MOT_ENT_COUNT;
+                    getEntradaPetrolina_VALUES[2] = data.mandadoPrisPrevCountPetrolina.MOT_ENT_COUNT;
+                    getEntradaPetrolina_VALUES[3] = data.mandadoPrisTempCountPetrolina.MOT_ENT_COUNT;
+                    getEntradaPetrolina_VALUES[4] = data.mandadoRecolhimentoCountPetrolina.MOT_ENT_COUNT;
+                    getEntradaPetrolina_VALUES[6] = data.recapturaCountPetrolina.MOT_ENT_COUNT;
+                    getEntradaPetrolina_VALUES[5] = data.transferenciaCountPetrolina.MOT_ENT_COUNT;
+                    getEntradaPetrolina_VALUES[7] = data.transito2CountPetrolina.MOT_ENT_COUNT;
+                    getEntradaPetrolina_VALUES[8] = data.outros2CountPetrolina.MOT_ENT_COUNT;
+                    
+                    chart_getEntrada.update();
+                }
+                chart_getEntradaPetrolina();
+
+                async function chart_getEntradaSalgueiro() {
+                    const blob = await fetch("<?php echo site_url('chart/getEntradaSalgueiro'); ?>");
+                    const data = await blob.json();
+
+                    getEntradaSalgueiro_VALUES[0] = data.expiraPrazoCountSalgueiro.MOT_ENT_COUNT;
+                    getEntradaSalgueiro_VALUES[1] = data.mandadoPrisCivilCountSalgueiro.MOT_ENT_COUNT;
+                    getEntradaSalgueiro_VALUES[2] = data.mandadoPrisPrevCountSalgueiro.MOT_ENT_COUNT;
+                    getEntradaSalgueiro_VALUES[3] = data.mandadoPrisTempCountSalgueiro.MOT_ENT_COUNT;
+                    getEntradaSalgueiro_VALUES[4] = data.mandadoRecolhimentoCountSalgueiro.MOT_ENT_COUNT;
+                    getEntradaSalgueiro_VALUES[6] = data.recapturaCountSalgueiro.MOT_ENT_COUNT;
+                    getEntradaSalgueiro_VALUES[5] = data.transferenciaCountSalgueiro.MOT_ENT_COUNT;
+                    getEntradaSalgueiro_VALUES[7] = data.transito2CountSalgueiro.MOT_ENT_COUNT;
+                    getEntradaSalgueiro_VALUES[8] = data.outros2CountSalgueiro.MOT_ENT_COUNT;
+                    
+                    chart_getEntrada.update();
+                }
+                chart_getEntradaSalgueiro();
             </script>        
             
             <script>

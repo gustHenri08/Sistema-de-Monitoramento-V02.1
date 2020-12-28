@@ -216,5 +216,155 @@ class Chart extends REST_Controller {
             ]
         , REST_Controller::HTTP_OK);
     }
+    
+    public function getEntradaArcoverde_get() {
+        $expiraPrazoCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Expiração de Prazo' and nucleo = 'Arcoverde'")->row_array();
+        $mandadoPrisCivilCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Civil' and nucleo = 'Arcoverde'")->row_array();
+        $mandadoPrisPrevCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Preventiva' and nucleo = 'Arcoverde'")->row_array();
+        $mandadoPrisTempCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Temporária' and nucleo = 'Arcoverde'")->row_array();
+        $mandadoRecolhimentoCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Recolhimento' and nucleo = 'Arcoverde'")->row_array();
+        $recapturaCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Recaptura - Mandado de Prisão' and nucleo = 'Arcoverde'")->row_array();
+        $transferenciaCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Transferência' and nucleo = 'Arcoverde'")->row_array();
+        $transito2CountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito' and nucleo = 'Arcoverde'")->row_array();
+        $outros2CountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros' and nucleo = 'Arcoverde'")->row_array();
+        $this->response(
+            (object) [
+                'expiraPrazoCountArcoverde' => $expiraPrazoCountArcoverde, 
+                'mandadoPrisCivilCountArcoverde' => $mandadoPrisCivilCountArcoverde,
+                'mandadoPrisPrevCountArcoverde' => $mandadoPrisPrevCountArcoverde,
+                'mandadoPrisTempCountArcoverde' => $mandadoPrisTempCountArcoverde,
+                'mandadoRecolhimentoCountArcoverde' => $mandadoRecolhimentoCountArcoverde,
+                'recapturaCountArcoverde' => $recapturaCountArcoverde, 
+                'transferenciaCountArcoverde' => $transferenciaCountArcoverde,
+                'transito2CountArcoverde' => $transito2CountArcoverde,
+                'outros2CountArcoverde' => $outros2CountArcoverde
+            ]
+        , REST_Controller::HTTP_OK);
+    }
+
+    public function getEntradaCaruaru_get() {
+        $expiraPrazoCountCaruaru = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Expiração de Prazo' and nucleo = 'Caruaru'")->row_array();
+        $mandadoPrisCivilCountCaruaru = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Civil' and nucleo = 'Caruaru'")->row_array();
+        $mandadoPrisPrevCountCaruaru = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Preventiva' and nucleo = 'Caruaru'")->row_array();
+        $mandadoPrisTempCountCaruaru = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Temporária' and nucleo = 'Caruaru'")->row_array();
+        $mandadoRecolhimentoCountCaruaru = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Recolhimento' and nucleo = 'Caruaru'")->row_array();
+        $recapturaCountCaruaru = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Recaptura - Mandado de Prisão' and nucleo = 'Caruaru'")->row_array();
+        $transferenciaCountCaruaru = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Transferência' and nucleo = 'Caruaru'")->row_array();
+        $transito2CountCaruaru = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito' and nucleo = 'Caruaru'")->row_array();
+        $outros2CountCaruaru = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros' and nucleo = 'Caruaru'")->row_array();
+        $this->response(
+            (object) [
+                'expiraPrazoCountCaruaru' => $expiraPrazoCountCaruaru, 
+                'mandadoPrisCivilCountCaruaru' => $mandadoPrisCivilCountCaruaru,
+                'mandadoPrisPrevCountCaruaru' => $mandadoPrisPrevCountCaruaru,
+                'mandadoPrisTempCountCaruaru' => $mandadoPrisTempCountCaruaru,
+                'mandadoRecolhimentoCountCaruaru' => $mandadoRecolhimentoCountCaruaru,
+                'recapturaCountCaruaru' => $recapturaCountCaruaru, 
+                'transferenciaCountCaruaru' => $transferenciaCountCaruaru,
+                'transito2CountCaruaru' => $transito2CountCaruaru,
+                'outros2CountCaruaru' => $outros2CountCaruaru
+            ]
+        , REST_Controller::HTTP_OK);
+    }
+
+    public function getEntradaGaranhuns_get() {
+        $expiraPrazoCountGaranhuns = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Expiração de Prazo' and nucleo = 'Garanhuns'")->row_array();
+        $mandadoPrisCivilCountGaranhuns = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Civil' and nucleo = 'Garanhuns'")->row_array();
+        $mandadoPrisPrevCountGaranhuns = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Preventiva' and nucleo = 'Garanhuns'")->row_array();
+        $mandadoPrisTempCountGaranhuns = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Temporária' and nucleo = 'Garanhuns'")->row_array();
+        $mandadoRecolhimentoCountGaranhuns = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Recolhimento' and nucleo = 'Garanhuns'")->row_array();
+        $recapturaCountGaranhuns = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Recaptura - Mandado de Prisão' and nucleo = 'Garanhuns'")->row_array();
+        $transferenciaCountGaranhuns = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Transferência' and nucleo = 'Garanhuns'")->row_array();
+        $transito2CountGaranhuns = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito' and nucleo = 'Garanhuns'")->row_array();
+        $outros2CountGaranhuns = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros' and nucleo = 'Garanhuns'")->row_array();
+        $this->response(
+            (object) [
+                'expiraPrazoCountGaranhuns' => $expiraPrazoCountGaranhuns, 
+                'mandadoPrisCivilCountGaranhuns' => $mandadoPrisCivilCountGaranhuns,
+                'mandadoPrisPrevCountGaranhuns' => $mandadoPrisPrevCountGaranhuns,
+                'mandadoPrisTempCountGaranhuns' => $mandadoPrisTempCountGaranhuns,
+                'mandadoRecolhimentoCountGaranhuns' => $mandadoRecolhimentoCountGaranhuns,
+                'recapturaCountGaranhuns' => $recapturaCountGaranhuns, 
+                'transferenciaCountGaranhuns' => $transferenciaCountGaranhuns,
+                'transito2CountGaranhuns' => $transito2CountGaranhuns,
+                'outros2CountGaranhuns' => $outros2CountGaranhuns
+            ]
+        , REST_Controller::HTTP_OK);
+    }
+
+    public function getEntradaLagoa_get() {
+        $expiraPrazoCountLagoa = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Expiração de Prazo' and nucleo = 'Lagoa'")->row_array();
+        $mandadoPrisCivilCountLagoa = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Civil' and nucleo = 'Lagoa'")->row_array();
+        $mandadoPrisPrevCountLagoa = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Preventiva' and nucleo = 'Lagoa'")->row_array();
+        $mandadoPrisTempCountLagoa = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Temporária' and nucleo = 'Lagoa'")->row_array();
+        $mandadoRecolhimentoCountLagoa = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Recolhimento' and nucleo = 'Lagoa'")->row_array();
+        $recapturaCountLagoa = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Recaptura - Mandado de Prisão' and nucleo = 'Lagoa'")->row_array();
+        $transferenciaCountLagoa = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Transferência' and nucleo = 'Lagoa'")->row_array();
+        $transito2CountLagoa = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito' and nucleo = 'Lagoa'")->row_array();
+        $outros2CountLagoa = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros' and nucleo = 'Lagoa'")->row_array();
+        $this->response(
+            (object) [
+                'expiraPrazoCountLagoa' => $expiraPrazoCountLagoa, 
+                'mandadoPrisCivilCountLagoa' => $mandadoPrisCivilCountLagoa,
+                'mandadoPrisPrevCountLagoa' => $mandadoPrisPrevCountLagoa,
+                'mandadoPrisTempCountLagoa' => $mandadoPrisTempCountLagoa,
+                'mandadoRecolhimentoCountLagoa' => $mandadoRecolhimentoCountLagoa,
+                'recapturaCountLagoa' => $recapturaCountLagoa, 
+                'transferenciaCountLagoa' => $transferenciaCountLagoa,
+                'transito2CountLagoa' => $transito2CountLagoa,
+                'outros2CountLagoa' => $outros2CountLagoa
+            ]
+        , REST_Controller::HTTP_OK);
+    }
+
+    public function getEntradaPetrolina_get() {
+        $expiraPrazoCountPetrolina = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Expiração de Prazo' and nucleo = 'Petrolina'")->row_array();
+        $mandadoPrisCivilCountPetrolina = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Civil' and nucleo = 'Petrolina'")->row_array();
+        $mandadoPrisPrevCountPetrolina = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Preventiva' and nucleo = 'Petrolina'")->row_array();
+        $mandadoPrisTempCountPetrolina = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Temporária' and nucleo = 'Petrolina'")->row_array();
+        $mandadoRecolhimentoCountPetrolina = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Recolhimento' and nucleo = 'Petrolina'")->row_array();
+        $recapturaCountPetrolina = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Recaptura - Mandado de Prisão' and nucleo = 'Petrolina'")->row_array();
+        $transferenciaCountPetrolina = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Transferência' and nucleo = 'Petrolina'")->row_array();
+        $transito2CountPetrolina = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito' and nucleo = 'Petrolina'")->row_array();
+        $outros2CountPetrolina = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros' and nucleo = 'Petrolina'")->row_array();
+        $this->response(
+            (object) [
+                'expiraPrazoCountPetrolina' => $expiraPrazoCountPetrolina, 
+                'mandadoPrisCivilCountPetrolina' => $mandadoPrisCivilCountPetrolina,
+                'mandadoPrisPrevCountPetrolina' => $mandadoPrisPrevCountPetrolina,
+                'mandadoPrisTempCountPetrolina' => $mandadoPrisTempCountPetrolina,
+                'mandadoRecolhimentoCountPetrolina' => $mandadoRecolhimentoCountPetrolina,
+                'recapturaCountPetrolina' => $recapturaCountPetrolina, 
+                'transferenciaCountPetrolina' => $transferenciaCountPetrolina,
+                'transito2CountPetrolina' => $transito2CountPetrolina,
+                'outros2CountPetrolina' => $outros2CountPetrolina
+            ]
+        , REST_Controller::HTTP_OK);
+    }
+
+    public function getEntradaSalgueiro_get() {
+        $expiraPrazoCountSalgueiro = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Expiração de Prazo' and nucleo = 'Salgueiro'")->row_array();
+        $mandadoPrisCivilCountSalgueiro = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Civil' and nucleo = 'Salgueiro'")->row_array();
+        $mandadoPrisPrevCountSalgueiro = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Preventiva' and nucleo = 'Salgueiro'")->row_array();
+        $mandadoPrisTempCountSalgueiro = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Temporária' and nucleo = 'Salgueiro'")->row_array();
+        $mandadoRecolhimentoCountSalgueiro = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Recolhimento' and nucleo = 'Salgueiro'")->row_array();
+        $recapturaCountSalgueiro = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Recaptura - Mandado de Prisão' and nucleo = 'Salgueiro'")->row_array();
+        $transferenciaCountSalgueiro = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Transferência' and nucleo = 'Salgueiro'")->row_array();
+        $transito2CountSalgueiro = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito' and nucleo = 'Salgueiro'")->row_array();
+        $outros2CountSalgueiro = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros' and nucleo = 'Salgueiro'")->row_array();
+        $this->response(
+            (object) [
+                'expiraPrazoCountSalgueiro' => $expiraPrazoCountSalgueiro, 
+                'mandadoPrisCivilCountSalgueiro' => $mandadoPrisCivilCountSalgueiro,
+                'mandadoPrisPrevCountSalgueiro' => $mandadoPrisPrevCountSalgueiro,
+                'mandadoPrisTempCountSalgueiro' => $mandadoPrisTempCountSalgueiro,
+                'mandadoRecolhimentoCountSalgueiro' => $mandadoRecolhimentoCountSalgueiro,
+                'recapturaCountSalgueiro' => $recapturaCountSalgueiro, 
+                'transferenciaCountSalgueiro' => $transferenciaCountSalgueiro,
+                'transito2CountSalgueiro' => $transito2CountSalgueiro,
+                'outros2CountSalgueiro' => $outros2CountSalgueiro
+            ]
+        , REST_Controller::HTTP_OK);
+    }
 }
 ?>
