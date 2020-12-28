@@ -76,5 +76,33 @@ class ocorrencias extends CI_Controller{
         $this->load->view('administrador/ocorrencias-view-admin',$dados);
     }
 
+
+    ///////// cadastrar  
+
+    public function cadastrorevista(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model
+        $this->ocorrencias_modal->cadastrorevista();
+        redirect('Home/registroOcorrencias');
+
+    }
+    
+    public function cadastrorevistaadmin(){ //Carrega a Função cadastroAgenteMaster que está no Agente_model
+        $this->ocorrencias_modal->cadastrorevista();
+        redirect('Home/registroOcorrenciasAdmin');
+
+    }
+    
+    public function resultadorevista(){
+        $this->load->model('ocorrencias_modal');
+        $dados['saidadetentos'] = $this->ocorrencias_modal->buscar($_POST);
+        $this->load->view('agentes/ocorrencias-view',$dados);
+    }
+
+    public function resultadorevistaadmin(){
+        $this->load->model('ocorrencias_modal');
+        $dados['saidadetentos'] = $this->ocorrencias_modal->buscar($_POST);
+        $this->load->view('agentes/ocorrencias-view',$dados);
+    }
+
+
 }
 

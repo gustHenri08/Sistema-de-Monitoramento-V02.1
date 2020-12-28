@@ -86,6 +86,43 @@ class ocorrencias_modal extends CI_Model{
 
     }
 
+    ///////////////// revista
 
+
+
+    function cadastrorevista(){ // Função reponsável por cadastrar os agentes ao bando de dados: db_agente (Cadatro realizado pelo administrador)
+        $datamaster = array(
+            'cadeiapublica'=> $this->input->post('cadeiapublica'), //Recebe os dados via post
+            'armasbranca'=> $this->input->post('armasbranca'),
+            'coca'=> $this->input->post('coca'),
+            'chips'=> $this->input->post('chips'),
+            'armasbranca2'=> $this->input->post('armasbranca2'),
+            'cola'=> $this->input->post('cola'),
+            'armasfogo2'=> $this->input->post('armasfogo2'),
+            'corda'=> $this->input->post('corda'),
+            'bateria'=> $this->input->post('bateria'),
+            'crack'=> $this->input->post('crack'),
+            'bebida'=> $this->input->post('bebida'),
+            'maconha'=> $this->input->post('maconha'),
+            'bebida2'=> $this->input->post('bebida2'),
+            'medicacao'=> $this->input->post('medicacao'),
+            'carregador'=> $this->input->post('carregador'),
+            'municao'=> $this->input->post('municao'),
+            'celular'=> $this->input->post('celular'),
+            'outro'=> $this->input->post('outro')
+
+        );
+        $this->db->insert('tbl_revista', $datamaster);
+    }
+
+    public function buscaroutras($busca){
+        
+        if(empty($busca))
+            return array();
+        $busca = $this->input->post('busca');
+        $this->db->like('id', $busca);
+        $query = $this->db->get('tbl_ocorrencia');
+        return $query->result_array(); 	
+    }
 
 }
