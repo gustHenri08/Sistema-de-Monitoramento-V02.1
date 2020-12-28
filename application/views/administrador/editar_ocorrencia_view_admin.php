@@ -175,117 +175,139 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
-     <div class="row">
-       <div class="col-xs-12">
-         <div class="box">
-           <div class="box-header">
-             <h3 class="box-title"> Lista de Detentos </h3>
-            
+    <section class="content">        
+    
+      <!-- Default box -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Editar</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!--Inicio do Box Body-->
+        <div class="box-body">
+          <!--Inicio do Formulario-->
+          <form method="post" action="<?= base_url() ?>index.php/ocorrencias/updateadmin/<?= $saidadetentos["idd"] ?>">
+               
+            <div class="form-group"> <!-- Nome do Detento-->
+                <label>Policial Penal</label>
+                <input type="text" class="form-control" name="cadastrante" placeholder="Agente Penitenciário" value="<?= isset($agentes) ? ($this->session->userdata("nomecompleto")) : ($this->session->userdata("nomecompleto"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
               </div>
-           <!-- /.box-header -->
-           <div class="box-body">
-              <div class="col-sm-6">
-              <form action="<?=site_url('ocorrencias/resultadoadmin')?>" method="post">
-                  <div class="col-sm-6">
-                    <div id="example1_filter" class="dataTables_filter">
-                      <label>Procurar Presos:  <input type="text" name="busca" id="busca" class="form-control input-sm" placeholder="Nome" aria-controls="example1">
-                        <br><button type="submit" class="btn btn-primary">Buscar</button></br>
-                      </label> <!--colocar um if-else para tentar fazer o campo busca buscar os dados pelo que foi solicitado -->
-                    </div>
-                  </div>
-                </form>
-                <br></br>   
-                </div>
+              
+              <div class="form-group"> <!-- Nome do Detento-->
+                <label>Função</label>
+                <input type="text" class="form-control" name="funcaocadastrante" placeholder="Função Agente" value="<?= isset($agentes) ? ($this->session->userdata("funcao")) : ($this->session->userdata("funcao"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
               </div>
-             <table id="example2" class="table table-bordered table-hover">
-               <thead>
-               <tr>
-                 <th>CP</th>
-                 <th>Nome</th>
-                 <th>Nome da Mãe</th>
-                 <th>Nome do Pai</th>
-                 <th>SIAP</td>
-                 <th>Cadastro</td>
-                 <th>Visualizar</td>
-               </tr>
-               </thead>
-               <tbody>
-                 <tr>
-                 <?php foreach($saidadetentos as $presos) : ?>
-                    <tr>
-                      <td><?= $presos['cadeiapublica']?></td>
-                      <td> <?= $presos['nome']?> </td>
-                      <td><?= $presos['nomemae']?></td>
-                      <td><?= $presos['nomepai']?></td>
-                      <td><?= $presos['nsiap']?></td>
+              
+              <div class="form-group"> <!-- Nome do Detento-->
+                <label>Matrícula</label>
+                <input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
+              </div>    
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<input type="hidden" class="form-control" name="id" placeholder="Matricula Agente" value=" <?= isset($saidadetentos) ? $saidadetentos["idd"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+            </div>
 
-                      <td>
-                            <a href="<?= base_url() ?>index.php/ocorrencias/cadastrarMasteradmin/<?= $presos["id"] ?>" class="btn btn-primary btn-xs">Cadastrar</a>
-                      </td>
-                      <td> <form action="<?=site_url('ocorrencias/resultado_listaadmin')?>" method="post"> 
-                      <input  type="hidden" name="busca" id="busca"  value="<?= $presos['id']?>" >  <!-- 'name=' adicionado-->
-                      <button type="submit" class="btn btn-success btn-xs"  >Visualizar</button>
-                       </form>                 
-                      </td>
-                      <td style='text-align:center'>
-                      </td>
-                    </tr>
-                  <?php endforeach?>
-                 </tr>
-               </tbody>
-             </table>
-           </div>
-           <!-- /.box-body -->
-         </div>
-         <!-- /.box -->
-       </div>
-        <!-- /.col -->
+            <div class="form-group"> <!--Campo Cadeia Publica-->
+              	<input  type="hidden"  class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>" readonly style="width:300px" >  <!-- 'name=' adicionado-->
+
+            </div>
+
+              <div class="form-group" style="width:200px" >
+                <label>Data:</label>
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="date" name="data" class="form-control pull-right" id="datepicker"  value=" <?= isset($saidadetentos) ? $saidadetentos["data"] : "" ?>">
+                </div>
+                <!-- /.input group -->
+            </div>
+            <div class="form-group"> <!--Crime de Repercussão-->
+                <label>Motivo</label>
+                <?php if(isset($saidadetentos)) :?>
+                  <select class="form-control" style="width: 110px" name="tipo"><!-- 'name=' adicionado-->
+                    <option><?= $saidadetentos["tipo"]?></option>
+                    <option>Agressão</option>
+                    <option>Apreensão</option>
+                    <option>Custódia Hospitalar</option>
+                    <option>Emergência Hospitalar</option>
+                    <option>Fuga</option>
+                    <option>Óbito - Natural</option>
+                    <option>Óbito - Suícidio</option>
+                    <option>Óbito - CVLI</option>
+                    <option>Outros</option>
+                  </select>
+                <?php else :?>
+                  <select class="form-control" style="width: 110px" name="tipo"><!-- 'name=' adicionado-->                    
+                  <option>Agressão</option>
+                    <option>Apreensão</option>
+                    <option>Custódia Hospitalar</option>
+                    <option>Emergência Hospitalar</option>
+                    <option>Fuga</option>
+                    <option>Óbito - Natural</option>
+                    <option>Óbito - Suícidio</option>
+                    <option>Óbito - CVLI</option>
+                    <option>Outros</option>
+                  </select>
+                <?php endif;?>
+            </div>
+
+            <div class="form-group"> <!--Observações-->
+              <label>Resumo da Ocorrência</label>
+              <textarea class="form-control" rows="5" name="resumo_Ocorrencia" placeholder="Resumo da Ocorrência"> <?= isset($saidadetentos) ? $saidadetentos["resumo_Ocorrencia"] : "" ?> </textarea><!-- 'name=' adicionado-->
+            </div>
+            <br>
+           
+              <div class="col-xs-2"> <!--Botão Cadastrar-->
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Salvar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+              </div>
+            
+             <div class="col-xs-2"> <!--Botão Cadastrar-->
+              <a href="<?php echo site_url('Home/registroOcorrenciasAdmin'); ?>" class="btn btn-danger btn-block btn-flat">Voltar</a><!--Botão atualizado pq não estav fazendo o 'submit'-->
+            </div>
+          </form>
+          <!--Fim do Formulario-->
+        </div>
+        <!-- Fim do Box Body -->
       </div>
-      <!-- /.row -->
+      <!-- Fim do Box -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.18
+      
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    <strong>Copyright &copy; 2020 Fábrica de Software.</strong> All rights
     reserved.
   </footer>
+</div>
 
-</div>  <!--Fim da div Wrapper-->
-
+  
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
 <!-- DataTables -->
-<script src="<?php echo base_url(); ?>assets/datatables.net-bs/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>assets/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 <!--Font Awesome My Link-->
 <script src="https://kit.fontawesome.com/3db1420b56.js" crossorigin="anonymous"></script>
 <script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
+  $(document).ready(function () {
+    $('.sidebar-menu').tree()
   })
 </script>
 </body>

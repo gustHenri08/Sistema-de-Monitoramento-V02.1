@@ -62,6 +62,17 @@ class ocorrencias_modal extends CI_Model{
         return $query->result_array(); 	
     }
 
+    public function buscaacp($busca){
+        
+        if(empty($busca))
+            return array();
+        $busca = $this->input->post('cadeiapublica');
+        $this->db->like('cadeiapublica', $busca);
+        $query = $this->db->get('tbl_ocorrencia');
+        return $query->result_array(); 	
+    }
+
+
     public function show($idd){
         return $this->db->get_where('tbl_ocorrencia', array(
             "idd" => $idd
