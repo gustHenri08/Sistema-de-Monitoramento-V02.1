@@ -117,7 +117,7 @@ class Saidatransito extends CI_Controller{
     }
 
        public function editMastere($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
-        $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->show($id);
+        $edit['saidadetentos'] = $this->SaidapresosAudiencia_model->showsse($id);
         $this->load->view('agentes/edicao_enterno_view', $edit);
     }
     public function cadastrarMastere($id){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
