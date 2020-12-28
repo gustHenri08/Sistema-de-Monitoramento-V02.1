@@ -120,11 +120,11 @@ class Chart extends REST_Controller {
 
     //Admin 
     public function getinfoArcoverde_get() {
-        $maleCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Masculino' and nucleo = 'Lagoa'")->row_array();
-        $femaleCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Feminino' and nucleo = 'Lagoa'")->row_array();
-        $regimeAbertoCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Aberto' and nucleo = 'Lagoa'")->row_array();
-        $regimeSemiCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Semi-Aberto' and nucleo = 'Lagoa'")->row_array();
-        $regimeFechadoCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Fechado' and nucleo = 'Lagoa'")->row_array();
+        $maleCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Masculino' and nucleo = 'Arcoverde'")->row_array();
+        $femaleCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE sexo = 'Feminino' and nucleo = 'Arcoverde'")->row_array();
+        $regimeAbertoCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Aberto' and nucleo = 'Arcoverde'")->row_array();
+        $regimeSemiCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Semi-Aberto' and nucleo = 'Arcoverde'")->row_array();
+        $regimeFechadoCountArcoverde = $this->db->query("SELECT COUNT(*) as SEX_COUNT FROM tbl_presos WHERE regime = 'Fechado' and nucleo = 'Arcoverde'")->row_array();
         $this->response(
             (object) [
                 'maleCountArcoverde' => $maleCountArcoverde, 
@@ -222,15 +222,15 @@ class Chart extends REST_Controller {
     }
     
     public function getEntradaArcoverde_get() {
-        $expiraPrazoCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Expiração de Prazo' and nucleo = 'Lagoa'")->row_array();
-        $mandadoPrisCivilCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Civil' and nucleo = 'Lagoa'")->row_array();
-        $mandadoPrisPrevCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Preventiva' and nucleo = 'Lagoa'")->row_array();
-        $mandadoPrisTempCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Temporária' and nucleo = 'Lagoa'")->row_array();
-        $mandadoRecolhimentoCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Recolhimento' and nucleo = 'Lagoa'")->row_array();
-        $recapturaCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Recaptura - Mandado de Prisão' and nucleo = 'Lagoa'")->row_array();
-        $transferenciaCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Transferência' and nucleo = 'Lagoa'")->row_array();
-        $transito2CountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito' and nucleo = 'Lagoa'")->row_array();
-        $outros2CountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros' and nucleo = 'Lagoa'")->row_array();
+        $expiraPrazoCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Expiração de Prazo' and nucleo = 'Arcoverde'")->row_array();
+        $mandadoPrisCivilCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Civil' and nucleo = 'Arcoverde'")->row_array();
+        $mandadoPrisPrevCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Preventiva' and nucleo = 'Arcoverde'")->row_array();
+        $mandadoPrisTempCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Prisão Temporária' and nucleo = 'Arcoverde'")->row_array();
+        $mandadoRecolhimentoCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Mandado de Recolhimento' and nucleo = 'Arcoverde'")->row_array();
+        $recapturaCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Recaptura - Mandado de Prisão' and nucleo = 'Arcoverde'")->row_array();
+        $transferenciaCountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Transferência' and nucleo = 'Arcoverde'")->row_array();
+        $transito2CountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Trânsito' and nucleo = 'Arcoverde'")->row_array();
+        $outros2CountArcoverde = $this->db->query("SELECT COUNT(*) as MOT_ENT_COUNT FROM tbl_presos WHERE motivo = 'Outros' and nucleo = 'Arcoverde'")->row_array();
         $this->response(
             (object) [
                 'expiraPrazoCountArcoverde' => $expiraPrazoCountArcoverde, 
