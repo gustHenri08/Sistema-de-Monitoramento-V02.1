@@ -207,7 +207,7 @@
           		<label>Cadeia publica</label>
           		<input type="text" class="form-control" name="cadeiapublica" placeholder="Cadeia Publica" style="width:300px" readonly value=" <?=$saidadetentos["cadeiapublica"]?>"><!-- 'name=' adicionado-->
           	</div>
-            
+
 
             <div class="form-group"> <!--Data de Prisão-->
               <label>Data da Entrada</label>
@@ -232,6 +232,10 @@
               <div class="form-group"> <!-- Nome do Pai-->
               <label>Cidade - Fórum</label>
               <input type="text" class="form-control" name="cidade-forum" placeholder="Cidade - Fórum" style="width:300px" ><!-- 'name=' adicionado-->
+            </div>
+
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<input type="hidden" class="form-control" required name="nucleo" placeholder="Nome" value="<?= isset($saidadetentos) ? $saidadetentos["nucleo"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!--Documentação-->

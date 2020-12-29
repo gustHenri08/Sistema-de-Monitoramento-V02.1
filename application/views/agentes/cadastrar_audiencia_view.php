@@ -226,6 +226,10 @@
               <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"value=" <?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>" readonly style="width:300px" > <!-- 'name=' adicionado-->
             </div>
 
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<input type="hidden" class="form-control" required name="nucleo" placeholder="Nome" value="<?= isset($saidadetentos) ? $saidadetentos["nucleo"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
+            </div>
+
               <div class="form-group"> <!-- Nome do Pai-->
               <label>Cidade - Fórum</label>
               <input type="text" class="form-control" name="cidade-forum" placeholder="Cidade - Fórum" style="width:300px" ><!-- 'name=' adicionado-->
