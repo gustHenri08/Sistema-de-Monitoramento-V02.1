@@ -219,20 +219,9 @@
           		<input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
            
-           	<div class="form-group"> <!--Campo Cadeia Publica-->
-          			<label>Cadeia Publica</label>
-          			<select class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>">  <!-- 'name=' adicionado-->
-          				<option>CP de Aliança</option>
-          				<option>CP de Carpina</option>
-          				<option>CP de Glória do Goitá</option>
-          				<option>CP de Goiana</option>
-          				<option>CP de Itambé</option>
-          				<option>CP de Lagoa do Carro</option>
-          				<option>CP de Macaparana</option>
-          				<option>CP de Nazaré da Mata</option>
-          				<option>CP de Timbauba</option>
-          				<option>CP de Vicência</option>
-          			</select>
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<label>Cadeia publica</label>
+          		<input type="text" class="form-control" name="cadeiapublica" placeholder="Cadeia Publica" style="width:300px" readonly value=" <?=$saidadetentos["cadeiapublica"]?>"><!-- 'name=' adicionado-->
           	</div>
 
             <div class="form-group">

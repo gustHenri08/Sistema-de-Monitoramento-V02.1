@@ -348,7 +348,9 @@
 
              <div class="form-group"> <!--Documentação-->
                 <label>Condutores</label>
+                <?php if(isset($saidadetentos)): ?>    
                 <select class="form-control" style="width: 230px" name="condutores"  ><!-- 'name=' adicionado-->
+                <option><?=$saidadetentos["condutores"]?></option>
                   <option>PCPE</option>
                   <option>PF</option>
                   <option>PM</option>
@@ -356,6 +358,16 @@
                   <option>PP/PM</option>
                   <option>Outro</option>
                 </select>
+                <?php else: ?>
+                  <select class="form-control" style="width: 230px" name="condutores"  ><!-- 'name=' adicionado-->
+                  <option>PCPE</option>
+                  <option>PF</option>
+                  <option>PM</option>
+                  <option>PP</option>
+                  <option>PP/PM</option>
+                  <option>Outro</option>
+                </select>
+                <?php endif; ?>
             </div>
 
             <div class="form-group"> <!--Observações-->

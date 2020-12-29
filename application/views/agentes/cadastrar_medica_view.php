@@ -203,21 +203,16 @@
             <?php endif; ?>
              <!--Em Testes | chama o controller responsavel por cadastro-->
            
-            <div class="form-group"> <!--Campo Cadeia Publica-->
-                <label>Cadeia Publica</label>
-                <select class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>"readonly style="width:300px">  <!-- 'name=' adicionado-->
-                  <option>CP de Aliança</option>
-                  <option>CP de Carpina</option>
-                  <option>CP de Glória do Goitá</option>
-                  <option>CP de Goiana</option>
-                  <option>CP de Itambé</option>
-                  <option>CP de Lagoa do Carro</option>
-                  <option>CP de Macaparana</option>
-                  <option>CP de Nazaré da Mata</option>
-                  <option>CP de Timbauba</option>
-                  <option>CP de Vicência</option>
-                </select>
+            
+             <div class="form-group"> <!-- Nome do Detento-->
+          		<label>Cadeia publica</label>
+          		<input type="hidden" class="form-control" name="cadeiapublica" placeholder="Cadeia Publica" style="width:300px" readonly value=" <?=$saidadetentos["cadeiapublica"]?>"><!-- 'name=' adicionado-->
+          	</div>
+
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<input type="hidden" class="form-control" required name="nucleo" placeholder="Nome" value="<?= isset($saidadetentos) ? $saidadetentos["nucleo"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
             </div>
+
 
             <div class="form-group">
               <label>Data de Entrada</label>
@@ -241,7 +236,10 @@
 
             <div class="form-group"> <!--Documentação-->
                 <label>Motivo</label>
+                <?php if(isset($saidadetentos)): ?>  
+                 
                 <select class="form-control" style="width: 230px" name="motivo"  ><!-- 'name=' adicionado-->
+                <option><?=$saidadetentos["motivo"]?></option>
                   <option>Consulta Médica</option>
                   <option>Consulta Odontológica</option>
                   <option>Emergência</option>
@@ -249,6 +247,20 @@
                   <option>Exames Laboratoriais</option>
                   <option>Outro</option>
                 </select>
+          
+                  <?php else; ?>
+                  <select class="form-control" style="width: 230px" name="motivo"  ><!-- 'name=' adicionado-->
+                  <option>Consulta Médica</option>
+                  <option>Consulta Odontológica</option>
+                  <option>Emergência</option>
+                  <option>Exames Complexos</option>
+                  <option>Exames Laboratoriais</option>
+                  <option>Outro</option>
+                </select>
+          
+                
+                  <?php endif; ?>
+              
             </div>
 
               <div class="form-group"> <!-- Nome do Pai-->

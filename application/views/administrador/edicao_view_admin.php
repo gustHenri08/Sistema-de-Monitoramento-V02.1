@@ -214,21 +214,10 @@
           		<input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
           
-          <div class="form-group"> <!--Campo Cadeia Publica-->
-                <label>Cadeia Publica</label>
-                <select class="form-control" style="width: 200px" name="cadeiapublica" value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>"><!-- 'name=' adicionado-->
-                  <option>CP de Aliança</option>
-                  <option>CP de Carpina</option>
-                  <option>CP de Glória do Goitá</option>
-                  <option>CP de Goiana</option>
-                  <option>CP de Itambé</option>
-                  <option>CP de Lagoa do Carro</option>
-                  <option>CP de Macaparana</option>
-                  <option>CP de Nazaré da Mata</option>
-                  <option>CP de Timbauba</option>
-                  <option>CP de Vicência</option>
-                </select>
-            </div>
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<label>Cadeia publica</label>
+          		<input type="text" class="form-control" name="cadeiapublica" placeholder="Cadeia Publica" style="width:300px" readonly value=" <?=$saidadetentos["cadeiapublica"]?>"><!-- 'name=' adicionado-->
+          	</div>
       
             <div class="form-group">
               <label>Data de Saida</label>
@@ -272,7 +261,10 @@
 
             <div class="form-group"> <!--Motivo-->
                 <label>Motivo</label>
-                <select class="form-control" style="width: 250px" name="motivo"  value=" <?= isset($saidadetentos) ? $saidadetentos["motivo"] : "" ?>"><!-- 'name=' adicionado-->
+                <?php if(isset($saidadetentos)): ?>  
+             
+                <select class="form-control" style="width: 250px" name="motivo"  ><!-- 'name=' adicionado-->
+                <option><?=$saidadetentos["motivo"]?></option>
                   <option>Alvará De Soltura </option>
                   <option>Evasão</option>           
                   <option>Fim De Prazo Da Prisão civil</option>
@@ -289,11 +281,34 @@
                   <option>Trânsito</option>
                   <option>Outros</option>
                 </select>
+                <?php else: ?>
+                <select class="form-control" style="width: 250px" name="motivo"  ><!-- 'name=' adicionado-->
+              
+                  <option>Alvará De Soltura </option>
+                  <option>Evasão</option>           
+                  <option>Fim De Prazo Da Prisão civil</option>
+                  <option>Fim De Prazo Da Prisão Temporária</option>
+                  <option>Fuga</option>
+                  <option>Harmonizado</option>
+                  <option>Óbito</option>
+                  <option>Progressão De Regime</option>
+                  <option>Liberdade Condicional</option>
+                  <option>Prisão Domiciliar</option>
+                  <option>Transferência P/ CP</option>
+                  <option>Transferência P/ UF</option>
+                  <option>Transferência P/ UP</option>
+                  <option>Trânsito</option>
+                  <option>Outros</option>
+                </select>
+                <?php endif; ?>
             </div>
 
             <div class="form-group"> <!--Origem-->
+         
               <label>Origem</label><!-- Origem alterada para ficar de acordo com documentação, versão antiga estava com os options errados-->
+              <?php if(isset($saidadetentos)): ?>  
                 <select class="form-control" style="width: 250px" name="origem"  value=" <?= isset($saidadetentos) ? $saidadetentos["origem"] : "" ?>"><!-- 'name=' adicionado-->
+                <option><?=$saidadetentos["origem"]?></option>
                   <option>CP de Altinho</option>
                   <option>CP de Bom Conselho</option> 
                   <option>CP de Carpina</option>
@@ -304,11 +319,27 @@
                   <option>Polícia Militar</option>
                   <option>Outra Origem</option>
                 </select>
+                <?php else: ?>
+                <select class="form-control" style="width: 250px" name="origem"  value=" <?= isset($saidadetentos) ? $saidadetentos["origem"] : "" ?>"><!-- 'name=' adicionado-->
+              
+                  <option>CP de Altinho</option>
+                  <option>CP de Bom Conselho</option> 
+                  <option>CP de Carpina</option>
+                  <option>CP de Glória do Goitá</option>
+                  <option>CP de Lagoa do Carro</option>
+                  <option>Delegacia - PC</option>
+                  <option>Outra UF</option>
+                  <option>Polícia Militar</option>
+                  <option>Outra Origem</option>
+                </select>
+                <?php endif; ?>
             </div>
 
             <div class="form-group"> <!--Documentação-->
                 <label>Documentação</label>
+                <?php if(isset($saidadetentos)): ?>  
                 <select class="form-control" style="width: 230px" name="documentacao"  value=" <?= isset($saidadetentos) ? $saidadetentos["documentacao"] : "" ?>"><!-- 'name=' adicionado-->
+                <option><?=$saidadetentos["documentacao"]?></option>
                   <option>Alvará de Soltura</option>
                   <option>CI - Transferência</option>
                   <option>Fim da Prisão Temporária</option>
@@ -316,10 +347,32 @@
                   <option>Prisão Temporária</option>
                   <option>Outro</option>
                 </select>
+                <?php else; ?>
+                <select class="form-control" style="width: 230px" name="documentacao"  value=" <?= isset($saidadetentos) ? $saidadetentos["documentacao"] : "" ?>"><!-- 'name=' adicionado-->
+              
+                  <option>Alvará de Soltura</option>
+                  <option>CI - Transferência</option>
+                  <option>Fim da Prisão Temporária</option>
+                  <option>Ofício de Transferência</option>
+                  <option>Prisão Temporária</option>
+                  <option>Outro</option>
+                </select>
+                <?php endif; ?>
             </div>
 
              <div class="form-group"> <!--Documentação-->
                 <label>Condutores</label>
+                <?php if(isset($saidadetentos)): ?>  
+                <select class="form-control" style="width: 230px" name="destino"  ><!-- 'name=' adicionado-->
+                <option><?=$saidadetentos["destino"]?></option>
+                  <option>PCPE</option>
+                  <option>PF</option>
+                  <option>PM</option>
+                  <option>PP</option>
+                  <option>PP/PM</option>
+                  <option>Outro</option>
+                </select>
+                <?php else: ?>
                 <select class="form-control" style="width: 230px" name="destino"  ><!-- 'name=' adicionado-->
                   <option>PCPE</option>
                   <option>PF</option>
@@ -328,6 +381,7 @@
                   <option>PP/PM</option>
                   <option>Outro</option>
                 </select>
+                <?php endif; ?>
             </div>
 
             <div class="form-group"> <!--Observações-->
