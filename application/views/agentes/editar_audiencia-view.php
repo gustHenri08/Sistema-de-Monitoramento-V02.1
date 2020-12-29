@@ -215,10 +215,6 @@
           		<label>Cadeia publica</label>
           		<input type="text" class="form-control" name="cadeiapublica" placeholder="Cadeia Publica" style="width:300px" readonly value=" <?=$saidadetentos["cadeiapublica"]?>"readonly style="width:300px"><!-- 'name=' adicionado-->
           	</div>
-            <div class="form-group">
-              <label>Data de Entrada</label>
-              <input type="text" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10" value=" <?= isset($saidadetentos) ? $saidadetentos["data"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
-              </div>
 
           	<div class="form-group"> <!-- Nome do Detento-->
           		<label>Nome</label>

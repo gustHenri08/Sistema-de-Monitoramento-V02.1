@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Dez-2020 às 01:21
+-- Tempo de geração: 29-Dez-2020 às 02:35
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.1
 
@@ -65,7 +65,7 @@ INSERT INTO `tbl_agente` (`id`, `nomecompleto`, `matricula`, `nucleo`, `unidadep
 (4, 'Francisco', 123456, 'aquele', 'aquela', 'asas@asas', '', '', 'Agente', 'Inativo', ''),
 (5, 'sas', 321, 'asd', 'asd', 'asdadsd@rrewrf', '', '', 'Agente', 'Inativo', ''),
 (8, 'asdad', 0, 'Arcoverde', 'CP de Carnaíba', 'sdasdsar@rter', '', '', 'Agente', 'Inativo', ''),
-(9, 'asdasd', 123131, 'Garanhus', 'CP de Garanhus', 'asdasd@adasda', 'tt', 'tt', 'Agente', 'Inativo', ''),
+(9, 'asdasd', 123131, 'Garanhus', 'CP de Garanhus', 'asdasd@adasda', 'tt', 'tt', 'Agente', 'Ativo', ''),
 (10, 'ewew', 123, 'qweq', 'qeqw', 'qweqwe@qweq', '', '', 'agente', 'Inativo', ''),
 (11, 'ertretrr', 1234567, 'trew', 'rtetw', 'rtsre@rtest', '', '', 'agente', 'Inativo', ''),
 (12, 'asdasd', 123131, 'asdasd', 'asdasd', 'dsda@sad', '', '', 'agente', 'Inativo', ''),
@@ -181,7 +181,10 @@ CREATE TABLE `tbl_enterno` (
 --
 
 INSERT INTO `tbl_enterno` (`id`, `cadeiapublica`, `nome`, `numsiap`, `sic`, `data`, `motivo`, `documentacao`, `obs`, `sexo`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `destino`) VALUES
-(29, 'cp', 'uiqeuiw', 1234, 1234, '', 'obt', 'eqweqwewqe', 'trwtwqtrwtqtwqwetqwetq', 'masculino', '', '', '', '');
+(1, 'cp', '    uiqeuiw', 1234, 1234, '', 'OUTRO', '    eqwe', '    trwtw', 'masculino', 'Rafael José da Silva', 'Administrador', '1', '    forum'),
+(30, 'CP de Lagoa do Carro', '        Alerta', 354444, 1515, '2020-12-17', 'AUDIÊNCIA', ' PCPE', '', '', '', '', '', ' PCPE'),
+(31, 'CP de Aliança', 'Alerta', 354444, 1515, '2020-12-16', 'AUDIÊNCIA', ' PCPE', '', '', '', '', '', ' PCPE'),
+(32, 'CP de Aliança', '        Alerta', 354444, 1515, '', 'AUDIÊNCIA', ' PCPE', '', '', '', '', '', ' PCPE');
 
 -- --------------------------------------------------------
 
@@ -211,7 +214,11 @@ CREATE TABLE `tbl_interno` (
 --
 
 INSERT INTO `tbl_interno` (`id`, `cadeiapublica`, `nome`, `numsiap`, `sic`, `data`, `motivo`, `documentacao`, `obs`, `sexo`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `destino`) VALUES
-(29, 'cp', 'uiqeuiw', 1234, 12345543, '11/11/11', '1', '1', 'trwtwqtrwtqtwqwetqwetq', 'masculino', '', '', '', '');
+(1, 'cp', '  uiqeuiw', 1234, 12345543, '', '1', '   1', '   esdcs', 'masculino', 'Rafael José da Silva', 'Administrador', '1', '   '),
+(2, 'CP de Aliança', '        Alerta', 354444, 1515, '11/03/18', 'AUDIÊNCIA', ' PCPE', '', '', '', '', '', ' PCPE'),
+(31, 'CP de Aliança', '        Alerta', 354444, 1515, '11/03/18', 'AUDIÊNCIA', ' PCPE', '', '', '', '', '', ' PCPE'),
+(32, 'CP de Aliança', '  AAAA', 0, 0, '', 'AUDIÊNCIA', '  PCPE', 'polikmne', '', 'Rafael José da Silva', 'Administrador', '1', ' PE'),
+(33, 'CP de Aliança', '        Alerta', 354444, 1515, '', 'AUDIÊNCIA', ' PCPE', '', '', '', '', '', ' PCPE');
 
 -- --------------------------------------------------------
 
@@ -261,12 +268,10 @@ CREATE TABLE `tbl_ocorrencia` (
 --
 
 INSERT INTO `tbl_ocorrencia` (`nome`, `nsiap`, `cadeiapublica`, `resumo_Ocorrencia`, `tipo`, `data`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `id`, `idd`) VALUES
-(' Alerta', 0, '  CP de Aliança', '   aaaa ', 'Fuga', '0000-00-00', 'Rafael José da Silva', 'Administrador', '1', 1, 1),
-(' Alerta', 0, '  CP de Aliança', '   aaa ', 'Fuga', '0000-00-00', 'Rafael José da Silva', 'Administrador', '1', 2, 2),
-(' Alerta', 0, ' CP de Itambé', '  wqw', 'Fuga', '2020-12-16', 'Rafael José da Silva', 'Administrador', '1', 1, 7),
-(' Alerta', 0, ' CP de Itambé', '  wqw', 'Fuga', '2020-12-16', 'Rafael José da Silva', 'Administrador', '1', 1, 8),
+(' Alerta', 0, '   CP de Itambé', 'lopi', 'Fuga', '0000-00-00', 'Rafael José da Silva', 'Administrador', '1', 7, 7),
 (' ', 0, ' CP de Itambé', '  outros', 'Outros', '2021-01-09', 'Rafael José da Silva', 'Administrador', '1', 2, 9),
-(' r', 0, ' CP de Carpina', '  aaa', 'Emergência Hospitalar', '2020-12-06', 'Rafael José da Silva', 'Administrador', '1', 3, 11);
+(' r', 0, ' CP de Carpina', '  aaa', 'Emergência Hospitalar', '2020-12-06', 'Rafael José da Silva', 'Administrador', '1', 3, 11),
+(' Alerta', 0, '  CP de Itambé', '   lop', 'Óbito - Natural', '0000-00-00', 'Rafael José da Silva', 'Administrador', '1', 12, 12);
 
 -- --------------------------------------------------------
 
@@ -374,19 +379,16 @@ CREATE TABLE `tbl_saidaaudiencia` (
   `sexo` varchar(10) NOT NULL,
   `cadastrante` varchar(40) NOT NULL,
   `funcaocadastrante` varchar(20) NOT NULL,
-  `matriculacadastrante` char(8) NOT NULL
+  `matriculacadastrante` char(8) NOT NULL,
+  `nucleo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tbl_saidaaudiencia`
 --
 
-INSERT INTO `tbl_saidaaudiencia` (`id`, `cadeiapublica`, `nome`, `numsiap`, `sic`, `data`, `cidade-forum`, `condutores`, `sexo`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`) VALUES
-(1, 'CP de Aliança', '    Alerta', 12322, 1515, '  11/03/18', '  abreu e lima', '   PCPE', 'Masculino', 'Rafael José da Silva', 'Administrador', '1'),
-(2, 'CP de Aliança', '   rer', 12322222, 12345, '11/03/18', 'abreu e lima', ' PCPE', '', '', '', ''),
-(3, 'CP de Aliança', '  ricardo', 354444, 1515, '11/12/21', 'paulista', ' PCPE', '', '', '', ''),
-(4, 'CP de Aliança', '  AAAA', 0, 0, '2020-12-16', 'Paulista', ' PCPE', '', '', '', ''),
-(5, 'CP de Aliança', '        Alerta', 354444, 1515, '2020-12-16', 'abreu e lima', 'PM', '', '', '', '');
+INSERT INTO `tbl_saidaaudiencia` (`id`, `cadeiapublica`, `nome`, `numsiap`, `sic`, `data`, `cidade-forum`, `condutores`, `sexo`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `nucleo`) VALUES
+(1, '    CP de Itambé', '    Alerta', 0, 1515, '', ' abreu ', ' PM', '', 'asdasd', 'Agente', '123131', 0);
 
 -- --------------------------------------------------------
 
@@ -422,10 +424,9 @@ CREATE TABLE `tbl_saidadetentos` (
 --
 
 INSERT INTO `tbl_saidadetentos` (`id`, `cadeiapublica`, `nome`, `mae`, `pai`, `motivo`, `datasaida`, `numprocesso`, `numsiap`, `sic`, `documentacao`, `destino`, `condutores`, `sexo`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `obs`, `origem`, `nucleo`) VALUES
-(1, 'CP de Aliança', '       Alerta', '       ad', '       asdfa', 'ALVARÁ DE SOLTURA', '2020-12-10', 1515, 354444, 1515, 'ALVARÁ DE SOLTURA', 'PM', 'PCPE', '', 'Rafael José da Silva', 'Administrador', '1', 'zz', 'CP de Altinho', ''),
-(2, 'CP de Aliança', ' AAAA', ' asdad', ' pai', 'Alvará de Soltura', '22/22/22', 2147483647, 0, 0, 'ALVARÁ DE SOLTURA', 'PM', 'PCPE', '', '', '', '', 'obt', 'CP de Altinho', ''),
-(3, 'CP de Aliança', '  r', '  r', '  r', 'Óbito', '  11/01/20', 23222, 12322222, 12345, 'ALVARÁ DE SOLTURA', 'PCPE', 'PCPE', 'Masculino', 'Rafael José da Silva', 'Administrador', '1', '', 'CP de Altinho', ''),
-(4, 'CP de Aliança', ' Alerta', ' ad', ' asdfa', 'Alvára De Soltura', '2020-12-24', 0, 0, 1515, 'ALVARÁ DE SOLTURA', '', 'PCPE', '', '', '', '', '', 'CP de Altinho', 'Garanhus');
+(1, '  CP de Itambé', '  Alerta', '  ad', '  asdfa', 'Outros', '', 2147483647, 0, 1515, 'Outro', 'Outro', 'Outro', '', 'asdasd', 'Agente', '123131', 'outro', 'Outra Origem', 'Garanhus'),
+(3, ' CP de Carpina', ' r', ' r', ' r', 'Expiração de Prazo', '2020-12-16', 12345222, 0, 0, 'Auto de Prisão em Flagrante', '   forum', 'Outro', '', '', '', '', 'esde', 'CP de Carpina', ''),
+(16, ' CP de Garanhus', ' Condenado 3', ' yy', ' teste3', 'Mandado de Prisão Temporária', '2020-12-02', 12345, 9841654, 8479846, 'Auto de Prisão em Flagrante', 'PM', 'PCPE', '', '', '', '', 'obs', 'CP de Lagoa do Carro', 'Garanhus');
 
 -- --------------------------------------------------------
 
@@ -446,16 +447,18 @@ CREATE TABLE `tbl_saidasaude` (
   `cadastrante` varchar(40) NOT NULL,
   `funcaocadastrante` varchar(20) NOT NULL,
   `matriculacadastrante` char(8) NOT NULL,
-  `descricaosaida` varchar(300) NOT NULL
+  `descricaosaida` varchar(300) NOT NULL,
+  `nucleo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tbl_saidasaude`
 --
 
-INSERT INTO `tbl_saidasaude` (`id`, `cadeiapublica`, `nome`, `numsiap`, `sic`, `data`, `motivo`, `condutores`, `sexo`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `descricaosaida`) VALUES
-(1, 'CP de Aliança', '   Alerta', 354444, 1515, '11/03/18', 'Emergência', 'kilolopi', '', '', '', '', 'morto'),
-(2, 'CP de Aliança', '   r', 12322222, 12345, '11/03/18', 'Exames Complexos', ' kilolop', '', '', '', '', 'morto');
+INSERT INTO `tbl_saidasaude` (`id`, `cadeiapublica`, `nome`, `numsiap`, `sic`, `data`, `motivo`, `condutores`, `sexo`, `cadastrante`, `funcaocadastrante`, `matriculacadastrante`, `descricaosaida`, `nucleo`) VALUES
+(1, '     CP de Itambé', '     Alerta', 0, 1515, '2020-12-16', 'Consulta Odontológica', '  Outro', '', 'asdasd', 'Agente', '123131', '  morto', 0),
+(3, '  CP de Carpina', '  r', 0, 0, '2020-12-16', 'Consulta Médica', 'PCPE', '', '', '', '', 'morto', 0),
+(16, '  CP de Garanhus', '  Condenado 3', 9841654, 8479846, '', 'Mandado de Prisão Temporária', 'kilolpi', '', '', '', '', 'morto', 0);
 
 --
 -- Índices para tabelas despejadas
@@ -548,19 +551,19 @@ ALTER TABLE `tbl_agente`
 -- AUTO_INCREMENT de tabela `tbl_enterno`
 --
 ALTER TABLE `tbl_enterno`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_interno`
 --
 ALTER TABLE `tbl_interno`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_ocorrencia`
 --
 ALTER TABLE `tbl_ocorrencia`
-  MODIFY `idd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_presos`
@@ -573,24 +576,6 @@ ALTER TABLE `tbl_presos`
 --
 ALTER TABLE `tbl_revista`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de tabela `tbl_saidaaudiencia`
---
-ALTER TABLE `tbl_saidaaudiencia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de tabela `tbl_saidadetentos`
---
-ALTER TABLE `tbl_saidadetentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de tabela `tbl_saidasaude`
---
-ALTER TABLE `tbl_saidasaude`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

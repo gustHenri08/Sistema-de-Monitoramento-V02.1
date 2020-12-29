@@ -258,7 +258,7 @@
                   <option>Outro</option>
                 </select>
           
-                  <?php else; ?>
+                  <?php else: ?>
                   <select class="form-control" style="width: 230px" name="motivo"  ><!-- 'name=' adicionado-->
                   <option>Consulta Médica</option>
                   <option>Consulta Odontológica</option>

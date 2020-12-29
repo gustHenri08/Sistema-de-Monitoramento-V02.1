@@ -307,7 +307,7 @@
          
               <label>Origem</label><!-- Origem alterada para ficar de acordo com documentação, versão antiga estava com os options errados-->
               <?php if(isset($saidadetentos)): ?>  
-                <select class="form-control" style="width: 250px" name="origem"  value=" <?= isset($saidadetentos) ? $saidadetentos["origem"] : "" ?>"><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 250px" name="origem"  ><!-- 'name=' adicionado-->
                 <option><?=$saidadetentos["origem"]?></option>
                   <option>CP de Altinho</option>
                   <option>CP de Bom Conselho</option> 
@@ -320,7 +320,7 @@
                   <option>Outra Origem</option>
                 </select>
                 <?php else: ?>
-                <select class="form-control" style="width: 250px" name="origem"  value=" <?= isset($saidadetentos) ? $saidadetentos["origem"] : "" ?>"><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 250px" name="origem" ><!-- 'name=' adicionado-->
               
                   <option>CP de Altinho</option>
                   <option>CP de Bom Conselho</option> 
@@ -338,7 +338,7 @@
             <div class="form-group"> <!--Documentação-->
                 <label>Documentação</label>
                 <?php if(isset($saidadetentos)): ?>  
-                <select class="form-control" style="width: 230px" name="documentacao"  value=" <?= isset($saidadetentos) ? $saidadetentos["documentacao"] : "" ?>"><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 230px" name="documentacao"  ><!-- 'name=' adicionado-->
                 <option><?=$saidadetentos["documentacao"]?></option>
                   <option>Alvará de Soltura</option>
                   <option>CI - Transferência</option>
@@ -347,9 +347,8 @@
                   <option>Prisão Temporária</option>
                   <option>Outro</option>
                 </select>
-                <?php else; ?>
-                <select class="form-control" style="width: 230px" name="documentacao"  value=" <?= isset($saidadetentos) ? $saidadetentos["documentacao"] : "" ?>"><!-- 'name=' adicionado-->
-              
+                <?php else: ?>
+                <select class="form-control" style="width: 230px" name="documentacao"  ><!-- 'name=' adicionado-->
                   <option>Alvará de Soltura</option>
                   <option>CI - Transferência</option>
                   <option>Fim da Prisão Temporária</option>

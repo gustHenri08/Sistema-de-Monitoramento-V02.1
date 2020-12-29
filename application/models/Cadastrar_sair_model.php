@@ -8,6 +8,7 @@ class cadastrar_sair_model extends CI_Model{
 
     function cadastroMaster(){ // Função reponsável por cadastrar os agentes ao bando de dados: db_agente (Cadatro realizado pelo administrador)
         $datamaster = array(
+            'id'=> $this->input->post('id'),
             'cadeiapublica'=> $this->input->post('cadeiapublica'), //Recebe os dados via post
             'datasaida'=> $this->input->post('datasaida'),
             'numprocesso'=> $this->input->post('numprocesso'),

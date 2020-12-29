@@ -9,6 +9,7 @@ class SaidapresosAudiencia_model extends CI_Model{
  
     function cadastroMaster(){ // Função reponsável por cadastrar os presos ao bando de dados: db_presos
         $data = array(
+            'id'=> $this->input->post('id'),
             'cadeiapublica'=> $this->input->post('cadeiapublica'), //Recebe os dados via post
             'nucleo'=>$this->session->userdata("nucleo"),
             'data'=> $this->input->post('data'),
@@ -102,6 +103,7 @@ class SaidapresosAudiencia_model extends CI_Model{
 
     function cadastroMastermedico(){ // Função reponsável por cadastrar os presos ao bando de dados: db_presos
         $data = array(
+            'nucleo'=>$this->session->userdata("nucleo"),
             'cadeiapublica'=> $this->input->post('cadeiapublica'), //Recebe os dados via post
             'data'=> $this->input->post('data'),
             'numsiap'=> $this->input->post('numsiap'),
@@ -109,8 +111,8 @@ class SaidapresosAudiencia_model extends CI_Model{
             'nome'=> $this->input->post('nome'),
             'motivo'=> $this->input->post('motivo'),
             'condutores'=> $this->input->post('condutores'),
-            'descricaosaida'=> $this->input->post('descricaosaida')
-        
+            'descricaosaida'=> $this->input->post('descricaosaida'),
+            'id'=> $this->input->post('id')
             );
         $this->db->insert('tbl_saidasaude', $data);
 

@@ -198,6 +198,9 @@
             <div class="form-group"> <!-- Nome do Detento-->
           		<input type="hidden" class="form-control" required name="nucleo" placeholder="Nome" value="<?= isset($saidadetentos) ? $saidadetentos["nucleo"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
             </div>
+            <div class="form-group"> <!-- Nome do Detento-->
+          		<input type="hidden" class="form-control" required name="id" placeholder="Nome" value="<?= isset($saidadetentos) ? $saidadetentos["id"] : ""?>" style="width:300px"><!-- 'name=' adicionado-->
+            </div>
 
                           
             <div class="form-group"> <!-- Nome do Detento-->
@@ -350,7 +353,7 @@
                 <label>Condutores</label>
                 <?php if(isset($saidadetentos)): ?>    
                 <select class="form-control" style="width: 230px" name="condutores"  ><!-- 'name=' adicionado-->
-                <option><?=$saidadetentos["condutores"]?></option>
+              
                   <option>PCPE</option>
                   <option>PF</option>
                   <option>PM</option>
