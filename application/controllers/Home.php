@@ -67,7 +67,9 @@ class Home extends CI_Controller{
 
     public function outrasOcorrencias()
     {
-        $this->load->view('agentes/outras-ocorrencias-view'); // Carrega a view(Tela) outras Ocorrências;
+        $this->load->model('ocorrencias_modal');
+        $data['saidadetentos'] = $this->ocorrencias_modal->cadastradoeditar();
+        $this->load->view('agentes/outras-ocorrencias-view',$data); // Carrega a view(Tela) outras Ocorrências;
     }
 
     public function cadastrarOutrasOcorrencias()

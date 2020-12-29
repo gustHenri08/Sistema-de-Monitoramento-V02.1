@@ -139,7 +139,32 @@ class ocorrencias extends CI_Controller{
         $this->load->view('administrador/outras-ocorrencias-view-admin',$dados);
     }
 
+    public function result_cp(){
+        $this->load->model('ocorrencias_modal');
+        $dados['saidadetentos'] = $this->ocorrencias_modal->buscaacp($_POST);
+        $this->load->view('administrador/outras-ocorrencias-view',$dados);
+    }
+
   
+    public function deletecp($idd){
+        $this->load->model('ocorrencias_modal');
+        $this->ocorrencias_modal->destroy($idd);
+        redirect("Home/outrasOcorrencias");
+     }
+ 
+     public function editMastercp($idd){ // Faz o carregamento dos dados de um agente cadastrado atravez da função show no Agente_model
+         $this->load->model('ocorrencias_modal');
+         $edit['saidadetentos'] = $this->ocorrencias_modal->show($idd);
+         $this->load->view('agentes/editar_outra_view', $edit);
+     }
+     public function updatepc($idd){
+        $atualizar = $_POST;
+        $this->ocorrencias_modal->update($idd, $atualizar);
+        redirect("Home/outrasOcorrencias");
+
+    }
+
+ 
 
 }
 
