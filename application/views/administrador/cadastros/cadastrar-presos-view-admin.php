@@ -555,10 +555,17 @@
           		<input type="date" class="form-control" required name="dataprisao" value="<?= isset($detentos) ? $detentos["dataprisao"] : "" ?>" style="width:140px" maxlength="10"><!-- 'name=' adicionado-->
             </div>
 
-            <div class="form-group">
-              <label>N° SIAP *</label>
-              <input type="int" class="form-control" required name="nsiap" placeholder="N° SIAP" value="<?= isset($detentos) ? $detentos["nsiap"] : ""?>" style="width:140px" maxlength="9" ><!-- 'name=' adicionado-->
-            </div>
+            <?php if(isset($detentos)): ?>
+              <div class="form-group">
+                <label>N° SIAP *</label>
+                <input type="int" class="form-control" required name="nsiap" placeholder="N° SIAP" readonly value="<?= isset($detentos) ? $detentos["nsiap"] : ""?>" style="width:140px" maxlength="9" ><!-- 'name=' adicionado-->
+              </div>
+            <?php else: ?>
+              <div class="form-group">
+                <label>N° SIAP *</label>
+                <input type="int" class="form-control" required name="nsiap" placeholder="N° SIAP" value="<?= isset($detentos) ? $detentos["nsiap"] : ""?>" style="width:140px" maxlength="9" ><!-- 'name=' adicionado-->
+              </div>
+            <?php endif;?>
 
             <div class="form-group">
               <label>SIC</label>

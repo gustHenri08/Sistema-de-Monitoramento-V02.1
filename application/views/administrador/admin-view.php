@@ -322,7 +322,7 @@
                   data:{
                     labels: ["Homens","Mulheres","Regime Aberto","Regime Semi-Aberto","Regime Fechado"],
                     datasets:[
-                      { label:"Núcleo Arco-Verde",
+                      { label:"Núcleo Arcoverde",
                         //*Número de presos por Núcleo*//
                         data: getinfoArcoverde_Values,
                         backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
@@ -501,7 +501,7 @@
                   data:{
                     labels: ["Expiração de Prazo","Mandado de Prisão Civil","Mandado de Prisão Preventiva","Mandado de Prisão Temporária","Mandado de Recolhimento","Recaptura - Mandado de Prisão","Tansferência","Trânsito","Outros"],
                     datasets:[
-                      { label:"Núcleo Arco-Verde",
+                      { label:"Núcleo Arcoverde",
                         //*Número de presos por Núcleo*//
                         data: getEntradaArcoverde_VALUES,
                         backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
@@ -693,7 +693,7 @@
                 data:{
                   labels: ["Audiência Presencial","Consulta Médica","Consulta Odontológica","Emergência","Escolta Funeral","Exames Complexos","Exames Laboratoriais","Internação Hospitalar","Outros"],
                   datasets:[
-                    { label:"Núcleo Arco-Verde",
+                    { label:"Núcleo Arcoverde",
                         //*Número de presos por Núcleo*//
                         data: getAutSaidaArcoverde_VALUES,
                         backgroundColor:["rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)","rgba(255, 99, 132, 10)"],
