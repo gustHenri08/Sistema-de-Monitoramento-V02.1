@@ -214,7 +214,7 @@ class Home extends CI_Controller{
    public function registroOcorrenciasAdmin()
     {
         $this->load->model('ocorrencias_modal');
-        $data['saidadetentos'] = $this->ocorrencias_modal->cadastrados();
+        $data['saidadetentos'] = $this->ocorrencias_modal->cadastradosd();
         $this->load->view('administrador/ocorrencias-view-admin',$data); // Carrega a view(Tela) Ocorrências do Admin;
     }
 
@@ -257,7 +257,7 @@ class Home extends CI_Controller{
     public function saidaAudienciaAdmin()
     {
         $this->load->model('SaidapresosAudiencia_model');
-        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastrados(); 
+        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastradosd(); 
         $this->load->view('administrador/saida-presosAudiencia-view-admin',$data); // Carrega a view(Tela) Saida para Audiencia do Admin;
     }
 
@@ -266,7 +266,7 @@ class Home extends CI_Controller{
     {
        
         $this->load->model('SaidapresosAudiencia_model');//carregando o model dos presos
-        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastrados();
+        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastradosd();
         $this->load->view('administrador/saida-presosMedica-view-admin',$data); 
     }
 
@@ -275,14 +275,14 @@ class Home extends CI_Controller{
     public function transitoInternoAdmin()
     {
         $this->load->model('SaidapresosAudiencia_model');//carregando o model dos presos
-        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastradoi();
+        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastradoid();
         $this->load->view('administrador/transito-interno-view-admin',$data); // Carrega a view(Tela) Trânsito Interno do Admin;
     }
 
     public function transitoExternoAdmin() 
     {
         $this->load->model('SaidapresosAudiencia_model');//carregando o model dos presos
-        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastradoe();
+        $data['saidadetentos'] = $this->SaidapresosAudiencia_model->cadastradoed();
         $this->load->view('administrador/transito-externo-view-admin',$data); // Carrega a view(Tela) Trânsito Externo do Admin;
     }
 

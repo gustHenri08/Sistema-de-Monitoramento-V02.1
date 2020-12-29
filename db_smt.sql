@@ -380,7 +380,7 @@ CREATE TABLE `tbl_saidaaudiencia` (
   `cadastrante` varchar(40) NOT NULL,
   `funcaocadastrante` varchar(20) NOT NULL,
   `matriculacadastrante` char(8) NOT NULL,
-  `nucleo` int(11) NOT NULL
+  `nucleo` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -448,7 +448,7 @@ CREATE TABLE `tbl_saidasaude` (
   `funcaocadastrante` varchar(20) NOT NULL,
   `matriculacadastrante` char(8) NOT NULL,
   `descricaosaida` varchar(300) NOT NULL,
-  `nucleo` int(11) NOT NULL
+  `nucleo` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

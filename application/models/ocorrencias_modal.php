@@ -23,10 +23,14 @@ class ocorrencias_modal extends CI_Model{
         );
         $this->db->insert('tbl_ocorrencia', $datamaster);
     }
+    
+        public function cadastrados(){ // Função responsável por ir ao banco buscar os presos cadastrados no banco de dados
+            return $this->db->get_where("tbl_presos", array('cadeiapublica' => $this->session->userdata('unidadeprisional')) )->result_array();
+        }
 
-    public function cadastrados(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
-        return $this->db->get("tbl_presos")->result_array();
-    }
+        public function cadastradosd(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
+            return $this->db->get("tbl_presos")->result_array();
+        }
     
     public function cadastradoeditar(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
         return $this->db->get("tbl_ocorrencia")->result_array();

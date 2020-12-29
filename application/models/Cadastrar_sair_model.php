@@ -35,6 +35,7 @@ class cadastrar_sair_model extends CI_Model{
     public function cadastradosAdmin(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
         return $this->db->get("tbl_presos")->result_array();
     }
+    
     public function buscar($busca){
         
         if(empty($busca))

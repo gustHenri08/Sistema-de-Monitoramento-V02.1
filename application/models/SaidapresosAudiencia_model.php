@@ -25,16 +25,29 @@ class SaidapresosAudiencia_model extends CI_Model{
 
     
   public function cadastrados(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
-        return $this->db->get("tbl_saidadetentos")->result_array();
+    return $this->db->get_where("tbl_saidadetentos", array('cadeiapublica' => $this->session->userdata('unidadeprisional')) )->result_array();
     }
 
     public function cadastradoi(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
-        return $this->db->get("tbl_interno")->result_array();
+        return $this->db->get_where("tbl_interno", array('cadeiapublica' => $this->session->userdata('unidadeprisional')) )->result_array();
     }
 
     public function cadastradoe(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
-        return $this->db->get("tbl_enterno")->result_array();
+        return $this->db->get_where("tbl_enterno", array('cadeiapublica' => $this->session->userdata('unidadeprisional')) )->result_array();
     }
+
+    public function cadastradosd(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
+      return $this->db->get("tbl_saidadetentos")->result_array();
+    }
+    
+        public function cadastradoid(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
+            return $this->db->get("tbl_interno")->result_array();
+        }
+    
+        public function cadastradoed(){ // Função responsável por ir ao banco buscar os agentes cadastrados no banco de dados
+            return $this->db->get("tbl_enterno")->result_array();
+        }
+    
 
     public function buscar($busca){
         
