@@ -225,7 +225,7 @@
             </div>
 
               <div class="form-group" style="width:200px">
-                <label>Data:</label>
+                <label>Data: *</label>
                 <div class="input-group date">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
@@ -236,7 +236,7 @@
             </div>
 
             <div class="form-group"> <!--Motivo-->
-                <label>Motivo</label>
+                <label>Motivo *</label>
                   <select class="form-control" style="width: 250px" name="tipo"><!-- 'name=' adicionado-->
                     <option>Agressão</option>
                     <option>Apreensão</option>
