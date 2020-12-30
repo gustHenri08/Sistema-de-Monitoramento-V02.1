@@ -197,7 +197,7 @@
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>centro Prisional</th>
+                    <th>Centro Prisional</th>
                     <th>Nome</th>
                     <th>Nº SIAP</th>
                     <th>SIC</th>

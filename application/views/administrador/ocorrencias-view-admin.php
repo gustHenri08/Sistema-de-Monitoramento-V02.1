@@ -201,7 +201,7 @@
              <table id="example2" class="table table-bordered table-hover">
                <thead>
                <tr>
-                 <th>centro Prisional</th>
+                 <th>Centro Prisional</th>
                  <th>Nome</th>
                  <th>Nome da Mãe</th>
                  <th>Nome do Pai</th>
