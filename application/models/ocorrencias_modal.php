@@ -55,7 +55,7 @@ class ocorrencias_modal extends CI_Model{
         $query = $this->db->get('tbl_ocorrencia');
         return $query->result_array(); 	
     }
-
+    
     public function buscadata($busca){
         
         if(empty($busca))

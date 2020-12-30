@@ -231,7 +231,7 @@
 
               <div class="form-group"> <!-- Nome do Pai-->
               <label>Cidade - Fórum *</label>
-              <input type="text" class="form-control" name="cidade-forum" placeholder="Cidade - Fórum" style="width:300px" ><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" required name="cidade-forum" placeholder="Cidade - Fórum" style="width:300px" ><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
@@ -244,7 +244,7 @@
 
             <div class="form-group"> <!--Documentação-->
                 <label>Condutores *</label>
-                <select class="form-control" style="width: 230px" name="condutores"  ><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 230px" required name="condutores"  ><!-- 'name=' adicionado-->
                   <option>PCPE</option>
                   <option>PF</option>
                   <option>PM</option>

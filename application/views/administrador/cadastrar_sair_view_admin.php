@@ -240,19 +240,19 @@
 
             <div class="form-group"> <!-- Nome do Detento-->
           		<label>PROCESSO *</label>
-          		<input type="text" class="form-control" name="numprocesso" placeholder="PROCESSO" style="width:300px"  ><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" required name="numprocesso" placeholder="PROCESSO" style="width:300px"  ><!-- 'name=' adicionado-->
           	</div>
 
               <div class="form-group"> <!-- Nome do Detento-->
               <label>Destino *</label>
-              <input type="text" class="form-control" name="destino" placeholder="Destino" style="width:300px" ><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" required name="destino" placeholder="Destino" style="width:300px" ><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!--Motivo-->
                 <label>Motivo *</label>
                 
             <?php if(isset($saidadetentos)): ?>    
-                <select class="form-control" style="width: 250px" name="motivo"  ><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 250px" required name="motivo"  ><!-- 'name=' adicionado-->
                   <option><?=$saidadetentos["motivo"]?></option>
                   <option>Alvará De Soltura </option>
                   <option>Evasão</option>           
@@ -271,7 +271,7 @@
                   <option>Outros</option>
                 </select>
                 <?php else: ?>
-                  <select class="form-control" style="width: 250px" name="motivo"  ><!-- 'name=' adicionado-->
+                  <select class="form-control" style="width: 250px" required name="motivo"  ><!-- 'name=' adicionado-->
        
                   <option>Alvará De Soltura </option>
                   <option>Evasão</option>           
@@ -296,7 +296,7 @@
               <label>Origem *</label>
             <?php if(isset($saidadetentos)): ?>    
               <!-- Origem alterada para ficar de acordo com documentação, versão antiga estava com os options errados-->
-                <select class="form-control" style="width: 250px" name="origem" ><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 250px" required name="origem" ><!-- 'name=' adicionado-->
                 <option><?=$saidadetentos["origem"]?></option>
                   <option>CP de Altinho</option>
                   <option>CP de Bom Conselho</option> 
@@ -309,7 +309,7 @@
                   <option>Outra Origem</option>
                 </select>
                 <?php else: ?>
-                <select class="form-control" style="width: 250px" name="origem" ><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 250px" required name="origem" ><!-- 'name=' adicionado-->
       
                   <option>CP de Altinho</option>
                   <option>CP de Bom Conselho</option> 
@@ -328,7 +328,7 @@
                 <label>Documentação *</label>
                  
             <?php if(isset($saidadetentos)): ?>    
-                <select class="form-control" style="width: 230px" name="documentacao"  ><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 230px" required name="documentacao"  ><!-- 'name=' adicionado-->
                   <option><?=$saidadetentos["documentacao"]?></option>
                   <option>Alvará de Soltura</option>
                   <option>CI - Transferência</option>
@@ -338,7 +338,7 @@
                   <option>Outro</option>
                 </select>
                 <?php else: ?>
-                <select class="form-control" style="width: 230px" name="documentacao"  ><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 230px" required name="documentacao"  ><!-- 'name=' adicionado-->
                   <option>Alvará de Soltura</option>
                   <option>CI - Transferência</option>
                   <option>Fim da Prisão Temporária</option>
@@ -352,7 +352,7 @@
              <div class="form-group"> <!--Documentação-->
                 <label>Condutores *</label>
                 <?php if(isset($saidadetentos)): ?>    
-                <select class="form-control" style="width: 230px" name="condutores"  ><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 230px" required name="condutores"  ><!-- 'name=' adicionado-->
               
                   <option>PCPE</option>
                   <option>PF</option>
@@ -362,7 +362,7 @@
                   <option>Outro</option>
                 </select>
                 <?php else: ?>
-                  <select class="form-control" style="width: 230px" name="condutores"  ><!-- 'name=' adicionado-->
+                  <select class="form-control" style="width: 230px" required name="condutores"  ><!-- 'name=' adicionado-->
                   <option>PCPE</option>
                   <option>PF</option>
                   <option>PM</option>
@@ -375,7 +375,7 @@
 
             <div class="form-group"> <!--Observações-->
                   <label>Observações Gerais</label>
-                  <textarea class="form-control" rows="5" name="obs" placeholder="Observações" ></textarea><!-- 'name=' adicionado-->
+                  <textarea class="form-control" rows="5" required name="obs" placeholder="Observações" ></textarea><!-- 'name=' adicionado-->
             </div>
              
             <br>

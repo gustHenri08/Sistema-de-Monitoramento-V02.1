@@ -229,7 +229,7 @@
 
             <div class="form-group"> <!--Documentação-->
                 <label>Motivo *</label>
-                <select class="form-control" style="width: 230px" name="motivo"  ><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 230px" required name="motivo"  ><!-- 'name=' adicionado-->
                   <option>Consulta Médica</option>
                   <option>Consulta Odontológica</option>
                   <option>Emergência</option>
@@ -241,7 +241,7 @@
 
             <div class="form-group"> <!--Documentação-->
                 <label>Condutores *</label>
-                <select class="form-control" style="width: 230px" name="condutores"  ><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 230px" required name="condutores"  ><!-- 'name=' adicionado-->
                   <option>PCPE</option>
                   <option>PF</option>
                   <option>PM</option>
@@ -253,7 +253,7 @@
               
             <div class="form-group"> <!-- Nome do Pai-->
               <label>Descrição Saida *</label>
-              <input type="text" class="form-control" name="descricaosaida" placeholder="descrição saida" style="width:300px"> <!-- 'name=' adicionado-->
+              <input type="text" class="form-control"  required name="descricaosaida" placeholder="descrição saida" style="width:300px"> <!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome do Detento-->

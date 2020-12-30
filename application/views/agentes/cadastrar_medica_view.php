@@ -216,29 +216,29 @@
 
             <div class="form-group">
               <label>Data de Entrada *</label>
-              <input type="date" class="form-control" name="data" placeholder="dd/mm/aaaa" style="width:300px"  ><!-- 'name=' adicionado-->
+              <input type="date" class="form-control" required name="data" placeholder="dd/mm/aaaa" style="width:300px"  ><!-- 'name=' adicionado-->
               </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
               <label>Nome *</label>
-              <input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" required name="nome" placeholder="Nome" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome dpa Mãjbejjee-->
               <label>Nº SIAP *</label>
-              <input type="text" class="form-control" name="numsiap" placeholder="Nº SIAP" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["numsiap"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" required name="numsiap" placeholder="Nº SIAP" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["numsiap"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome do Pai-->
               <label>SIC *</label>
-              <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" required name="sic" placeholder="SIC" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!--Documentação-->
                 <label>Motivo *</label>
                 <?php if(isset($saidadetentos)): ?>  
                  
-                <select class="form-control" style="width: 230px" name="motivo"  ><!-- 'name=' adicionado-->
+                <select class="form-control" style="width: 230px" required name="motivo"  ><!-- 'name=' adicionado-->
                 <option><?=$saidadetentos["motivo"]?></option>
                   <option>Consulta Médica</option>
                   <option>Consulta Odontológica</option>
@@ -249,7 +249,7 @@
                 </select>
           
                   <?php else: ?>
-                  <select class="form-control" style="width: 230px" name="motivo"  ><!-- 'name=' adicionado-->
+                  <select class="form-control" style="width: 230px" required name="motivo"  ><!-- 'name=' adicionado-->
                   <option>Consulta Médica</option>
                   <option>Consulta Odontológica</option>
                   <option>Emergência</option>
@@ -273,12 +273,12 @@
 
               <div class="form-group"> <!-- Nome do Pai-->
               <label>Condutores *</label>
-              <input type="text" class="form-control" name="condutores" placeholder="Condutores" style="width:300px" ><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" required name="condutores" placeholder="Condutores" style="width:300px" ><!-- 'name=' adicionado-->
             </div>
               
             <div class="form-group"> <!-- Nome do Pai-->
               <label>Descrição Saida</label>
-              <input type="text" class="form-control" name="descricaosaida" placeholder="descrição saida" style="width:300px"> <!-- 'name=' adicionado-->
+              <input type="text" class="form-control" required name="descricaosaida" placeholder="descrição saida" style="width:300px"> <!-- 'name=' adicionado-->
             </div>
 
 

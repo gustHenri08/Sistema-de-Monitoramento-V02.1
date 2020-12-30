@@ -236,14 +236,14 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="date" name="data" class="form-control pull-right" id="datepicker">
+                  <input type="date" required name="data" class="form-control pull-right" id="datepicker">
                 </div>
                 <!-- /.input group -->
             </div>
 
             <div class="form-group"> <!--Motivo-->
                 <label>Motivo *</label>
-                  <select class="form-control" style="width: 250px" name="tipo"><!-- 'name=' adicionado-->
+                  <select class="form-control" style="width: 250px"required name="tipo"><!-- 'name=' adicionado-->
                     <option>Agressão</option>
                     <option>Apreensão</option>
                     <option>Custódia Hospitalar</option>
