@@ -17,6 +17,9 @@ class SaidapresosAudiencia_model extends CI_Model{
             'sic'=> $this->input->post('sic'),
             'nome'=> $this->input->post('nome'),
             'cidade-forum'=> $this->input->post('cidade-forum'),
+            'cadastrante'=>  $this->session->userdata("nomecompleto"),
+            'funcaocadastrante'=>  $this->session->userdata("funcao"),
+            'matriculacadastrante'=>  $this->session->userdata("matricula"),
             'condutores'=> $this->input->post('condutores')
             );
         $this->db->insert('tbl_saidaaudiencia', $data);
@@ -124,7 +127,11 @@ class SaidapresosAudiencia_model extends CI_Model{
             'nome'=> $this->input->post('nome'),
             'motivo'=> $this->input->post('motivo'),
             'condutores'=> $this->input->post('condutores'),
+            'cadastrante'=>  $this->session->userdata("nomecompleto"),
+            'funcaocadastrante'=>  $this->session->userdata("funcao"),
+            'matriculacadastrante'=>  $this->session->userdata("matricula"),
             'descricaosaida'=> $this->input->post('descricaosaida'),
+            
             'id'=> $this->input->post('id')
             );
         $this->db->insert('tbl_saidasaude', $data);
@@ -153,6 +160,9 @@ class SaidapresosAudiencia_model extends CI_Model{
             'motivo'=> $this->input->post('motivo'),
             'obs'=> $this->input->post('obs'),
             'documentacao'=> $this->input->post('documentacao'),
+            'cadastrante'=>  $this->session->userdata("nomecompleto"),
+            'funcaocadastrante'=>  $this->session->userdata("funcao"),
+            'matriculacadastrante'=>  $this->session->userdata("matricula"),
             'destino'=> $this->input->post('destino')
             
             );
@@ -186,6 +196,9 @@ class SaidapresosAudiencia_model extends CI_Model{
             'motivo'=> $this->input->post('motivo'),
             'obs'=> $this->input->post('obs'),
             'destino'=> $this->input->post('destino'),
+            'cadastrante'=>  $this->session->userdata("nomecompleto"),
+            'funcaocadastrante'=>  $this->session->userdata("funcao"),
+            'matriculacadastrante'=>  $this->session->userdata("matricula"),
             'documentacao'=> $this->input->post('documentacao')
             );
         $this->db->insert('tbl_enterno', $data);

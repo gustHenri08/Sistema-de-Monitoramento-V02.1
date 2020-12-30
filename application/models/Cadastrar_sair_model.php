@@ -22,6 +22,9 @@ class cadastrar_sair_model extends CI_Model{
              'destino'=> $this->input->post('destino'),
             'condutores'=> $this->input->post('condutores'),
             'documentacao'=> $this->input->post('documentacao'),
+            'cadastrante'=>  $this->session->userdata("nomecompleto"),
+            'funcaocadastrante'=>  $this->session->userdata("funcao"),
+            'matriculacadastrante'=>  $this->session->userdata("matricula"),
             'nucleo'=> $this->input->post('nucleo'),
             'obs'=> $this->input->post('obs')
         );

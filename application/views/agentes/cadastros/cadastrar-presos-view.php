@@ -566,11 +566,11 @@
             <br>
             <?php if (isset($detentos)) :?>
               <div class="col-xs-2"> <!--Botão Cadastrar-->
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Salvar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+                <button type="submit" class="btn btn-primary btn-block btn-flat" onclick="editar();">Salvar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
               </div>
             <?php else :?>
               <div class="col-xs-2"> <!--Botão Cadastrar-->
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
+                <button type="submit" class="btn btn-primary btn-block btn-flat" onclick="cadastrar();">Cadastrar</button><!--Botão atualizado pq não estav fazendo o 'submit'-->
               </div>
             <?php endif;?>
             <div class="col-xs-2"> <!--Botão Cadastrar-->
@@ -615,6 +615,12 @@
   $(document).ready(function () {
     $('.sidebar-menu').tree();
   })
+  function cadastrar() {
+    alert("Cadastrado com Sucesso!");
+  }
+  function editar() {
+    alert("Editado com Sucesso!");
+  }
 </script>
 </body>
 </html>
