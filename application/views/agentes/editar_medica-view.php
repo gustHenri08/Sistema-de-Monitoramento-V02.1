@@ -191,7 +191,7 @@
           
               <!--Inicio do Formulario-->
               <?php if(isset($saidadetentos)) : ?>
-              <form method="post" action="<?= base_url() ?>index.php/SaidapresosMedica/createMaster/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
+              <form method="post" action="<?= base_url() ?>index.php/SaidapresosMedica/update/<?= $saidadetentos["id"] ?>"> <!-- Chama a funtion de edição e para o id que será editado -->
                
             <?php endif; ?>
              <!--Em Testes | chama o controller responsavel por cadastro-->

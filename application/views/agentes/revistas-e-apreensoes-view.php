@@ -193,7 +193,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                   </div>
-                  <input type="text" class="form-control pull-right" id="reservation">
+                  <input type="text"  class="form-control pull-right" id="reservation">
                 </div>
                 <!-- /.input group -->
               </div>

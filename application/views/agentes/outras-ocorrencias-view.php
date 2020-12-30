@@ -195,7 +195,7 @@
                 <label>Busca por CP:</label>
                 <div class="input-group">
                   
-                  <input type="text" class="form-control " name="cadeiapublica" >
+                  <input type="text" class="form-control " placeholder=" CP "  name="cadeiapublica" >
                   </div>
                   <br><button type="submit" class="btn btn-primary">Buscar</button></br>
                  </form>

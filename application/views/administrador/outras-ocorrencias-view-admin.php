@@ -190,7 +190,7 @@
                   
                   <input type="text" class="form-control " name="cadeiapublica" >
                   </div>
-                  <br><button type="submit" class="btn btn-primary">Buscar</button></br>
+                  <br><button type="submit" placeholder=" CP " class="btn btn-primary">Buscar</button></br>
                  </form>
 
                  <!-- /.input group -->
