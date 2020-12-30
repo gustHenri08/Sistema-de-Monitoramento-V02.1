@@ -212,7 +212,7 @@
            
             <div class="form-group"> <!-- Nome do Detento-->
           		<label>Cadeia publica</label>
-          		<input type="text" class="form-control" name="cadeiapublica" placeholder="Cadeia Publica" style="width:300px" readonly value=" <?=$saidadetentos["cadeiapublica"]?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="cadeiapublica" placeholder="Cadeia Publica" style="width:300px" readonly value="<?=$saidadetentos["cadeiapublica"]?>"readonly style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
             <div class="form-group">
@@ -222,17 +222,17 @@
 
             <div class="form-group"> <!-- Nome do Detento-->
               <label>Nome</label>
-              <input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome dpa Mãjbejjee-->
               <label>Nº SIAP</label>
-              <input type="text" class="form-control" name="numsiap" placeholder="Nº SIAP" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["numsiap"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="numsiap" placeholder="Nº SIAP" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["numsiap"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome do Pai-->
               <label>SIC</label>
-              <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"value=" <?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!--Campo Cadeia Publica-->
@@ -240,25 +240,25 @@
                 <?php if(isset($saidadetentos)): ?>  
                 <select class="form-control" style="width: 200px" name="motivo" >  <!-- 'name=' adicionado-->
                 <option><?=$saidadetentos["motivo"]?></option>
-                  <option>AUDIÊNCIA</option>
-                  <option>CUSTÓDIA HOSPITALAR</option>
-                  <option>DETERMINAÇÃO SERES</option>
-                  <option>DETERMINAÇÃO SSPEN </option>
-                  <option>MEDIDA DE SEGURANÇA</option>
-                  <option>OUTRO MOTIVO</option>
-                  <option>TRATAMENTO MÉDICO</option>
-                  <option>OUTRO</option>
+                  <option>Audiência</option>
+                  <option>Custódia Hospitalar</option>
+                  <option>Determinação SERES</option>
+                  <option>Determinação SSPEN </option>
+                  <option>Medida de Segurança</option>
+                  <option>Outro Motivo</option>
+                  <option>Tratamento Médico</option>
+                  <option>Outro</option>
                 </select>
                 <?php else: ?>
                 <select class="form-control" style="width: 200px" name="motivo" >  <!-- 'name=' adicionado-->
-                  <option>AUDIÊNCIA</option>
-                  <option>CUSTÓDIA HOSPITALAR</option>
-                  <option>DETERMINAÇÃO SERES</option>
-                  <option>DETERMINAÇÃO SSPEN </option>
-                  <option>MEDIDA DE SEGURANÇA</option>
-                  <option>OUTRO MOTIVO</option>
-                  <option>TRATAMENTO MÉDICO</option>
-                  <option>OUTRO</option>
+                  <option>Audiência</option>
+                  <option>Custódia Hospitalar</option>
+                  <option>Determinação SERES</option>
+                  <option>Determinação SSPEN </option>
+                  <option>Medida de Segurança</option>
+                  <option>Outro Motivo</option>
+                  <option>Tratamento Médico</option>
+                  <option>Outro</option>
                 </select>
                 <?php endif; ?>
             </div>
@@ -266,17 +266,17 @@
 
               <div class="form-group"> <!-- Nome do Pai-->
               <label>Obs Gerais</label>
-              <input type="text" class="form-control" name="obs" placeholder="obs" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["obs"] : "" ?>" ><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="obs" placeholder="obs" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["obs"] : "" ?>" ><!-- 'name=' adicionado-->
             </div>
 
               <div class="form-group"> <!-- Nome do Pai-->
               <label>Documentação</label>
-              <input type="text" class="form-control" name="documentacao" placeholder="Documentação" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["documentacao"] : "" ?>"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="documentacao" placeholder="Documentação" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["documentacao"] : "" ?>"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome do Pai-->
               <label>Destino</label>
-              <input type="text" class="form-control" name="destino" placeholder="Destino" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["destino"] : "" ?>"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="destino" placeholder="Destino" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["destino"] : "" ?>"><!-- 'name=' adicionado-->
             </div>
 
             <br>

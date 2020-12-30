@@ -202,7 +202,7 @@
 
             <div class="form-group"> <!-- Nome do Detento-->
           		<label>Cadeia publica *</label>
-          		<input type="text" class="form-control" name="cadeiapublica" placeholder="Cadeia Publica" style="width:300px" readonly value=" <?=$saidadetentos["cadeiapublica"]?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="cadeiapublica" placeholder="Cadeia Publica" style="width:300px" readonly value="<?=$saidadetentos["cadeiapublica"]?>"readonly style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
   
@@ -213,27 +213,27 @@
 
           	<div class="form-group"> <!-- Nome do Detento-->
           		<label>Nome *</label>
-          		<input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
           	<div class="form-group"> <!-- Nome da Mãe-->
           		<label>Nome da Mãe *</label>
-          		<input type="text" class="form-control" name="mae" placeholder="Nome da Mãe" style="width:300px"   value=" <?= isset($saidadetentos) ? $saidadetentos["nomemae"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="mae" placeholder="Nome da Mãe" style="width:300px"   value="<?= isset($saidadetentos) ? $saidadetentos["nomemae"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
           	<div class="form-group"> <!-- Nome do Pai-->
           		<label>Nome do Pai *</label>
-          		<input type="text" class="form-control" name="pai" placeholder="Nome" style="width:300px"   value=" <?= isset($saidadetentos) ? $saidadetentos["nomepai"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="pai" placeholder="Nome" style="width:300px"   value="<?= isset($saidadetentos) ? $saidadetentos["nomepai"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
             <div class="form-group"> <!-- Nome do Detento-->
           		<label>SIAP *</label>
-          		<input type="text" class="form-control" name="numsiap" placeholder="SIAP" style="width:300px"  value=" <?= isset($saidadetentos) ? $saidadetentos["nsiap"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="numsiap" placeholder="SIAP" style="width:300px"  value="<?= isset($saidadetentos) ? $saidadetentos["nsiap"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
           	<div class="form-group"> <!-- Nome do Detento-->
           		<label>SIC *</label>
-          		<input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"  value=" <?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"  value="<?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
             <div class="form-group"> <!-- Nome do Detento-->
@@ -273,12 +273,12 @@
        
                   <option>Alvará De Soltura </option>
                   <option>Evasão</option>           
-                  <option>Fim De Prazo Da Prisão civil</option>
-                  <option>Fim De Prazo Da Prisão Temporária</option>
+                  <option>Fim de Prazo Da Prisão civil</option>
+                  <option>Fim de Prazo Da Prisão Temporária</option>
                   <option>Fuga</option>
                   <option>Harmonizado</option>
                   <option>Óbito</option>
-                  <option>Progressão De Regime</option>
+                  <option>Progressão de Regime</option>
                   <option>Liberdade Condicional</option>
                   <option>Prisão Domiciliar</option>
                   <option>Transferência P/CP</option>

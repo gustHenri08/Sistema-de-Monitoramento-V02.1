@@ -206,11 +206,11 @@
                 <input type="text" class="form-control" name="matriculacadastrante" placeholder="Matricula Agente" value="<?= isset($agentes) ? ($this->session->userdata("matricula")) : ($this->session->userdata("matricula"))?>"  readonly style="width:300px"><!-- 'name=' adicionado-->
               </div>    
             <div class="form-group"> <!-- Nome do Detento-->
-          		<input type="hidden" class="form-control" name="id" placeholder="Matricula Agente" value=" <?= isset($saidadetentos) ? $saidadetentos["idd"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+          		<input type="hidden" class="form-control" name="id" placeholder="Matricula Agente" value="<?= isset($saidadetentos) ? $saidadetentos["idd"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!--Campo Cadeia Publica-->
-              	<input  type="hidden"  class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>" readonly style="width:300px" >  <!-- 'name=' adicionado-->
+              	<input  type="hidden"  class="form-control" style="width: 200px" name="cadeiapublica" value="<?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>" readonly style="width:300px" >  <!-- 'name=' adicionado-->
 
             </div>
 
@@ -220,7 +220,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="date" name="data" class="form-control pull-right" id="datepicker"  value=" <?= isset($saidadetentos) ? $saidadetentos["data"] : "" ?>">
+                  <input type="date" name="data" class="form-control pull-right" id="datepicker"  value="<?= isset($saidadetentos) ? $saidadetentos["data"] : "" ?>">
                 </div>
                 <!-- /.input group -->
             </div>

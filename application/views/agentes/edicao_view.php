@@ -211,70 +211,70 @@
             </div>
             
             <div class="form-group"> <!-- Nome do Detento-->
-          		<input type="hidden" class="form-control" name="id" placeholder="Matricula Agente" value=" <?= isset($saidadetentos) ? $saidadetentos["id"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+          		<input type="hidden" class="form-control" name="id" placeholder="Matricula Agente" value="<?= isset($saidadetentos) ? $saidadetentos["id"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
             </div>
 
             
 
             <div class="form-group"> <!-- Nome do Detento-->
           		<label>Cadeia publica</label>
-          		<input type="text" class="form-control" name="cadeiapublica" placeholder="Cadeia Publica" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="cadeiapublica" placeholder="Cadeia Publica" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["cadeiapublica"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
           	</div>
       
             <div class="form-group">
               <label>Data de Saida</label>
-              <input type="text" class="form-control" name="datasaida" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10"  ><!-- 'name=' adicionado-->
+              <input type="date" class="form-control" name="datasaida" placeholder="dd/mm/aaaa" style="width:140px" maxlength="10"  ><!-- 'name=' adicionado-->
               </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
               <label>Nome</label>
-              <input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome da Mãe-->
               <label>Nome da Mãe</label>
-              <input type="text" class="form-control" name="mae" placeholder="Nome da Mãe" style="width:300px"   value=" <?= isset($saidadetentos) ? $saidadetentos["mae"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="mae" placeholder="Nome da Mãe" style="width:300px"   value="<?= isset($saidadetentos) ? $saidadetentos["mae"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome do Pai-->
               <label>Nome do Pai</label>
-              <input type="text" class="form-control" name="pai" placeholder="Nome" style="width:300px"   value=" <?= isset($saidadetentos) ? $saidadetentos["pai"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="pai" placeholder="Nome" style="width:300px"   value="<?= isset($saidadetentos) ? $saidadetentos["pai"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
               <label>SIAP</label>
-              <input type="text" class="form-control" name="numsiap" placeholder="SIAP" style="width:300px"  value=" <?= isset($saidadetentos) ? $saidadetentos["numsiap"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="numsiap" placeholder="SIAP" style="width:300px"  value="<?= isset($saidadetentos) ? $saidadetentos["numsiap"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
               <label>SIC</label>
-              <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"  value=" <?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"  value="<?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
               <label>PROCESSO</label>
-              <input type="text" class="form-control" name="numprocesso" placeholder="PROCESSO" style="width:300px"  value=" <?= isset($saidadetentos) ? $saidadetentos["numprocesso"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
+              <input type="text" class="form-control" name="numprocesso" placeholder="PROCESSO" style="width:300px"  value="<?= isset($saidadetentos) ? $saidadetentos["numprocesso"] : "" ?>"readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
               <div class="form-group"> <!-- Nome do Detento-->
               <label>Destino</label>
-              <input type="text" class="form-control" name="destino" placeholder="Destino" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["destino"] : "" ?> ">
+              <input type="text" class="form-control" name="destino" placeholder="Destino" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["destino"] : "" ?> ">
             </div>
 
             <div class="form-group"> <!--Motivo-->
                 <label>Motivo</label>
                 
-            <?php if(isset($saidadetentos)): ?>    
+              <?php if(isset($saidadetentos)): ?>    
                 <select class="form-control" style="width: 250px" name="motivo"  ><!-- 'name=' adicionado-->
                   <option><?=$saidadetentos["motivo"]?></option>
-                  <option>Alvará De Soltura </option>
+                  <option>Alvará de Soltura </option>
                   <option>Evasão</option>           
-                  <option>Fim De Prazo Da Prisão civil</option>
-                  <option>Fim De Prazo Da Prisão Temporária</option>
+                  <option>Fim de Prazo da Prisão civil</option>
+                  <option>Fim de Prazo da Prisão Temporária</option>
                   <option>Fuga</option>
                   <option>Harmonizado</option>
                   <option>Óbito</option>
-                  <option>Progressão De Regime</option>
+                  <option>Progressão de Regime</option>
                   <option>Liberdade Condicional</option>
                   <option>Prisão Domiciliar</option>
                   <option>Transferência P/CP</option>
@@ -283,17 +283,16 @@
                   <option>Trânsito</option>
                   <option>Outros</option>
                 </select>
-                <?php else: ?>
-                  <select class="form-control" style="width: 250px" name="motivo"  ><!-- 'name=' adicionado-->
-       
-                  <option>Alvará De Soltura </option>
+              <?php else: ?>
+                <select class="form-control" style="width: 250px" name="motivo"  ><!-- 'name=' adicionado-->
+                  <option>Alvará de Soltura </option>
                   <option>Evasão</option>           
-                  <option>Fim De Prazo Da Prisão civil</option>
-                  <option>Fim De Prazo Da Prisão Temporária</option>
+                  <option>Fim de Prazo da Prisão civil</option>
+                  <option>Fim de Prazo da Prisão Temporária</option>
                   <option>Fuga</option>
                   <option>Harmonizado</option>
                   <option>Óbito</option>
-                  <option>Progressão De Regime</option>
+                  <option>Progressão de Regime</option>
                   <option>Liberdade Condicional</option>
                   <option>Prisão Domiciliar</option>
                   <option>Transferência P/CP</option>
@@ -302,7 +301,7 @@
                   <option>Trânsito</option>
                   <option>Outros</option>
                 </select>
-                <?php endif; ?>
+              <?php endif; ?>
             </div>
 
             <div class="form-group"> <!--Origem-->

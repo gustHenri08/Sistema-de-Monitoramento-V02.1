@@ -206,21 +206,21 @@
             <?php endif; ?>
           
             <div class="form-group"> <!-- Nome do Detento-->
-          		<input type="hidden" class="form-control" name="id" placeholder="Matricula Agente" value=" <?= isset($presos) ? $presos["id"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+          		<input type="hidden" class="form-control" name="id" placeholder="Matricula Agente" value="<?= isset($presos) ? $presos["id"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!-- Nome do Detento-->
           	
-          		<input type="hidden" class="form-control" name="nome" placeholder="Agente Penitenciário" value=" <?= isset($presos) ? $presos["nome"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+          		<input type="hidden" class="form-control" name="nome" placeholder="Agente Penitenciário" value="<?= isset($presos) ? $presos["nome"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
             </div>
             
             <div class="form-group"> <!-- Nome do Detento-->
           	
-          		<input type="hidden" class="form-control" name="nsiap" placeholder="Função Agente" value=" <?= isset($presos) ? $presos["nsiap"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="hidden" class="form-control" name="nsiap" placeholder="Função Agente" value="<?= isset($presos) ? $presos["nsiap"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
             </div>
 
             <div class="form-group"> <!--Campo Cadeia Publica-->
-              	<input  type="hidden"  class="form-control" style="width: 200px" name="cadeiapublica"value=" <?= isset($presos) ? $presos["cadeiapublica"] : "" ?>" readonly style="width:300px" >  <!-- 'name=' adicionado-->
+              	<input  type="hidden"  class="form-control" style="width: 200px" name="cadeiapublica" value="<?= isset($presos) ? $presos["cadeiapublica"] : "" ?>" readonly style="width:300px" >  <!-- 'name=' adicionado-->
 
             </div>
 

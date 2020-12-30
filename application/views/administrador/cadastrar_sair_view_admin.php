@@ -215,27 +215,27 @@
 
           	<div class="form-group"> <!-- Nome do Detento-->
           		<label>Nome *</label>
-          		<input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value=" <?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="nome" placeholder="Nome" style="width:300px" value="<?= isset($saidadetentos) ? $saidadetentos["nome"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
           	</div>
 
           	<div class="form-group"> <!-- Nome da Mãe-->
           		<label>Nome da Mãe *</label>
-          		<input type="text" class="form-control" name="mae" placeholder="Nome da Mãe" style="width:300px"   value=" <?= isset($saidadetentos) ? $saidadetentos["nomemae"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="mae" placeholder="Nome da Mãe" style="width:300px"   value="<?= isset($saidadetentos) ? $saidadetentos["nomemae"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
           	<div class="form-group"> <!-- Nome do Pai-->
           		<label>Nome do Pai *</label>
-          		<input type="text" class="form-control" name="pai" placeholder="Nome" style="width:300px"   value=" <?= isset($saidadetentos) ? $saidadetentos["nomepai"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="pai" placeholder="Nome" style="width:300px"   value="<?= isset($saidadetentos) ? $saidadetentos["nomepai"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
             <div class="form-group"> <!-- Nome do Detento-->
           		<label>SIAP *</label>
-          		<input type="text" class="form-control" name="numsiap" placeholder="SIAP" style="width:300px"  value=" <?= isset($saidadetentos) ? $saidadetentos["nsiap"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="numsiap" placeholder="SIAP" style="width:300px"  value="<?= isset($saidadetentos) ? $saidadetentos["nsiap"] : "" ?>" readonly style="width:300px" ><!-- 'name=' adicionado-->
           	</div>
 
           	<div class="form-group"> <!-- Nome do Detento-->
           		<label>SIC *</label>
-          		<input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"  value=" <?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
+          		<input type="text" class="form-control" name="sic" placeholder="SIC" style="width:300px"  value="<?= isset($saidadetentos) ? $saidadetentos["sic"] : "" ?>" readonly style="width:300px"><!-- 'name=' adicionado-->
           	</div>
 
             <div class="form-group"> <!-- Nome do Detento-->
