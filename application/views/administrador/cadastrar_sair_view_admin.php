@@ -4,14 +4,16 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SMT | Cadastro de Saída de Detentos</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+ <!-- Tell the browser to be responsive to screen width -->
+ <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/Ionicons/css/ionicons.min.css">
+  <!--DataTables-->
+  <script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap.css"></script>
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -34,11 +36,11 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?php echo site_url('Home'); ?>" class="logo">
+    <a href="<?php echo site_url('Home/adminHome'); ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>SMP</b></span>
+      <span class="logo-mini"><b>Admin/b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>SMP</b></span>
+      <span class="logo-lg"><b>Admin</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -73,7 +75,7 @@
           <img src="" class="" alt=""> <!--Foto do Usuario, não pode tirar esse bloco se n quebra a view-->
         </div>
         <div class="pull-left info">
-        <p><?php echo ($this->session->userdata("nomecompleto"));?></p>
+          <p><?php echo ($this->session->userdata("nomecompleto"));?></p>
         </div>
       </div>
       <!-- search form -->
@@ -91,18 +93,24 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Principal</li>
         <li>
-          <a href="<?php echo site_url('Home'); ?>"> <!-- Link do Home, ao ser clicado ele retorna o controller-->
+          <a href="<?php echo site_url('Home/adminHome'); ?>"> <!-- Link do Home, ao ser clicado ele retorna o controller-->
             <i class="fa fa-home"></i> <span>Home</span>
           </a>
         </li>
         <li>
-          <a href="<?php echo site_url('Home/entradaPresos'); ?> ">
+          <a href="<?php echo site_url('Home/agentes'); ?>"> <!-- Link do Home, ao ser clicado ele retorna o controller-->
+          <i class="fa fa-user-plus"></i>
+            <span>Agentes</span>
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo site_url('Home/entradaPresosAdmin'); ?> "> <!--  Estava com o controller errado   -->
             <i class="fa fa-user-plus"></i>
             <span>Entrada de Detentos</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo site_url('Home'); ?>">
+          <a href="<?php echo site_url(''); ?>">
             <i class="fa fa-registered"></i>
             <span>Ocorrências</span>
             <span class="pull-right-container">
@@ -110,46 +118,44 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('OcorrenciasAdmin'); ?>"><i class="fa fa-registered"></i> Registro de Ocorrências </a></li>
-            <li><a href="<?php echo site_url('Outras_ocorrenciasAdmin'); ?>"><i class="fa fa-registered"></i> Outras Ocorrências </a></li>
-            <li><a href="<?php echo site_url('ApreensoesAdmin'); ?>"><i class="fa fa-ban"></i> Revistas e Apreensões </a></li>
-
+            <li><a href="<?php echo site_url('Home/registroOcorrenciasAdmin'); ?>"><i class="fa fa-registered"></i> Registro de Ocorrências </a></li>
+            <li><a href="<?php echo site_url('Home/outrasOcorrenciasAdmin'); ?>"><i class="fa fa-registered"></i> Outras Ocorrências </a></li>
+            <li><a href="<?php echo site_url('Home/revistasApreensoesAdmin'); ?>"><i class="fa fa-ban"></i> Revistas e Apreensões </a></li>
           </ul>
         </li>
         <li>
-          <a href="<?php echo site_url('SemiAberto_e_Aberto'); ?> ">
+          <a href="<?php echo site_url('Home/abertoSemiabertoAdmin'); ?> ">
             <i class="fa fa-file-text-o"></i>
             <span>Relação Aberto / Semi-Aberto</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo site_url('Home'); ?>">
+          <a href="<?php echo site_url(''); ?>">
             <i class="fa fa-user-times"></i>
-            <span>Saida do Detento</span>
+            <span>Saída de Detentos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="<?php echo site_url('Home/saidaCadeiaPublicaAdmin'); ?>"><i class="fa fa-key"></i> Saída da Cadeia Pública</a></li>
+            <li><a href="<?php echo site_url('Home/saidaCadeiaPublicaAdmin'); ?>"><i class="fa fa-key"></i> Saída da Cadeia Pública</a></li>
             <li><a href="<?php echo site_url('Home/saidaAudienciaAdmin'); ?>"><i class="fa fa-cab"></i> Saída para Audiência</a></li>
             <li><a href="<?php echo site_url('Home/saidaMedicaAdmin'); ?>"><i class="fa fa-ambulance"></i> Saída Médica</a></li>
-            </ul>
+          </ul>
         </li>
         <li class="treeview">
-          <a href="<?php echo site_url('Home'); ?>">
+          <a href="<?php echo site_url(''); ?>">
             <i class="fa fa-edit"></i> <span>Trânsito</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('TransitoInternoAdmin'); ?>"><i class="fa fa-refresh"></i> Trânsito Interno</a></li>
-            <li><a href="<?php echo site_url('TransitoExternoAdmin'); ?>"><i class="fa fa-exchange"></i> Trânsito Externo</a></li>
+            <li><a href="<?php echo site_url('Home/transitoInternoAdmin'); ?>"><i class="fa fa-refresh"></i> Trânsito Interno</a></li>
+            <li><a href="<?php echo site_url('Home/transitoExternoAdmin'); ?>"><i class="fa fa-exchange"></i> Trânsito Externo</a></li>
           </ul>
         </li>
     </section>
-    <!-- /.sidebar -->
   </aside>
 
   <!-- =============================================== -->
