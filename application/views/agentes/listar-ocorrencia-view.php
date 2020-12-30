@@ -211,7 +211,7 @@
                   <tr>
                     <th>ID</th>
                     <th>Data</th>
-                    <th>CP</th>
+                    <th>centro Prisional</th>
                     <th>Tipo</th>
                     <th>Ações</td>
                   </tr>

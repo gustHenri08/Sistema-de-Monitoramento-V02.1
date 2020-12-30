@@ -187,7 +187,7 @@
                 <thead>
                   <tr>
                     <th>id</th>
-                    <th>CP</th>
+                    <th>centro Prisional</th>
                     <th>Nome</th>
                     <th>Nome da Mãe</th>
                     <th>Nome do Pai</th>
