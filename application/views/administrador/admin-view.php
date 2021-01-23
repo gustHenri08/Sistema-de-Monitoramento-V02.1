@@ -377,6 +377,10 @@
                           scaleLabel: {
                             display: true,
                             labelString: 'Número de Presos'
+                          },
+                          ticks: {
+                            beginAtZero: true,
+                            stepSize: 100
                           }
                         }],
                         xAxes:[{
@@ -556,6 +560,10 @@
                           scaleLabel: {
                             display: true,
                             labelString: 'Número de Presos'
+                          },
+                          ticks: {
+                            beginAtZero: true,
+                            stepSize: 100
                           }
                         }],
                         xAxes:[{
@@ -749,6 +757,10 @@
                           scaleLabel: {
                             display: true,
                             labelString: 'Número de Autorizações'
+                          },
+                          ticks: {
+                            beginAtZero: true,
+                            stepSize: 100
                           }
                         }],
                         xAxes:[{
@@ -939,6 +951,10 @@
                           scaleLabel: {
                             display: true,
                             labelString: 'Número de Saídas'
+                          },
+                          ticks: {
+                            beginAtZero: true,
+                            stepSize: 100
                           }
                         }],
                         xAxes:[{
@@ -1129,6 +1145,10 @@
                           scaleLabel: {
                             display: true,
                             labelString: 'Número de Saídas'
+                          },
+                          ticks: {
+                            beginAtZero: true,
+                            stepSize: 100
                           }
                         }],
                         xAxes:[{
