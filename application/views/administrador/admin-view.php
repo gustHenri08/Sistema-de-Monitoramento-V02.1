@@ -380,8 +380,7 @@
                           },
                           ticks: {
                             beginAtZero: true,
-                            stepSize: 1,
-                            suggestedMax: 10
+                            stepSize: 10
                           }
                         }],
                         xAxes:[{
@@ -564,8 +563,7 @@
                           },
                           ticks: {
                             beginAtZero: true,
-                            stepSize: 1,
-                            suggestedMax: 10
+                            stepSize: 10
                           }
                         }],
                         xAxes:[{
@@ -762,8 +760,7 @@
                           },
                           ticks: {
                             beginAtZero: true,
-                            stepSize: 1,
-                           suggestedMax: 10
+                            stepSize: 10
                           }
                         }],
                         xAxes:[{
@@ -957,8 +954,7 @@
                           },
                           ticks: {
                             beginAtZero: true,
-                            stepSize: 1,
-                            suggestedMax: 10
+                            stepSize: 10
                           }
                         }],
                         xAxes:[{
@@ -1152,8 +1148,7 @@
                           },
                           ticks: {
                             beginAtZero: true,
-                            stepSize: 1,
-                            suggestedMax: 10
+                            stepSize: 10
                           }
                         }],
                         xAxes:[{
